@@ -1,31 +1,34 @@
-import * as Bunyan from 'bunyan';
-import Logger from 'bunyan';
+import Logger, * as Bunyan from 'bunyan';
 
 const parentLogger: any = {};
 
 if (!parentLogger.log) {
-  parentLogger.log = Bunyan.createLogger({
+  const log: Logger = Bunyan.createLogger({
     name: 'CST MW & Proxy App',
     level: 'info',
     serializers: Bunyan.stdSerializers,
   });
   
   if ((/true/i).test(process.env.LOG_TO_FILE || 'true')) {
-    parentLogger.log.streams([
+    log.addStream(
       {
         level: 'info',
         path: 'info.log'
       },
+    );
+    log.addStream(
       {
         level: 'debug',
-        stream: 'stdout',
-      },
-      {
-        level: 'error',
-        path: 'error.log'
+        path: 'debug.log',
       }
-    ])
+    );
+    log.addStream({
+      level: 'error',
+      path: 'error.log'
+      }
+    );
   }
+  parentLogger.log = log;
 }
 const motherLogger: Logger = parentLogger.log;
 export default motherLogger;

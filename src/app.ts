@@ -1,14 +1,13 @@
 import bodyParser from "body-parser";
-import { RegisterRoutes } from "../build/routes";
-
-import express, { Response as ExResponse, Request as ExRequest, NextFunction } from "express";
-
+import dotenv from 'dotenv';
+import express, { NextFunction, Request as ExRequest, Response as ExResponse } from "express";
 import swaggerUi from "swagger-ui-express";
 import { ValidateError } from "tsoa";
-
-import { Env } from "./models/env.model";
-import dotenv from 'dotenv';
+import { RegisterRoutes } from "../build/routes";
 import motherLogger from './logger';
+
+
+
 
 const logger = motherLogger.child({file: 'app'});
 
@@ -28,6 +27,7 @@ app.use("/docs", swaggerUi.serve, async (_req: ExRequest, res: ExResponse) => {
     swaggerUi.generateHTML(await import('../build/swagger.json'))
   );
 });
+app.disable('x-powered-by');
 
 RegisterRoutes(app);
 
@@ -46,6 +46,7 @@ app.use(function errorHandler(
     });
   }
   if (err instanceof Error) {
+    logger.error(err, 'Instantiation error');
     return res.status(500).json({
       message: "Internal Server Error",
     });
@@ -73,8 +74,8 @@ app.use(function notFoundHandler(_req, res: ExResponse) {
     throw config.error;
   }
   
-  Object.entries(Env).forEach(([key, value]) => {
-    app.set(key, process.env[value]);
-  })  
+  // Object.entries(Env).forEach(([key, value]) => {
+  //   app.set(key, process.env[value]);
+  // })  
 })();
 
