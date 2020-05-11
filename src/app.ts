@@ -6,6 +6,12 @@ import express, { Response as ExResponse, Request as ExRequest, NextFunction } f
 import swaggerUi from "swagger-ui-express";
 import { ValidateError } from "tsoa";
 
+import { Env } from "./models/env.model";
+import dotenv from 'dotenv';
+import motherLogger from './logger';
+
+const logger = motherLogger.child({file: 'app'});
+
 export const app = express();
 
 // Use body parser to read sent json payloads
@@ -54,3 +60,21 @@ app.use(function notFoundHandler(_req, res: ExResponse) {
     message: "Not Found",
   });
 });
+
+
+
+
+//env key values
+(async () => {
+  const config = dotenv.config();
+    
+  if (config.error) {
+    logger.error(config.error);
+    throw config.error;
+  }
+  
+  Object.entries(Env).forEach(([key, value]) => {
+    app.set(key, process.env[value]);
+  })  
+})();
+
