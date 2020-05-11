@@ -6,6 +6,30 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
+			"AuthErrorJSON": {
+				"properties": {
+					"message": {
+						"type": "string",
+						"enum": [
+							"Authentication Failed"
+						],
+						"nullable": false
+					},
+					"details": {
+						"properties": {},
+						"additionalProperties": {
+							"additionalProperties": true
+						},
+						"type": "object"
+					}
+				},
+				"required": [
+					"message",
+					"details"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"Credentials": {
 				"properties": {
 					"username": {
@@ -35,54 +59,39 @@
 	},
 	"openapi": "3.0.0",
 	"paths": {
-		"/users/{userId}": {
-			"get": {
-				"operationId": "GetUser",
-				"responses": {
-					"200": {
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/Credentials"
-								}
-							}
-						},
-						"description": "Ok"
-					}
-				},
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "userId",
-						"required": true,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					},
-					{
-						"in": "query",
-						"name": "name",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
-		"/users": {
+		"/users/login": {
 			"post": {
-				"operationId": "CreateUser",
+				"operationId": "CreateJWT",
 				"responses": {
 					"201": {
 						"content": {
-							"application/json": {}
+							"application/json": {
+								"schema": {
+									"properties": {},
+									"additionalProperties": {
+										"additionalProperties": true
+									},
+									"type": "object",
+									"nullable": true
+								}
+							}
 						},
-						"description": "Created"
+						"description": "Token Created"
+					},
+					"401": {
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/AuthErrorJSON"
+								}
+							}
+						},
+						"description": "Authentication Failed"
 					}
 				},
+				"tags": [
+					"Auth"
+				],
 				"security": [],
 				"parameters": [],
 				"requestBody": {
@@ -95,33 +104,6 @@
 						}
 					}
 				}
-			}
-		},
-		"/users/msg": {
-			"get": {
-				"operationId": "Msg",
-				"responses": {
-					"200": {
-						"content": {
-							"application/json": {
-								"schema": {
-									"properties": {
-										"msg": {
-											"type": "string"
-										}
-									},
-									"required": [
-										"msg"
-									],
-									"type": "object"
-								}
-							}
-						},
-						"description": "Ok"
-					}
-				},
-				"security": [],
-				"parameters": []
 			}
 		}
 	},
