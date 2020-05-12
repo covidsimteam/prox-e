@@ -6,38 +6,28 @@ import { ValidateError } from "tsoa";
 import { RegisterRoutes } from "../build/routes";
 import motherLogger from './logger';
 
-
-
+import e from 'cors';
 
 const logger = motherLogger.child({file: 'app'});
 
 export const app = express();
 
 // Use body parser to read sent json payloads
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-);
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // swagger API endpoint
 app.use("/docs", swaggerUi.serve, async (_req: ExRequest, res: ExResponse) => {
-  return res.send(
-    swaggerUi.generateHTML(await import('../build/swagger.json'))
-  );
+  return res.send(swaggerUi.generateHTML(await import('../build/swagger.json')));
 });
 app.disable('x-powered-by');
+
+app.use(e());
 
 RegisterRoutes(app);
 
 // global error handling middleware
-app.use(function errorHandler(
-  err: unknown,
-  req: ExRequest,
-  res: ExResponse,
-  next: NextFunction
-): ExResponse | void {
+function errorHandler(err: unknown, req: ExRequest, res: ExResponse, next: NextFunction): ExResponse | void {
   if (err instanceof ValidateError) {
     console.warn(`Caught Validation Error for ${req.path}:`, err.fields);
     return res.status(422).json({
@@ -51,24 +41,23 @@ app.use(function errorHandler(
       message: "Internal Server Error",
     });
   }
-
   next();
-});
+}
+app.use(errorHandler);
 
 //for all unregistered routes
-app.use(function notFoundHandler(_req, res: ExResponse) {
+function notFoundHandler(_req: ExRequest, res: ExResponse) {
   res.status(404).send({
     message: "Not Found",
   });
-});
-
-
+}
+app.use(notFoundHandler);
 
 
 //env key values
-(async () => {
+(() => {
   const config = dotenv.config();
-    
+  
   if (config.error) {
     logger.error(config.error);
     throw config.error;
@@ -78,4 +67,3 @@ app.use(function notFoundHandler(_req, res: ExResponse) {
   //   app.set(key, process.env[value]);
   // })  
 })();
-
