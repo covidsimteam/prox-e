@@ -5,7 +5,7 @@ const parentLogger: any = {};
 if (!parentLogger.log) {
   const log: Logger = Bunyan.createLogger({
     name: 'CST MW & Proxy App',
-    level: 'info',
+    level: 'debug',
     serializers: Bunyan.stdSerializers,
   });
   
