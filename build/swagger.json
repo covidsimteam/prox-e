@@ -59,7 +59,7 @@
 	},
 	"openapi": "3.0.0",
 	"paths": {
-		"/users/login": {
+		"/auth/jwt": {
 			"post": {
 				"operationId": "CreateJWT",
 				"responses": {
@@ -77,6 +77,53 @@
 							}
 						},
 						"description": "Token Created"
+					},
+					"401": {
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/AuthErrorJSON"
+								}
+							}
+						},
+						"description": "Authentication Failed"
+					}
+				},
+				"tags": [
+					"Auth"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Credentials"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/auth/cookie": {
+			"post": {
+				"operationId": "CreateCookie",
+				"responses": {
+					"201": {
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {},
+									"additionalProperties": {
+										"additionalProperties": true
+									},
+									"type": "object",
+									"nullable": true
+								}
+							}
+						},
+						"description": "AuthSession Cookie Created"
 					},
 					"401": {
 						"content": {
