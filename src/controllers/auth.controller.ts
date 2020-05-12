@@ -10,7 +10,7 @@ interface AuthErrorJSON {
   details: { [name: string]: unknown };
 }
 
-@Route('users')
+@Route('auth')
 export class AuthController extends Controller {
 
   private logger = motherLogger.child({file: 'auth.controller'});
@@ -26,12 +26,21 @@ export class AuthController extends Controller {
   @Tags('Auth')
   @SuccessResponse("201", "Token Created")
   @Response<AuthErrorJSON>(401, "Authentication Failed")
-  @Post('login')
+  @Post('jwt')
   public async createJWT(
     @Body() requestBody: Credentials
   ): Promise<{ [key: string]: any; } | null> {
-    this.logger.info("AuthController -> createJWT -> authService", this.authService)
     return this.authService.jwtAuth(requestBody.username, requestBody.password);
+  }
+
+  @Tags('Auth')
+  @SuccessResponse("201", "AuthSession Cookie Created")
+  @Response<AuthErrorJSON>(401, "Authentication Failed")
+  @Post('cookie')
+  public async createCookie(
+    @Body() requestBody: Credentials
+  ): Promise<{ [key: string]: any; } | null> {
+    return this.authService.cookieAuth(requestBody.username, requestBody.password);
   }
 
 }
