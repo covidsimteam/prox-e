@@ -29,8 +29,13 @@ export class AuthController extends Controller {
   @Post('jwt')
   public async createJWT(
     @Body() requestBody: Credentials
-  ): Promise<{ [key: string]: any; } | null> {
-    return this.authService.jwtAuth(requestBody.username, requestBody.password);
+  ): Promise<void> {
+    try {
+      this.setStatus(201);
+      this.authService.jwtAuth(requestBody.username, requestBody.password);
+    } catch (error) {
+      this.setStatus(401);
+    }
   }
 
   @Tags('Auth')
@@ -39,8 +44,13 @@ export class AuthController extends Controller {
   @Post('cookie')
   public async createCookie(
     @Body() requestBody: Credentials
-  ): Promise<{ [key: string]: any; } | null> {
-    return this.authService.cookieAuth(requestBody.username, requestBody.password);
+  ): Promise<void> {
+    try {
+      this.setStatus(201);
+      this.authService.cookieAuth(requestBody.username, requestBody.password);
+    } catch (error) {
+      this.setStatus(401);
+    }
   }
 
 }

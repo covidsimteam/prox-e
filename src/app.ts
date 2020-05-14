@@ -29,7 +29,7 @@ RegisterRoutes(app);
 // global error handling middleware
 function errorHandler(err: unknown, req: ExRequest, res: ExResponse, next: NextFunction): ExResponse | void {
   if (err instanceof ValidateError) {
-    console.warn(`Caught Validation Error for ${req.path}:`, err.fields);
+    logger.error(err.fields, `Validation Error for ${req.path}:`);
     return res.status(422).json({
       message: "Validation Failed",
       details: err?.fields,
@@ -57,13 +57,13 @@ app.use(notFoundHandler);
 //env key values
 (() => {
   const config = dotenv.config();
-  
+
   if (config.error) {
-    logger.error(config.error);
+    logger.error(config.error, "Could not load .env variables");
     throw config.error;
   }
-  
+
   // Object.entries(Env).forEach(([key, value]) => {
   //   app.set(key, process.env[value]);
-  // })  
+  // })
 })();

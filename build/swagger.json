@@ -65,16 +65,7 @@
 				"responses": {
 					"201": {
 						"content": {
-							"application/json": {
-								"schema": {
-									"properties": {},
-									"additionalProperties": {
-										"additionalProperties": true
-									},
-									"type": "object",
-									"nullable": true
-								}
-							}
+							"application/json": {}
 						},
 						"description": "Token Created"
 					},
@@ -112,16 +103,7 @@
 				"responses": {
 					"201": {
 						"content": {
-							"application/json": {
-								"schema": {
-									"properties": {},
-									"additionalProperties": {
-										"additionalProperties": true
-									},
-									"type": "object",
-									"nullable": true
-								}
-							}
+							"application/json": {}
 						},
 						"description": "AuthSession Cookie Created"
 					},
