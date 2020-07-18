@@ -12,17 +12,26 @@
   "scripts": {
     "dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
     "build": "tsoa spec-and-routes && tsc",
-    "start": "node build/server.js"
+    "start": "node build/server.js",
+    "start-hoodie": "hoodie"
   },
   "dependencies": {
+    "@cloudant/cloudant": "^4.2.4",
+    "@cloudant/couchbackup": "^2.5.2",
+    "@hoodie/client": "^10.2.0",
     "@liftr/tscov": "^1.4.6",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "bunyan": "^1.8.12",
+    "bunyan-cloudant": "^1.0.2",
     "cors": "^2.8.5",
+    "couchexport": "0.0.2",
+    "couchimport": "^1.5.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "hoodie": "^28.2.10",
     "jsonwebtoken": "^8.5.1",
+    "pouchdb-browser": "^7.2.1",
     "swagger-ui-express": "^4.1.4",
     "tsoa": "^3.0.8"
   },
@@ -39,5 +48,18 @@
     "nodemon": "^2.0.3",
     "ts-node": "^8.10.1",
     "typescript": "^3.8.3"
+  },
+  "hoodie": {
+    "address": "127.0.0.1",
+    "port": 8080,
+    "data": ".hoodie",
+    "public": "public",
+    "dbUrl": "",
+    "dbAdapter": "pouchdb-adapter-fs",
+    "inMemory": false,
+    "loglevel": "warn",
+    "url": "",
+    "adminPassword": "",
+    "name": "my-hoodie-app"
   }
 }
