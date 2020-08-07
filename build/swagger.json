@@ -17,9 +17,7 @@
 					},
 					"details": {
 						"properties": {},
-						"additionalProperties": {
-							"additionalProperties": true
-						},
+						"additionalProperties": {},
 						"type": "object"
 					}
 				},
@@ -55,6 +53,10 @@
 		"description": "Simple REST APIs to extend CST's core functionalities",
 		"license": {
 			"name": "GPL-3.0-or-later"
+		},
+		"contact": {
+			"name": "Risav Karna ",
+			"email": "risavkarna@gmail.com"
 		}
 	},
 	"openapi": "3.0.0",
@@ -64,20 +66,17 @@
 				"operationId": "CreateJWT",
 				"responses": {
 					"201": {
-						"content": {
-							"application/json": {}
-						},
 						"description": "Token Created"
 					},
 					"401": {
+						"description": "Authentication Failed",
 						"content": {
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/AuthErrorJSON"
 								}
 							}
-						},
-						"description": "Authentication Failed"
+						}
 					}
 				},
 				"tags": [
@@ -102,20 +101,17 @@
 				"operationId": "CreateCookie",
 				"responses": {
 					"201": {
-						"content": {
-							"application/json": {}
-						},
 						"description": "AuthSession Cookie Created"
 					},
 					"401": {
+						"description": "Authentication Failed",
 						"content": {
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/AuthErrorJSON"
 								}
 							}
-						},
-						"description": "Authentication Failed"
+						}
 					}
 				},
 				"tags": [

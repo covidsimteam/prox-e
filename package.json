@@ -12,17 +12,15 @@
     "scripts": {
         "dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
         "build": "tsoa spec-and-routes && tsc",
-        "start": "node build/server.js && hoodie",
+        "start": "node build/src/server.js",
         "start-hoodie": "hoodie",
         "commit": "npx git-cz"
     },
     "dependencies": {
-        "@cloudant/cloudant": "^4.2.4",
         "@cloudant/couchbackup": "^2.5.2",
         "@hoodie/client": "^10.2.0",
         "@liftr/tscov": "^1.4.7",
         "@octokit/rest": "^18.0.3",
-        "@rddill/cloudant": "^1.1.6",
         "axios": "^0.19.2",
         "body-parser": "^1.19.0",
         "bunyan": "^1.8.14",
@@ -32,6 +30,7 @@
         "couchimport": "^1.5.0",
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
+        "hammerjs": "^2.0.8",
         "hoodie": "^28.2.10",
         "jsonwebtoken": "^8.5.1",
         "pouchdb-browser": "^7.2.2",
@@ -60,10 +59,9 @@
         "@types/jsonwebtoken": "^8.5.0",
         "@types/node": "^14.0.27",
         "@types/swagger-ui-express": "^4.1.2",
-        "commitizen": "^4.1.2",
+        "commitizen": "4.1.2",
         "concurrently": "^5.2.0",
         "nodemon": "^2.0.4",
-        "semantic-release": "^17.1.1",
         "ts-node": "^8.10.2",
         "typescript": "^3.9.7"
     },
