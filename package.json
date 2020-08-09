@@ -38,6 +38,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "hammerjs": "^2.0.8",
+    "hapi": "^18.1.0",
     "hoodie": "^28.2.10",
     "jsonwebtoken": "^8.5.1",
     "pouchdb-browser": "^7.2.2",
@@ -68,11 +69,10 @@
     "port": 8080,
     "data": ".hoodie",
     "public": "dist",
-    "dbUrl": "127.0.0.1:5984",
     "dbAdapter": "pouchdb-adapter-memory",
     "inMemory": true,
     "loglevel": "warn",
-    "url": "https://nep.work/hood",
+    "url": "http://127.0.0.1:8080/hood",
     "adminPassword": "public"
   }
 }

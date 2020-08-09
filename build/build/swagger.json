@@ -1,0 +1,140 @@
+{
+    "components": {
+        "examples": {},
+        "headers": {},
+        "parameters": {},
+        "requestBodies": {},
+        "responses": {},
+        "schemas": {
+            "AuthErrorJSON": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "enum": [
+                            "Authentication Failed"
+                        ],
+                        "nullable": false
+                    },
+                    "details": {
+                        "properties": {},
+                        "additionalProperties": {},
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "message",
+                    "details"
+                ],
+                "type": "object",
+                "additionalProperties": false
+            },
+            "Credentials": {
+                "properties": {
+                    "username": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "username",
+                    "password"
+                ],
+                "type": "object",
+                "additionalProperties": false
+            }
+        },
+        "securitySchemes": {}
+    },
+    "info": {
+        "title": "prox-e",
+        "version": "0.0.1",
+        "description": "Simple REST APIs to extend CST's core functionalities",
+        "license": {
+            "name": "GPL-3.0-or-later"
+        },
+        "contact": {
+            "name": "Risav Karna ",
+            "email": "risavkarna@gmail.com"
+        }
+    },
+    "openapi": "3.0.0",
+    "paths": {
+        "/auth/jwt": {
+            "post": {
+                "operationId": "CreateJWT",
+                "responses": {
+                    "201": {
+                        "description": "Token Created"
+                    },
+                    "401": {
+                        "description": "Authentication Failed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AuthErrorJSON"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Auth"
+                ],
+                "security": [],
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Credentials"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/cookie": {
+            "post": {
+                "operationId": "CreateCookie",
+                "responses": {
+                    "201": {
+                        "description": "AuthSession Cookie Created"
+                    },
+                    "401": {
+                        "description": "Authentication Failed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AuthErrorJSON"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Auth"
+                ],
+                "security": [],
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Credentials"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "servers": [
+        {
+            "url": "/"
+        }
+    ]
+}

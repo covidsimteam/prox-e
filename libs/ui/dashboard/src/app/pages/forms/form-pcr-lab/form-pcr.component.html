@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>PCR Lab Reporting</nb-card-header>
+      <nb-card-body>
+        <nb-accordion multi>
+          <nb-accordion-item #patientSymptomsAndTests expanded>
+            <nb-accordion-item-header>
+              Patient's PCR Tests
+            </nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-pcr-test-record></ngx-pcr-test-record>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item #patientDetails>
+            <nb-accordion-item-header>
+              Patient Details
+            </nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-returnee-details></ngx-returnee-details>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item #patientContactDetails>
+            <nb-accordion-item-header>
+              Patient Address
+            </nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-returnee-location-details></ngx-returnee-location-details>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+        </nb-accordion>
+        <nb-card>
+          <button type="submit" status="primary" nbButton>
+            <nb-icon icon="save-outline"></nb-icon> Save Patient's Details
+          </button>
+        </nb-card>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

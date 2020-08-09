@@ -1,0 +1,152 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>Returnee Reporting</nb-card-header>
+      <nb-card-body>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="inputFirstName" class="label">First Name</label>
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                id="inputFirstName"
+                placeholder="First Name"
+              />
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="inputLastName" class="label">Last Name</label>
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                id="inputLastName"
+                placeholder="Last Name"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="inputEmail" class="label">Age</label>
+              <input
+                type="number"
+                min="0"
+                nbInput
+                fullWidth
+                id="inputAge"
+                placeholder="Age"
+              />
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="inputWebsite" class="label">Phone Number</label>
+              <input
+                type="tel"
+                nbInput
+                fullWidth
+                id="inputWebsite"
+                placeholder="Phone Number"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="inputGender" class="label">Gender</label>
+              <div class="col-sm-9">
+                <nb-radio-group>
+                  <nb-radio>Male</nb-radio>
+                  <nb-radio>Female</nb-radio>
+                  <nb-radio>Other</nb-radio>
+                </nb-radio-group>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="inputWard" class="label">Ward Number</label>
+              <input
+                type="tel"
+                nbInput
+                fullWidth
+                id="inputWard"
+                placeholder="Ward Number"
+              />
+            </div>
+            <div class="form-group">
+              <label for="inputCountryVisited" class="label"
+                >Country Visited</label
+              >
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                id="inputCountryVisited"
+                placeholder="Country Visited"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="inputHousehold" class="label"
+                >Number of Household Members</label
+              >
+              <input
+                type="number"
+                min="0"
+                nbInput
+                fullWidth
+                id="inputHousehold"
+                placeholder="Number of Household Members"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <nb-checkbox (checkedChange)="quarantineToggle($event)">Has been in quarantine for 14 days?</nb-checkbox>
+            </div>
+            <div *ngIf="quarantined">
+              <label for="inputGender" class="label">Quarantine Location</label>
+              <div class="col-sm-9">
+                <nb-radio-group>
+                  <nb-radio>Quarantine Facility</nb-radio>
+                  <nb-radio>Hospital</nb-radio>
+                  <nb-radio>Home</nb-radio>
+                </nb-radio-group>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <nb-checkbox (checkedChange)="testedToggle($event)">Has had rapid test?</nb-checkbox>
+            </div>
+            <div *ngIf="tested">
+              <label for="inputGender" class="label">Test Result</label>
+              <div class="col-sm-9">
+                <nb-radio-group>
+                  <nb-radio>Positive</nb-radio>
+                  <nb-radio>Negative</nb-radio>
+                  <nb-radio>Inconclusive</nb-radio>
+                </nb-radio-group>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" status="success" nbButton>Submit</button>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+

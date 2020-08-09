@@ -1,0 +1,65 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "importHelpers": true,
+    "module": "esnext",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "plugins": [
+      {
+        "name": "tslint-language-service"
+      }
+    ],
+    "paths": {
+      "concept": [
+        "dist/concept/concept",
+        "dist/concept"
+      ],
+      "queue": [
+        "dist/queue/queue",
+        "dist/queue"
+      ],
+      "entity": [
+        "dist/entity/entity",
+        "dist/entity"
+      ],
+      "identity": [
+        "dist/identity/identity",
+        "dist/identity"
+      ],
+      "ssot": [
+        "dist/ssot/ssot",
+        "dist/ssot"
+      ],
+      "process": [
+        "dist/process/process",
+        "dist/process"
+      ],
+      "key": [
+        "dist/key/key",
+        "dist/key"
+      ],
+      "meta": [
+        "dist/meta/meta",
+        "dist/meta"
+      ],
+      "hgraph": [
+        "dist/hgraph/hgraph",
+        "dist/hgraph"
+      ]
+    }
+  }
+}

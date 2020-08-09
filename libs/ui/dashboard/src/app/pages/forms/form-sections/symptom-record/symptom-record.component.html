@@ -1,0 +1,66 @@
+<div *ngFor="let symptom of symptomRecords; let index">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label [for]="'symptomDate' + index" class="label"
+          >First Occurrence of Recent Symptoms</label
+        >
+        <input
+          nbInput
+          fullWidth
+          placeholder="Select First Date of Symptoms"
+          [nbDatepicker]="symptomDatePicker"
+          [id]="'symptomDate' + index"
+        />
+        <nb-datepicker #symptomDatePicker></nb-datepicker>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label for="inputSymptoms" class="label"
+          >Symptoms in Last Two Weeks</label
+        >
+        <nb-select
+          [id]="'inputSymptoms' + index"
+          fullWidth
+          multiple
+          placeholder="Recent Symptoms"
+        >
+          <nb-option value="Fever">Fever</nb-option>
+          <nb-option value="Cough">Cough</nb-option>
+          <nb-option value="Shortness of Breath"
+            >Shortness of Breath</nb-option
+          >
+        </nb-select>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label for="inputOtherSymptoms" class="label"
+          >Other symptoms, if any</label
+        >
+        <input
+          type="text"
+          nbInput
+          fullWidth
+          [id]="'inputOtherSymptoms' + index"
+          placeholder="Other symptoms (if any)"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="form-group">
+      <button
+        nbButton
+        outline
+        status="primary"
+        (click)="addSymptomRecord($event)"
+      >
+        <nb-icon icon="file-add-outline"></nb-icon>Add Symptoms
+      </button>
+    </div>
+  </div>
+</div>

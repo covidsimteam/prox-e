@@ -1,0 +1,185 @@
+<div class="row">
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label for="inputDestinationProvince" class="label"
+        >Final Destination</label
+      >
+      <nb-select
+        id="inputDestinationProvince"
+        fullWidth
+        placeholder="Select Province"
+        (selectedChange)="changeDestProvince($event)"
+      >
+        <nb-option
+          *ngFor="let province of provinces"
+          [value]="province"
+          >{{ province }}</nb-option
+        >
+      </nb-select>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label for="inputDestinationDistrict" class="label">&nbsp;</label>
+      <nb-select
+        id="inputDestinationDistrict"
+        fullWidth
+        placeholder="Select District"
+        [disabled]="finalDestProvince === null"
+      >
+        <nb-option
+          *ngFor="let district of districts.destinationOpts"
+          [value]="district"
+          >{{ district }}</nb-option
+        >
+      </nb-select>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label for="inputAddressProvince" class="label"
+        >Permanent Address</label
+      >
+      <nb-select
+        id="inputAddressProvince"
+        fullWidth
+        placeholder="Select Province"
+        (selectedChange)="changeAddrProvince($event)"
+      >
+        <nb-option
+          *ngFor="let province of provinces"
+          [value]="province"
+          >{{ province }}</nb-option
+        >
+      </nb-select>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label for="inputAddressDistrict" class="label">&nbsp;</label>
+      <nb-select
+        id="inputAddressDistrict"
+        fullWidth
+        [disabled]="permanentAddrProvince === null"
+        placeholder="Select District"
+      >
+        <nb-option
+          *ngFor="let district of districts.addressOpts"
+          [value]="district"
+          >{{ district }}</nb-option
+        >
+      </nb-select>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label for="inputDestinationMunicipality" class="label"></label>
+      <input
+        type="text"
+        nbInput
+        fullWidth
+        [disabled]="finalDestProvince === null"
+        id="inputDestinationMunicipality"
+        placeholder="Municipality"
+      />
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label for="inputDestinationWard" class="label"></label>
+      <input
+        type="text"
+        nbInput
+        fullWidth
+        [disabled]="finalDestProvince === null"
+        id="inputDestinationWard"
+        placeholder="Ward"
+      />
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label for="inputAddressDistrict" class="label"></label>
+      <input
+        type="text"
+        nbInput
+        fullWidth
+        [disabled]="permanentAddrProvince === null"
+        id="inputDestinationDistrict"
+        placeholder="District"
+      />
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label for="inputAddressWard" class="label"></label>
+      <input
+        type="text"
+        nbInput
+        fullWidth
+        [disabled]="permanentAddrProvince === null"
+        id="inputAddressWard"
+        placeholder="Ward"
+      />
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label for="inputTraveledCountry" class="label"
+        >Traveled Country</label
+      >
+      <nb-select
+        id="inputTraveledCountry"
+        fullWidth
+        multiple
+        placeholder="Select one or more Traveled Countries"
+      >
+        <nb-option-group title="Nearby Countries">
+          <nb-option
+            *ngFor="let country of nearbyCountries"
+            [value]="country"
+            >{{ country }}</nb-option
+          >
+        </nb-option-group>
+        <nb-option-group title="All Countries">
+          <nb-option
+            *ngFor="let country of countries"
+            [value]="country"
+            >{{ country }}</nb-option
+          >
+        </nb-option-group>
+      </nb-select>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label for="inputNationality" class="label">Nationality</label>
+      <nb-select
+        id="inputNationality"
+        fullWidth
+        selected="Nepal"
+        placeholder="Select Nationality"
+      >
+        <nb-option-group title="Nearby Countries">
+          <nb-option
+            *ngFor="let country of nepalAndNeighbors"
+            [value]="country"
+            >{{ country }}</nb-option
+          >
+        </nb-option-group>
+        <nb-option-group title="All Countries">
+          <nb-option
+            *ngFor="let country of countries"
+            [value]="country"
+            >{{ country }}</nb-option
+          >
+        </nb-option-group>
+      </nb-select>
+    </div>
+  </div>
+</div>
+

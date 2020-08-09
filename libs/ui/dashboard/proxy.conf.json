@@ -1,0 +1,6 @@
+{
+  "/ouch": {
+    "target": "https://103.69.126.139/ouch",
+    "secure": true
+  }
+}

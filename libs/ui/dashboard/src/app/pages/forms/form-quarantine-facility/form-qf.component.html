@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>Quarantine Facility Patient Reporting</nb-card-header>
+      <nb-card-body>
+        <nb-accordion multi>
+          <nb-accordion-item #patientDetails expanded>
+            <nb-accordion-item-header>
+              Patient Quarantine Details
+            </nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="qStartDate" class="label"
+                        >Quarantine Start Date</label
+                      >
+                      <input
+                        nbInput
+                        fullWidth
+                        placeholder="Select Quarantine Start Date"
+                        [nbDatepicker]="qStartDatePicker"
+                        id="qStartDate"
+                      />
+                      <nb-datepicker #qStartDatePicker></nb-datepicker>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="qEndDate" class="label"
+                        >Quarantine End Date</label
+                      >
+                      <input
+                        nbInput
+                        fullWidth
+                        placeholder="Select Quarantine End Date"
+                        [nbDatepicker]="qEndDatePicker"
+                        id="qEndDate"
+                      />
+                      <nb-datepicker #qEndDatePicker></nb-datepicker>
+                    </div>
+                  </div>
+              </div>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item #patientSymptomsAndTests expanded>
+            <nb-accordion-item-header>
+              Patient Symptoms & Tests
+            </nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-symptom-record></ngx-symptom-record>
+              <ngx-rdt-test-record></ngx-rdt-test-record>
+              <ngx-pcr-test-record></ngx-pcr-test-record>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item #patientDetails>
+            <nb-accordion-item-header>
+              Patient Details
+            </nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-returnee-details></ngx-returnee-details>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item #patientContactDetails>
+            <nb-accordion-item-header>
+              Patient Address
+            </nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-returnee-location-details></ngx-returnee-location-details>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+        </nb-accordion>
+        <nb-card>
+          <button type="submit" status="primary" nbButton>
+            <nb-icon icon="save-outline"></nb-icon> Save Quarantined Patient's Details
+          </button>
+        </nb-card>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
