@@ -21,7 +21,7 @@ const routes: Routes = [{
         .then(m => m.FormsModule),
     },
     {
-      path: 'maps',
+      path: 'secured/maps',
       canActivate: [AuthGuard],
       loadChildren: () => import('./maps/maps.module')
         .then(m => m.MapsModule),

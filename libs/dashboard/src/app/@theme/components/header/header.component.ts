@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NbAuthService, NbPasswordStrategyToken } from '@nebular/auth';
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 import { Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { LayoutService } from '../../../@core/utils';
-import { AuthService } from '../../../services/auth/auth.service';
 
 
 @Component({
@@ -48,8 +48,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
               private menuService: NbMenuService,
               private themeService: NbThemeService,
               private layoutService: LayoutService,
-              private authService: AuthService,
+              private authService: NbAuthService,
               private breakpointService: NbMediaBreakpointsService) {
+
+
+    this.authService.onTokenChange()
+    .subscribe((token: any): NbPasswordStrategyToken => {
+
+      if (token.isValid()) {
+        this.user = token.getPayload();
+      }
+
+    });
   }
 
   ngOnInit() {

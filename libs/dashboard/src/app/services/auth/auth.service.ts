@@ -6,6 +6,7 @@ import { tap } from 'rxjs/operators';
 import { BasicAuth } from '../../models/auth-response.model';
 import { CurrentUser } from '../../models/domain.model';
 import { EnvironmentService } from '../env/environment.service';
+import { NbAuthService } from '@nebular/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -22,7 +23,17 @@ export class AuthService {
     private http: HttpClient,
     private environment: EnvironmentService,
     private router: Router,
-  ) {}
+    private auth: NbAuthService
+  ) {
+
+    this.auth.onTokenChange()
+      .subscribe((token: NbAuthJWTToken) => {
+
+        if (token.isValid()) {
+          this.user = token.getPayload(); // here we receive a payload from the token and assigns it to our `user` variable
+        }
+      });
+  }
 
   /**
    * @param username CouchDB username
@@ -147,6 +158,11 @@ export class AuthService {
   get user(): string {
     if (this.user_) return this.user_;
     return localStorage?.getItem(CurrentUser.name) || '';
+  }
+
+  set user(user: string) {
+    this.user_ = user;
+    localStorage?.getItem(user);
   }
 
   get pass(): string {

@@ -1,8 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login.component';
 import { NgModule } from '@angular/core';
-import { NotFoundComponent } from '../pages/miscellaneous/not-found/not-found.component';
+import { NotFoundComponent } from '../../pages/miscellaneous/not-found/not-found.component';
 import { NbAuthComponent } from '@nebular/auth';
+import { LoginComponent } from './login.component';
 
 const routes: Routes = [{
   path: '',
