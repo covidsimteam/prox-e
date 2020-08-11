@@ -15,7 +15,7 @@ export class ProfitChartService extends ProfitChartData {
     '2018',
   ];
 
-  private data = { };
+  private data: any = {};
 
   constructor(private period: PeriodsService) {
     super();

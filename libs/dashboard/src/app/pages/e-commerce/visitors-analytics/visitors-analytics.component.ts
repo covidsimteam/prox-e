@@ -22,7 +22,7 @@ export class ECommerceVisitorsAnalyticsComponent implements OnDestroy {
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe(theme => {
-        this.setLegendItems(theme.variables.visitorsLegend);
+        this.setLegendItems(theme?.variables?.visitorsLegend);
       });
 
     forkJoin([
@@ -41,7 +41,7 @@ export class ECommerceVisitorsAnalyticsComponent implements OnDestroy {
       });
   }
 
-  setLegendItems(visitorsLegend): void {
+  setLegendItems(visitorsLegend: any): void {
     this.chartLegend = [
       {
         iconColor: visitorsLegend.firstIcon,

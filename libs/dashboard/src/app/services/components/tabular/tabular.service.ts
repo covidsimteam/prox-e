@@ -30,7 +30,7 @@ export abstract class TabularService {
         });
       }),
       map((headerObjArr: Column[]) => {
-        const tempCols = {};
+        const tempCols: any | {} = {};
         headerObjArr.forEach((col) => {
           const key = Object.keys(col)[0];
           const val = Object.values(col)[0];
@@ -42,7 +42,7 @@ export abstract class TabularService {
   }
 
   protected enableDBToTableSyncTabular(source: LocalDataSource, service: DataTableService) {
-    service.getChangeListener().subscribe((emitted: any) => {
+    service.getChangeListener()?.subscribe((emitted: any) => {
       if (emitted && emitted.change && emitted.change.docs) {
         emitted.change.docs.forEach((doc: any) => {
           if (doc._deleted) {
@@ -60,11 +60,11 @@ export abstract class TabularService {
   }
 
   protected prepareNewTableRowTabular(fields: TABTuple, docRev: string, service: DataTableService) {
-    const newDoc = {};
+    const newDoc: any | {} = {};
     service.headers
       .map(headerAndTypeArr => headerAndTypeArr[0])
       .forEach((header, index) => {
-        newDoc[header] = index < fields.length ? fields[index] : docRev;
+        newDoc[header] = index < fields?.length ? fields[index] : docRev;
       });
     return newDoc;
   }
@@ -78,6 +78,7 @@ export abstract class TabularService {
       const trimmed = str.trim().replace(/ /g, '_');
       return toLowerCase ? trimmed.toLowerCase() : trimmed;
     }
+    return '' + str;
   }
 
   protected prepareDocTabular(newRow: any, schemaVersion: string, service: DataTableService, removeRev = false) {
@@ -104,7 +105,7 @@ export abstract class TabularService {
     return schemaDoc;
   }
 
-  prepareDocID(province: string, district: string, more: string[] = null) {
+  prepareDocID(province: string, district: string, more: string[] = ['']) {
     const t = this.xTrimWithLCase;
     return more ?
       `province:${t(province)}:district:${t(district)}:municipality:${t(more[0])}:ward:${t(more[1])}` :

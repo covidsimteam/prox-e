@@ -48,7 +48,7 @@ export class NationComponent implements OnInit, OnDestroy {
   private districtsGeoJson: FeatureCollection<GovDistrictProperties>;
   private districtsHealthStats: HealthStats.Districts;
   private districtPopulation: Census2011.Districts;
-  private returneeStats: Array<RETTupleRev>;
+  private returneeStats: Array<RETTupleRev | undefined>;
 
   districtNameValPairsSero: [string, number][] = [];
   districtNamesSero: string[];
@@ -73,7 +73,7 @@ export class NationComponent implements OnInit, OnDestroy {
   loading = true;
 
   private map: L.Map;
-  private mapReady: BehaviorSubject<Boolean> = new BehaviorSubject(false);
+  private mapReady: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   layersControl: any;
 
@@ -115,11 +115,11 @@ export class NationComponent implements OnInit, OnDestroy {
       .subscribe(config => {
         this.districtPcrDataSets = [{
           ...this.districtPcrDataSets[0],
-          backgroundColor: NbColorHelper.hexToRgbA(config.variables.primaryLight, 0.8),
+          backgroundColor: NbColorHelper.hexToRgbA(config?.variables?.primaryLight, 0.8),
         },
         {
           ...this.districtPcrDataSets[1],
-          backgroundColor: NbColorHelper.hexToRgbA(config.variables.infoLight, 0.8)
+          backgroundColor: NbColorHelper.hexToRgbA(config?.variables?.infoLight, 0.8)
         }];
       });
   }
@@ -145,7 +145,7 @@ export class NationComponent implements OnInit, OnDestroy {
 
   }
 
-  setLayerFromBucket<T>(layer: MapLayer, style?) {
+  setLayerFromBucket<T>(layer: MapLayer, style?: any) {
     this.regionService
       .getAndCache<FeatureCollection<T>>(layer.bucket)
       .subscribe((featureCollection) => {
@@ -193,15 +193,15 @@ export class NationComponent implements OnInit, OnDestroy {
     });
   }
 
-  findByNameFromReturneeStats(districtName: string): RETTupleRev {
+  findByNameFromReturneeStats(districtName: string): RETTupleRev | undefined {
     return this.returneeStats.find((stat) =>
       districtName.toLowerCase().startsWith(stat[2].toLowerCase())
     );
   }
 
-  findByNameFromCensusStats(districtName: string): Census2011.District {
-    return this.districtPopulation.values.find((value) =>
-      districtName.toLowerCase().startsWith(value.district.toLowerCase())
+  findByNameFromCensusStats(districtName: string): Census2011.District | undefined {
+    return this.districtPopulation?.values?.find((value: any) =>
+      districtName?.toLowerCase()?.startsWith(value?.district?.toLowerCase())
     );
   }
 

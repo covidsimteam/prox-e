@@ -8,7 +8,7 @@ export interface DBList {
     name: string,
     instance?: PouchDB.Database,
     remoteInstance?: PouchDB.Database,
-    listener?: EventEmitter<any>,
+    listener?: EventEmitter<any> | undefined,
   };
 }
 

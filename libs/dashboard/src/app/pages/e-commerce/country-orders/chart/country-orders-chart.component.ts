@@ -29,7 +29,7 @@ export class CountryOrdersChartComponent implements AfterViewInit, OnDestroy, On
   private alive = true;
 
   option: any = {};
-  echartsInstance;
+  echartsInstance: any;
 
   constructor(private theme: NbThemeService,
               private layoutService: LayoutService) {
@@ -45,7 +45,7 @@ export class CountryOrdersChartComponent implements AfterViewInit, OnDestroy, On
       this.echartsInstance.setOption({
         series: [
           {
-            data: this.data.map(v => this.maxValue),
+            data: this.data.map((_: any) => this.maxValue),
           },
           {
             data: this.data,
@@ -61,8 +61,8 @@ export class CountryOrdersChartComponent implements AfterViewInit, OnDestroy, On
   ngAfterViewInit() {
     this.theme.getJsTheme()
       .pipe(takeWhile(() => this.alive))
-      .subscribe(config => {
-        const countriesTheme: any = config.variables.countryOrders;
+      .subscribe((config: any) => {
+        const countriesTheme: any = config?.variables?.countryOrders;
 
         this.option = Object.assign({}, {
           grid: {
@@ -112,7 +112,7 @@ export class CountryOrdersChartComponent implements AfterViewInit, OnDestroy, On
           series: [
             { // For shadow
               type: 'bar',
-              data: this.data.map(v => this.maxValue),
+              data: this.data.map((_: any) => this.maxValue),
               cursor: 'default',
               itemStyle: {
                 normal: {
@@ -164,7 +164,7 @@ export class CountryOrdersChartComponent implements AfterViewInit, OnDestroy, On
       });
   }
 
-  onChartInit(ec) {
+  onChartInit(ec: any) {
     this.echartsInstance = ec;
   }
 

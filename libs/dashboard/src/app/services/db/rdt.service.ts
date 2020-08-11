@@ -27,7 +27,7 @@ export class RdtService implements DBService {
 
   get headers(): string[][] { return this.rdtHeaders_; }
 
-  async getAll(startkey = 'province:', endkey = 'province:\ufff0' ): Promise<AllDocs.Root> {
+  async getAll(startkey = 'province:', endkey = 'province:\ufff0' ): Promise<AllDocs.Root | undefined> {
     const requestQuery = {
       include_docs: true,
       startkey,
@@ -35,21 +35,21 @@ export class RdtService implements DBService {
       limit: 80,
     };
 
-    const locAllDocs = await this.instance().allDocs(requestQuery) as AllDocs.Root;
+    const locAllDocs = await this.instance()?.allDocs(requestQuery) as AllDocs.Root;
 
     if (locAllDocs.rows.length !== 0) return locAllDocs;
 
-    return await this.dbService.getRemoteDBInstance(this.rdtDB).allDocs(requestQuery) as AllDocs.Root;
+    return await this.dbService?.getRemoteDBInstance(this.rdtDB)?.allDocs(requestQuery) as AllDocs.Root;
   }
 
-  async addAll(docs: Doc[]): Promise<BulkAddResponse> {
+  async addAll(docs: Doc[]): Promise<BulkAddResponse | undefined> {
     return this.dbService.addAll(this.rdtDB, docs);
   }
 
-  async getAllDistricts(): Promise<Array<RDTTupleRev>> {
+  async getAllDistricts(): Promise<Array<RDTTupleRev> | undefined> {
     try {
       const response = await this.getAll();
-      return response.rows.map(row => [...row.doc.fields, row.doc._rev] as RDTTupleRev);
+      return response?.rows?.map(row => [...row?.doc?.fields, row?.doc?._rev] as RDTTupleRev);
     } catch (error) {
       throw Error('District-wise RDT test data could not be fetched');
     }
@@ -65,16 +65,16 @@ export class RdtService implements DBService {
     }
   }
 
-  remoteSync(): EventEmitter<any> {
+  remoteSync(): EventEmitter<any> | undefined {
     return this.dbService.remoteSync(this.rdtDB);
   }
 
-  getChangeListener(): EventEmitter<any> {
+  getChangeListener(): EventEmitter<any> | undefined {
     return this.dbService.getChangeListener(this.rdtDB);
   }
 
-  get(id: string): Promise<any> {
-    return this.dbService.get(this.rdtDB, id);
+  get(id: string): Promise<any> | undefined {
+    return this.dbService?.get(this.rdtDB, id);
   }
 
   create(doc: ExistingDoc): Promise<any> {

@@ -26,8 +26,8 @@ export class ChartPanelHeaderComponent implements OnDestroy {
               private breakpointService: NbMediaBreakpointsService) {
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
-      .subscribe(theme => {
-        const orderProfitLegend = theme.variables.orderProfitLegend;
+      .subscribe((theme: any) => {
+        const orderProfitLegend = theme?.variables?.orderProfitLegend;
 
         this.currentTheme = theme.name;
         this.setLegendItems(orderProfitLegend);
@@ -36,12 +36,12 @@ export class ChartPanelHeaderComponent implements OnDestroy {
       this.breakpoints = this.breakpointService.getBreakpointsMap();
       this.themeService.onMediaQueryChange()
         .pipe(takeWhile(() => this.alive))
-        .subscribe(([oldValue, newValue]) => {
+        .subscribe(([_, newValue]) => {
           this.breakpoint = newValue;
         });
   }
 
-  setLegendItems(orderProfitLegend) {
+  setLegendItems(orderProfitLegend: any) {
     this.chartLegend = [
       {
         iconColor: orderProfitLegend.firstItem,

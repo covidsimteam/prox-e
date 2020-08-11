@@ -25,7 +25,7 @@ export class TrafficFrontCardComponent implements OnDestroy {
     });
   }
 
-  trackByDate(_, item) {
+  trackByDate(_: any, item: any) {
     return item.date;
   }
 

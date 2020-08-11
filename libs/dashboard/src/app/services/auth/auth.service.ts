@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { CurrentUser } from '../../models/domain.model';
-import { BasicAuth, DBAuthResponse } from '../../models/auth-response.model';
-import { EnvironmentService } from '../env/environment.service';
 import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { BasicAuth } from '../../models/auth-response.model';
+import { CurrentUser } from '../../models/domain.model';
+import { EnvironmentService } from '../env/environment.service';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +16,7 @@ export class AuthService {
   private pass_: string;
   private role_: string;
 
-  isPrivilegedUser: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  isPrivilegedUser: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(
     private http: HttpClient,
@@ -125,8 +125,8 @@ export class AuthService {
   }
 
   private removeCredentials(): void {
-    this.user_ = null;
-    this.pass_ = null;
+    this.user_ = '';
+    this.pass_ = '';
     this.isAuthenticated_ = false;
     this.role_ = 'public';
     Object.values(CurrentUser).forEach(key => {
@@ -135,23 +135,23 @@ export class AuthService {
     this.isPrivilegedUser.next(false);
   }
 
-  get role(): string {
+  get role(): string | null {
     if (this.role_) return this.role_;
-    return localStorage.getItem(CurrentUser.role);
+    return localStorage?.getItem(CurrentUser.role);
   }
 
   get isPrivileged(): boolean {
-    return this.role && this.role !== 'public'; // TODO add whitelisted roles
+    return !!this.role && this.role !== 'public'; // TODO add whitelisted roles
   }
 
   get user(): string {
     if (this.user_) return this.user_;
-    return localStorage.getItem(CurrentUser.name);
+    return localStorage?.getItem(CurrentUser.name) || '';
   }
 
   get pass(): string {
     if (this.user_) return this.pass_;
-    return localStorage.getItem(CurrentUser.pass);
+    return localStorage?.getItem(CurrentUser.pass) || '';
   }
 
   get isAuthenticated(): boolean {
@@ -159,12 +159,12 @@ export class AuthService {
     return localStorage.getItem(CurrentUser.isLoggedIn) ? true : false;
   }
 
-  // TODO remove when jwt setup is fixed
-  userAuthRequestCookieBased(username: string, password: string) {
-    this.http
-      .post<DBAuthResponse>(this.environment.authUri, { username, password })
-      .subscribe((response) => {
-        // this.cookieService.create(response);
-      });
-  }
+  // // TODO remove when jwt setup is fixed
+  // userAuthRequestCookieBased(username: string, password: string) {
+  //   this.http
+  //     .post<DBAuthResponse>(this.environment.authUri, { username, password })
+  //     .subscribe((response) => {
+  //       // this.cookieService.create(response);
+  //     });
+  // }
 }

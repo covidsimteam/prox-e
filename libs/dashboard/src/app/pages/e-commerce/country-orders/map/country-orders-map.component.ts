@@ -21,10 +21,10 @@ export class CountryOrdersMapComponent implements OnDestroy {
 
   @Output() select: EventEmitter<any> = new EventEmitter();
 
-  layers = [];
+  layers: any = [];
   currentTheme: any;
   alive = true;
-  selectedCountry;
+  selectedCountry: any;
 
   options = {
     zoom: 2,
@@ -63,7 +63,7 @@ export class CountryOrdersMapComponent implements OnDestroy {
     }, 0);
   }
 
-  private createGeoJsonLayer(cords) {
+  private createGeoJsonLayer(cords: any) {
     return L.geoJSON(
       cords as any,
       {
@@ -80,15 +80,15 @@ export class CountryOrdersMapComponent implements OnDestroy {
       });
   }
 
-  private onEachFeature(feature, layer) {
+  private onEachFeature(_: any, layer: any) {
     layer.on({
-      mouseover: (e) => this.highlightFeature(e.target),
-      mouseout: (e) => this.moveout(e.target),
-      click: (e) => this.selectFeature(e.target),
+      mouseover: (e: any) => this.highlightFeature(e.target),
+      mouseout: (e: any) => this.moveout(e.target),
+      click: (e: any) => this.selectFeature(e.target),
     });
   }
 
-  private highlightFeature(featureLayer) {
+  private highlightFeature(featureLayer: any) {
     if (featureLayer) {
       featureLayer.setStyle({
         weight: this.currentTheme.hoveredCountryBorderWidth,
@@ -102,7 +102,7 @@ export class CountryOrdersMapComponent implements OnDestroy {
     }
   }
 
-  private moveout(featureLayer) {
+  private moveout(featureLayer: any) {
     if (featureLayer !== this.selectedCountry) {
       this.resetHighlight(featureLayer);
 
@@ -111,15 +111,15 @@ export class CountryOrdersMapComponent implements OnDestroy {
     }
   }
 
-  private resetHighlight(featureLayer) {
+  private resetHighlight(featureLayer: any) {
     if (featureLayer) {
-      const geoJsonLayer = this.layers[0];
+      const geoJsonLayer: any = this.layers[0];
 
       geoJsonLayer.resetStyle(featureLayer);
     }
   }
 
-  private selectFeature(featureLayer) {
+  private selectFeature(featureLayer: any) {
     if (featureLayer !== this.selectedCountry) {
       this.resetHighlight(this.selectedCountry);
       this.highlightFeature(featureLayer);
@@ -128,10 +128,10 @@ export class CountryOrdersMapComponent implements OnDestroy {
     }
   }
 
-  private findFeatureLayerByCountryId(id) {
-    const layers = this.layers[0].getLayers();
-    const featureLayer = layers.find(item => {
-      return item.feature.id === id;
+  private findFeatureLayerByCountryId(id: any) {
+    const layers: any = this.layers[0];
+    const featureLayer = layers?.getLayers().find((item: any) => {
+      return item?.feature?.id === id;
     });
 
     return featureLayer ? featureLayer : null;

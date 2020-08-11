@@ -19,7 +19,7 @@ export class EarningLiveUpdateChartComponent implements AfterViewInit, OnDestroy
   @Input() liveUpdateChartData: { value: [string, number] }[];
 
   option: any;
-  echartsInstance;
+  echartsInstance: any;
 
   constructor(private theme: NbThemeService,
               private layoutService: LayoutService) {
@@ -42,14 +42,14 @@ export class EarningLiveUpdateChartComponent implements AfterViewInit, OnDestroy
         delay(1),
         takeWhile(() => this.alive),
       )
-      .subscribe(config => {
-        const earningLineTheme: any = config.variables.earningLine;
+      .subscribe((config: any) => {
+        const earningLineTheme: any = config?.variables?.earningLine;
 
         this.setChartOption(earningLineTheme);
       });
   }
 
-  setChartOption(earningLineTheme) {
+  setChartOption(earningLineTheme: any) {
     this.option = {
       grid: {
         left: 0,
@@ -100,7 +100,7 @@ export class EarningLiveUpdateChartComponent implements AfterViewInit, OnDestroy
         backgroundColor: earningLineTheme.tooltipBg,
         borderColor: earningLineTheme.tooltipBorderColor,
         borderWidth: earningLineTheme.tooltipBorderWidth,
-        formatter: params => `$ ${Math.round(parseInt(params.value[1], 10))}`,
+        formatter: (params: any) => `$ ${Math.round(parseInt(params.value[1], 10))}`,
         extraCssText: earningLineTheme.tooltipExtraCss,
       },
       series: [
@@ -148,7 +148,7 @@ export class EarningLiveUpdateChartComponent implements AfterViewInit, OnDestroy
     });
   }
 
-  onChartInit(ec) {
+  onChartInit(ec: any) {
     this.echartsInstance = ec;
   }
 

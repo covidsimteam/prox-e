@@ -13,10 +13,10 @@ export class ChartjsMultipleXaxisComponent implements OnDestroy {
   themeSubscription: any;
 
   constructor(private theme: NbThemeService) {
-    this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
+    this.themeSubscription = this.theme.getJsTheme().subscribe((config: any) => {
 
-      const colors: any = config.variables;
-      const chartjs: any = config.variables.chartjs;
+      const colors: any = config?.variables;
+      const chartjs: any = config?.variables?.chartjs;
 
       this.data = {
         labels: ['January', 'February', 'March', 'April', 'May', 'June'],

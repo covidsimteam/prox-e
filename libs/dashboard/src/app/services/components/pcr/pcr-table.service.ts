@@ -25,8 +25,8 @@ export class PcrTableService extends TabularService {
     try {
       const tableHeaders = await this.pcrService.getTableHeaders();
       const rowsData = await this.pcrService.getAllDistricts();
-      return rowsData.map((item: PCRTupleRev) => {
-        const columnObj = {};
+      return rowsData?.map((item: PCRTupleRev) => {
+        const columnObj: any | {} = {};
         tableHeaders.forEach((header, index) => {
           columnObj[header[0]] = item[index];
         });
@@ -51,7 +51,7 @@ export class PcrTableService extends TabularService {
           .join(','));
 
       // add rows
-      rowsData.forEach((rowItem: PCRTupleRev) => {
+      rowsData?.forEach((rowItem: PCRTupleRev) => {
         csvFileContent.push(
           rowItem
             .slice(1, tableHeaders.length - 1)

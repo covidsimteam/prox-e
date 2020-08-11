@@ -41,7 +41,7 @@ export class CountryOrdersComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.themeService.onMediaQueryChange()
       .pipe(takeWhile(() => this.alive))
-      .subscribe(([oldValue, newValue]) => {
+      .subscribe(([_, newValue]) => {
         this.breakpoint = newValue;
       });
     this.countryOrderService.getCountriesCategories()

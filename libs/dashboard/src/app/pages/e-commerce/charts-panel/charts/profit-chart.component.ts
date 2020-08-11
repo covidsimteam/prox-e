@@ -40,14 +40,14 @@ export class ProfitChartComponent implements AfterViewInit, OnDestroy, OnChanges
   ngAfterViewInit() {
     this.theme.getJsTheme()
       .pipe(takeWhile(() => this.alive))
-      .subscribe(config => {
-        const eTheme: any = config.variables.profit;
+      .subscribe((config: any) => {
+        const eTheme: any = config?.variables?.profit;
 
         this.setOptions(eTheme);
       });
   }
 
-  setOptions(eTheme) {
+  setOptions(eTheme: any) {
     this.options = {
       backgroundColor: eTheme.bg,
       tooltip: {
@@ -171,8 +171,8 @@ export class ProfitChartComponent implements AfterViewInit, OnDestroy, OnChanges
     });
   }
 
-  getNewSeries(series, data: number[][]) {
-    return series.map((line, index) => {
+  getNewSeries(series: any, data: number[][]) {
+    return series.map((line: any, index: any) => {
       return {
         ...line,
         data: data[index],
@@ -180,7 +180,7 @@ export class ProfitChartComponent implements AfterViewInit, OnDestroy, OnChanges
     });
   }
 
-  onChartInit(echarts) {
+  onChartInit(echarts: any) {
     this.echartsIntance = echarts;
   }
 

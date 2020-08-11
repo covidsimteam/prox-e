@@ -15,22 +15,22 @@ export class EchartsBarAnimationComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
-      const xAxisData = [];
-      const data1 = [];
-      const data2 = [];
+    this.themeSubscription = this.theme.getJsTheme().subscribe((config: any) => {
+      const xAxisData: string[] = [];
+      const data1: number[] = [];
+      const data2: number[] = [];
 
-      const colors: any = config.variables;
-      const echarts: any = config.variables.echarts;
+      const colors: any = config?.variables;
+      const echarts: any = config?.variables?.echarts;
 
       this.options = {
-        backgroundColor: echarts.bg,
-        color: [colors.primaryLight, colors.infoLight],
+        backgroundColor: echarts?.bg,
+        color: [colors?.primaryLight, colors?.infoLight],
         legend: {
           data: ['bar', 'bar2'],
           align: 'left',
           textStyle: {
-            color: echarts.textColor,
+            color: echarts?.textColor,
           },
         },
         xAxis: [
@@ -42,12 +42,12 @@ export class EchartsBarAnimationComponent implements AfterViewInit, OnDestroy {
             },
             axisLine: {
               lineStyle: {
-                color: echarts.axisLineColor,
+                color: echarts?.axisLineColor,
               },
             },
             axisLabel: {
               textStyle: {
-                color: echarts.textColor,
+                color: echarts?.textColor,
               },
             },
           },
@@ -76,17 +76,17 @@ export class EchartsBarAnimationComponent implements AfterViewInit, OnDestroy {
             name: 'bar',
             type: 'bar',
             data: data1,
-            animationDelay: idx => idx * 10,
+            animationDelay: (idx: any) => idx * 10,
           },
           {
             name: 'bar2',
             type: 'bar',
             data: data2,
-            animationDelay: idx => idx * 10 + 100,
+            animationDelay: (idx: any) => idx * 10 + 100,
           },
         ],
         animationEasing: 'elasticOut',
-        animationDelayUpdate: idx => idx * 5,
+        animationDelayUpdate: (idx: any) => idx * 5,
       };
 
       [...Array(100).keys()].forEach((_, i) => {

@@ -1,4 +1,4 @@
-export const settings = {
+export const settings: any = {
   add: {
     addButtonContent: '<i class="nb-plus"></i>',
     createButtonContent: '<i class="nb-checkmark"></i>',
@@ -18,7 +18,7 @@ export const settings = {
   actions: {
     columnTitle: 'EDIT|DELETE',
   },
-  columns: null,
+  columns: undefined,
   pager: {
     perPage: 50,
   },

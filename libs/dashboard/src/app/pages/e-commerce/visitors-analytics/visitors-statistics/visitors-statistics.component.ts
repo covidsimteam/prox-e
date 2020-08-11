@@ -35,15 +35,15 @@ export class ECommerceVisitorsStatisticsComponent implements AfterViewInit, OnDe
         delay(1),
       )
       .subscribe(config => {
-        const variables: any = config.variables;
-        const visitorsPieLegend: any = config.variables.visitorsPieLegend;
+        const variables: any = config?.variables;
+        const visitorsPieLegend: any = config?.variables?.visitorsPieLegend;
 
         this.setOptions(variables);
         this.setLegendItems(visitorsPieLegend);
     });
   }
 
-  setLegendItems(visitorsPieLegend) {
+  setLegendItems(visitorsPieLegend: any) {
     this.chartLegend = [
       {
         iconColor: visitorsPieLegend.firstSection,
@@ -56,7 +56,7 @@ export class ECommerceVisitorsStatisticsComponent implements AfterViewInit, OnDe
     ];
   }
 
-  setOptions(variables) {
+  setOptions(variables: any) {
     const visitorsPie: any = variables.visitorsPie;
 
     this.option = {
@@ -199,7 +199,7 @@ export class ECommerceVisitorsStatisticsComponent implements AfterViewInit, OnDe
     };
   }
 
-  onChartInit(echarts) {
+  onChartInit(echarts: any) {
     this.echartsIntance = echarts;
   }
 

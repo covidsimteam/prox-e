@@ -15,7 +15,7 @@ export class OrdersChartService extends OrdersChartData {
     '2018',
   ];
 
-  private data = { };
+  private data: any = { };
 
   constructor(private period: PeriodsService) {
     super();
@@ -142,7 +142,7 @@ export class OrdersChartService extends OrdersChartData {
     const labelsArrayLength = labelsArray.length;
     const step = Math.round(nPoints / labelsArrayLength);
 
-    return Array.from(Array(nPoints)).map((item, index) => {
+    return Array.from(Array(nPoints)).map((_, index) => {
       const dataIndex = Math.round(index / step);
 
       return index % step === 0 ? labelsArray[dataIndex] : '';

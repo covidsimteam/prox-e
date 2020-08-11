@@ -1,5 +1,5 @@
-import { Component, OnDestroy, Input, OnInit } from '@angular/core';
-import { NbThemeService, NbColorHelper } from '@nebular/theme';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { NbThemeService } from '@nebular/theme';
 import { BarChartDataSet } from '../../../models/domain.model';
 
 @Component({
@@ -21,7 +21,7 @@ export class DistrictRankingComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
 
-      const chartjs: any = config.variables.chartjs;
+      const chartjs: any = config?.variables?.chartjs || null;
 
       const labels = this.labels;
       const datasets = this.dataSets;

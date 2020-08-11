@@ -25,10 +25,10 @@ export class FormHospitalComponent implements OnInit {
   nearbyCountries: string[];
 
   provinces: string[];
-  districts = { destinationOpts: [], addressOpts: []};
+  districts = { destinationOpts: {}, addressOpts: {}};
 
-  permanentAddrProvince: string = null;
-  finalDestProvince: string = null;
+  permanentAddrProvince: string = '';
+  finalDestProvince: string = '';
 
   addTransitCountries = false;
 
@@ -47,12 +47,12 @@ export class FormHospitalComponent implements OnInit {
 
   changeAddrProvince(event: string) {
     this.permanentAddrProvince = event;
-    this.districts.addressOpts = PROVINCES.find(province => province.name === this.permanentAddrProvince).districts;
+    this.districts.addressOpts = PROVINCES?.find(province => province.name === this.permanentAddrProvince)?.districts;
   }
 
   changeDestProvince(event: string) {
     this.finalDestProvince = event;
-    this.districts.destinationOpts = PROVINCES.find(province => province.name === this.finalDestProvince).districts;
+    this.districts.destinationOpts = PROVINCES?.find(province => province.name === this.finalDestProvince)?.districts;
   }
 
   changeRelationship(event: string) {

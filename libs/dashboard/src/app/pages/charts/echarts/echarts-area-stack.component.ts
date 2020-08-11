@@ -15,10 +15,10 @@ export class EchartsAreaStackComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
+    this.themeSubscription = this.theme.getJsTheme().subscribe((config: any) => {
 
-      const colors: any = config.variables;
-      const echarts: any = config.variables.echarts;
+      const colors: any = config?.variables;
+      const echarts: any = config?.variables?.echarts;
 
       this.options = {
         backgroundColor: echarts.bg,

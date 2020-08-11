@@ -33,7 +33,7 @@ export class EarningCardFrontComponent implements OnDestroy, OnInit {
     this.getEarningCardData(this.selectedCurrency);
   }
 
-  changeCurrency(currency) {
+  changeCurrency(currency: any) {
     if (this.selectedCurrency !== currency) {
       this.selectedCurrency = currency;
 
@@ -41,7 +41,7 @@ export class EarningCardFrontComponent implements OnDestroy, OnInit {
     }
   }
 
-  private getEarningCardData(currency) {
+  private getEarningCardData(currency: any) {
     this.earningService.getEarningCardData(currency)
       .pipe(takeWhile(() => this.alive))
       .subscribe((earningLiveUpdateCardData: LiveUpdateChart) => {
@@ -52,7 +52,7 @@ export class EarningCardFrontComponent implements OnDestroy, OnInit {
       });
   }
 
-  startReceivingLiveData(currency) {
+  startReceivingLiveData(currency: any) {
     if (this.intervalSubscription) {
       this.intervalSubscription.unsubscribe();
     }

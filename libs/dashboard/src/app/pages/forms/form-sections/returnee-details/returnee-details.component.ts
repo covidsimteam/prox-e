@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { RISKY_OCCUPATIONS, OTHER_OCCUPATION } from '../../../../@core/data/risky-occupations';
+import { Component, OnInit } from '@angular/core';
+import { OTHER_OCCUPATION, RISKY_OCCUPATIONS } from '../../../../@core/data/risky-occupations';
 
 @Component({
   selector: 'ngx-returnee-details',

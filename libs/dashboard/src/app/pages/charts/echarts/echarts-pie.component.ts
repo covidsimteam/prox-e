@@ -15,14 +15,20 @@ export class EchartsPieComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
+    this.themeSubscription = this.theme.getJsTheme().subscribe((config: any) => {
 
-      const colors = config.variables;
-      const echarts: any = config.variables.echarts;
+      const colors = config?.variables;
+      const echarts: any = config?.variables?.echarts;
 
       this.options = {
-        backgroundColor: echarts.bg,
-        color: [colors.warningLight, colors.infoLight, colors.dangerLight, colors.successLight, colors.primaryLight],
+        backgroundColor: echarts?.bg,
+        color: [
+          colors?.warningLight,
+          colors?.infoLight,
+          colors?.dangerLight,
+          colors?.successLight,
+          colors?.primaryLight
+        ],
         tooltip: {
           trigger: 'item',
           formatter: '{a} <br/>{b} : {c} ({d}%)',

@@ -37,8 +37,8 @@ export class TestStatsAreaChartComponent implements AfterViewInit, OnDestroy {
         delay(1),
         takeWhile(() => this.alive),
       )
-      .subscribe(config => {
-        const trafficTheme: any = config.variables.traffic;
+      .subscribe((config: any) => {
+        const trafficTheme: any = config?.variables?.traffic;
 
         this.option = Object.assign({}, {
           grid: {
@@ -156,7 +156,7 @@ export class TestStatsAreaChartComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  onChartInit(echarts) {
+  onChartInit(echarts: any) {
     this.echartsIntance = echarts;
   }
 

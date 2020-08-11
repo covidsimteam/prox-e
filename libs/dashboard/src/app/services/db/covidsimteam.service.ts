@@ -19,19 +19,19 @@ export class CovidSimTeamService implements DBService {
     this.dbService.instance(this.teamDB);
   }
 
-  remoteSync(): EventEmitter<any> {
+  remoteSync(): EventEmitter<any> | undefined {
     return this.dbService.remoteSync(this.teamDB);
   }
 
-  getChangeListener(): EventEmitter<any> {
-    return this.dbService.getChangeListener(this.teamDB);
+  getChangeListener(): EventEmitter<any> | undefined {
+    return this.dbService?.getChangeListener(this.teamDB);
   }
 
-  get(id: string): Promise<any> {
+  get(id: string): Promise<any> | undefined {
     return this.dbService.get(this.teamDB, id);
   }
 
-  create(doc: ExistingDoc): Promise<any> {
+  create(doc: ExistingDoc): Promise<any> | undefined {
     return this.dbService.create(this.teamDB, doc);
   }
 

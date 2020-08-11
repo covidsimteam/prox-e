@@ -47,19 +47,18 @@ export class RdtComponent implements OnInit {
   }
 
   private initializeHeadersAndSettings() {
-    this.rdtTableService.getColumns().subscribe((cols) => {
+    this.rdtTableService.getColumns().subscribe((cols: any) => {
       this.columns = cols;
       const colsWithoutIdRev = { ...cols };
       delete colsWithoutIdRev['_id'];
       delete colsWithoutIdRev['_rev'];
       if (cols['province']) {
-        cols['province']['editor'] = cols['province'][
-          'filter'
-        ] = this.rdtTableService.prepareProvinceDropdown();
+        cols['province']['filter'] = this?.rdtTableService?.prepareProvinceDropdown();
+        cols['province']['editor'] = cols['province']['filter'];
       }
       this.settingsAndColumns = {
         ...this.settingsAndColumns,
-        columns: colsWithoutIdRev,
+        columns: colsWithoutIdRev || {},
       };
     });
   }
@@ -73,7 +72,7 @@ export class RdtComponent implements OnInit {
         (result: Array<any>) => {
           this.rowsFromCsvFile = result
             .slice(1)
-            .filter((rowData) => {
+            .filter((rowData: any) => {
               // -2 since db headers contain _id and _rev fields as well
               const headerLengthMatches =
                 rowData.length === this.rdtService.headers.length - 2;
@@ -90,7 +89,7 @@ export class RdtComponent implements OnInit {
               return headerLengthMatches && isNotEmptyRow;
             })
             .map((rowData) => {
-              const rowObj = {};
+              const rowObj: any | {} = {};
               this.uploadInstruction = CSV_UPLOAD_CONFIRM;
               this.rdtService.headers.forEach((header, index) => {
                 rowObj[header[0]] =
@@ -110,10 +109,10 @@ export class RdtComponent implements OnInit {
       );
   }
 
-  csvRowAndExistingRowMerger(rowObj: {}) {
+  csvRowAndExistingRowMerger(rowObj: any | {}) {
     this.source.getAll().then((elements: []) => {
       const rowsToDelete = elements.filter(
-        (row) =>
+        (row: any) =>
           row['_id'] === rowObj['_id'] ||
           this.rdtTableService.prepareDocID(
             row['province'],

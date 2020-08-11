@@ -48,15 +48,15 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
         takeWhile(() => this.alive),
         delay(1),
       )
-      .subscribe(config => {
-        const eTheme: any = config.variables.orders;
+      .subscribe((config: any) => {
+        const eTheme: any = config?.variables?.orders;
 
         this.setOptions(eTheme);
         this.updateOrdersChartOptions(this.ordersChartData);
       });
   }
 
-  setOptions(eTheme) {
+  setOptions(eTheme: any) {
     this.option = {
       grid: {
         left: 40,
@@ -82,7 +82,7 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
         backgroundColor: eTheme.tooltipBg,
         borderColor: eTheme.tooltipBorderColor,
         borderWidth: 1,
-        formatter: (params) => {
+        formatter: (params: any) => {
           return Math.round(parseInt(params.value, 10));
         },
         extraCssText: eTheme.tooltipExtraCss,
@@ -138,7 +138,7 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
     };
   }
 
-  getFirstLine(eTheme) {
+  getFirstLine(eTheme: any) {
     return {
       type: 'line',
       smooth: true,
@@ -172,7 +172,7 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
     };
   }
 
-  getSecondLine(eTheme) {
+  getSecondLine(eTheme: any) {
     return         {
       type: 'line',
       smooth: true,
@@ -216,7 +216,7 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
     };
   }
 
-  getThirdLine(eTheme) {
+  getThirdLine(eTheme: any) {
     return {
       type: 'line',
       smooth: true,
@@ -272,8 +272,8 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
     };
   }
 
-  getNewSeries(series, linesData: number[][]) {
-    return series.map((line, index) => {
+  getNewSeries(series: any, linesData: number[][]) {
+    return series.map((line: any, index: any) => {
       return {
         ...line,
         data: linesData[index],
@@ -281,14 +281,14 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
     });
   }
 
-  getNewXAxis(xAxis, chartLabel: string[]) {
+  getNewXAxis(xAxis: any, chartLabel: string[]) {
     return {
       ...xAxis,
       data: chartLabel,
     };
   }
 
-  onChartInit(echarts) {
+  onChartInit(echarts: any) {
     this.echartsIntance = echarts;
   }
 

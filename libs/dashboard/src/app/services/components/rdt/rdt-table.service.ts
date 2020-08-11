@@ -25,8 +25,8 @@ export class RdtTableService extends TabularService {
     try {
       const tableHeaders = await this.rdtService.getTableHeaders();
       const rowsData = await this.rdtService.getAllDistricts();
-      return rowsData.map((item: RDTTupleRev) => {
-        const columnObj = {};
+      return rowsData?.map((item: RDTTupleRev) => {
+        const columnObj: any | {} = {};
         tableHeaders.forEach((header, index) => {
           columnObj[header[0]] = item[index];
         });
@@ -51,7 +51,7 @@ export class RdtTableService extends TabularService {
           .join(','));
 
       // add rows
-      rowsData.forEach((rowItem: RDTTupleRev) => {
+      rowsData?.forEach((rowItem: RDTTupleRev) => {
         csvFileContent.push(
           rowItem
             .slice(1, tableHeaders.length - 1)

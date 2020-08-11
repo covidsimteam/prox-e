@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { from, Observable, ObservableInput } from 'rxjs';
+import { from, Observable, ObservableInput, noop } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 import { Area, FeatureCollection, WardProperties } from '../../../models/domain.model';
@@ -16,12 +16,12 @@ export class RegionService {
   ) {}
 
   getAndCache<T>(key: string): Observable<T> {
-    return from<ObservableInput<T>>(this.spatialService.get(key)).pipe(tap(async (res) => {
+    return from<ObservableInput<T>>(this.spatialService.get(key)).pipe(tap(async (res: any) => {
         try {
-          await this.spatialService.instance().get(res['_id']);
+          await this?.spatialService?.instance()?.get(res['_id']);
         } catch (error) {
-          delete res['_rev'];
-          await this.spatialService.instance().put(res);
+          res ? delete res['_rev'] : noop;
+          await this.spatialService.instance()?.put(res);
         }
       }),
     );

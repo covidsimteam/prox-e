@@ -28,28 +28,28 @@ export class ReturneeService implements DBService {
 
   get headers(): string[][] { return this.returneeHeaders_; }
 
-  async getAll(startkey = 'province:', endkey = 'province:\ufff0'): Promise<AllDocs.Root> {
+  async getAll(startkey = 'province:', endkey = 'province:\ufff0'): Promise<AllDocs.Root | undefined> {
     const requestQuery = {
       include_docs: true,
       startkey,
       endkey,
       limit: 800,
     };
-    const locAllDocs = await this.instance().allDocs(requestQuery) as AllDocs.Root;
+    const locAllDocs = await this.instance()?.allDocs(requestQuery) as AllDocs.Root;
 
-    if (locAllDocs.rows.length !== 0) return locAllDocs;
+    if (locAllDocs?.rows?.length !== 0) return locAllDocs;
 
-    return await this.dbService.getRemoteDBInstance(this.returneeDB).allDocs(requestQuery) as AllDocs.Root;
+    return await this.dbService?.getRemoteDBInstance(this.returneeDB)?.allDocs(requestQuery) as AllDocs.Root;
   }
 
-  async addAll(docs: Doc[]): Promise<BulkAddResponse> {
+  async addAll(docs: Doc[]): Promise<BulkAddResponse | undefined> {
     return this.dbService.addAll(this.returneeDB, docs);
   }
 
-  async getAllWards(): Promise<Array<RETTupleRev>> {
+  async getAllWards(): Promise<Array<RETTupleRev> | undefined> {
     try {
       const response = await this.getAll();
-      return response.rows.map(row => [...row.doc.fields, row.doc._rev] as unknown as RETTupleRev);
+      return response?.rows?.map(row => [...row?.doc?.fields, row?.doc?._rev] as unknown as RETTupleRev);
     } catch (error) {
       throw Error('Ward-wise Returnee data could not be fetched');
     }
@@ -67,15 +67,15 @@ export class ReturneeService implements DBService {
   }
 
 
-  remoteSync(): EventEmitter<any> {
-    return this.dbService.remoteSync(this.returneeDB);
+  remoteSync(): EventEmitter<any> | undefined {
+    return this.dbService?.remoteSync(this.returneeDB);
   }
 
-  getChangeListener(): EventEmitter<any> {
-    return this.dbService.getChangeListener(this.returneeDB);
+  getChangeListener(): EventEmitter<any> | undefined {
+    return this.dbService?.getChangeListener(this.returneeDB);
   }
 
-  get(id: string): Promise<any> {
+  get(id: string): Promise<any> | undefined {
     return this.dbService.get(this.returneeDB, id);
   }
 

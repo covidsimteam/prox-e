@@ -20,19 +20,19 @@ export class SpatialService implements DBService {
     return this.dbService.instance(this.spatialDB);
   }
 
-  remoteSync(): EventEmitter<any> {
+  remoteSync(): EventEmitter<any> | undefined {
     return this.dbService.remoteSync(this.spatialDB);
   }
 
-  remoteLogin(): PouchDB.Database {
+  remoteLogin(): PouchDB.Database<{}> | undefined {
     return this.dbService.remoteLogin(this.spatialDB);
   }
 
-  getChangeListener(): EventEmitter<any> {
+  getChangeListener(): EventEmitter<any> | undefined {
     return this.dbService.getChangeListener(this.spatialDB);
   }
 
-  get(id: string): Promise<any> {
+  get(id: string): Promise<any | undefined> {
     return this.dbService.get(this.spatialDB, id);
   }
 

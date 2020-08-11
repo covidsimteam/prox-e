@@ -47,19 +47,18 @@ export class PcrComponent implements OnInit {
   }
 
   private initializeHeadersAndSettings() {
-    this.pcrTableService.getColumns().subscribe((cols) => {
+    this.pcrTableService.getColumns().subscribe((cols: any) => {
       this.columns = cols;
       const colsWithoutIdRev = { ...cols };
       delete colsWithoutIdRev['_id'];
       delete colsWithoutIdRev['_rev'];
       if (cols['province']) {
-        cols['province']['editor'] = cols['province'][
-          'filter'
-        ] = this.pcrTableService.prepareProvinceDropdown();
+        cols['province']['filter'] = this.pcrTableService.prepareProvinceDropdown();
+        cols['province']['editor'] = cols['province']['filter'];
       }
       this.settingsAndColumns = {
         ...this.settingsAndColumns,
-        columns: colsWithoutIdRev,
+        columns: colsWithoutIdRev || {},
       };
     });
   }
@@ -91,7 +90,7 @@ export class PcrComponent implements OnInit {
             })
             .map((rowData) => {
               // db headers contain _id and _rev fields as well
-              const rowObj = {};
+              const rowObj: any | {} = {};
               this.uploadInstruction = CSV_UPLOAD_CONFIRM;
               this.pcrService.headers.forEach((header, index) => {
                 rowObj[header[0]] =
@@ -109,10 +108,10 @@ export class PcrComponent implements OnInit {
       );
   }
 
-  csvRowAndExistingRowMerger(rowObj: {}) {
+  csvRowAndExistingRowMerger(rowObj: any | {}) {
     this.source.getAll().then((elements: []) => {
       const rowsToDelete = elements.filter(
-        (row) =>
+        (row: any) =>
           row['_id'] === rowObj['_id'] ||
           this.pcrTableService.prepareDocID(
             row['province'],

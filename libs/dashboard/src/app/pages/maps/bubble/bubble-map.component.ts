@@ -478,7 +478,7 @@ export class BubbleMapComponent implements OnDestroy {
           },
           tooltip: {
             trigger: 'item',
-            formatter: params => {
+            formatter: (params: any) => {
               return `${params.name}: ${params.value[2]}`;
             },
           },

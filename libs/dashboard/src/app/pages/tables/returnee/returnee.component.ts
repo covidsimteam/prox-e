@@ -50,23 +50,24 @@ export class ReturneeComponent implements OnInit {
   }
 
   private initializeHeadersAndSettings() {
-    this.returneeTableService.getColumns().subscribe((cols) => {
+    this.returneeTableService.getColumns().subscribe((cols: any) => {
       this.columns = cols;
       const colsWithoutIdRev = { ...cols };
       delete colsWithoutIdRev['_id'];
       delete colsWithoutIdRev['_rev'];
       if (cols['province']) {
-        cols['province']['editor'] = cols['province'][
-          'filter'
-        ] = this.returneeTableService.prepareProvinceDropdown();
+        cols['province']['filter'] = this?.returneeTableService?.prepareProvinceDropdown();
+        cols['province']['editor'] = cols['province']['filter'];
       }
       this.settingsAndColumns = {
         ...this.settingsAndColumns,
-        columns: colsWithoutIdRev,
+        columns: colsWithoutIdRev || {},
       };
     });
   }
 
+// TODO in all 'Aggregates' tables, use dialog for errors e.g. no rowData matches constraints in above filter
+// https://akveo.github.io/nebular/docs/components/dialog/overview#nbdialogservice
   csvUploadListener(event: any) {
     const files = event.srcElement.files;
     this.isFileLoaded = files ? true : false;
@@ -92,11 +93,9 @@ export class ReturneeComponent implements OnInit {
                   ) !== 0;
               return headerLengthMatches && isNotEmptyRow;
             })
-            .map((rowData) => {
+            .map((rowData: any) => {
               this.uploadInstruction = CSV_UPLOAD_CONFIRM;
-// TODO in all 'Aggregates' tables, use dialog for errors e.g. no rowData matches constraints in above filter
-// https://akveo.github.io/nebular/docs/components/dialog/overview#nbdialogservice
-              const rowObj = {};
+              const rowObj: any | {} = {};
               this.returneeService.headers.forEach((header, index) => {
                 rowObj[header[0]] =
                   index !== 0
@@ -117,10 +116,10 @@ export class ReturneeComponent implements OnInit {
       );
   }
 
-  csvRowAndExistingRowMerger(rowObj: {}) {
+  csvRowAndExistingRowMerger(rowObj: any | {}) {
     this.source.getAll().then((elements: []) => {
       const rowsToDelete = elements.filter(
-        (row) =>
+        (row: any) =>
           row['_id'] === rowObj['_id'] ||
           this.returneeTableService.prepareDocID(
             row['province'],

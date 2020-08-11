@@ -29,28 +29,28 @@ export class PcrService implements DBService {
 
   get headers(): string[][] { return this.pcrHeaders_; }
 
-  async getAll(startkey = 'province:', endkey = 'province:\ufff0'): Promise<AllDocs.Root> {
+  async getAll(startkey = 'province:', endkey = 'province:\ufff0'): Promise<AllDocs.Root | undefined> {
     const requestQuery = {
       include_docs: true,
       startkey,
       endkey,
       limit: 80,
     };
-    const locAllDocs = await this.instance().allDocs(requestQuery) as AllDocs.Root;
+    const locAllDocs = await this.instance()?.allDocs(requestQuery) as AllDocs.Root;
 
     if (locAllDocs.rows.length !== 0) return locAllDocs;
 
-    return await this.dbService.getRemoteDBInstance(this.pcrDB).allDocs(requestQuery) as AllDocs.Root;
+    return await this.dbService?.getRemoteDBInstance(this.pcrDB)?.allDocs(requestQuery) as AllDocs.Root;
   }
 
-  async addAll(docs: Doc[]): Promise<BulkAddResponse> {
+  async addAll(docs: Doc[]): Promise<BulkAddResponse | undefined> {
     return this.dbService.addAll(this.pcrDB, docs);
   }
 
-  async getAllDistricts(): Promise<Array<PCRTupleRev>> {
+  async getAllDistricts(): Promise<Array<PCRTupleRev> | undefined> {
     try {
       const response = await this.getAll();
-      return response.rows.map(row => [...row.doc.fields, row.doc._rev] as PCRTupleRev);
+      return response?.rows?.map(row => [...row?.doc?.fields, row?.doc?._rev] as PCRTupleRev);
     } catch (error) {
       throw Error('District-wise PCR test data could not be fetched');
     }
@@ -67,16 +67,16 @@ export class PcrService implements DBService {
     }
   }
 
-  remoteSync(): EventEmitter<any> {
-    return this.dbService.remoteSync(this.pcrDB);
+  remoteSync(): EventEmitter<any> | undefined {
+    return this.dbService?.remoteSync(this.pcrDB);
   }
 
-  getChangeListener(): EventEmitter<any> {
-    return this.dbService.getChangeListener(this.pcrDB);
+  getChangeListener(): EventEmitter<any> | undefined {
+    return this.dbService?.getChangeListener(this.pcrDB);
   }
 
-  get(id: string): Promise<any> {
-    return this.dbService.get(this.pcrDB, id);
+  get(id: string): Promise<any> | undefined {
+    return this.dbService?.get(this.pcrDB, id);
   }
 
   create(doc: ExistingDoc): Promise<any> {

@@ -25,7 +25,7 @@ export class InfiniteListComponent {
 
   constructor(private newsService: NewsService) {}
 
-  loadNext(cardData) {
+  loadNext(cardData: any) {
     if (cardData.loading) { return; }
 
     cardData.loading = true;

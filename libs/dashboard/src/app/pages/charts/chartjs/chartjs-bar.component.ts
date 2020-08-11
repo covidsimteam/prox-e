@@ -13,10 +13,10 @@ export class ChartjsBarComponent implements OnDestroy {
   themeSubscription: any;
 
   constructor(private theme: NbThemeService) {
-    this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
+    this.themeSubscription = this.theme.getJsTheme().subscribe((config: any) => {
 
-      const colors: any = config.variables;
-      const chartjs: any = config.variables.chartjs;
+      const colors: any = config?.variables;
+      const chartjs: any = config?.variables?.chartjs;
 
       this.data = {
         labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],

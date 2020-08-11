@@ -7,7 +7,7 @@ import { Database } from '../../models/domain.model';
 })
 export class RolesService {
 
-  private readonly roles = [
+  private readonly roleArr = [
     'user',
     'municipality_admin',
     'municipality_officer',
@@ -42,4 +42,6 @@ export class RolesService {
   checkedAddRoles(): void {
     this.pouchDbService.getAll(Database.matrix);
   }
+
+  get roles(): string[] { return this.roleArr; }
 }

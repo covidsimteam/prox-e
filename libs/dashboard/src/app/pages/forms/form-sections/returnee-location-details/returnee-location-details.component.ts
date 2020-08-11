@@ -14,10 +14,10 @@ export class ReturneeLocationDetailsComponent implements OnInit {
   nepalAndNeighbors: string[];
 
   provinces: string[];
-  districts = { destinationOpts: [], addressOpts: []};
+  districts = { destinationOpts: {}, addressOpts: {}};
 
-  permanentAddrProvince: string = null;
-  finalDestProvince: string = null;
+  permanentAddrProvince: string = '';
+  finalDestProvince: string = '';
 
   constructor() { }
 
@@ -25,17 +25,17 @@ export class ReturneeLocationDetailsComponent implements OnInit {
     this.countries = COUNTRIES;
     this.nearbyCountries = NEARBY_COUNTRIES;
     this.nepalAndNeighbors = ['Nepal', ...NEARBY_COUNTRIES];
-    this.provinces = PROVINCES.map(province => province.name);
+    this.provinces = PROVINCES?.map(province => province.name);
   }
 
   changeAddrProvince(event: string) {
     this.permanentAddrProvince = event;
-    this.districts.addressOpts = PROVINCES.find(province => province.name === this.permanentAddrProvince).districts;
+    this.districts.addressOpts = PROVINCES?.find(province => province.name === this.finalDestProvince)?.districts;
   }
 
   changeDestProvince(event: string) {
     this.finalDestProvince = event;
-    this.districts.destinationOpts = PROVINCES.find(province => province.name === this.finalDestProvince).districts;
+    this.districts.destinationOpts = PROVINCES?.find(province => province.name === this.finalDestProvince)?.districts;
   }
 
 }

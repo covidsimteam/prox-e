@@ -9,7 +9,7 @@ export class EarningService extends EarningData {
   private currentValue = Math.random() * 1000;
   private ONE_DAY = 24 * 3600 * 1000;
 
-  private pieChartData = [
+  private pieChartData: any = [
     {
       value: 50,
       name: 'Bitcoin',
@@ -24,7 +24,7 @@ export class EarningService extends EarningData {
     },
   ];
 
-  private liveUpdateChartData = {
+  private liveUpdateChartData: any = {
     bitcoin: {
       liveChart: [],
       delta: {
@@ -56,7 +56,7 @@ export class EarningService extends EarningData {
     this.currentValue = Math.random() * 1000;
 
     return Array.from(Array(elementsNumber))
-      .map(item => this.generateRandomLiveChartData());
+      .map(_ => this.generateRandomLiveChartData());
   }
 
   generateRandomLiveChartData() {
@@ -79,8 +79,8 @@ export class EarningService extends EarningData {
     };
   }
 
-  getEarningLiveUpdateCardData(currency): Observable<any[]> {
-    const data = this.liveUpdateChartData[currency.toLowerCase()];
+  getEarningLiveUpdateCardData(currency: any): Observable<any[]> {
+    const data: any = this.liveUpdateChartData[currency.toLowerCase()];
     const newValue = this.generateRandomLiveChartData();
 
     data.liveChart.shift();
@@ -90,7 +90,7 @@ export class EarningService extends EarningData {
   }
 
   getEarningCardData(currency: string): Observable<LiveUpdateChart> {
-    const data = this.liveUpdateChartData[currency.toLowerCase()];
+    const data: any = this.liveUpdateChartData[currency.toLowerCase()];
 
     data.liveChart = this.getDefaultLiveChartData(150);
 

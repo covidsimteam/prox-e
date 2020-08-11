@@ -13,16 +13,16 @@ export class ChartjsPieComponent implements OnDestroy {
   themeSubscription: any;
 
   constructor(private theme: NbThemeService) {
-    this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
+    this.themeSubscription = this.theme.getJsTheme().subscribe((config: any) => {
 
-      const colors: any = config.variables;
-      const chartjs: any = config.variables.chartjs;
+      const colors: any = config?.variables;
+      const chartjs: any = config?.variables?.chartjs;
 
       this.data = {
         labels: ['Download Sales', 'In-Store Sales', 'Mail Sales'],
         datasets: [{
           data: [300, 500, 100],
-          backgroundColor: [colors.primaryLight, colors.infoLight, colors.successLight],
+          backgroundColor: [colors?.primaryLight, colors?.infoLight, colors?.successLight],
         }],
       };
 

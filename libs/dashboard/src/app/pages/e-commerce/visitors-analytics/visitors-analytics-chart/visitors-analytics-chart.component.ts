@@ -45,13 +45,13 @@ export class ECommerceVisitorsAnalyticsChartComponent implements AfterViewInit, 
         takeWhile(() => this.alive),
       )
       .subscribe(config => {
-        const eTheme: any = config.variables.visitors;
+        const eTheme: any = config?.variables?.visitors;
 
         this.setOptions(eTheme);
     });
   }
 
-  setOptions(eTheme) {
+  setOptions(eTheme: any) {
     this.option = {
       grid: {
         left: 40,
@@ -77,7 +77,7 @@ export class ECommerceVisitorsAnalyticsChartComponent implements AfterViewInit, 
         backgroundColor: eTheme.tooltipBg,
         borderColor: eTheme.tooltipBorderColor,
         borderWidth: 1,
-        formatter: (params) => {
+        formatter: (params: any) => {
           return Math.round(parseInt(params[0].value, 10));
         },
         extraCssText: eTheme.tooltipExtraCss,
@@ -132,7 +132,7 @@ export class ECommerceVisitorsAnalyticsChartComponent implements AfterViewInit, 
     };
   }
 
-  getOuterLine(eTheme) {
+  getOuterLine(eTheme: any) {
     return {
       type: 'line',
       smooth: true,
@@ -179,7 +179,7 @@ export class ECommerceVisitorsAnalyticsChartComponent implements AfterViewInit, 
     };
   }
 
-  getInnerLine(eTheme) {
+  getInnerLine(eTheme: any) {
     return {
       type: 'line',
       smooth: true,
@@ -219,7 +219,7 @@ export class ECommerceVisitorsAnalyticsChartComponent implements AfterViewInit, 
     };
   }
 
-  onChartInit(echarts) {
+  onChartInit(echarts: any) {
     this.echartsIntance = echarts;
   }
 

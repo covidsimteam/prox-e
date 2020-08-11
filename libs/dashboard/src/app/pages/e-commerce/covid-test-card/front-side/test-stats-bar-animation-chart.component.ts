@@ -37,14 +37,14 @@ export class PcrStatsBarAnimationChartComponent implements AfterViewInit, OnDest
   ngAfterViewInit() {
     this.theme.getJsTheme()
       .pipe(takeWhile(() => this.alive))
-      .subscribe(config => {
-        const profitBarAnimationEchart: any = config.variables.profitBarAnimationEchart;
+      .subscribe((config: any) => {
+        const profitBarAnimationEchart: any = config?.variables?.profitBarAnimationEchart;
 
         this.setChartOption(profitBarAnimationEchart);
     });
   }
 
-  setChartOption(chartVariables) {
+  setChartOption(chartVariables: any) {
     this.options = {
       color: [
         chartVariables.firstAnimationBarColor,
@@ -79,7 +79,7 @@ export class PcrStatsBarAnimationChartComponent implements AfterViewInit, OnDest
         backgroundColor: chartVariables.tooltipBg,
         borderColor: chartVariables.tooltipBorderColor,
         borderWidth: chartVariables.tooltipBorderWidth,
-        formatter: params => `${Math.round(parseInt(params.value, 10))}`,
+        formatter: (params: any) => `${Math.round(parseInt(params.value, 10))}`,
         extraCssText: chartVariables.tooltipExtraCss,
       },
       xAxis: [
@@ -123,21 +123,21 @@ export class PcrStatsBarAnimationChartComponent implements AfterViewInit, OnDest
           name: 'transactions',
           type: 'bar',
           data: this.linesData.firstLine,
-          animationDelay: idx => idx * 10,
+          animationDelay: (idx: any) => idx * 10,
         },
         {
           name: 'orders',
           type: 'bar',
           data: this.linesData.secondLine,
-          animationDelay: idx => idx * 10 + 100,
+          animationDelay: (idx: any) => idx * 10 + 100,
         },
       ],
       animationEasing: 'elasticOut',
-      animationDelayUpdate: idx => idx * 5,
+      animationDelayUpdate: (idx: any) => idx * 5,
     };
   }
 
-  onChartInit(echarts) {
+  onChartInit(echarts: any) {
     this.echartsIntance = echarts;
   }
 

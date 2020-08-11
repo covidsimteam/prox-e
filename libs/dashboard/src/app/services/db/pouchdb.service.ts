@@ -26,28 +26,28 @@ export class PouchDBService {
     });
   }
 
-  public instance(dbName: Database): PouchDB.Database {
+  public instance(dbName: Database): PouchDB.Database<{}> | undefined {
     if (this.getDBInstance(dbName)) return this.getDBInstance(dbName);
     return (this.databases[dbName].instance = new PouchDB(this.databases[dbName].name));
   }
 
-  private getDBInstance(dbName: Database): PouchDB.Database {
-    return this.databases[dbName].instance;
+  private getDBInstance(dbName: Database): PouchDB.Database<{}> | undefined {
+    return this.databases[dbName]?.instance;
   }
 
-  getRemoteDBInstance(dbName: Database): PouchDB.Database {
-    return this.databases[dbName].remoteInstance;
+  getRemoteDBInstance(dbName: Database): PouchDB.Database<{}> | undefined {
+    return this.databases[dbName]?.remoteInstance;
   }
 
-  getChangeListener(dbName: Database): EventEmitter<any> {
-    return this.databases[dbName].listener;
+  getChangeListener(dbName: Database): EventEmitter<any> | undefined {
+    return this.databases[dbName]?.listener || undefined;
   }
 
-  async get(dbName: Database, id: string): Promise<any> {
+  async get(dbName: Database, id: string): Promise<any | undefined> {
     try {
-      return await this.getDBInstance(dbName).get(id);
+      return await this.getDBInstance(dbName)?.get(id);
     } catch (error) {
-      return this.getRemoteDBInstance(dbName).get(id);
+      return this.getRemoteDBInstance(dbName)?.get(id);
     }
   }
 
@@ -56,28 +56,28 @@ export class PouchDBService {
    * for fail fast response directly from the SSOT.
    * TODO reverse this behavior for cases with very large payloads
   */
-  async addAll(dbName: Database, docs: Doc[]): Promise<BulkAddResponse> {
+  async addAll(dbName: Database, docs: Doc[]): Promise<BulkAddResponse | undefined> {
     const remoteDB = this.getRemoteDBInstance(dbName);
     const localDB = this.instance(dbName);
 
-    if (!remoteDB) return localDB.bulkDocs(docs);
+    if (!remoteDB) return localDB?.bulkDocs(docs);
 
     try {
-      await remoteDB.info(); // throws error with status: 404 if not available
+      await remoteDB?.info(); // throws error with status: 404 if not available
     } catch (error) {
-      return localDB.bulkDocs(docs);
+      return localDB?.bulkDocs(docs);
     }
 
-    return remoteDB.bulkDocs(docs);
+    return remoteDB?.bulkDocs(docs);
   }
 
-  async getAll(dbName: Database): Promise<any> {
+  async getAll(dbName: Database): Promise<any | undefined> {
     const remoteDB = this.getRemoteDBInstance(dbName);
     const localDB = this.instance(dbName);
 
     if (localDB) return localDB.allDocs();
 
-    return remoteDB.allDocs();
+    return remoteDB?.allDocs();
   }
 
   /**
@@ -86,7 +86,7 @@ export class PouchDBService {
   async createUsingPost(dbName: Database, doc: Doc): Promise<any> {
     const dbInstance = this.getDBInstance(dbName);
     try {
-      return await dbInstance.post(doc);
+      return await dbInstance?.post(doc);
     } catch (error) {
       return new Promise((_, reject) => reject(error));
     }
@@ -98,7 +98,7 @@ export class PouchDBService {
   async create(dbName: Database, doc: ExistingDoc): Promise<any> {
     const dbInstance = this.getDBInstance(dbName);
     try {
-      return await dbInstance.put(doc);
+      return await dbInstance?.put(doc);
     } catch (error) {
       return new Promise((_, reject) => reject(error));
     }
@@ -112,7 +112,7 @@ export class PouchDBService {
     try {
       const result = await this.get(dbName, doc._id);
       doc._rev = result._rev;
-      return dbInstance.put(doc);
+      return dbInstance?.put(doc);
     } catch (error) {
       return new Promise((_, reject) => reject(error));
     }
@@ -129,23 +129,23 @@ export class PouchDBService {
     }
   }
 
-  remoteLogin(dbName: Database): PouchDB.Database {
+  remoteLogin(dbName: Database): PouchDB.Database<{}> | undefined {
     if (this.getRemoteDBInstance(dbName)) return this.getRemoteDBInstance(dbName);
 
     const remoteDB = new PouchDB(`${this.environment.dbUri}/${dbName}`, {
       skip_setup: true,
     });
 
-    if (!this.authService.isAuthenticated) return;
+    if (!this?.authService?.isAuthenticated) return this.getRemoteDBInstance(dbName);
 
-    from(remoteDB.logIn(this.authService.user, this.authService.pass)).subscribe(_ => {
+    from(remoteDB.logIn(this.authService?.user, this.authService?.pass)).subscribe(_ => {
       this.databases[dbName].remoteInstance = remoteDB;
     });
 
     return this.getRemoteDBInstance(dbName);
   }
 
-  remoteSync(dbName: Database): EventEmitter<any> {
+  remoteSync(dbName: Database): EventEmitter<any> | undefined {
     if (this.getRemoteDBInstance(dbName)) return this.getChangeListener(dbName);
 
     const dbMeta = this.databases[dbName];
@@ -153,18 +153,18 @@ export class PouchDBService {
       skip_setup: true,
     });
 
-    if (!this.authService.isAuthenticated) return;
+    if (!this.authService.isAuthenticated) return this.getChangeListener(dbName);
 
     const localDB = dbMeta.instance ? dbMeta.instance : this.instance(dbName);
 
-    const emitOnChange = (change: any) => dbMeta.listener.emit(change);
+    const emitOnChange = (change: any) => dbMeta?.listener?.emit(change);
 
-    from(remoteDB.logIn(this.authService.user, this.authService.pass))
+    from(remoteDB.logIn(this.authService?.user, this.authService?.pass))
         .subscribe(_ => {
 
           this.databases[dbName].remoteInstance = remoteDB;
 
-          localDB.sync(remoteDB, { live: true })
+          localDB?.sync(remoteDB, { live: true })
             .on('change', emitOnChange)
             .on('complete', emitOnChange)
             .on('error', (err: any) => this.logger.error(err));

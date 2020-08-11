@@ -41,7 +41,7 @@ export class MapUtilsService {
       position: 'topleft',
       title: 'Enter Fullscreen',
       titleCancel: 'Exit Fullscreen',
-      content: null,
+      content: '',
       forceSeparateButton: true,
       forcePseudoFullscreen: true,
       fullscreenElement: false,

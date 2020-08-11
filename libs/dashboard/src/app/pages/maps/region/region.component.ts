@@ -18,7 +18,7 @@ const defaultAreaKey = 'kathmandu_valley';
   styleUrls: ['./region.component.scss'],
 })
 export class RegionComponent implements OnInit, OnDestroy {
-  region: string;
+  region: string = 'Kathmandu Valley';
   type: string;
 
   loading = true;
@@ -26,7 +26,7 @@ export class RegionComponent implements OnInit, OnDestroy {
   private componentAlive = true;
 
   private map: L.Map;
-  private mapReady: BehaviorSubject<Boolean> = new BehaviorSubject(false);
+  private mapReady: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   layersControl: any;
 
@@ -52,7 +52,7 @@ export class RegionComponent implements OnInit, OnDestroy {
 
   private stats: Area.Stats;
   private wards: FeatureCollection<WardProperties>;
-  private wardDataReceived: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  private wardDataReceived: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private featureGroup: L.FeatureGroup;
   private markerClusterGroup: L.MarkerClusterGroup;
 
@@ -66,8 +66,9 @@ export class RegionComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.route.paramMap.pipe(takeWhile(this.isAlive)).subscribe((params: ParamMap) => {
-      this.region = params.get('name') ? params.get('name').replace(/_/g, ' ') : 'Kathmandu Valley';
-      this.type = params.get('type') || 'returnees';
+      const paramName = params?.get('name');
+      this.region =  paramName?.replace(/_/g, ' ') || this.region;
+      this.type = params?.get('type') || 'returnees';
     });
     this.layersControl = {...this.mapUtilsService.baseLayers, overlays: {}};
     this.receiveAndSetWards();
@@ -96,11 +97,12 @@ export class RegionComponent implements OnInit, OnDestroy {
     this.featureGroup = L.featureGroup();
     this.featureGroup.addLayer(this.markerClusterGroup);
     this.stats.data.forEach(datum => {
-      const foundFeature = this.wards.features.find(feature => datum.DDGNWW === feature.properties.DDGNWW);
-      const pointOfInaccessibility = polylabel(foundFeature.geometry.coordinates) as [number, number];
-      const poiLabelMarker = this.mapUtilsService.getDefaultMarker(pointOfInaccessibility);
+      const foundFeature: any = this.wards?.features?.find(feature => datum?.DDGNWW === feature?.properties?.DDGNWW);
+      if (!foundFeature && !foundFeature?.geometry) return;
+      const pointOfInaccessibility = polylabel(foundFeature?.geometry?.coordinates) as [number, number];
+      const poiLabelMarker = this.mapUtilsService?.getDefaultMarker(pointOfInaccessibility);
       this.setPopup(poiLabelMarker, datum, foundFeature);
-      this.markerClusterGroup.addLayer(poiLabelMarker);
+      this.markerClusterGroup?.addLayer(poiLabelMarker);
     });
     this.layersControl.overlays['Stats'] = this.markerClusterGroup;
     this.mapReady.subscribe(ready => {
@@ -141,7 +143,7 @@ export class RegionComponent implements OnInit, OnDestroy {
   }
 
   // Do not use angular component to replace this
-  private setPopup(poiMarker: L.Marker, datum: Area.Datum, feature: Feature<WardProperties>) {
+  private setPopup(poiMarker: L.Marker, datum: Area.Datum, feature: Feature<WardProperties> | undefined) {
     const popup = L.popup({ maxWidth: 100 });
     const returneeTotal = datum.Returnee.Quarantined + datum.Returnee.Not_Quarantined;
     const pcrTotal = datum.PCR.Positive + datum.PCR.Negative;
@@ -179,17 +181,17 @@ export class RegionComponent implements OnInit, OnDestroy {
         <thead>
           <tr>
             <th class="tg-y698" colspan="2">District</th>
-            <th class="tg-y698" colspan="3">${feature.properties.DISTRICT}</th>
+            <th class="tg-y698" colspan="3">${feature?.properties?.DISTRICT}</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td class="tg-0pky" colspan="2">Palika</td>
-            <td class="tg-0pky" colspan="3">${feature.properties.GaPa_NaPa}</td>
+            <td class="tg-0pky" colspan="3">${feature?.properties?.GaPa_NaPa}</td>
           </tr>
           <tr>
             <td class="tg-y698" colspan="2">Ward No</td>
-            <td class="tg-y698" colspan="3">${feature.properties.NEW_WARD_N}</td>
+            <td class="tg-y698" colspan="3">${feature?.properties?.NEW_WARD_N}</td>
           </tr>
           <tr>
             <td class="tg-266k" colspan="2">Returnee</td>

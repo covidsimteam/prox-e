@@ -23,16 +23,16 @@ export class EarningPieChartComponent implements AfterViewInit, OnDestroy {
   private alive = true;
 
   options: any = {};
-  echartsInstance;
+  echartsInstance: any;
 
   constructor(private theme: NbThemeService) {
   }
 
-  onChartInit(ec) {
+  onChartInit(ec: any) {
     this.echartsInstance = ec;
   }
 
-  onChartClick(event) {
+  onChartClick(event: any) {
     const pieData = {
       value: event.value,
       name: event.name,
@@ -57,7 +57,7 @@ export class EarningPieChartComponent implements AfterViewInit, OnDestroy {
 
         this.options = this.getOptions(variables);
         const defaultSelectedData =
-          this.options.series[0].data.find((item) => item.name === this.defaultSelectedCurrency);
+          this.options.series[0].data.find((item: any) => item.name === this.defaultSelectedCurrency);
         const color = defaultSelectedData.itemStyle.normal.color.colorStops[0].color;
         const pieData = {
           value: defaultSelectedData.value,
@@ -69,7 +69,7 @@ export class EarningPieChartComponent implements AfterViewInit, OnDestroy {
       });
   }
 
-  getOptions(variables) {
+  getOptions(variables: any) {
     const earningPie: any = variables.earningPie;
 
     return {

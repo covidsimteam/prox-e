@@ -26,7 +26,7 @@ export class ReturneeTableService extends TabularService {
       const tableHeaders = await this.returneeService.getTableHeaders();
       const rowsData = await this.returneeService.getAllWards();
       return rowsData.map((item: RETTupleRev) => {
-        const columnObj = {};
+        const columnObj: any | {} = {};
         tableHeaders.forEach((header, index) => {
           columnObj[header[0]] = item[index];
         });

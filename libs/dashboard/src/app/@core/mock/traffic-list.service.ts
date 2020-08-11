@@ -7,7 +7,7 @@ import { TrafficList, TrafficListData } from '../data/traffic-list';
 export class TrafficListService extends TrafficListData {
 
   private getRandom = (roundTo: number) => Math.round(Math.random() * roundTo);
-  private data = {};
+  private data: any = {};
 
   constructor(private period: PeriodsService) {
     super();
@@ -18,7 +18,7 @@ export class TrafficListService extends TrafficListData {
     };
   }
 
-  private getDataWeek(): TrafficList[] {
+  private getDataWeek(): TrafficList[] | string {
     const getFirstDateInPeriod = () => {
       const weeks = this.period.getWeeks();
 
@@ -28,7 +28,7 @@ export class TrafficListService extends TrafficListData {
     return this.reduceData(this.period.getWeeks(), getFirstDateInPeriod);
   }
 
-  private getDataMonth(): TrafficList[] {
+  private getDataMonth(): TrafficList[] | string  {
     const getFirstDateInPeriod = () => {
       const months = this.period.getMonths();
 
@@ -38,7 +38,7 @@ export class TrafficListService extends TrafficListData {
     return this.reduceData(this.period.getMonths(), getFirstDateInPeriod);
   }
 
-  private getDataYear(): TrafficList[] {
+  private getDataYear(): TrafficList[]  | string {
     const getFirstDateInPeriod = () => {
       const years = this.period.getYears();
 
@@ -48,14 +48,14 @@ export class TrafficListService extends TrafficListData {
     return this.reduceData(this.period.getYears(), getFirstDateInPeriod);
   }
 
-  private reduceData(timePeriods: string[], getFirstDateInPeriod: () => string): TrafficList[] {
-    return timePeriods.reduce((result, timePeriod, index) => {
+  private reduceData(timePeriods: string[], getFirstDateInPeriod: () => string): TrafficList[] | string {
+    return timePeriods.reduce((result: any, timePeriod: any, index: any) => {
       const hasResult = result[index - 1];
       const prevDate = hasResult ?
-        result[index - 1].comparison.nextDate :
+        result[index - 1]?.comparison?.nextDate :
         getFirstDateInPeriod();
       const prevValue = hasResult ?
-        result[index - 1].comparison.nextValue :
+        result[index - 1]?.comparison?.nextValue :
         this.getRandom(100);
       const nextValue = this.getRandom(100);
       const deltaValue = prevValue - nextValue;

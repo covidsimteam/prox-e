@@ -6,7 +6,7 @@ import { TrafficBarData, TrafficBar } from '../data/traffic-bar';
 @Injectable()
 export class TrafficBarService extends TrafficBarData {
 
-  private data = { };
+  private data: any = {};
 
   constructor(private period: PeriodsService) {
     super();
