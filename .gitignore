@@ -1,5 +1,6 @@
 lib
 public
+build
 /reports
 .DS_Store
 .idea

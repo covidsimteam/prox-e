@@ -55,6 +55,7 @@ let ThemeModule = ThemeModule_1 = class ThemeModule {
         return {
             ngModule: ThemeModule_1,
             providers: [
+                // tslint:disable-next-line: no-non-null-assertion
                 ...theme_1.NbThemeModule.forRoot({
                     name: 'default',
                 }, [theme_default_1.DEFAULT_THEME, theme_cosmic_1.COSMIC_THEME, theme_corporate_1.CORPORATE_THEME, theme_dark_1.DARK_THEME]).providers,
