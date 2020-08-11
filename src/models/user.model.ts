@@ -4,3 +4,9 @@ export interface Credentials {
 }
 
 export type User = Credentials;
+
+export enum CovAuthOption {
+  signUp = 'signUp',
+  signIn = 'signIn',
+  signOut = 'signOut'
+}

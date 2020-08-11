@@ -1,8 +1,9 @@
-
-import { AuthService } from '../services/auth.service';
-import { Body, Controller, Post, Response, Route, SuccessResponse, Tags } from 'tsoa';
+import { Controller, Route } from 'tsoa';
 import motherLogger from '../logger';
-import { Credentials } from '../models/user.model';
+import { AuthService } from '../services/auth.service';
+import { AccountService } from '../services/hoodie/account.service';
+import { HoodieService } from '../services/hoodie/hoodie.service';
+import { AuthOptions } from '../models/user.model';
 
 
 interface AuthErrorJSON {
@@ -16,42 +17,29 @@ export class AuthController extends Controller {
   private logger = motherLogger.child({file: 'auth.controller'});
   private authService: AuthService;
 
-  constructor() {
+  constructor(
+    private hoodie: 
+  ) {
     super();
-    this.authService = new AuthService();
+    this.authService = new AuthService(new AccountService(new HoodieService()));
     this.logger.info("AuthController -> constructor -> authService", this.authService)
   }
 
-
-  @Tags('Auth')
-  @SuccessResponse("201", "Token Created")
-  @Response<AuthErrorJSON>(401, "Authentication Failed")
-  @Post('jwt')
-  public async createJWT(
-    @Body() requestBody: Credentials
-  ): Promise<void> {
-    try {
-      this.setStatus(201);
-      this.authService.jwtAuth(requestBody.username, requestBody.password);
-    } catch (error) {
-      this.setStatus(401);
+  private token(email: string, pasword: string, option: CovAuthOption) {
+    switch (option) {
+      case option.:
+        
+        break;
+    
+      default:
+        break;
     }
   }
 
-  @Tags('Auth')
-  @SuccessResponse("201", "AuthSession Cookie Created")
-  @Response<AuthErrorJSON>(401, "Authentication Failed")
-  @Post('cookie')
-  public async createCookie(
-    @Body() requestBody: Credentials
-  ): Promise<void> {
-    try {
-      this.setStatus(201);
-      this.authService.cookieAuth(requestBody.username, requestBody.password);
-    } catch (error) {
-      this.setStatus(401);
-    }
+  login(email: string, password: string, option: AuthOptions) {
+    return this.token(email, password, option);
   }
+
 
 }
 
