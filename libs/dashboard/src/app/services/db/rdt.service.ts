@@ -21,7 +21,7 @@ export class RdtService implements DBService {
     this.remoteSync();
   }
 
-  instance() {
+  instance(): PouchDB.Database<{}> | undefined {
     return this.dbService.instance(this.rdtDB);
   }
 

@@ -14,54 +14,6 @@
       "path": "./src/tsconfig.spec.json"
     },
     {
-      "path": "./projects/concept/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/concept/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/queue/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/queue/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/entity/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/entity/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/identity/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/identity/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/ssot/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/ssot/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/process/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/process/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/key/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/key/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/meta/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/meta/tsconfig.spec.json"
-    },
-    {
       "path": "./projects/hgraph/tsconfig.lib.json"
     },
     {

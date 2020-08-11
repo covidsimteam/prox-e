@@ -20,26 +20,25 @@ let CovidSimTeamService = class CovidSimTeamService {
         this.instance();
     }
     instance() {
-        this.dbService.instance(this.teamDB);
+        return this.dbService.instance(this.teamDB);
     }
     remoteSync() {
-        return this.dbService.remoteSync(this.teamDB);
+        return this.dbService.remoteSync(this.teamDB) || undefined;
     }
     getChangeListener() {
-        var _a;
-        return (_a = this.dbService) === null || _a === void 0 ? void 0 : _a.getChangeListener(this.teamDB);
+        return this.dbService.getChangeListener(this.teamDB) || undefined;
     }
     get(id) {
-        return this.dbService.get(this.teamDB, id);
+        return this.dbService.get(this.teamDB, id) || undefined;
     }
     create(doc) {
-        return this.dbService.create(this.teamDB, doc);
+        return this.dbService.create(this.teamDB, doc) || undefined;
     }
     update(doc) {
-        return this.dbService.update(this.teamDB, doc);
+        return this.dbService.update(this.teamDB, doc) || undefined;
     }
     delete(doc) {
-        return this.dbService.delete(this.teamDB, doc);
+        return this.dbService.delete(this.teamDB, doc) || undefined;
     }
 };
 CovidSimTeamService = __decorate([

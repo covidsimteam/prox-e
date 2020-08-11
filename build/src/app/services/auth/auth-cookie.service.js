@@ -8,15 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthCookieService = void 0;
 const core_1 = require("@angular/core");
@@ -28,25 +19,21 @@ let AuthCookieService = class AuthCookieService {
         this.auditDB = domain_model_1.Database.audit;
         this.dbService.instance(this.auditDB);
     }
-    get() {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (!this.currentCookieId)
-                return Promise.reject();
-            return this.dbService.get(this.auditDB, this.currentCookieId);
-        });
+    async get() {
+        if (!this.currentCookieId)
+            return Promise.reject();
+        return this.dbService.get(this.auditDB, this.currentCookieId);
     }
-    create(doc) {
-        return __awaiter(this, void 0, void 0, function* () {
-            delete doc._id;
-            try {
-                const created = yield this.dbService.createUsingPost(this.auditDB, doc);
-                const { _id } = created;
-                this.currentCookieId = _id;
-            }
-            catch (error) {
-                return Promise.reject();
-            }
-        });
+    async create(doc) {
+        delete doc._id;
+        try {
+            const created = await this.dbService.createUsingPost(this.auditDB, doc);
+            const { _id } = created;
+            this.currentCookieId = _id;
+        }
+        catch (error) {
+            return Promise.reject();
+        }
     }
 };
 AuthCookieService = __decorate([

@@ -8,15 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RdtTableService = void 0;
 const core_1 = require("@angular/core");
@@ -32,59 +23,53 @@ let RdtTableService = class RdtTableService extends tabular_service_1.TabularSer
     getTableHeaders() {
         return rxjs_1.from(this.rdtService.getTableHeaders());
     }
-    getJsonData() {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const tableHeaders = yield this.rdtService.getTableHeaders();
-                const rowsData = yield this.rdtService.getAllDistricts();
-                return rowsData === null || rowsData === void 0 ? void 0 : rowsData.map((item) => {
-                    const columnObj = [];
-                    tableHeaders.forEach((header, index) => {
-                        columnObj[header[0]] = item[index];
-                    });
-                    return columnObj;
+    async getJsonData() {
+        try {
+            const tableHeaders = await this.rdtService.getTableHeaders();
+            const rowsData = await this.rdtService.getAllDistricts();
+            return rowsData === null || rowsData === void 0 ? void 0 : rowsData.map((item) => {
+                const columnObj = [];
+                tableHeaders.forEach((header, index) => {
+                    columnObj[header[0]] = item[index];
                 });
-            }
-            catch (error) {
-                throw Error('Unable to fetch RDT tests data');
-            }
-        });
+                return columnObj;
+            });
+        }
+        catch (error) {
+            throw Error('Unable to fetch RDT tests data');
+        }
     }
-    getCsvData() {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const tableHeaders = yield this.rdtService.getTableHeaders();
-                const rowsData = yield this.rdtService.getAllDistricts();
-                const csvFileContent = [];
-                // add header
-                csvFileContent.push(tableHeaders
-                    .map(headerAndType => headerAndType[0])
+    async getCsvData() {
+        try {
+            const tableHeaders = await this.rdtService.getTableHeaders();
+            const rowsData = await this.rdtService.getAllDistricts();
+            const csvFileContent = [];
+            // add header
+            csvFileContent.push(tableHeaders
+                .map(headerAndType => headerAndType[0])
+                .slice(1, tableHeaders.length - 1)
+                .join(','));
+            // add rows
+            rowsData === null || rowsData === void 0 ? void 0 : rowsData.forEach((rowItem) => {
+                csvFileContent.push(rowItem
                     .slice(1, tableHeaders.length - 1)
                     .join(','));
-                // add rows
-                rowsData === null || rowsData === void 0 ? void 0 : rowsData.forEach((rowItem) => {
-                    csvFileContent.push(rowItem
-                        .slice(1, tableHeaders.length - 1)
-                        .join(','));
-                });
-                return csvFileContent.join('\n');
-            }
-            catch (error) {
-                throw Error('Unable to fetch RDT tests data');
-            }
-        });
+            });
+            return csvFileContent.join('\n');
+        }
+        catch (error) {
+            throw Error('Unable to fetch RDT tests data');
+        }
     }
-    getCsvDataFile() {
-        return __awaiter(this, void 0, void 0, function* () {
-            const data = yield this.getCsvData();
-            const blob = new Blob([data], { type: 'text/csv' });
-            const tempAnchor = document.createElement('a');
-            tempAnchor.href = window.URL.createObjectURL(blob);
-            tempAnchor.download = 'rdt-test-cov-data-hub.csv';
-            document.body.appendChild(tempAnchor);
-            tempAnchor.click();
-            document.body.removeChild(tempAnchor);
-        });
+    async getCsvDataFile() {
+        const data = await this.getCsvData();
+        const blob = new Blob([data], { type: 'text/csv' });
+        const tempAnchor = document.createElement('a');
+        tempAnchor.href = window.URL.createObjectURL(blob);
+        tempAnchor.download = 'rdt-test-cov-data-hub.csv';
+        document.body.appendChild(tempAnchor);
+        tempAnchor.click();
+        document.body.removeChild(tempAnchor);
     }
     enableDBToTableSync(source) {
         super.enableDBToTableSyncTabular(source, this.rdtService);

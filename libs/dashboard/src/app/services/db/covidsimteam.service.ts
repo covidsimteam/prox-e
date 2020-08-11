@@ -15,31 +15,31 @@ export class CovidSimTeamService implements DBService {
     this.instance();
   }
 
-  instance() {
-    this.dbService.instance(this.teamDB);
+  instance(): PouchDB.Database<{}> | undefined {
+    return this.dbService.instance(this.teamDB);
   }
 
   remoteSync(): EventEmitter<any> | undefined {
-    return this.dbService.remoteSync(this.teamDB);
+    return this.dbService.remoteSync(this.teamDB) || undefined;
   }
 
   getChangeListener(): EventEmitter<any> | undefined {
-    return this.dbService?.getChangeListener(this.teamDB);
+    return this.dbService.getChangeListener(this.teamDB) || undefined;
   }
 
   get(id: string): Promise<any> | undefined {
-    return this.dbService.get(this.teamDB, id);
+    return this.dbService.get(this.teamDB, id) || undefined;
   }
 
   create(doc: ExistingDoc): Promise<any> | undefined {
-    return this.dbService.create(this.teamDB, doc);
+    return this.dbService.create(this.teamDB, doc) || undefined;
   }
 
-  update(doc: ExistingDoc): Promise<any> {
-    return this.dbService.update(this.teamDB, doc);
+  update(doc: ExistingDoc): Promise<any> | undefined {
+    return this.dbService.update(this.teamDB, doc) || undefined;
   }
 
-  delete(doc: ExistingDoc): Promise<any> {
-    return this.dbService.delete(this.teamDB, doc);
+  delete(doc: ExistingDoc): Promise<any> | undefined {
+    return this.dbService.delete(this.teamDB, doc) || undefined;
   }
 }

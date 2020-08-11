@@ -81,7 +81,8 @@ export class NbSimpleRoleProvider {
 }
 
 export const NB_CORE_PROVIDERS = [
-  ...MockDataModule?.forRoot()?.providers,
+  // tslint:disable-next-line: no-non-null-assertion
+  ...MockDataModule?.forRoot()?.providers!,
   ...DATA_SERVICES,
   AnalyticsService,
   LayoutService,

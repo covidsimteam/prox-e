@@ -39,7 +39,7 @@ export class RdtComponent implements OnInit {
     this.initializeHeadersAndSettings();
 
     // table contents init
-    this.rdtTableService.getRows().subscribe((rows) => {
+    this.rdtTableService.getRows().subscribe((rows: any) => {
       this.source.load(rows);
     });
 

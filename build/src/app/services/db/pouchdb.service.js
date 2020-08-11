@@ -8,15 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -58,102 +49,88 @@ let PouchDBService = class PouchDBService {
         var _a;
         return ((_a = this.databases[dbName]) === null || _a === void 0 ? void 0 : _a.listener) || undefined;
     }
-    get(dbName, id) {
+    async get(dbName, id) {
         var _a, _b;
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                return yield ((_a = this.getDBInstance(dbName)) === null || _a === void 0 ? void 0 : _a.get(id));
-            }
-            catch (error) {
-                return (_b = this.getRemoteDBInstance(dbName)) === null || _b === void 0 ? void 0 : _b.get(id);
-            }
-        });
+        try {
+            return await ((_a = this.getDBInstance(dbName)) === null || _a === void 0 ? void 0 : _a.get(id));
+        }
+        catch (error) {
+            return (_b = this.getRemoteDBInstance(dbName)) === null || _b === void 0 ? void 0 : _b.get(id);
+        }
     }
     /**
      * Unlike other create/update actions, bulk updates are tried first on the remote if available
      * for fail fast response directly from the SSOT.
      * TODO reverse this behavior for cases with very large payloads
     */
-    addAll(dbName, docs) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const remoteDB = this.getRemoteDBInstance(dbName);
-            const localDB = this.instance(dbName);
-            if (!remoteDB)
-                return localDB === null || localDB === void 0 ? void 0 : localDB.bulkDocs(docs);
-            try {
-                yield (remoteDB === null || remoteDB === void 0 ? void 0 : remoteDB.info()); // throws error with status: 404 if not available
-            }
-            catch (error) {
-                return localDB === null || localDB === void 0 ? void 0 : localDB.bulkDocs(docs);
-            }
-            return remoteDB === null || remoteDB === void 0 ? void 0 : remoteDB.bulkDocs(docs);
-        });
+    async addAll(dbName, docs) {
+        const remoteDB = this.getRemoteDBInstance(dbName);
+        const localDB = this.instance(dbName);
+        if (!remoteDB)
+            return localDB === null || localDB === void 0 ? void 0 : localDB.bulkDocs(docs);
+        try {
+            await (remoteDB === null || remoteDB === void 0 ? void 0 : remoteDB.info()); // throws error with status: 404 if not available
+        }
+        catch (error) {
+            return localDB === null || localDB === void 0 ? void 0 : localDB.bulkDocs(docs);
+        }
+        return remoteDB === null || remoteDB === void 0 ? void 0 : remoteDB.bulkDocs(docs);
     }
-    getAll(dbName) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const remoteDB = this.getRemoteDBInstance(dbName);
-            const localDB = this.instance(dbName);
-            if (localDB)
-                return localDB.allDocs();
-            return remoteDB === null || remoteDB === void 0 ? void 0 : remoteDB.allDocs();
-        });
+    async getAll(dbName) {
+        const remoteDB = this.getRemoteDBInstance(dbName);
+        const localDB = this.instance(dbName);
+        if (localDB)
+            return localDB.allDocs();
+        return remoteDB === null || remoteDB === void 0 ? void 0 : remoteDB.allDocs();
     }
     /**
      * Use only when the id of the doc is not relevant for its access patterns/queries
     */
-    createUsingPost(dbName, doc) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const dbInstance = this.getDBInstance(dbName);
-            try {
-                return yield (dbInstance === null || dbInstance === void 0 ? void 0 : dbInstance.post(doc));
-            }
-            catch (error) {
-                return new Promise((_, reject) => reject(error));
-            }
-        });
+    async createUsingPost(dbName, doc) {
+        const dbInstance = this.getDBInstance(dbName);
+        try {
+            return await (dbInstance === null || dbInstance === void 0 ? void 0 : dbInstance.post(doc));
+        }
+        catch (error) {
+            return new Promise((_, reject) => reject(error));
+        }
     }
     /**
      * Use this in most cases for creating a doc and make sure to assign a unique _id field yourself.
     */
-    create(dbName, doc) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const dbInstance = this.getDBInstance(dbName);
-            try {
-                return yield (dbInstance === null || dbInstance === void 0 ? void 0 : dbInstance.put(doc));
-            }
-            catch (error) {
-                return new Promise((_, reject) => reject(error));
-            }
-        });
+    async create(dbName, doc) {
+        const dbInstance = this.getDBInstance(dbName);
+        try {
+            return await (dbInstance === null || dbInstance === void 0 ? void 0 : dbInstance.put(doc));
+        }
+        catch (error) {
+            return new Promise((_, reject) => reject(error));
+        }
     }
     /**
      * Use when updating a doc whose current revision string is not known yet or is likely to have changed.
     */
-    update(dbName, doc) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const dbInstance = this.getDBInstance(dbName);
-            try {
-                const result = yield this.get(dbName, doc._id);
-                doc._rev = result._rev;
-                return dbInstance === null || dbInstance === void 0 ? void 0 : dbInstance.put(doc);
-            }
-            catch (error) {
-                return new Promise((_, reject) => reject(error));
-            }
-        });
+    async update(dbName, doc) {
+        const dbInstance = this.getDBInstance(dbName);
+        try {
+            const result = await this.get(dbName, doc._id);
+            doc._rev = result._rev;
+            return dbInstance === null || dbInstance === void 0 ? void 0 : dbInstance.put(doc);
+        }
+        catch (error) {
+            return new Promise((_, reject) => reject(error));
+        }
     }
-    delete(dbName, doc) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const result = yield this.get(dbName, doc._id);
-                doc._rev = result._rev;
-                doc._deleted = true;
-                return this.update(dbName, doc);
-            }
-            catch (error) {
-                return new Promise((_, reject) => reject(error));
-            }
-        });
+    async delete(dbName, doc) {
+        try {
+            const result = await this.get(dbName, doc._id);
+            doc._rev = result._rev;
+            doc._deleted = true;
+            return this.update(dbName, doc);
+        }
+        catch (error) {
+            return new Promise((_, reject) => reject(error));
+        }
     }
     remoteLogin(dbName) {
         var _a, _b, _c;

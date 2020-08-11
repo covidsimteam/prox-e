@@ -39,7 +39,7 @@ export class PcrComponent implements OnInit {
     this.initializeHeadersAndSettings();
 
     // table contents init
-    this.pcrTableService.getRows().subscribe((rows) => {
+    this.pcrTableService.getRows().subscribe((rows: any) => {
       this.source.load(rows);
     });
 

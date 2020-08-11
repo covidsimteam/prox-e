@@ -82,12 +82,13 @@ export class ThemeModule {
     return {
       ngModule: ThemeModule,
       providers: [
+        // tslint:disable-next-line: no-non-null-assertion
         ...NbThemeModule.forRoot(
           {
             name: 'default',
           },
           [ DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME, DARK_THEME ],
-        ).providers,
+        ).providers!,
       ],
     };
   }

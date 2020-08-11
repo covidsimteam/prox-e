@@ -27,15 +27,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -121,19 +112,17 @@ let NationComponent = class NationComponent {
         this.fetchLabelFeatures();
         this.receiveAndSetStats();
     }
-    fetchLabelFeatures() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.setLayerFromBucket(this.mapLayerDistrict);
-            this.setLayerFromBucket(this.mapLayerProvince, {
-                'color': '#043EB9',
-                'weight': 5,
-                'opacity': 0.65
-            });
-            this.setLayerFromBucket(this.mapLayerRoads, {
-                'color': '#2E70E4',
-                'weight': 3,
-                'opacity': 0.65
-            });
+    async fetchLabelFeatures() {
+        this.setLayerFromBucket(this.mapLayerDistrict);
+        this.setLayerFromBucket(this.mapLayerProvince, {
+            'color': '#043EB9',
+            'weight': 5,
+            'opacity': 0.65
+        });
+        this.setLayerFromBucket(this.mapLayerRoads, {
+            'color': '#2E70E4',
+            'weight': 3,
+            'opacity': 0.65
         });
     }
     setLayerFromBucket(layer, style) {
@@ -151,27 +140,25 @@ let NationComponent = class NationComponent {
     raiseQuadDataCount() {
         this.quadDataCounter.next(this.quadDataCounter.getValue() + 1);
     }
-    receiveAndSetStats() {
-        return __awaiter(this, void 0, void 0, function* () {
-            rxjs_1.merge(this.regionService.getCacheDistrictHealthStats(), this.regionService.getCacheDistrictWiseCensus(), rxjs_1.from(this.returneeService.getAllWards())).subscribe((stats) => {
-                if (health_stats_model_1.HealthStats.isDistrictHealthStats(stats)) {
-                    this.districtsHealthStats = stats;
-                    this.raiseQuadDataCount();
-                }
-                else if (census_model_1.Census2011.isDistrictCensus(stats)) {
-                    this.districtPopulation = stats;
-                    this.raiseQuadDataCount();
-                }
-                else {
-                    this.returneeStats = stats;
-                    this.raiseQuadDataCount();
-                }
-            });
-            // wait for all 5 data sets to be received first
-            this.quadDataCounter.subscribe((count) => {
-                if (count === 4)
-                    this.setStats();
-            });
+    async receiveAndSetStats() {
+        rxjs_1.merge(this.regionService.getCacheDistrictHealthStats(), this.regionService.getCacheDistrictWiseCensus(), rxjs_1.from(this.returneeService.getAllWards())).subscribe((stats) => {
+            if (health_stats_model_1.HealthStats.isDistrictHealthStats(stats)) {
+                this.districtsHealthStats = stats;
+                this.raiseQuadDataCount();
+            }
+            else if (census_model_1.Census2011.isDistrictCensus(stats)) {
+                this.districtPopulation = stats;
+                this.raiseQuadDataCount();
+            }
+            else {
+                this.returneeStats = stats;
+                this.raiseQuadDataCount();
+            }
+        });
+        // wait for all 5 data sets to be received first
+        this.quadDataCounter.subscribe((count) => {
+            if (count === 4)
+                this.setStats();
         });
     }
     findByNameFromReturneeStats(districtName) {

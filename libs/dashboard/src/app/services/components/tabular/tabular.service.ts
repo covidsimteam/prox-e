@@ -12,9 +12,9 @@ export abstract class TabularService {
   constructor() { }
 
   protected abstract getTableHeaders(): Observable<string[][]>;
-  protected abstract async getJsonData(): Promise<{}[]>;
+  protected abstract async getJsonData(): Promise<{}[] | undefined>;
 
-  getRows(): Observable<{}[]> {
+  getRows(): Observable<{}[] | undefined> {
     return from(this.getJsonData());
   }
 

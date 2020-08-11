@@ -42,7 +42,7 @@ export class ReturneeComponent implements OnInit {
     this.initializeHeadersAndSettings();
 
     // table contents init
-    this.returneeTableService.getRows().subscribe((rows) => {
+    this.returneeTableService.getRows().subscribe((rows: any) => {
       this.source.load(rows);
     });
 

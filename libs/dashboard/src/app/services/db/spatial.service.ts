@@ -16,7 +16,7 @@ export class SpatialService implements DBService {
     this.remoteLogin();
   }
 
-  instance() {
+  instance(): PouchDB.Database<{}> | undefined {
     return this.dbService.instance(this.spatialDB);
   }
 
