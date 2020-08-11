@@ -38,7 +38,7 @@ let RdtTableService = class RdtTableService extends tabular_service_1.TabularSer
                 const tableHeaders = yield this.rdtService.getTableHeaders();
                 const rowsData = yield this.rdtService.getAllDistricts();
                 return rowsData === null || rowsData === void 0 ? void 0 : rowsData.map((item) => {
-                    const columnObj = {};
+                    const columnObj = [];
                     tableHeaders.forEach((header, index) => {
                         columnObj[header[0]] = item[index];
                     });

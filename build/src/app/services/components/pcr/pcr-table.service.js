@@ -38,7 +38,7 @@ let PcrTableService = class PcrTableService extends tabular_service_1.TabularSer
                 const tableHeaders = yield this.pcrService.getTableHeaders();
                 const rowsData = yield this.pcrService.getAllDistricts();
                 return rowsData === null || rowsData === void 0 ? void 0 : rowsData.map((item) => {
-                    const columnObj = {};
+                    const columnObj = [];
                     tableHeaders.forEach((header, index) => {
                         columnObj[header[0]] = item[index];
                     });

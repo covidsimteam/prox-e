@@ -16,7 +16,7 @@ class SymptomRecord {
 }
 let FormHospitalComponent = class FormHospitalComponent {
     constructor() {
-        this.districts = { destinationOpts: {}, addressOpts: {} };
+        this.districts = { destinationOpts: this.destinationOpts, addressOpts: this.addressOpts };
         this.permanentAddrProvince = '';
         this.finalDestProvince = '';
         this.addTransitCountries = false;

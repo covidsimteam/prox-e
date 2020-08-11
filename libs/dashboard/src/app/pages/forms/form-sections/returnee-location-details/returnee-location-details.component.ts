@@ -14,7 +14,9 @@ export class ReturneeLocationDetailsComponent implements OnInit {
   nepalAndNeighbors: string[];
 
   provinces: string[];
-  districts = { destinationOpts: {}, addressOpts: {}};
+  destinationOpts: string[] | undefined;
+  addressOpts: string[] | undefined;
+  districts = { destinationOpts: this.destinationOpts, addressOpts: this.addressOpts};
 
   permanentAddrProvince: string = '';
   finalDestProvince: string = '';

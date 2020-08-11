@@ -21,12 +21,12 @@ export class PcrTableService extends TabularService {
     return from(this.pcrService.getTableHeaders());
   }
 
-  protected async getJsonData(): Promise<{}[]> {
+  protected async getJsonData(): Promise<{}[] | undefined> {
     try {
       const tableHeaders = await this.pcrService.getTableHeaders();
       const rowsData = await this.pcrService.getAllDistricts();
       return rowsData?.map((item: PCRTupleRev) => {
-        const columnObj: any | {} = {};
+        const columnObj: any | {}[] = [];
         tableHeaders.forEach((header, index) => {
           columnObj[header[0]] = item[index];
         });

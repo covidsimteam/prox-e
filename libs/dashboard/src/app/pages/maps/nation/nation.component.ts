@@ -48,7 +48,7 @@ export class NationComponent implements OnInit, OnDestroy {
   private districtsGeoJson: FeatureCollection<GovDistrictProperties>;
   private districtsHealthStats: HealthStats.Districts;
   private districtPopulation: Census2011.Districts;
-  private returneeStats: Array<RETTupleRev | undefined>;
+  private returneeStats: Array<RETTupleRev> | undefined;
 
   districtNameValPairsSero: [string, number][] = [];
   districtNamesSero: string[];
@@ -194,8 +194,8 @@ export class NationComponent implements OnInit, OnDestroy {
   }
 
   findByNameFromReturneeStats(districtName: string): RETTupleRev | undefined {
-    return this.returneeStats.find((stat) =>
-      districtName.toLowerCase().startsWith(stat[2].toLowerCase())
+    return this.returneeStats?.find((stat) =>
+      districtName?.toLowerCase()?.startsWith(stat[2]?.toLowerCase())
     );
   }
 

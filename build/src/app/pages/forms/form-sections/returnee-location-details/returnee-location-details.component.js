@@ -15,7 +15,7 @@ const countries_geo_1 = require("../../../../@core/data/countries.geo");
 const province_districts_geo_1 = require("../../../../@core/data/province-districts.geo");
 let ReturneeLocationDetailsComponent = class ReturneeLocationDetailsComponent {
     constructor() {
-        this.districts = { destinationOpts: {}, addressOpts: {} };
+        this.districts = { destinationOpts: this.destinationOpts, addressOpts: this.addressOpts };
         this.permanentAddrProvince = '';
         this.finalDestProvince = '';
     }

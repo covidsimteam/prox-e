@@ -37,7 +37,7 @@ let ReturneeTableService = class ReturneeTableService extends tabular_service_1.
             try {
                 const tableHeaders = yield this.returneeService.getTableHeaders();
                 const rowsData = yield this.returneeService.getAllWards();
-                return rowsData.map((item) => {
+                return rowsData === null || rowsData === void 0 ? void 0 : rowsData.map((item) => {
                     const columnObj = {};
                     tableHeaders.forEach((header, index) => {
                         columnObj[header[0]] = item[index];
@@ -62,7 +62,7 @@ let ReturneeTableService = class ReturneeTableService extends tabular_service_1.
                     .slice(1, tableHeaders.length - 1)
                     .join(','));
                 // add rows
-                rowsData.forEach((rowItem) => {
+                rowsData === null || rowsData === void 0 ? void 0 : rowsData.forEach((rowItem) => {
                     csvFileContent.push(rowItem
                         .slice(1, tableHeaders.length - 1)
                         .join(','));

@@ -175,7 +175,8 @@ let NationComponent = class NationComponent {
         });
     }
     findByNameFromReturneeStats(districtName) {
-        return this.returneeStats.find((stat) => districtName.toLowerCase().startsWith(stat[2].toLowerCase()));
+        var _a;
+        return (_a = this.returneeStats) === null || _a === void 0 ? void 0 : _a.find((stat) => { var _a, _b; return (_a = districtName === null || districtName === void 0 ? void 0 : districtName.toLowerCase()) === null || _a === void 0 ? void 0 : _a.startsWith((_b = stat[2]) === null || _b === void 0 ? void 0 : _b.toLowerCase()); });
     }
     findByNameFromCensusStats(districtName) {
         var _a, _b;

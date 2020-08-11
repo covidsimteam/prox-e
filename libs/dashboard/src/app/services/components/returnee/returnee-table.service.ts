@@ -21,11 +21,11 @@ export class ReturneeTableService extends TabularService {
     return from(this.returneeService.getTableHeaders());
   }
 
-  protected async getJsonData(): Promise<{}[]> {
+  protected async getJsonData(): Promise<{}[] | undefined> {
     try {
       const tableHeaders = await this.returneeService.getTableHeaders();
       const rowsData = await this.returneeService.getAllWards();
-      return rowsData.map((item: RETTupleRev) => {
+      return rowsData?.map((item: RETTupleRev) => {
         const columnObj: any | {} = {};
         tableHeaders.forEach((header, index) => {
           columnObj[header[0]] = item[index];
@@ -51,7 +51,7 @@ export class ReturneeTableService extends TabularService {
           .join(','));
 
       // add rows
-      rowsData.forEach((rowItem: RETTupleRev) => {
+      rowsData?.forEach((rowItem: RETTupleRev) => {
         csvFileContent.push(
           rowItem
             .slice(1, tableHeaders.length - 1)
