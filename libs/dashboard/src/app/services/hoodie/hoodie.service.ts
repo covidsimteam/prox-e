@@ -7,8 +7,8 @@ import PouchDb from 'pouchdb';
 })
 export class HoodieService {
 
-  private readonly hoodie = new Hoodie({
-    PouchDB: new PouchDB('hoodie')
+  private readonly hoodie: any = new Hoodie({
+    PouchDB: new PouchDb('hoodie')
   });
 
   constructor() { }

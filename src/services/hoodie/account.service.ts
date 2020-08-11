@@ -1,6 +1,4 @@
 import { HoodieService } from './hoodie.service';
-import { from, Observable } from 'rxjs';
-
 import { SignUpResponse } from '../../models/sign-up.model'
 import { SignInResponse } from '../../models/sign-in.model';
 import { SignOutResponse } from '../../models/sign-out.model';
@@ -9,15 +7,15 @@ export class AccountService {
   
   constructor(private hoodie: HoodieService) { }
 
-  signUp(username: string, password: string): Observable<SignUpResponse> {
-    return from(this.hoodie.account.signUp({ username, password })) as Observable<SignUpResponse>;
+  signUp(username: string, password: string): Promise<SignUpResponse> {
+    return this.hoodie.account.signUp({ username, password });
   }
 
-  signIn(username: string, password: string): Observable<SignInResponse> {
-    return from(this.hoodie.account.signIn({ username, password })) as Observable<SignInResponse>;
+  signIn(username: string, password: string): Promise<SignInResponse> {
+    return this.hoodie.account.signIn({ username, password });
   }
 
-  signOut(): Observable<SignOutResponse> {
-    return from(this.hoodie.account.signOut()) as Observable<SignOutResponse>;
+  signOut(): Promise<SignOutResponse> {
+    return this.hoodie.account.signOut();
   }
 }

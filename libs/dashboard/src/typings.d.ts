@@ -5,3 +5,5 @@ interface NodeModule {
 }
 
 declare var tinymce: any;
+
+declare module '@hoodie/client';

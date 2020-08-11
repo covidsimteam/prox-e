@@ -46,7 +46,7 @@ const routes = [{
                 loadChildren: () => Promise.resolve().then(() => __importStar(require('./forms/forms.module'))).then(m => m.FormsModule),
             },
             {
-                path: 'maps',
+                path: 'secured/maps',
                 canActivate: [auth_guard_1.AuthGuard],
                 loadChildren: () => Promise.resolve().then(() => __importStar(require('./maps/maps.module'))).then(m => m.MapsModule),
             },

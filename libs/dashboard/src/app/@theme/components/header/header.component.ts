@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NbAuthService, NbPasswordStrategyToken } from '@nebular/auth';
+import { NbAuthService, NbAuthToken } from '@nebular/auth';
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 import { Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
@@ -53,19 +53,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 
     this.authService.onTokenChange()
-    .subscribe((token: any): NbPasswordStrategyToken => {
-
+    .subscribe((token: NbAuthToken) => {
       if (token.isValid()) {
         this.user = token.getPayload();
       }
-
     });
   }
 
   ngOnInit() {
     this.currentTheme = this.themeService.currentTheme;
-
-    this.authService.isPrivilegedUser.subscribe(privilegeCheck => this.isPrivilegedUser = privilegeCheck);
 
     const { xl } = this.breakpointService.getBreakpointsMap();
     this.themeService.onMediaQueryChange()
@@ -89,7 +85,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   logout() {
-    this.authService.logout();
+    this.authService.logout('email');
   }
 
   changeTheme(themeName: string) {

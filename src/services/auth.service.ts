@@ -1,6 +1,9 @@
 import motherLogger from '../logger';
 import { AccountService } from './hoodie/account.service';
-import { Observable } from 'rxjs'
+import { Observable } from 'rxjs';
+import { SignInResponse } from '../models/sign-in.model';
+import { SignUpResponse } from '../models/sign-up.model';
+import { SignOutResponse } from '../models/sign-out.model';
 
 export class AuthService {
   
@@ -19,15 +22,15 @@ export class AuthService {
     return AuthService.instance;
   }
 
-  signIn(email: string, password: string): Observable<unknown> {
+  signIn(email: string, password: string): Observable<SignInResponse> {
     return this.accounts.signIn(email, password);
   }
 
-  signUp(email: string, password: string, fullName?: string, confirmedPassword?: string): Observable<unknown>  {
+  signUp(email: string, password: string, fullName?: string, confirmedPassword?: string): Observable<SignUpResponse>  {
     return this.accounts.signUp(email, password);
   }
 
-  signOut(): Observable<unknown> {
+  signOut(): Observable<SignOutResponse> {
     return this.accounts.signOut();
   }
   

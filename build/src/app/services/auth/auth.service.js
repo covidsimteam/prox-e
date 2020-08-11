@@ -18,13 +18,21 @@ const operators_1 = require("rxjs/operators");
 const auth_response_model_1 = require("../../models/auth-response.model");
 const domain_model_1 = require("../../models/domain.model");
 const environment_service_1 = require("../env/environment.service");
+const auth_1 = require("@nebular/auth");
 let AuthService = class AuthService {
-    constructor(http, environment, router) {
+    constructor(http, environment, router, auth) {
         this.http = http;
         this.environment = environment;
         this.router = router;
+        this.auth = auth;
         this.isAuthenticated_ = false;
         this.isPrivilegedUser = new rxjs_1.BehaviorSubject(false);
+        this.auth.onTokenChange()
+            .subscribe((token) => {
+            if (token.isValid()) {
+                this.user = token.getPayload();
+            }
+        });
     }
     /**
      * @param username CouchDB username
@@ -116,6 +124,10 @@ let AuthService = class AuthService {
             return this.user_;
         return (localStorage === null || localStorage === void 0 ? void 0 : localStorage.getItem(domain_model_1.CurrentUser.name)) || '';
     }
+    set user(user) {
+        this.user_ = user;
+        localStorage === null || localStorage === void 0 ? void 0 : localStorage.getItem(user);
+    }
     get pass() {
         if (this.user_)
             return this.pass_;
@@ -133,6 +145,7 @@ AuthService = __decorate([
     }),
     __metadata("design:paramtypes", [http_1.HttpClient,
         environment_service_1.EnvironmentService,
-        router_1.Router])
+        router_1.Router,
+        auth_1.NbAuthService])
 ], AuthService);
 exports.AuthService = AuthService;

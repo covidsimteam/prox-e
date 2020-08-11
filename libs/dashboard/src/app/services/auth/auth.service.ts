@@ -6,7 +6,7 @@ import { tap } from 'rxjs/operators';
 import { BasicAuth } from '../../models/auth-response.model';
 import { CurrentUser } from '../../models/domain.model';
 import { EnvironmentService } from '../env/environment.service';
-import { NbAuthService } from '@nebular/auth';
+import { NbAuthService, NbAuthToken } from '@nebular/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -27,10 +27,10 @@ export class AuthService {
   ) {
 
     this.auth.onTokenChange()
-      .subscribe((token: NbAuthJWTToken) => {
+      .subscribe((token: NbAuthToken) => {
 
         if (token.isValid()) {
-          this.user = token.getPayload(); // here we receive a payload from the token and assigns it to our `user` variable
+          this.user = token.getPayload();
         }
       });
   }

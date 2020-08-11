@@ -7,21 +7,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
-const ngx_echarts_1 = require("ngx-echarts");
 const http_1 = require("@angular/common/http");
 const core_1 = require("@angular/core");
 const forms_1 = require("@angular/forms");
 const platform_browser_1 = require("@angular/platform-browser");
 const animations_1 = require("@angular/platform-browser/animations");
+const service_worker_1 = require("@angular/service-worker");
+const auth_1 = require("@nebular/auth");
 const theme_1 = require("@nebular/theme");
+const ngx_echarts_1 = require("ngx-echarts");
 const environment_1 = require("../environments/environment");
 const core_module_1 = require("./@core/core.module");
 const theme_module_1 = require("./@theme/theme.module");
 const app_routing_module_1 = require("./app-routing.module");
 const app_component_1 = require("./app.component");
-const login_module_1 = require("./auth/login.module");
-const service_worker_1 = require("@angular/service-worker");
-const auth_1 = require("@nebular/auth");
+const login_module_1 = require("./auth/login/login.module");
+const auth_guard_1 = require("./services/guards/auth.guard");
 const formSetting = {
     redirectDelay: 0,
     showMessages: {
@@ -52,27 +53,51 @@ AppModule = __decorate([
             auth_1.NbAuthModule.forRoot({
                 strategies: [
                     auth_1.NbPasswordAuthStrategy.setup({
-                        name: 'username',
+                        name: 'email',
+                        token: {
+                            key: 'token',
+                            class: auth_1.NbAuthJWTToken,
+                        },
                         baseEndpoint: '',
                         login: {
                             endpoint: '/auth/sign-in',
                             method: 'post',
+                            redirect: {
+                                success: '/hub/',
+                                failure: null,
+                            },
                         },
                         register: {
                             endpoint: '/auth/sign-up',
                             method: 'post',
+                            redirect: {
+                                success: '/welcome/',
+                                failure: null,
+                            },
                         },
                         logout: {
                             endpoint: '/auth/sign-out',
                             method: 'post',
+                            redirect: {
+                                success: '/see-you/',
+                                failure: null,
+                            },
                         },
                         requestPass: {
                             endpoint: '/auth/request-pass',
                             method: 'post',
+                            redirect: {
+                                success: '/check-email/',
+                                failure: null,
+                            },
                         },
                         resetPass: {
                             endpoint: '/auth/reset-pass',
                             method: 'post',
+                            redirect: {
+                                success: '/reset-success/',
+                                failure: null,
+                            },
                         },
                     })
                 ],
@@ -89,7 +114,10 @@ AppModule = __decorate([
             service_worker_1.ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment_1.environment.production }),
         ],
         bootstrap: [app_component_1.AppComponent],
-        providers: [{ provide: environment_1.AppConf, useValue: environment_1.appConf }],
+        providers: [
+            { provide: environment_1.AppConf, useValue: environment_1.appConf },
+            auth_guard_1.AuthGuard
+        ],
     })
 ], AppModule);
 exports.AppModule = AppModule;

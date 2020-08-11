@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { NbAuthModule, NbAuthToken, NbPasswordAuthStrategy, NbAuthJWTToken } from '@nebular/auth';
+import { NbAuthJWTToken, NbAuthModule, NbPasswordAuthStrategy } from '@nebular/auth';
 import {
   NbDatepickerModule,
   NbDialogModule,
@@ -22,99 +22,97 @@ import { AppComponent } from './app.component';
 import { LoginModule } from './auth/login/login.module';
 import { AuthGuard } from './services/guards/auth.guard';
 
-
-
-  const formSetting: any = {
-    redirectDelay: 0,
-    showMessages: {
-      success: true,
-    },
-  };
-  @NgModule({
-    declarations: [AppComponent],
-    imports: [
-      BrowserModule,
-      BrowserAnimationsModule,
-      HttpClientModule,
-      AppRoutingModule,
-      NbSidebarModule.forRoot(),
-      NbMenuModule.forRoot(),
-      NbDatepickerModule.forRoot(),
-      NbDialogModule.forRoot(),
-      NbWindowModule.forRoot(),
-      NbToastrModule.forRoot(),
-      CoreModule.forRoot(),
-      ThemeModule.forRoot(),
-      ReactiveFormsModule,
-      LoginModule,
-      NgxEchartsModule,
-      NbAuthModule.forRoot({
-        strategies: [
-          NbPasswordAuthStrategy.setup({
-            name: 'email',
-            token: {
-              key: 'token',
-              class: NbAuthJWTToken,
-            },
-            baseEndpoint: '',
-            login: {
-              endpoint: '/auth/sign-in',
-              method: 'post',
-              redirect: {
-                success: '/hub/',
-                failure: null,
-              },
-            },
-            register: {
-              endpoint: '/auth/sign-up',
-              method: 'post',
-              redirect: {
-                success: '/welcome/',
-                failure: null,
-              },
-            },
-            logout: {
-              endpoint: '/auth/sign-out',
-              method: 'post',
-              redirect: {
-                success: '/see-you/',
-                failure: null,
-              },
-            },
-            requestPass: {
-              endpoint: '/auth/request-pass',
-              method: 'post',
-              redirect: {
-                success: '/check-email/',
-                failure: null,
-              },
-            },
-            resetPass: {
-              endpoint: '/auth/reset-pass',
-              method: 'post',
-              redirect: {
-                success: '/reset-success/',
-                failure: null,
-              },
-            },
-          })],
-          forms: {
-            login: formSetting,
-            register: formSetting,
-            requestPassword: formSetting,
-            resetPassword: formSetting,
-            logout: {
-              redirectDelay: 0,
+const formSetting: any = {
+  redirectDelay: 0,
+  showMessages: {
+    success: true,
+  },
+};
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    NbSidebarModule.forRoot(),
+    NbMenuModule.forRoot(),
+    NbDatepickerModule.forRoot(),
+    NbDialogModule.forRoot(),
+    NbWindowModule.forRoot(),
+    NbToastrModule.forRoot(),
+    CoreModule.forRoot(),
+    ThemeModule.forRoot(),
+    ReactiveFormsModule,
+    LoginModule,
+    NgxEchartsModule,
+    NbAuthModule.forRoot({
+      strategies: [
+        NbPasswordAuthStrategy.setup({
+          name: 'email',
+          token: {
+            key: 'token',
+            class: NbAuthJWTToken,
+          },
+          baseEndpoint: '',
+          login: {
+            endpoint: '/auth/sign-in',
+            method: 'post',
+            redirect: {
+              success: '/hub/',
+              failure: null,
             },
           },
-        }),
-        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-      ],
-      bootstrap: [AppComponent],
-      providers: [
-        { provide: AppConf, useValue: appConf },
-        AuthGuard
-      ],
-    })
-    export class AppModule {
-    }
+          register: {
+            endpoint: '/auth/sign-up',
+            method: 'post',
+            redirect: {
+              success: '/welcome/',
+              failure: null,
+            },
+          },
+          logout: {
+            endpoint: '/auth/sign-out',
+            method: 'post',
+            redirect: {
+              success: '/see-you/',
+              failure: null,
+            },
+          },
+          requestPass: {
+            endpoint: '/auth/request-pass',
+            method: 'post',
+            redirect: {
+              success: '/check-email/',
+              failure: null,
+            },
+          },
+          resetPass: {
+            endpoint: '/auth/reset-pass',
+            method: 'post',
+            redirect: {
+              success: '/reset-success/',
+              failure: null,
+            },
+          },
+        })],
+        forms: {
+          login: formSetting,
+          register: formSetting,
+          requestPassword: formSetting,
+          resetPassword: formSetting,
+          logout: {
+            redirectDelay: 0,
+          },
+        },
+      }),
+      ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ],
+    bootstrap: [AppComponent],
+    providers: [
+      { provide: AppConf, useValue: appConf },
+      AuthGuard
+    ],
+  })
+  export class AppModule {
+  }

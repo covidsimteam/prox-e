@@ -6,31 +6,345 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
-			"AuthErrorJSON": {
+			"SignInFailure": {
 				"properties": {
-					"message": {
-						"type": "string",
-						"enum": [
-							"Authentication Failed"
-						],
-						"nullable": false
+					"name": {
+						"anyOf": [
+							{
+								"type": "string",
+								"enum": [
+									"session"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"confict"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"connection"
+								],
+								"nullable": false
+							}
+						]
 					},
-					"details": {
-						"properties": {},
-						"additionalProperties": {},
-						"type": "object"
+					"message": {
+						"type": "string"
+					},
+					"stack": {
+						"type": "string"
+					},
+					"type": {
+						"anyOf": [
+							{
+								"type": "string",
+								"enum": [
+									"unconfirmed"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"unauthorized"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"unknown"
+								],
+								"nullable": false
+							}
+						]
 					}
 				},
 				"required": [
+					"name",
 					"message",
-					"details"
+					"type"
 				],
 				"type": "object",
 				"additionalProperties": false
 			},
-			"Credentials": {
+			"SignInSuccess": {
 				"properties": {
+					"id": {
+						"type": "string"
+					},
 					"username": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"profile": {
+						"properties": {
+							"fullname": {
+								"type": "string"
+							}
+						},
+						"required": [
+							"fullname"
+						],
+						"type": "object"
+					}
+				},
+				"required": [
+					"id",
+					"username",
+					"createdAt",
+					"updatedAt",
+					"profile"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SignInResponse": {
+				"anyOf": [
+					{
+						"$ref": "#/components/schemas/SignInFailure"
+					},
+					{
+						"$ref": "#/components/schemas/SignInSuccess"
+					}
+				]
+			},
+			"SignOutFailure": {
+				"properties": {
+					"name": {
+						"anyOf": [
+							{
+								"type": "string",
+								"enum": [
+									"session"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"confict"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"connection"
+								],
+								"nullable": false
+							}
+						]
+					},
+					"message": {
+						"type": "string"
+					},
+					"stack": {
+						"type": "string"
+					},
+					"type": {
+						"anyOf": [
+							{
+								"type": "string",
+								"enum": [
+									"unconfirmed"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"unauthorized"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"unknown"
+								],
+								"nullable": false
+							}
+						]
+					},
+					"hook": {
+						"type": "string",
+						"enum": [
+							"before:signout"
+						],
+						"nullable": false
+					}
+				},
+				"required": [
+					"name",
+					"message",
+					"type",
+					"hook"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SignOutSuccess": {
+				"properties": {
+					"account": {
+						"properties": {
+							"profile": {
+								"properties": {
+									"fullname": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"fullname"
+								],
+								"type": "object"
+							},
+							"updateAt": {
+								"type": "string",
+								"format": "date-time"
+							},
+							"createdAt": {
+								"type": "string",
+								"format": "date-time"
+							},
+							"username": {
+								"type": "string"
+							},
+							"id": {
+								"type": "string"
+							}
+						},
+						"required": [
+							"profile",
+							"updateAt",
+							"createdAt",
+							"username",
+							"id"
+						],
+						"type": "object"
+					}
+				},
+				"required": [
+					"account"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SignOutResponse": {
+				"anyOf": [
+					{
+						"$ref": "#/components/schemas/SignOutFailure"
+					},
+					{
+						"$ref": "#/components/schemas/SignOutSuccess"
+					}
+				]
+			},
+			"SignUpFailure": {
+				"properties": {
+					"name": {
+						"anyOf": [
+							{
+								"type": "string",
+								"enum": [
+									"session"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"confict"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"connection"
+								],
+								"nullable": false
+							}
+						]
+					},
+					"message": {
+						"type": "string"
+					},
+					"stack": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"name",
+					"message"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SignUpSuccess": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"username": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"username",
+					"createdAt",
+					"updatedAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SignUpResponse": {
+				"anyOf": [
+					{
+						"$ref": "#/components/schemas/SignUpFailure"
+					},
+					{
+						"$ref": "#/components/schemas/SignUpSuccess"
+					}
+				]
+			},
+			"AuthResponse": {
+				"anyOf": [
+					{
+						"$ref": "#/components/schemas/SignInResponse"
+					},
+					{
+						"$ref": "#/components/schemas/SignOutResponse"
+					},
+					{
+						"$ref": "#/components/schemas/SignUpResponse"
+					}
+				]
+			},
+			"Authenticate": {
+				"properties": {
+					"email": {
 						"type": "string"
 					},
 					"password": {
@@ -38,7 +352,7 @@
 					}
 				},
 				"required": [
-					"username",
+					"email",
 					"password"
 				],
 				"type": "object",
@@ -61,26 +375,43 @@
 	},
 	"openapi": "3.0.0",
 	"paths": {
-		"/auth/jwt": {
+		"/auth/sign-in": {
 			"post": {
-				"operationId": "CreateJWT",
+				"operationId": "SignIn",
 				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/AuthResponse"
+								}
+							}
+						}
+					},
 					"201": {
-						"description": "Token Created"
+						"description": "Authentication Succeeded",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SignInSuccess"
+								}
+							}
+						}
 					},
 					"401": {
 						"description": "Authentication Failed",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/AuthErrorJSON"
+									"$ref": "#/components/schemas/SignInFailure"
 								}
 							}
 						}
 					}
 				},
 				"tags": [
-					"Auth"
+					"auth"
 				],
 				"security": [],
 				"parameters": [],
@@ -89,33 +420,50 @@
 					"content": {
 						"application/json": {
 							"schema": {
-								"$ref": "#/components/schemas/Credentials"
+								"$ref": "#/components/schemas/Authenticate"
 							}
 						}
 					}
 				}
 			}
 		},
-		"/auth/cookie": {
+		"/auth/sign-up": {
 			"post": {
-				"operationId": "CreateCookie",
+				"operationId": "SignUp",
 				"responses": {
-					"201": {
-						"description": "AuthSession Cookie Created"
-					},
-					"401": {
-						"description": "Authentication Failed",
+					"200": {
+						"description": "Ok",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/AuthErrorJSON"
+									"$ref": "#/components/schemas/AuthResponse"
+								}
+							}
+						}
+					},
+					"201": {
+						"description": "Registration Succeeded",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SignUpSuccess"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Registration Failed",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SignUpFailure"
 								}
 							}
 						}
 					}
 				},
 				"tags": [
-					"Auth"
+					"auth"
 				],
 				"security": [],
 				"parameters": [],
@@ -124,11 +472,53 @@
 					"content": {
 						"application/json": {
 							"schema": {
-								"$ref": "#/components/schemas/Credentials"
+								"$ref": "#/components/schemas/Authenticate"
 							}
 						}
 					}
 				}
+			}
+		},
+		"/auth/sign-out": {
+			"post": {
+				"operationId": "SignOut",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/AuthResponse"
+								}
+							}
+						}
+					},
+					"201": {
+						"description": "Exit Succeeded",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SignOutSuccess"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Exit Failed",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SignOutFailure"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"auth"
+				],
+				"security": [],
+				"parameters": []
 			}
 		}
 	},

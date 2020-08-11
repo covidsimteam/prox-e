@@ -35,7 +35,7 @@ exports.routes = [
     },
     {
         path: 'auth',
-        loadChildren: () => Promise.resolve().then(() => __importStar(require('./auth/login.module'))).then(m => m.LoginModule),
+        loadChildren: () => Promise.resolve().then(() => __importStar(require('./auth/login/login.module'))).then(m => m.LoginModule),
     },
     { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
     { path: '**', redirectTo: 'auth/login' },

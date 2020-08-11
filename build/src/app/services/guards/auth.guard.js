@@ -12,7 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthGuard = void 0;
 const core_1 = require("@angular/core");
 const router_1 = require("@angular/router");
-const auth_service_1 = require("../auth/auth.service");
+const auth_1 = require("@nebular/auth");
+const operators_1 = require("rxjs/operators");
 let AuthGuard = class AuthGuard {
     constructor(router, authService) {
         this.router = router;
@@ -20,7 +21,12 @@ let AuthGuard = class AuthGuard {
     }
     canActivate(_, state) {
         if (this.authService.isAuthenticated)
-            return true;
+            return this.authService.isAuthenticated()
+                .pipe(operators_1.tap((authenticated) => {
+                if (!authenticated) {
+                    this.router.navigate(['auth/login']);
+                }
+            }));
         this.router.navigate(['auth/login'], {
             queryParams: {
                 returnUrl: state.url,
@@ -34,6 +40,6 @@ AuthGuard = __decorate([
         providedIn: 'root',
     }),
     __metadata("design:paramtypes", [router_1.Router,
-        auth_service_1.AuthService])
+        auth_1.NbAuthService])
 ], AuthGuard);
 exports.AuthGuard = AuthGuard;

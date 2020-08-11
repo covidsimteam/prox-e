@@ -11,11 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HeaderComponent = void 0;
 const core_1 = require("@angular/core");
+const auth_1 = require("@nebular/auth");
 const theme_1 = require("@nebular/theme");
 const rxjs_1 = require("rxjs");
 const operators_1 = require("rxjs/operators");
 const utils_1 = require("../../../@core/utils");
-const auth_service_1 = require("../../../services/auth/auth.service");
 let HeaderComponent = class HeaderComponent {
     constructor(sidebarService, menuService, themeService, layoutService, authService, breakpointService) {
         this.sidebarService = sidebarService;
@@ -41,10 +41,15 @@ let HeaderComponent = class HeaderComponent {
         ];
         this.currentTheme = 'default';
         this.userMenu = [{ title: 'Profile' }, { title: 'Log out' }];
+        this.authService.onTokenChange()
+            .subscribe((token) => {
+            if (token.isValid()) {
+                this.user = token.getPayload();
+            }
+        });
     }
     ngOnInit() {
         this.currentTheme = this.themeService.currentTheme;
-        this.authService.isPrivilegedUser.subscribe(privilegeCheck => this.isPrivilegedUser = privilegeCheck);
         const { xl } = this.breakpointService.getBreakpointsMap();
         this.themeService.onMediaQueryChange()
             .pipe(operators_1.map(([, currentBreakpoint]) => currentBreakpoint.width < xl), operators_1.takeUntil(this.destroy$))
@@ -58,7 +63,7 @@ let HeaderComponent = class HeaderComponent {
         this.destroy$.complete();
     }
     logout() {
-        this.authService.logout();
+        this.authService.logout('email');
     }
     changeTheme(themeName) {
         this.themeService.changeTheme(themeName);
@@ -83,7 +88,7 @@ HeaderComponent = __decorate([
         theme_1.NbMenuService,
         theme_1.NbThemeService,
         utils_1.LayoutService,
-        auth_service_1.AuthService,
+        auth_1.NbAuthService,
         theme_1.NbMediaBreakpointsService])
 ], HeaderComponent);
 exports.HeaderComponent = HeaderComponent;
