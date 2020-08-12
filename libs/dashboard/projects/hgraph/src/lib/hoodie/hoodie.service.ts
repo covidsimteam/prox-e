@@ -8,6 +8,7 @@ import PouchDb from 'pouchdb';
 export class HoodieService {
 
   private readonly hoodie: any = new Hoodie({
+    url: 'http://localhost:8080/',
     PouchDB: new PouchDb('hoodie')
   });
 

@@ -19,7 +19,6 @@ import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginModule } from './auth/login/login.module';
 import { AuthGuard } from './services/guards/auth.guard';
 
 const formSetting: any = {
@@ -44,7 +43,6 @@ const formSetting: any = {
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     ReactiveFormsModule,
-    LoginModule,
     NgxEchartsModule,
     NbAuthModule.forRoot({
       strategies: [
@@ -75,7 +73,7 @@ const formSetting: any = {
             endpoint: '/auth/sign-out',
             method: 'post',
             redirect: {
-              success: '/see-you/',
+              success: '/auth/sign-in/',
               failure: null,
             },
           },

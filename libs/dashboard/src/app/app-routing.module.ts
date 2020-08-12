@@ -9,11 +9,11 @@ export const routes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: () => import('./auth/login/login.module')
-      .then(m => m.LoginModule),
+    loadChildren: () => import('./auth/core/auth.module')
+      .then(m => m.AuthModule),
   },
-  { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
-  { path: '**', redirectTo: 'auth/login' },
+  { path: '', redirectTo: 'auth/sign-in', pathMatch: 'full' },
+  { path: '**', redirectTo: 'auth/sign-in' },
 ];
 
 const config: ExtraOptions = {
