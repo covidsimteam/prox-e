@@ -4,7 +4,11 @@
   "description": "prox-e ui and logic",
   "main": "index.html",
   "scripts": {
-    "test": "ng test"
+    "build-prox-e": "cd prox-e && yarn build",
+    "build-dashboard": "cd dasbhard && npm build:prod",
+    "test-dashboard": "cd dashboard && ng test",
+    "start-prox-e": "cd prox-e && yarn start",
+    "start-hood-ie": "cd prox-e && yarn start-hoodie"
   },
   "repository": {
     "type": "git",
