@@ -9,7 +9,7 @@ export interface SignOutSuccess {
         profile: {
             fullname: string;
         }
-    }
+    };
 }
 
 export interface SignOutFailure extends SignInFailure {
