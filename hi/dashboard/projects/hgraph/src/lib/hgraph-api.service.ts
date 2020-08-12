@@ -1,23 +1,23 @@
-import { ThemeService } from './theme/theme.service';
-
-import { PipeService } from './pipes/pipe.service';
-import { InterstellarService } from './interstellar/interstellar.service';
-import { PaymentService } from './payment/lib/payment.service';
-import { PaymentStream } from './payment/lib/model/payment.stream';
 import { Injectable } from '@angular/core';
-import { ModelStream, UserStream, PipeStream, CosmosStream, ThemeStream, AuthStream, IdStream } from './model/model.stream';
+import { AuthService } from './auth/auth.service';
 import { CacheService, CacheStream } from './cache/cache.service';
 import { ConceptService, ConceptStream } from './concept/concept.service';
 import { EntityService, EntityStream, ValueStream } from './entity/entity.service';
+import { HgraphService } from './hgraph.service';
+import { AccountService } from './hoodie/account.service';
 import { IdentityService } from './identity/identity.service';
+import { InterstellarService } from './interstellar/interstellar.service';
 import { KeyService, KeyStream } from './key/key.service';
 import { Graph } from './model/hgraph.model';
 import { ModelService } from './model/model.service';
+import { AuthStream, CosmosStream, IdStream, ModelStream, PipeStream, ThemeStream, UserStream, PaymentStream } from './model/model.stream';
+import { PaymentService } from './payment/lib/payment.service';
+import { PipeService } from './pipes/pipe.service';
 import { QueueService, TemporalQueue } from './queue/queue.service';
 import { SsotService, TruthStream } from './ssot/ssot.service';
-import { HgraphService } from './hgraph.service';
+import { ThemeService } from './theme/theme.service';
 import { UserService } from './user/user.service';
-import { AuthService } from './auth/auth.service';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -38,7 +38,8 @@ export class HgraphApiService {
     private pipe: PipeService,
     private user: UserService,
     private auth: AuthService,
-    private theme: ThemeService
+    private theme: ThemeService,
+    private account: AccountService
     ) {}
 
   updateInMemoryGraph(g: Graph, remove = false): Graph {
@@ -62,5 +63,7 @@ export class HgraphApiService {
   get models(): ModelStream { return this.model.model; }
   get queues(): TemporalQueue { return this.queue.queue; }
   get truths(): TruthStream { return this.ssot.truth; }
-  get payments(): PaymentStream { return this.payment.pay; }
+  get payments(): PaymentStream<string> { return this.payment.pay; }
+
+  get accounts(): AccountService { return this.account; }
 }
