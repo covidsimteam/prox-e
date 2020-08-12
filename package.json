@@ -1,0 +1,27 @@
+{
+  "name": "prox-e",
+  "version": "1.0.0",
+  "description": "prox-e ui and logic",
+  "main": "index.html",
+  "scripts": {
+    "test": "ng test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/covidsimteam/prox-e.git"
+  },
+  "keywords": [
+    "proxy",
+    "middleware",
+    "in-memory",
+    "persistent",
+    "crash-proof",
+    "attack-proof"
+  ],
+  "author": "Risav Karna, Saujan Ghimire, Kripa Bhattarai",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/covidsimteam/prox-e/issues"
+  },
+  "homepage": "https://github.com/covidsimteam/prox-e#readme"
+}
