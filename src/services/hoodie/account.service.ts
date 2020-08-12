@@ -18,4 +18,11 @@ export class AccountService {
   signOut(): Promise<SignOutResponse> {
     return this.hoodie.account.signOut();
   }
+
+  resetPass(contact: string): Promise<unknown> {
+    return this.hoodie.account.request({
+      type: 'passwordreset',
+      contact
+    });
+  }
 }

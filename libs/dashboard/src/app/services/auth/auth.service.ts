@@ -175,12 +175,4 @@ export class AuthService {
     return localStorage.getItem(CurrentUser.isLoggedIn) ? true : false;
   }
 
-  // // TODO remove when jwt setup is fixed
-  // userAuthRequestCookieBased(username: string, password: string) {
-  //   this.http
-  //     .post<DBAuthResponse>(this.environment.authUri, { username, password })
-  //     .subscribe((response) => {
-  //       // this.cookieService.create(response);
-  //     });
-  // }
 }
