@@ -52,7 +52,7 @@ const formSetting: any = {
             key: 'token',
             class: NbAuthJWTToken,
           },
-          baseEndpoint: '',
+          baseEndpoint: 'http://127.0.0.1:8080/auth/',
           login: {
             endpoint: '/auth/sign-in',
             method: 'post',
@@ -60,6 +60,8 @@ const formSetting: any = {
               success: '/hub/',
               failure: null,
             },
+            defaultErrors: ['Login/Email combination is not correct, please try again.'],
+            defaultMessages: ['You have been successfully logged in.'],
           },
           register: {
             endpoint: '/auth/sign-up',
@@ -68,6 +70,8 @@ const formSetting: any = {
               success: '/welcome/',
               failure: null,
             },
+            defaultErrors: ['Something went wrong, please try again.'],
+            defaultMessages: ['You have been successfully registered.'],
           },
           logout: {
             endpoint: '/auth/sign-out',
@@ -76,6 +80,8 @@ const formSetting: any = {
               success: '/auth/sign-in/',
               failure: null,
             },
+            defaultErrors: ['Something went wrong, please try again.'],
+            defaultMessages: ['You have been successfully logged out.'],
           },
           requestPass: {
             endpoint: '/auth/request-pass',
@@ -84,6 +90,8 @@ const formSetting: any = {
               success: '/check-email/',
               failure: null,
             },
+            defaultErrors: ['Something went wrong, please try again.'],
+            defaultMessages: ['Reset password instructions have been sent to your email.'],
           },
           resetPass: {
             endpoint: '/auth/reset-pass',
@@ -92,6 +100,9 @@ const formSetting: any = {
               success: '/reset-success/',
               failure: null,
             },
+            resetPasswordTokenKey: 'covid-reset',
+            defaultErrors: ['Something went wrong, please try again.'],
+            defaultMessages: ['Your password has been successfully changed.'],
           },
         })],
         forms: {

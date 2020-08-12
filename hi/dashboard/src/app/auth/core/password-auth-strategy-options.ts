@@ -12,14 +12,14 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 export class PasswordAuthStrategyOptions extends NbAuthStrategyOptions {
   name: string;
-  baseEndpoint ? = 'http://127.0.0.1:8081';
+  baseEndpoint ? = 'http://127.0.0.1:8081/auth/';
   login?: boolean | NbPasswordStrategyModule = {
     alwaysFail: false,
     endpoint: 'login',
     method: 'post',
     requireValidToken: true,
     redirect: {
-      success: '/',
+      success: '/hub/',
       failure: null,
     },
     defaultErrors: ['Login/Email combination is not correct, please try again.'],
@@ -31,7 +31,7 @@ export class PasswordAuthStrategyOptions extends NbAuthStrategyOptions {
     method: 'post',
     requireValidToken: true,
     redirect: {
-      success: '/',
+      success: '/login/',
       failure: null,
     },
     defaultErrors: ['Something went wrong, please try again.'],
@@ -41,7 +41,7 @@ export class PasswordAuthStrategyOptions extends NbAuthStrategyOptions {
     endpoint: 'request-pass',
     method: 'post',
     redirect: {
-      success: '/',
+      success: '/email/',
       failure: null,
     },
     defaultErrors: ['Something went wrong, please try again.'],
@@ -51,7 +51,7 @@ export class PasswordAuthStrategyOptions extends NbAuthStrategyOptions {
     endpoint: 'reset-pass',
     method: 'put',
     redirect: {
-      success: '/',
+      success: '/email/',
       failure: null,
     },
     resetPasswordTokenKey: 'reset_password_token',
@@ -63,7 +63,7 @@ export class PasswordAuthStrategyOptions extends NbAuthStrategyOptions {
     endpoint: 'logout',
     method: 'delete',
     redirect: {
-      success: '/',
+      success: '/login/',
       failure: null,
     },
     defaultErrors: ['Something went wrong, please try again.'],
