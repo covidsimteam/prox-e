@@ -1,12 +1,12 @@
 import * as Hoodie from '@hoodie/client';
-import PouchDb from 'pouchdb';
+import PouchDB from 'pouchdb';
 
 export class HoodieService {
 
   private static instance: HoodieService;
 
   private readonly hoodie = new Hoodie({
-    PouchDB: new PouchDb('hoodie')
+    PouchDB: new PouchDB('hoodie')
   });
 
   constructor() {

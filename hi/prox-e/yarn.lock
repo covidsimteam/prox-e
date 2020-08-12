@@ -581,7 +581,7 @@
   resolved "https://registry.yarnpkg.com/@types/range-parser/-/range-parser-1.2.3.tgz#7ee330ba7caafb98090bece86a5ee44115904c2c"
   integrity sha512-ewFXqrQHlFsgc09MK5jP5iR7vumV/BYayNC6PgJO2LPe8vrnNFyjQjSppfEngITi0qvfKtzFvgKymGheFM9UOA==
 
-"@types/request@^2.47.0", "@types/request@^2.47.1":
+"@types/request@^2.47.0", "@types/request@^2.47.1", "@types/request@^2.48.4":
   version "2.48.5"
   resolved "https://registry.yarnpkg.com/@types/request/-/request-2.48.5.tgz#019b8536b402069f6d11bee1b2c03e7f232937a0"
   integrity sha512-/LO7xRVnL3DxJ1WkPGDQrp4VTV1reX9RkC85mJ+Qzykj2Bdw+mG15aAfDahc76HtknjzE16SX/Yddn6MxVbmGQ==
@@ -1599,7 +1599,7 @@ clone-response@^1.0.2:
   dependencies:
     mimic-response "^1.0.0"
 
-cloudant-follow@^0.18.1:
+cloudant-follow@^0.18.1, cloudant-follow@^0.18.2:
   version "0.18.2"
   resolved "https://registry.yarnpkg.com/cloudant-follow/-/cloudant-follow-0.18.2.tgz#35dd7b29c5b9c58423d50691f848a990fbe2c88f"
   integrity sha512-qu/AmKxDqJds+UmT77+0NbM7Yab2K3w0qSeJRzsq5dRWJTEJdWeb+XpG4OpKuTE9RKOa/Awn2gR3TTnvNr3TeA==
@@ -4583,6 +4583,17 @@ nano@3.0.9:
     errs "0.2.x"
     follow "0.8.x"
     request "2.9.x"
+
+nano@^8.2.2:
+  version "8.2.2"
+  resolved "https://registry.yarnpkg.com/nano/-/nano-8.2.2.tgz#4fdd48965cece51892cf41e78d433d1b772e6e40"
+  integrity sha512-1/rAvpd1J0Os0SazgutWQBx2buAq3KwJpmdIylPDqOwy73iQeAhTSCq3uzbGzvcNNW16Vv/BLXkk+DYcdcH+aw==
+  dependencies:
+    "@types/request" "^2.48.4"
+    cloudant-follow "^0.18.2"
+    debug "^4.1.1"
+    errs "^0.3.2"
+    request "^2.88.0"
 
 nano@~8.1.0:
   version "8.1.0"
