@@ -9,10 +9,36 @@ import { PouchDBService } from '../db/pouchdb.service';
 export class RolesService implements DBService {
 
   private roleDB = Databases.roles;
+  private roleArr: string[] = [''];
 
   constructor(private dbService: PouchDBService) {
     this.instance();
     this.remoteSync();
+  }
+
+  addRole(role: string) {
+    this.roleArr.push(role);
+  }
+
+  get roles(): string[] {
+    return this.roleArr.slice();
+  }
+
+  set roles(roles: string[]) {
+    this.roleArr = roles;
+  }
+
+  isAdmin(): boolean {
+    return this.roleArr
+      .some(role => role === 'lalitpur:lab_admin' || role === 'lalitpur:municipality_admin');
+  }
+
+  roleExists(role: string): boolean {
+    return this.roleArr.find((rol: string) => role === rol)?.length !== 0;
+  }
+
+  removeRole(role: string) {
+    this.roleArr = this.roleArr.filter(rol => rol !== role);
   }
 
   instance(): PouchDB.Database<{}> | undefined {
@@ -42,5 +68,7 @@ export class RolesService implements DBService {
   delete(doc: ExistingDoc): Promise<any> {
     return this.dbService.delete(this.roleDB, doc);
   }
+
+
 
 }

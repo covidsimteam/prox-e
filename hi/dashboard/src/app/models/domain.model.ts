@@ -170,7 +170,7 @@ export enum CurrentUser {
   isLoggedIn = 'isLoggedIn',
   name = 'username',
   pass = 'password',
-  role = 'role',
+  roles = 'roles',
 }
 
 export type DataTableService = RdtService | PcrService | ReturneeService;

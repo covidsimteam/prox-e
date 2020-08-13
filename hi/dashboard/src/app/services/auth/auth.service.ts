@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { NbAuthService, NbAuthToken } from '@nebular/auth';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { BasicAuth } from '../../models/auth-response.model';
 import { CurrentUser } from '../../models/domain.model';
 import { EnvironmentService } from '../env/environment.service';
+import { IdPrefixService } from '../utils/id-prefix.service';
+import { RolesService } from './roles.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,23 +16,15 @@ export class AuthService {
   private isAuthenticated_ = false;
   private user_: string;
   private pass_: string;
-  private role_: string;
+  private authArr: string[] = [''];
 
   constructor(
     private http: HttpClient,
     private environment: EnvironmentService,
     private router: Router,
-    private auth: NbAuthService
-  ) {
-
-    this.auth.onTokenChange()
-      .subscribe((token: NbAuthToken) => {
-
-        if (token.isValid()) {
-          this.user = token.getPayload();
-        }
-      });
-  }
+    private roleService: RolesService,
+    private idPrefixService: IdPrefixService
+  ) {  }
 
   /**
    * @param username CouchDB username
@@ -43,9 +36,8 @@ export class AuthService {
   login(
     username: string,
     password: string,
-    role: string = 'public',
   ): Observable<BasicAuth.Response> {
-    return this.basicAuthRequest(username, password, role, true);
+    return this.basicAuthRequest(username, password, true);
   }
 
   /**
@@ -59,7 +51,6 @@ export class AuthService {
   basicAuthRequest(
     username: string,
     password: string,
-    role: string,
     refreshCredentials: boolean = false,
   ) {
     const base64AuthString = btoa(`${username}:${password}`);
@@ -71,17 +62,14 @@ export class AuthService {
         },
       })
       .pipe(
-        tap((response) => {
+        tap((response: BasicAuth.Response) => {
           if (BasicAuth.isSuccess(response)) {
-            const successResponse: BasicAuth.Success = response;
-            const roleIsMatching: boolean =
-              successResponse.userCtx.roles.indexOf(role) !== -1;
-            if (refreshCredentials && roleIsMatching) {
+            if (refreshCredentials) {
               this.refreshCurrentUserCredentials(
                 true,
                 username,
                 password,
-                role,
+                response.userCtx.roles
               );
             }
           }
@@ -89,14 +77,22 @@ export class AuthService {
       );
   }
 
+  private async roleArraySetter(roles: string[]) {
+    this.roleService.roles = roles;
+    console.log('AuthService -> roleArraySetter -> this.roles', this.roleService.roles);
+    this.authArr = this.idPrefixService.resolveIdPrefixes(roles);
+    console.log('AuthService -> roleArraySetter -> this.authArr', this.authArr);
+  }
+
   private refreshCurrentUserCredentials(
     isAuthenticated: boolean,
     user: string,
     pass: string,
-    role: string,
+    roles: string[]
   ) {
     if (isAuthenticated) {
-      this.setCredentials(user, pass, role);
+      this.setCredentials(user, pass, roles);
+      this.roleArraySetter(roles);
     } else {
       this.removeCredentials();
     }
@@ -105,16 +101,16 @@ export class AuthService {
   private setCredentials(
     username: string,
     password: string,
-    role: string,
+    roles: string[]
   ): void {
     this.user_ = username;
     this.pass_ = password;
     this.isAuthenticated_ = true;
-    this.role_ = role;
-    Object.entries({ username, password, role, isLoggedIn: 'true' }).forEach(
-      ([key, val]) => {
-        localStorage.setItem(key, val);
-      },
+    Object.entries({ username, password, ...roles, isLoggedIn: 'true' })
+      .forEach(
+        ([key, val]) => {
+          localStorage.setItem(key, val.toString());
+        },
     );
   }
 
@@ -128,23 +124,33 @@ export class AuthService {
     this.login(this.environment.dbPublicUser, this.environment.dbPublicPass).subscribe();
   }
 
+  roleExists(role: string): boolean {
+    return this.roleService.roleExists(role);
+  }
+
+  isAdmin(): boolean {
+    return this.roleService.isAdmin();
+  }
+
   private removeCredentials(): void {
     this.user_ = '';
     this.pass_ = '';
     this.isAuthenticated_ = false;
-    this.role_ = 'public';
+    this.roleService.roles = [''];
     Object.values(CurrentUser).forEach(key => {
       localStorage.removeItem(key);
     });
   }
 
-  get role(): string | null {
-    if (this.role_) return this.role_;
-    return localStorage?.getItem(CurrentUser.role);
+  getAllRoles(): string[] {
+    if (this.roleService.roles.length) return this.roleService.roles;
+    return localStorage?.getItem(CurrentUser.roles).split(',') || [''];
   }
 
   get isPrivileged(): boolean {
-    return !!this.role && this.role !== 'public'; // TODO add whitelisted roles
+    return this.roleService.roles.some((role: string) => {
+      return this.idPrefixService.resolveIdPrefix(role) !== 'common:user';
+    });
   }
 
   get user(): string {
