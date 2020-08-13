@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { Database, ExistingDoc, Doc } from '../../models/domain.model';
+import { Databases, ExistingDoc, Doc } from '../../models/domain.model';
 import { DBService } from './db.service.interface';
 import { PouchDBService } from './pouchdb.service';
 import { AllDocs } from '../../models/db/all-docs.model';
@@ -13,7 +13,7 @@ import { PSchema } from '../../models/db/schema/pschema.model';
 })
 export class RdtService implements DBService {
 
-  private rdtDB = Database.rdt_tests;
+  private rdtDB = Databases.rdt_tests;
   private rdtHeaders_: string[][];
 
   constructor(private dbService: PouchDBService) {

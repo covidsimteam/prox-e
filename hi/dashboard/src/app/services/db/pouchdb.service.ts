@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import PouchDB from 'pouchdb';
 import PouchAuth from 'pouchdb-authentication';
-import { Database, DBList, Doc, ExistingDoc } from '../../models/domain.model';
+import { Databases, DBList, Doc, ExistingDoc } from '../../models/domain.model';
 import { AuthService } from '../auth/auth.service';
 import { EnvironmentService } from '../env/environment.service';
 import { LoggingService } from '../logging.service';
@@ -21,29 +21,29 @@ export class PouchDBService {
     private logger: LoggingService,
     private authService: AuthService,
   ) {
-    Object.values(Database).forEach((dbName) => {
+    Object.values(Databases).forEach((dbName) => {
       this.databases[dbName] = { name: dbName, listener: new EventEmitter() };
     });
   }
 
-  public instance(dbName: Database): PouchDB.Database<{}> | undefined {
+  public instance(dbName: Databases): PouchDB.Database<{}> | undefined {
     if (this.getDBInstance(dbName)) return this.getDBInstance(dbName);
     return (this.databases[dbName].instance = new PouchDB(this.databases[dbName].name));
   }
 
-  private getDBInstance(dbName: Database): PouchDB.Database<{}> | undefined {
+  private getDBInstance(dbName: Databases): PouchDB.Database<{}> | undefined {
     return this.databases[dbName]?.instance;
   }
 
-  getRemoteDBInstance(dbName: Database): PouchDB.Database<{}> | undefined {
+  getRemoteDBInstance(dbName: Databases): PouchDB.Database<{}> | undefined {
     return this.databases[dbName]?.remoteInstance;
   }
 
-  getChangeListener(dbName: Database): EventEmitter<any> | undefined {
+  getChangeListener(dbName: Databases): EventEmitter<any> | undefined {
     return this.databases[dbName]?.listener || undefined;
   }
 
-  async get(dbName: Database, id: string): Promise<any | undefined> {
+  async get(dbName: Databases, id: string): Promise<any | undefined> {
     try {
       return await this.getDBInstance(dbName)?.get(id);
     } catch (error) {
@@ -56,7 +56,7 @@ export class PouchDBService {
    * for fail fast response directly from the SSOT.
    * TODO reverse this behavior for cases with very large payloads
   */
-  async addAll(dbName: Database, docs: Doc[]): Promise<BulkAddResponse | undefined> {
+  async addAll(dbName: Databases, docs: Doc[]): Promise<BulkAddResponse | undefined> {
     const remoteDB = this.getRemoteDBInstance(dbName);
     const localDB = this.instance(dbName);
 
@@ -71,7 +71,7 @@ export class PouchDBService {
     return remoteDB?.bulkDocs(docs);
   }
 
-  async getAll(dbName: Database): Promise<any | undefined> {
+  async getAll(dbName: Databases): Promise<any | undefined> {
     const remoteDB = this.getRemoteDBInstance(dbName);
     const localDB = this.instance(dbName);
 
@@ -83,7 +83,7 @@ export class PouchDBService {
   /**
    * Use only when the id of the doc is not relevant for its access patterns/queries
   */
-  async createUsingPost(dbName: Database, doc: Doc): Promise<any> {
+  async createUsingPost(dbName: Databases, doc: Doc): Promise<any> {
     const dbInstance = this.getDBInstance(dbName);
     try {
       return await dbInstance?.post(doc);
@@ -95,7 +95,7 @@ export class PouchDBService {
   /**
    * Use this in most cases for creating a doc and make sure to assign a unique _id field yourself.
   */
-  async create(dbName: Database, doc: ExistingDoc): Promise<any> {
+  async create(dbName: Databases, doc: ExistingDoc): Promise<any> {
     const dbInstance = this.getDBInstance(dbName);
     try {
       return await dbInstance?.put(doc);
@@ -107,7 +107,7 @@ export class PouchDBService {
   /**
    * Use when updating a doc whose current revision string is not known yet or is likely to have changed.
   */
-  async update(dbName: Database, doc: ExistingDoc): Promise<any> {
+  async update(dbName: Databases, doc: ExistingDoc): Promise<any> {
     const dbInstance = this.getDBInstance(dbName);
     try {
       const result = await this.get(dbName, doc._id);
@@ -118,7 +118,7 @@ export class PouchDBService {
     }
   }
 
-  async delete(dbName: Database, doc: ExistingDoc): Promise<any> {
+  async delete(dbName: Databases, doc: ExistingDoc): Promise<any> {
     try {
       const result = await this.get(dbName, doc._id);
       doc._rev = result._rev;
@@ -129,7 +129,7 @@ export class PouchDBService {
     }
   }
 
-  remoteLogin(dbName: Database): PouchDB.Database<{}> | undefined {
+  remoteLogin(dbName: Databases): PouchDB.Database<{}> | undefined {
     if (this.getRemoteDBInstance(dbName)) return this.getRemoteDBInstance(dbName);
 
     const remoteDB = new PouchDB(`${this.environment.dbUri}/${dbName}`, {
@@ -145,7 +145,7 @@ export class PouchDBService {
     return this.getRemoteDBInstance(dbName);
   }
 
-  remoteSync(dbName: Database): EventEmitter<any> | undefined {
+  remoteSync(dbName: Databases): EventEmitter<any> | undefined {
     if (this.getRemoteDBInstance(dbName)) return this.getChangeListener(dbName);
 
     const dbMeta = this.databases[dbName];

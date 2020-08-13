@@ -1,15 +1,14 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { DBService } from './db.service.interface';
-import { Database, ExistingDoc } from '../../models/domain.model';
+import { Databases, ExistingDoc } from '../../models/domain.model';
 import { PouchDBService } from './pouchdb.service';
-
 
 @Injectable({
   providedIn: 'root',
 })
 export class CovidSimTeamService implements DBService {
 
-  private teamDB = Database.covidsimteam;
+  private teamDB = Databases.covidsimteam;
 
   constructor(private dbService: PouchDBService) {
     this.instance();

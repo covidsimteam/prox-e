@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Doc } from '../../models/domain.model';
-import { Database, ExistingDoc } from '../../models/domain.model';
+import { Databases, ExistingDoc } from '../../models/domain.model';
 import { DBService } from './db.service.interface';
 import { PouchDBService } from './pouchdb.service';
 import { AllDocs } from '../../models/db/all-docs.model';
@@ -14,7 +14,7 @@ import { PSchema } from '../../models/db/schema/pschema.model';
 })
 export class PcrService implements DBService {
 
-  private pcrDB = Database.pcr_tests;
+  private pcrDB = Databases.pcr_tests;
 
   private pcrHeaders_: string[][];
 

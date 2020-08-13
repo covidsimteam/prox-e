@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { DBService } from './db.service.interface';
-import { Database } from '../../models/domain.model';
+import { Databases } from '../../models/domain.model';
 import { PouchDBService } from './pouchdb.service';
 
 
@@ -9,7 +9,7 @@ import { PouchDBService } from './pouchdb.service';
 })
 export class SpatialService implements DBService {
 
-  spatialDB = Database.spatial;
+  spatialDB = Databases.spatial;
 
   constructor(private dbService: PouchDBService) {
     this.instance();

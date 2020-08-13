@@ -12,14 +12,15 @@ export interface DBList {
   };
 }
 
-export enum Database {
+export enum Databases {
   covidsimteam = 'covidsimteam',
   returnees = 'foreign_returnees',
   spatial = 'nepal_spatial',
   pcr_tests = 'pcr_tests',
   rdt_tests = 'rdt_tests',
   audit = 'usage_audit',
-  matrix = 'matrix'
+  matrix = 'matrix',
+  roles = 'roles'
 }
 
 export interface ExistingDoc {

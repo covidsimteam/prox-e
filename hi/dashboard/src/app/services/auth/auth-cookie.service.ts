@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Database, Doc } from '../../models/domain.model';
+import { Databases, Doc } from '../../models/domain.model';
 import { PouchDBService } from '../db/pouchdb.service';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { PouchDBService } from '../db/pouchdb.service';
 })
 export class AuthCookieService {
 
-  private auditDB = Database.audit;
+  private auditDB = Databases.audit;
   private currentCookieId: string;
 
   constructor(private dbService: PouchDBService) {
