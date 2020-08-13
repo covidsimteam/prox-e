@@ -1,8 +1,7 @@
 import motherLogger from '../logger';
-import { AccountService } from './hoodie/account.service';
 import { SignInResponse } from '../models/sign-in.model';
-import { SignUpResponse } from '../models/sign-up.model';
 import { SignOutResponse } from '../models/sign-out.model';
+import { SignUpResponse } from '../models/sign-up.model';
 
 export class AuthService {
   
@@ -12,7 +11,6 @@ export class AuthService {
   private static instance: AuthService;
   
   constructor(
-    private accounts: AccountService
   ) {
     this.logger.info("AuthService -> constructor -> dbHost", this.dbHost)
     if (!AuthService.instance) {
@@ -20,17 +18,17 @@ export class AuthService {
     }
     return AuthService.instance;
   }
-
-  signIn(email: string, password: string): Promise<SignInResponse> {
-    return this.accounts.signIn(email, password);
+// email: string, password: string
+  signIn(): Promise<SignInResponse> {
+    return Promise.reject();
   }
-
-  signUp(email: string, password: string): Promise<SignUpResponse>  {
-    return this.accounts.signUp(email, password);
+// email: string, password: string
+  signUp(): Promise<SignUpResponse>  {
+    return Promise.reject();
   }
 
   signOut(): Promise<SignOutResponse> {
-    return this.accounts.signOut();
+    return Promise.reject();
   }
   
 }

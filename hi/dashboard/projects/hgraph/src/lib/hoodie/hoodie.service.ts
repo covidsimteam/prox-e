@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import * as Hoodie from '@hoodie/client';
-import PouchDb from 'pouchdb';
-
+import PouchDB from 'pouchdb';
 @Injectable({
   providedIn: 'root'
 })
 export class HoodieService {
 
   private readonly hoodie: any = new Hoodie({
-    url: 'http://localhost:8081/',
-    PouchDB: new PouchDb('hoodie')
+    url: 'http://127.0.0.1:8080/',
+    PouchDB: new PouchDB('hoodie')
   });
 
   constructor() { }
