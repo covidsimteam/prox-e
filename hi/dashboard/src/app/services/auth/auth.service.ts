@@ -17,6 +17,7 @@ export class AuthService {
   private user_: string;
   private pass_: string;
   private authArr: string[] = [''];
+  private isInPublicMod: boolean = false;
 
   constructor(
     private http: HttpClient,
@@ -36,7 +37,9 @@ export class AuthService {
   login(
     username: string,
     password: string,
+    publicMode: boolean = false
   ): Observable<BasicAuth.Response> {
+    this.isInPublicMode = publicMode;
     return this.basicAuthRequest(username, password, true);
   }
 
@@ -76,6 +79,9 @@ export class AuthService {
         }),
       );
   }
+
+  get isInPublicMode(): boolean { return this.isInPublicMod; }
+  set isInPublicMode(v: boolean) { this.isInPublicMod = v; }
 
   private async roleArraySetter(roles: string[]) {
     this.roleService.roles = roles;
@@ -121,7 +127,7 @@ export class AuthService {
   }
 
   publicLogin() {
-    this.login(this.environment.dbPublicUser, this.environment.dbPublicPass).subscribe();
+    this.login(this.environment.dbPublicUser, this.environment.dbPublicPass, true).subscribe();
   }
 
   roleExists(role: string): boolean {

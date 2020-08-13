@@ -1,12 +1,12 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import PouchDB from 'pouchdb';
 import PouchAuth from 'pouchdb-authentication';
+import { from } from 'rxjs';
+import { BulkAddResponse } from '../../models/db/response.model';
 import { Databases, DBList, Doc, ExistingDoc } from '../../models/domain.model';
-import { AuthService } from '../auth/auth.service';
+import { RolesService } from '../auth/roles.service';
 import { EnvironmentService } from '../env/environment.service';
 import { LoggingService } from '../logging.service';
-import { BulkAddResponse } from '../../models/db/response.model';
-import { from } from 'rxjs';
 
 PouchDB.plugin(PouchAuth);
 
@@ -19,7 +19,7 @@ export class PouchDBService {
   constructor(
     private environment: EnvironmentService,
     private logger: LoggingService,
-    private authService: AuthService,
+    private roleService: RolesService
   ) {
     Object.values(Databases).forEach((dbName) => {
       this.databases[dbName] = { name: dbName, listener: new EventEmitter() };
@@ -136,9 +136,9 @@ export class PouchDBService {
       skip_setup: true,
     });
 
-    if (!this?.authService?.isAuthenticated) return this.getRemoteDBInstance(dbName);
+    if (!this.roleService.isAuthenticated) return this.getRemoteDBInstance(dbName);
 
-    from(remoteDB.logIn(this.authService?.user, this.authService?.pass)).subscribe(_ => {
+    from(remoteDB.logIn(this.roleService.username, this.roleService.password)).subscribe(_ => {
       this.databases[dbName].remoteInstance = remoteDB;
     });
 
@@ -153,13 +153,13 @@ export class PouchDBService {
       skip_setup: true,
     });
 
-    if (!this.authService.isAuthenticated) return this.getChangeListener(dbName);
+    if (!this.roleService.isAuthenticated) return this.getChangeListener(dbName);
 
     const localDB = dbMeta.instance ? dbMeta.instance : this.instance(dbName);
 
     const emitOnChange = (change: any) => dbMeta?.listener?.emit(change);
 
-    from(remoteDB.logIn(this.authService?.user, this.authService?.pass))
+    from(remoteDB.logIn(this.roleService.username, this.roleService.password))
         .subscribe(_ => {
 
           this.databases[dbName].remoteInstance = remoteDB;

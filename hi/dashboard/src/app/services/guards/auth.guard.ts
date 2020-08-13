@@ -17,7 +17,7 @@ export class AuthGuard implements CanActivate {
     _: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
 
-      if (!this.authService.isAuthenticated) {
+      if (!this.authService.isAuthenticated || this.authService.isInPublicMode) {
         this.router.navigate(['auth/login'], {
           queryParams: {
             returnUrl: state?.url || '/hub/home',

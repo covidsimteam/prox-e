@@ -1,8 +1,4 @@
 {
-  "/auth": {
-    "target": "http://localhost:8081/auth",
-    "secure": true
-  },
   "/ouch": {
     "target": "http://localhost:5984/"
   }

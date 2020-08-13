@@ -1,19 +1,31 @@
-import { EventEmitter, Injectable } from '@angular/core';
-import { Databases, ExistingDoc } from '../../models/domain.model';
-import { DBService } from '../db/db.service.interface';
-import { PouchDBService } from '../db/pouchdb.service';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RolesService implements DBService {
+export class RolesService {
 
-  private roleDB = Databases.roles;
   private roleArr: string[] = [''];
 
-  constructor(private dbService: PouchDBService) {
-    this.instance();
-    this.remoteSync();
+  private user: string;
+  private pass: string;
+
+  constructor() {}
+
+  public get username(): string {
+    return this.user;
+  }
+
+  public set username(v: string) {
+    this.user = v;
+  }
+
+  public get password(): string {
+    return this.pass;
+  }
+
+  public set password(v: string) {
+    this.pass = v;
   }
 
   addRole(role: string) {
@@ -33,6 +45,10 @@ export class RolesService implements DBService {
       .some(role => role === 'lalitpur:lab_admin' || role === 'lalitpur:municipality_admin');
   }
 
+  isAuthenticated(): boolean {
+    return !!this.roleArr.length;
+  }
+
   roleExists(role: string): boolean {
     return this.roleArr.find((rol: string) => role === rol)?.length !== 0;
   }
@@ -40,35 +56,5 @@ export class RolesService implements DBService {
   removeRole(role: string) {
     this.roleArr = this.roleArr.filter(rol => rol !== role);
   }
-
-  instance(): PouchDB.Database<{}> | undefined {
-    return this.dbService.instance(this.roleDB);
-  }
-
-  remoteSync(): EventEmitter<any> | undefined {
-    return this.dbService.remoteSync(this.roleDB);
-  }
-
-  getChangeListener(): EventEmitter<any> | undefined {
-    return this.dbService.getChangeListener(this.roleDB);
-  }
-
-  get(id: string): Promise<any> | undefined {
-    return this.dbService?.get(this.roleDB, id);
-  }
-
-  create(doc: ExistingDoc): Promise<any> {
-    return this.dbService.create(this.roleDB, doc);
-  }
-
-  update(doc: ExistingDoc): Promise<any> {
-    return this.dbService.update(this.roleDB, doc);
-  }
-
-  delete(doc: ExistingDoc): Promise<any> {
-    return this.dbService.delete(this.roleDB, doc);
-  }
-
-
 
 }
