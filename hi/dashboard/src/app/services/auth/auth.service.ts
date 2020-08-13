@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { NbAuthService, NbAuthToken } from '@nebular/auth';
+import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { BasicAuth } from '../../models/auth-response.model';
 import { CurrentUser } from '../../models/domain.model';
 import { EnvironmentService } from '../env/environment.service';
-import { NbAuthService, NbAuthToken } from '@nebular/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -16,8 +16,6 @@ export class AuthService {
   private user_: string;
   private pass_: string;
   private role_: string;
-
-  isPrivilegedUser: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(
     private http: HttpClient,
@@ -97,7 +95,6 @@ export class AuthService {
     pass: string,
     role: string,
   ) {
-    this.isPrivilegedUser.next(role !== 'public'); // TODO add whitelisted roles
     if (isAuthenticated) {
       this.setCredentials(user, pass, role);
     } else {
@@ -128,10 +125,6 @@ export class AuthService {
   }
 
   publicLogin() {
-    if (this.isPrivileged) {
-      this.isPrivilegedUser.next(true); // isPrivilegedUser does not survive browser refresh but isPrivileged does
-      return;
-    }
     this.login(this.environment.dbPublicUser, this.environment.dbPublicPass).subscribe();
   }
 
@@ -143,7 +136,6 @@ export class AuthService {
     Object.values(CurrentUser).forEach(key => {
       localStorage.removeItem(key);
     });
-    this.isPrivilegedUser.next(false);
   }
 
   get role(): string | null {

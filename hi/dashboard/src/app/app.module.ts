@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { NbAuthJWTToken, NbAuthModule, NbPasswordAuthStrategy } from '@nebular/auth';
+import { NbAuthJWTToken, NbAuthModule, NbPasswordAuthStrategy, NbAuthSimpleToken } from '@nebular/auth';
 import {
   NbDatepickerModule,
   NbDialogModule,
@@ -50,11 +50,11 @@ const formSetting: any = {
           name: 'email',
           token: {
             key: 'token',
-            class: NbAuthJWTToken,
+            class: NbAuthSimpleToken,
           },
-          baseEndpoint: 'http://127.0.0.1:8080/auth/',
+          baseEndpoint: '/auth/',
           login: {
-            endpoint: '/auth/sign-in',
+            endpoint: '/sign-in',
             method: 'post',
             redirect: {
               success: '/hub/',
@@ -64,7 +64,7 @@ const formSetting: any = {
             defaultMessages: ['You have been successfully logged in.'],
           },
           register: {
-            endpoint: '/auth/sign-up',
+            endpoint: '/sign-up',
             method: 'post',
             redirect: {
               success: '/welcome/',
@@ -74,7 +74,7 @@ const formSetting: any = {
             defaultMessages: ['You have been successfully registered.'],
           },
           logout: {
-            endpoint: '/auth/sign-out',
+            endpoint: '/sign-out',
             method: 'post',
             redirect: {
               success: '/auth/sign-in/',
@@ -84,7 +84,7 @@ const formSetting: any = {
             defaultMessages: ['You have been successfully logged out.'],
           },
           requestPass: {
-            endpoint: '/auth/request-pass',
+            endpoint: '/request-pass',
             method: 'post',
             redirect: {
               success: '/check-email/',
@@ -94,7 +94,7 @@ const formSetting: any = {
             defaultMessages: ['Reset password instructions have been sent to your email.'],
           },
           resetPass: {
-            endpoint: '/auth/reset-pass',
+            endpoint: '/reset-pass',
             method: 'post',
             redirect: {
               success: '/reset-success/',
