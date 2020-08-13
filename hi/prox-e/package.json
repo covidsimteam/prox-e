@@ -75,14 +75,14 @@
     "typescript": "^3.9.7"
   },
   "hoodie": {
-    "address": "127.0.0.1",
+    "address": "localhost",
     "port": 8080,
     "data": ".hoodie",
     "public": "../../ui",
     "dbAdapter": "pouchdb-adapter-memory",
     "inMemory": true,
     "loglevel": "warn",
-    "url": "http://127.0.0.1:8080/hood",
+    "url": "http://127.0.0.1:8080/",
     "adminPassword": "public"
   }
 }
