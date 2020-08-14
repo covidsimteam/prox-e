@@ -55,6 +55,7 @@
         "@angular/router": "^9.0.4",
         "@angular/service-worker": "^9.0.4",
         "@asymmetrik/ngx-leaflet": "^7.0.1",
+        "@azure/ng-deploy": "^0.2.3",
         "@egjs/hammerjs": "^2.0.17",
         "@nebular/auth": "^5.1.0",
         "@nebular/eva-icons": "5.0.0",
