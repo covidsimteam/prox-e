@@ -68,7 +68,7 @@ export class RolesService {
 
   removeRole(role: string) {
     this.roleArr = this.roleArr.filter(rol => rol !== role);
-    this.roleSub
+    this.roleSub.next(this.roleArr);
   }
 
 }
