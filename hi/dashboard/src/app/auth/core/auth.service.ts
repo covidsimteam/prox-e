@@ -85,6 +85,7 @@ export class AuthService extends NbAuthService {
                 response.userCtx.roles
               );
               this.roleService.roles = response.userCtx.roles;
+              this.authSuccess = true;
             }
           }
         }),

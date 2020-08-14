@@ -1,9 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { Router, Route, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NbLoginComponent } from '@nebular/auth';
-import { AuthService } from '../core/auth.service';
 import { BasicAuth } from 'app/models/auth-response.model';
-import { AuthGuard } from 'app/services/guards/auth.guard';
+import { AuthService } from '../core/auth.service';
 
 @Component({
   selector: 'ngx-login',
@@ -16,8 +15,7 @@ export class LoginComponent extends NbLoginComponent implements OnInit {
     private authService: AuthService,
     protected router: Router,
     private route: ActivatedRoute,
-    private changeDetector: ChangeDetectorRef,
-    private authGuard: AuthGuard
+    private changeDetector: ChangeDetectorRef
     ) {
       super(authService, {}, changeDetector, router);
       super.socialLinks = [];
@@ -34,7 +32,6 @@ export class LoginComponent extends NbLoginComponent implements OnInit {
       this.authService.login(email, password, false)
         .subscribe((val: BasicAuth.Response) => {
           if (BasicAuth.isSuccess(val)) {
-            this.authService.authSuccess = true;
             this.router.navigateByUrl('/hub/home');
           }
         });
