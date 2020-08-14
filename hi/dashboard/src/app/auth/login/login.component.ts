@@ -13,7 +13,7 @@ export class LoginComponent extends NbLoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router,
+    protected router: Router,
     private changeDetector: ChangeDetectorRef,
     private route: RouterStateSnapshot
     ) {
@@ -22,7 +22,7 @@ export class LoginComponent extends NbLoginComponent implements OnInit {
 
   ngOnInit() {
     if (this.authService.isAdmin()) {
-      this.router.navigate(['hub', 'home'], { relativeTo: route});
+      this.router.navigate(['hub', 'home']);
     }
   }
 
