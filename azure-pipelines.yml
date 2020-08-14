@@ -19,19 +19,10 @@ steps:
     cd hi/dashboard
     mkdir -p /tmp/exts
     npm install --cache /tmp/exts
-    npm run build --prod
+    npm run build:prod
   displayName: 'npm install and build'
-
-jobs:
-- deployment: VMDeploy
-  displayName: web
-  pool:
-    vmImage: 'ubuntu-latest'
-  environment:
-    name: 'mini-couch'
-    resourceType: VirtualMachine
-  strategy:
-    runOnce:
-      deploy:
-        steps:
-        - script: echo 'todotodone'
+  
+- task: PublishBuildArtifacts@1
+  inputs: 
+    pathtoPublish: $(Build.ArtifactStagingDirectory)
+    ArtifactName: 'ui'
