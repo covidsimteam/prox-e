@@ -79,15 +79,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Kathmandu Valley',
-        link: '/hub/maps/area/kathmandu_valley',
+        link: '/hub/secured/maps/area/kathmandu_valley',
       },
       {
         title: 'Nepal',
-        link: '/hub/maps/nepal',
-      },
-      {
-        title: 'Custom Map (Sample)',
-        link: '/hub/maps/bubble',
+        link: '/hub/secured/maps/nepal',
       },
     ],
   },

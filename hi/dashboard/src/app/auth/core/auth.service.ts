@@ -204,4 +204,8 @@ export class AuthService extends NbAuthService {
     return this.authenticatedSub.asObservable();
   }
 
+  set authSuccess(succ: boolean) {
+    this.authenticatedSub.next(succ);
+  }
+
 }
