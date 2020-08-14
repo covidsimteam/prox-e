@@ -1,6 +1,8 @@
-import { Injectable, EventEmitter } from '@angular/core';
-import { DBService } from './db.service.interface';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Databases, ExistingDoc } from 'app/models/domain.model';
+import { from, Observable } from 'rxjs';
+import { IdPrefixService } from '../utils/id-prefix.service';
+import { DBService } from './db.service.interface';
 import { PouchDBService } from './pouchdb.service';
 
 @Injectable({
@@ -22,10 +24,13 @@ export class RoleAuthsService implements DBService {
   }
 
   addRoles(roles: string[]) {
-    roles.forEach((role: string) => this.addRole(role));
+    roles.forEach((role: string) => this.addRole(IdPrefixService.toColonHyphen(role)));
   }
 
-  getDashboardAuths() {}
+  getDashboardAuths(): Observable<any> {
+    return from(this.roleArr
+      .map((role: string) => this.get(role)));
+  }
 
   getRoles(): string[] {
     return this.roleArr.slice();
@@ -47,15 +52,15 @@ export class RoleAuthsService implements DBService {
     return this.dbService.get(this.roleAuthDB, id);
   }
 
-  create?(doc: ExistingDoc): Promise<any> {
+  create(doc: ExistingDoc): Promise<any> {
     return this.dbService.create(this.roleAuthDB, doc);
   }
 
-  update?(doc: ExistingDoc): Promise<any> {
+  update(doc: ExistingDoc): Promise<any> {
     return this.dbService.update(this.roleAuthDB, doc);
   }
 
-  delete?(doc: ExistingDoc): Promise<any> {
+  delete(doc: ExistingDoc): Promise<any> {
     return this.dbService.delete(this.roleAuthDB, doc);
   }
 }

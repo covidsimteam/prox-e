@@ -177,7 +177,7 @@ export class AuthService extends NbAuthService {
 
   get isPrivileged(): boolean {
     return this.roleService.roles.some((role: string) => {
-      return this.idPrefixService.resolveIdPrefix(role) !== 'common:user';
+      return IdPrefixService.toColonHyphen(role) !== 'common:user';
     });
   }
 
