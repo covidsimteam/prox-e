@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DatagsComponent } from './datags/datags.component';
+import { SpecDocComponent } from './spec-doc/spec-doc.component';
 
 
 
 @NgModule({
-  declarations: [DatagsComponent],
+  declarations: [SpecDocComponent],
   imports: [
     CommonModule
   ]
 })
-export class FormVizsModule { }
+export class UixModule { }
