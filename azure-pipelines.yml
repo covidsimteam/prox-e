@@ -21,3 +21,17 @@ steps:
     npm install --cache /tmp/exts
     npm run build --prod
   displayName: 'npm install and build'
+
+jobs:
+- deployment: VMDeploy
+  displayName: web
+  pool:
+    vmImage: 'ubuntu-latest'
+  environment:
+    name: 'mini-couch'
+    resourceType: VirtualMachine
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - script: echo 'todotodone'
