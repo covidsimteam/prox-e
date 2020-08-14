@@ -19,7 +19,7 @@ import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './services/dashboard/dashboard/dashboard.component';
+import { DashboardComponent } from './services/dashboard/dashboard.component';
 import { AuthGuard } from './services/guards/auth.guard';
 import { HomePageComponent } from './services/dashboard/home-page-modules/home-page/home-page.component';
 
