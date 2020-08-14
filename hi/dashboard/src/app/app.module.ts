@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { NbAuthJWTToken, NbAuthModule, NbPasswordAuthStrategy, NbAuthSimpleToken } from '@nebular/auth';
+import { NbAuthModule, NbAuthSimpleToken, NbPasswordAuthStrategy } from '@nebular/auth';
 import {
   NbDatepickerModule,
   NbDialogModule,
@@ -19,8 +19,9 @@ import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthGuard } from './services/guards/auth.guard';
 import { DashboardComponent } from './services/dashboard/dashboard/dashboard.component';
+import { AuthGuard } from './services/guards/auth.guard';
+import { HomePageComponent } from './services/dashboard/home-page-modules/home-page/home-page.component';
 
 const formSetting: any = {
   redirectDelay: 0,
@@ -29,7 +30,7 @@ const formSetting: any = {
   },
 };
 @NgModule({
-  declarations: [AppComponent, DashboardComponent],
+  declarations: [AppComponent, DashboardComponent, HomePageComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
