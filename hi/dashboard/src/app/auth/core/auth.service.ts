@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { NbAuthResult, NbAuthService, NbPasswordAuthStrategy, NbTokenService } from '@nebular/auth';
+import { Router, ActivatedRoute } from '@angular/router';
+import { NbAuthResult, NbAuthService, NbPasswordAuthStrategy, NbTokenService, NbAuthStrategy } from '@nebular/auth';
 import { RolesService } from 'app/services/auth/roles.service';
 import { EnvironmentService } from 'app/services/env/environment.service';
 import { IdPrefixService } from 'app/services/utils/id-prefix.service';
@@ -20,18 +20,21 @@ export class AuthService extends NbAuthService {
   private isInPublicMod: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   private authenticatedSub: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private strat: NbPasswordAuthStrategy;
 
   constructor(
     private http: HttpClient,
     private environment: EnvironmentService,
     private router: Router,
+    private route: ActivatedRoute,
     private roleService: RolesService,
     private idPrefixService: IdPrefixService,
     protected tokenService: NbTokenService,
     private strategy: NbPasswordAuthStrategy
   ) {
     super(tokenService, strategy);
-    }
+    this.strat = new NbPasswordAuthStrategy(http, route);
+  }
 
   /**
    * @param username CouchDB username
@@ -91,6 +94,10 @@ export class AuthService extends NbAuthService {
   get isInPublicMode(): boolean { return this.isInPublicMod.value; }
   set isInPublicMode(v: boolean) { this.isInPublicMod.next(v); }
 
+  get strategies(): any { return [this.strat]; }
+  set strategies(strats: any) { this.strat = strats[0]; }
+  get auth(): string[] { return this.authArr.slice(); }
+
   private async roleArraySetter(roles: string[]) {
     this.roleService.roles = roles;
     this.authArr = this.idPrefixService.resolveIdPrefixes(roles);
@@ -117,7 +124,7 @@ export class AuthService extends NbAuthService {
   ): void {
     this.user_ = username;
     this.pass_ = password;
-    this.authenticatedSub.next
+    this.authenticatedSub.next(true);
 
     Object.entries({ username, password, ...roles, isLoggedIn: 'true' })
       .forEach(

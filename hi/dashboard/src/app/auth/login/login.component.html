@@ -1,14 +1,14 @@
 <h1 id="title" class="title">Sign In</h1>
 
-<nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
+<nb-alert *ngIf="showMessages?.error && errors?.length && !submitted" outline="danger" role="alert">
   <p class="alert-title"><b>Error Occurred</b></p>
   <ul class="alert-message-list">
     <li *ngFor="let error of errors" class="alert-message">{{ error }}</li>
   </ul>
 </nb-alert>
 
-<nb-alert *ngIf="showMessages.success && messages?.length && !submitted" outline="success" role="alert">
-  <p class="alert-title"><b>Hooray!</b></p>
+<nb-alert *ngIf="showMessages?.success && messages?.length && !submitted" outline="success" role="alert">
+  <p class="alert-title"><b>Login Succeeded.</b></p>
   <ul class="alert-message-list">
     <li *ngFor="let message of messages" class="alert-message">{{ message }}</li>
   </ul>
@@ -76,7 +76,8 @@
           fullWidth
           status="success"
           [disabled]="submitted || !form.valid"
-          [class.btn-pulse]="submitted">
+          [class.btn-pulse]="submitted"
+          >
     Sign In
   </button>
 </form>

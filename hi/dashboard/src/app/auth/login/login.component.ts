@@ -1,8 +1,8 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NbLoginComponent } from '@nebular/auth';
-
 import { AuthService } from '../core/auth.service';
-import { Router, RouterStateSnapshot } from '@angular/router';
+
 
 @Component({
   selector: 'ngx-login',
@@ -15,15 +15,20 @@ export class LoginComponent extends NbLoginComponent implements OnInit {
     private authService: AuthService,
     protected router: Router,
     private changeDetector: ChangeDetectorRef,
-    private route: RouterStateSnapshot
     ) {
       super(authService, {}, changeDetector, router);
+      super.socialLinks = [];
     }
 
-  ngOnInit() {
-    if (this.authService.isAdmin()) {
-      this.router.navigate(['hub', 'home']);
+    ngOnInit() {
+      if (this.authService.isAdmin()) {
+        this.router.navigate(['hub', 'home']);
+      }
     }
+
+    login() {
+      const { email, password } = this.user;
+      this.authService.login(email, password, false).subscribe();
+    }
+
   }
-
-}
