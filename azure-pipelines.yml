@@ -18,6 +18,7 @@ steps:
 - script: |
     cd hi/dashboard
     mkdir -p /tmp/exts
+    mkdir -p ui
     npm install --cache /tmp/exts
     npm run build:prod
   displayName: 'npm install and build'
