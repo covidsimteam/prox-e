@@ -20,6 +20,7 @@ import { ThemeModule } from './@theme/theme.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './services/guards/auth.guard';
+import { DashboardComponent } from './services/dashboard/dashboard/dashboard.component';
 
 const formSetting: any = {
   redirectDelay: 0,
@@ -28,7 +29,7 @@ const formSetting: any = {
   },
 };
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DashboardComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
