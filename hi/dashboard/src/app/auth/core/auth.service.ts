@@ -1,31 +1,37 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { NbAuthResult, NbAuthService, NbPasswordAuthStrategy, NbTokenService } from '@nebular/auth';
+import { RolesService } from 'app/services/auth/roles.service';
+import { EnvironmentService } from 'app/services/env/environment.service';
+import { IdPrefixService } from 'app/services/utils/id-prefix.service';
+import { BehaviorSubject, from, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { BasicAuth } from '../../models/auth-response.model';
 import { CurrentUser } from '../../models/domain.model';
-import { EnvironmentService } from '../env/environment.service';
-import { IdPrefixService } from '../utils/id-prefix.service';
-import { RolesService } from './roles.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
-  private isAuthenticated_ = false;
+export class AuthService extends NbAuthService {
   private user_: string;
   private pass_: string;
   private authArr: string[] = [''];
-  private isInPublicMod: boolean = false;
+  private isInPublicMod: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  private authenticatedSub: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(
     private http: HttpClient,
     private environment: EnvironmentService,
     private router: Router,
     private roleService: RolesService,
-    private idPrefixService: IdPrefixService
-  ) {  }
+    private idPrefixService: IdPrefixService,
+    protected tokenService: NbTokenService,
+    private strategy: NbPasswordAuthStrategy
+  ) {
+    super(tokenService, strategy);
+    }
 
   /**
    * @param username CouchDB username
@@ -51,7 +57,8 @@ export class AuthService {
    * given the Couch user has the role claimed in the login request.
    * @param refreshCredentials needs to be set to true to be able to reuse the credentials for future requests
    */
-  basicAuthRequest(
+
+   basicAuthRequest(
     username: string,
     password: string,
     refreshCredentials: boolean = false,
@@ -74,20 +81,19 @@ export class AuthService {
                 password,
                 response.userCtx.roles
               );
+              this.roleService.roles = response.userCtx.roles;
             }
           }
         }),
       );
   }
 
-  get isInPublicMode(): boolean { return this.isInPublicMod; }
-  set isInPublicMode(v: boolean) { this.isInPublicMod = v; }
+  get isInPublicMode(): boolean { return this.isInPublicMod.value; }
+  set isInPublicMode(v: boolean) { this.isInPublicMod.next(v); }
 
   private async roleArraySetter(roles: string[]) {
     this.roleService.roles = roles;
-    console.log('AuthService -> roleArraySetter -> this.roles', this.roleService.roles);
     this.authArr = this.idPrefixService.resolveIdPrefixes(roles);
-    console.log('AuthService -> roleArraySetter -> this.authArr', this.authArr);
   }
 
   private refreshCurrentUserCredentials(
@@ -111,7 +117,8 @@ export class AuthService {
   ): void {
     this.user_ = username;
     this.pass_ = password;
-    this.isAuthenticated_ = true;
+    this.authenticatedSub.next
+
     Object.entries({ username, password, ...roles, isLoggedIn: 'true' })
       .forEach(
         ([key, val]) => {
@@ -120,10 +127,17 @@ export class AuthService {
     );
   }
 
-  logout(): void {
+  logout(strategy: string = 'email'): Observable<NbAuthResult> {
     this.removeCredentials();
-    this.router.navigate(['']);
+    this.router.navigate(['/hub/home']);
     this.publicLogin();
+    return from([new NbAuthResult(
+      true,
+      '201: Log out succeeded.',
+      null,
+      null,
+      `Log out succeeded: ${strategy}`,
+      null)]);
   }
 
   publicLogin() {
@@ -141,7 +155,7 @@ export class AuthService {
   private removeCredentials(): void {
     this.user_ = '';
     this.pass_ = '';
-    this.isAuthenticated_ = false;
+    this.authenticatedSub.next(false);
     this.roleService.roles = [''];
     Object.values(CurrentUser).forEach(key => {
       localStorage.removeItem(key);
@@ -174,9 +188,13 @@ export class AuthService {
     return localStorage?.getItem(CurrentUser.pass) || '';
   }
 
-  get isAuthenticated(): boolean {
-    if (this.isAuthenticated_) return this.isAuthenticated_;
-    return localStorage.getItem(CurrentUser.isLoggedIn) ? true : false;
+  private authenticateNow(success: boolean = true): Observable<boolean> {
+    this.authenticatedSub.next(success);
+    return this.authenticatedSub.asObservable();
+  }
+
+  get authentication(): Observable<boolean> {
+    return this.authenticatedSub.asObservable();
   }
 
 }

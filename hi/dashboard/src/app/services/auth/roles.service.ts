@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, from, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -6,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class RolesService {
 
   private roleArr: string[] = [''];
+  private roleSub: BehaviorSubject<string[]> = new BehaviorSubject<string[]>(this.roleArr);
 
   private user: string;
   private pass: string;
@@ -30,14 +32,23 @@ export class RolesService {
 
   addRole(role: string) {
     this.roleArr.push(role);
+    this.roleSub.next([role]);
   }
 
   get roles(): string[] {
     return this.roleArr.slice();
   }
 
+  get roleObs(): Observable<string[]> {
+    return from([this.roleArr]);
+  }
+
   set roles(roles: string[]) {
     this.roleArr = roles;
+  }
+
+  get roleStream(): Observable<string[]> {
+    return this.roleSub.asObservable();
   }
 
   isAdmin(): boolean {
@@ -55,6 +66,7 @@ export class RolesService {
 
   removeRole(role: string) {
     this.roleArr = this.roleArr.filter(rol => rol !== role);
+    this.roleSub
   }
 
 }
