@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, from, Observable } from 'rxjs';
+import { RoleAuthsService } from '../db/role-auths.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,21 +13,21 @@ export class RolesService {
   private user: string;
   private pass: string;
 
-  constructor() {}
+  constructor(private roleAuths: RoleAuthsService) {}
 
-  public get username(): string {
+  get username(): string {
     return this.user;
   }
 
-  public set username(v: string) {
+  set username(v: string) {
     this.user = v;
   }
 
-  public get password(): string {
+  get password(): string {
     return this.pass;
   }
 
-  public set password(v: string) {
+  set password(v: string) {
     this.pass = v;
   }
 
@@ -45,6 +46,7 @@ export class RolesService {
 
   set roles(roles: string[]) {
     this.roleArr = roles;
+    this.roleAuths.addRoles(roles);
   }
 
   get roleStream(): Observable<string[]> {
