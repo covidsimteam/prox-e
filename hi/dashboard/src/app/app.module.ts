@@ -21,7 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './services/guards/auth.guard';
 import { HomePageComponent } from './services/dashboard/home-page-modules/home-page/home-page.component';
-import { DashboardComponent } from './services/dashboard/dashboard/dashboard.component';
+import { DashboardModule } from './services/dashboard/dashboard.module';
 
 const formSetting: any = {
   redirectDelay: 0,
@@ -30,7 +30,7 @@ const formSetting: any = {
   },
 };
 @NgModule({
-  declarations: [AppComponent, DashboardComponent, HomePageComponent],
+  declarations: [AppComponent, HomePageComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -46,6 +46,7 @@ const formSetting: any = {
     ThemeModule.forRoot(),
     ReactiveFormsModule,
     NgxEchartsModule,
+    DashboardModule,
     NbAuthModule.forRoot({
       strategies: [
         NbPasswordAuthStrategy.setup({
@@ -117,7 +118,7 @@ const formSetting: any = {
           },
         },
       }),
-      ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ],
     bootstrap: [AppComponent],
     providers: [
