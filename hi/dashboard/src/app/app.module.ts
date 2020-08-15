@@ -19,9 +19,9 @@ import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthGuard } from './services/guards/auth.guard';
-import { HomePageComponent } from './services/dashboard/home-page-modules/home-page/home-page.component';
 import { DashboardModule } from './services/dashboard/dashboard.module';
+import { HomePageComponent } from './services/dashboard/home-page-modules/home-page/home-page.component';
+import { AuthGuard } from './services/guards/auth.guard';
 
 const formSetting: any = {
   redirectDelay: 0,
@@ -118,7 +118,7 @@ const formSetting: any = {
           },
         },
       }),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+      ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ],
     bootstrap: [AppComponent],
     providers: [
