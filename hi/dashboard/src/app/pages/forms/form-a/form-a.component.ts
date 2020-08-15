@@ -20,9 +20,9 @@ export class FormAComponent implements OnInit, OnDestroy {
       name: '',
     });
 
-    // this.aForm.valueChanges.subscribe(this.formValueChanged);
+    this.aForm.valueChanges.subscribe(this.formValueChanged);
   }
 
-  // formValueChanged(formValue) {}
+  formValueChanged(formValue) {}
 
 }
