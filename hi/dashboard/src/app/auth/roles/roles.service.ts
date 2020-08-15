@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, from, Observable } from 'rxjs';
-import { RoleAuthsService } from '../db/role-auths.service';
+import { RoleAuthsService } from '../../services/db/role-auths.service';
 
 @Injectable({
   providedIn: 'root'
