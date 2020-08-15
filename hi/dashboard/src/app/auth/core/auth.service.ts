@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NbAuthResult, NbAuthService, NbPasswordAuthStrategy, NbTokenService, NbAuthStrategy } from '@nebular/auth';
-import { RolesService } from 'app/services/auth/roles.service';
+import { RolesService } from 'app/auth/roles/roles.service';
 import { EnvironmentService } from 'app/services/env/environment.service';
 import { IdPrefixService } from 'app/services/utils/id-prefix.service';
 import { BehaviorSubject, from, Observable } from 'rxjs';
