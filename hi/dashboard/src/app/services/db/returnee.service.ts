@@ -67,11 +67,11 @@ export class ReturneeService implements DBService {
 
 
   remoteSync(): EventEmitter<any> | undefined {
-    return this.dbService?.remoteSync(this.returneeDB);
+    return this.dbService.remoteSync(this.returneeDB);
   }
 
   getChangeListener(): EventEmitter<any> | undefined {
-    return this.dbService?.getChangeListener(this.returneeDB);
+    return this.dbService.getChangeListener(this.returneeDB);
   }
 
   get(id: string): Promise<any> | undefined {

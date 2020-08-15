@@ -13,19 +13,23 @@ export class IdPrefixService {
   }
 
   get id(): string {
-    return this.resolveIdPrefix(this.idArr[0]);
+    return IdPrefixService.toColonHyphen(this.idArr[0]);
   }
 
   getIds(): string[] {
     return this.idArr;
   }
 
-  resolveIdPrefix(id: string): string {
+  static toColonHyphen(id: string): string {
     return id.replace('_', ':').toString();
   }
 
+  static toHyphenOnly(id: string): string {
+    return id.replace(':', '_').toString();
+  }
+
   resolveIdPrefixes(ids: string[]): string[] {
-    return ids.map(id => this.resolveIdPrefix(id));
+    return ids.map(id => IdPrefixService.toColonHyphen(id));
   }
 
 }
