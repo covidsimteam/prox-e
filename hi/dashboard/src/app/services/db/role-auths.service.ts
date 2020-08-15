@@ -1,6 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Databases, ExistingDoc } from 'app/models/domain.model';
 import { from, Observable } from 'rxjs';
+import { mergeMap, scan } from 'rxjs/operators';
 import { IdPrefixService } from '../utils/id-prefix.service';
 import { DBService } from './db.service.interface';
 import { PouchDBService } from './pouchdb.service';
@@ -27,9 +28,13 @@ export class RoleAuthsService implements DBService {
     roles.forEach((role: string) => this.addRole(IdPrefixService.toColonHyphen(role)));
   }
 
-  getDashboardAuths(): Observable<any> {
+  getDashboardAuths(): Observable<any[]> {
     return from(this.roleArr
-      .map((role: string) => this.get(role)));
+      .map((role: string) => this.get(role)))
+      .pipe(
+        mergeMap(p => from(p)),
+        scan((acc, curr) => acc.push(curr), [])
+      );
   }
 
   getRoles(): string[] {
