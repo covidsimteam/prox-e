@@ -7,8 +7,6 @@ import { UixModule } from '../form-uix/uix.module';
 import { FilesModule } from '../form-files/files/files.module';
 import { FormFfwdComponent } from './form-ffwd/form-ffwd.component';
 
-
-
 @NgModule({
   declarations: [FormComponent, FormFfwdComponent],
   imports: [
