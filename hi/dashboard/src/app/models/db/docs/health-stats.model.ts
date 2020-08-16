@@ -37,7 +37,7 @@ export module HealthStats {
 
   export function isDistrictHealthStats(properties: HealthStats.Districts | any):
   properties is HealthStats.Districts {
-    return (properties as HealthStats.Districts)._id === 'district_health_stats';
+    return (properties as HealthStats.Districts)?._id === 'district_health_stats';
   }
 
 }
