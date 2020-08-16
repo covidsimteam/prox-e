@@ -1,24 +1,16 @@
-import { EventEmitter, Injectable } from '@angular/core';
-import { Databases, ExistingDoc } from 'app/models/domain.model';
+import { Injectable } from '@angular/core';
 import { from, Observable } from 'rxjs';
 import { mergeMap, scan } from 'rxjs/operators';
 import { IdPrefixService } from '../utils/id-prefix.service';
-import { DBService } from './db.service.interface';
-import { PouchDBService } from './pouchdb.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RoleAuthsService implements DBService {
+export class RoleAuthsService {
 
-  private roleAuthDB = Databases.roles;
+  private readonly roleArr: unknown[] = [''];
 
-  private readonly roleArr: string[] = [''];
-
-  constructor(private dbService: PouchDBService) {
-    this.instance();
-    this.remoteSync();
-  }
+  constructor() {}
 
   addRole(v: string) {
     this.roleArr.push(v);
@@ -28,44 +20,20 @@ export class RoleAuthsService implements DBService {
     roles.forEach((role: string) => this.addRole(IdPrefixService.toColonHyphen(role)));
   }
 
-  getDashboardAuths(): Observable<any[]> {
-    return from(this.roleArr
-      .map((role: string) => this.get(role)))
-      .pipe(
-        mergeMap(p => from(p)),
-        scan((acc, curr) => acc.push(curr), [])
-      );
-  }
+  getDashboardAuths(): Observable<unknown> {
+    return from(this.roleArr)
+    .pipe(
+      mergeMap((p: unknown) => from(p as any)),
+      scan((acc, curr) => {
+        if (acc?.toString() !== acc) {
+          (acc as any[]).push(curr);
+        }
+        return (acc as any[]).slice();
+      }));
+    }
 
-  getRoles(): string[] {
-    return this.roleArr.slice();
-  }
+    getRoles(): string[] {
+      return this.roleArr?.toString().split('');
+    }
 
-  instance(): PouchDB.Database<{}> {
-    return this.dbService.instance(this.roleAuthDB);
   }
-
-  remoteSync?(): EventEmitter<any> {
-    return this.dbService.remoteSync(this.roleAuthDB);
-  }
-
-  getChangeListener?(): EventEmitter<any> {
-    return this.dbService.getChangeListener(this.roleAuthDB);
-  }
-
-  get(id: string): Promise<any> {
-    return this.dbService.get(this.roleAuthDB, id);
-  }
-
-  create(doc: ExistingDoc): Promise<any> {
-    return this.dbService.create(this.roleAuthDB, doc);
-  }
-
-  update(doc: ExistingDoc): Promise<any> {
-    return this.dbService.update(this.roleAuthDB, doc);
-  }
-
-  delete(doc: ExistingDoc): Promise<any> {
-    return this.dbService.delete(this.roleAuthDB, doc);
-  }
-}
