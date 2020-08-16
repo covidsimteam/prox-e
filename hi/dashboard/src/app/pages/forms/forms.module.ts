@@ -12,6 +12,7 @@ import {
   NbUserModule,
   NbAccordionModule,
   NbStepperModule,
+  NbLayoutModule,
 } from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
@@ -52,7 +53,8 @@ import { FormAComponent } from './form-a/form-a.component';
     NbIconModule,
     ngFormsModule,
     ReactiveFormsModule,
-    NbStepperModule
+    NbStepperModule,
+    NbLayoutModule
   ],
   declarations: [
     FormsComponent,
