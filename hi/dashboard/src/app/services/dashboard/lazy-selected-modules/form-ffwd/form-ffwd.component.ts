@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './form-ffwd.component.html',
   styleUrls: ['./form-ffwd.component.scss']
 })
-export class FormFfwdComponent implements OnInit {
+export class CovFormFfwdComponent implements OnInit {
 
   constructor() { }
 

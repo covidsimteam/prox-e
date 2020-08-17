@@ -1,19 +1,23 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { LazinessConfigComponent } from './laziness-config/laziness-config.component';
-import { CovFormsModule } from './forms-cov/cov-forms.module';
-import { FormVizsModule } from './form-vizs/form-vizs.module';
-import { FormFilesModule } from './form-files/form-files.module';
-import { UixModule } from './form-uix/uix.module';
+import { DatagsComponent } from './datags/datags.component';
+import { FormFilesComponent } from './form-files/form-files.component';
+import { SpecDocComponent } from './form-spec-doc/spec-doc.component';
+import { CovFormComponent } from './forms-cov/form.component';
+import { CovFormFfwdComponent } from './form-ffwd/form-ffwd.component';
 
 @NgModule({
-  declarations: [LazinessConfigComponent],
+  declarations: [
+    LazinessConfigComponent,
+    DatagsComponent,
+    FormFilesComponent,
+    SpecDocComponent,
+    CovFormComponent,
+    CovFormFfwdComponent
+  ],
   imports: [
     CommonModule,
-    CovFormsModule,
-    FormVizsModule,
-    FormFilesModule,
-    UixModule
   ]
 })
 export class LazinessModule { }

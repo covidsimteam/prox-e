@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormComponent } from './form.component';
+import { CovFormFfwdComponent } from './form-ffwd.component';
 
-describe('FormComponent', () => {
-  let component: FormComponent;
-  let fixture: ComponentFixture<FormComponent>;
+describe('FormFfwdComponent', () => {
+  let component: CovFormFfwdComponent;
+  let fixture: ComponentFixture<CovFormFfwdComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormComponent ]
+      declarations: [ CovFormFfwdComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormComponent);
+    fixture = TestBed.createComponent(CovFormFfwdComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
