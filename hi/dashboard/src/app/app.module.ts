@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { NbAuthJWTToken, NbAuthModule, NbPasswordAuthStrategy, NbAuthSimpleToken } from '@nebular/auth';
+import { NbAuthModule, NbAuthSimpleToken, NbPasswordAuthStrategy } from '@nebular/auth';
 import {
   NbDatepickerModule,
   NbDialogModule,
@@ -19,7 +19,7 @@ import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthGuard } from './services/guards/auth.guard';
+import { DashboardModule } from './services/dashboard/dashboard.module';
 
 const formSetting: any = {
   redirectDelay: 0,
@@ -44,6 +44,7 @@ const formSetting: any = {
     ThemeModule.forRoot(),
     ReactiveFormsModule,
     NgxEchartsModule,
+    DashboardModule,
     NbAuthModule.forRoot({
       strategies: [
         NbPasswordAuthStrategy.setup({
@@ -119,8 +120,7 @@ const formSetting: any = {
     ],
     bootstrap: [AppComponent],
     providers: [
-      { provide: AppConf, useValue: appConf },
-      AuthGuard
+      { provide: AppConf, useValue: appConf }
     ],
   })
   export class AppModule {

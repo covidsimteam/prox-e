@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NbLoginComponent } from '@nebular/auth';
-import { BasicAuth } from 'app/models/auth-response.model';
 import { AuthService } from '../core/auth.service';
+import { BasicAuth } from '../../models/auth-response.model';
 
 @Component({
   selector: 'ngx-login',
@@ -22,19 +22,22 @@ export class LoginComponent extends NbLoginComponent implements OnInit {
     }
 
     ngOnInit() {
-      if (this.authService.isAdmin()) {
-        this.router.navigate(['hub', 'home']);
+      if (
+        this.authService.isAdmin() ||
+        this.authService.isPrivileged ||
+        !this.authService.isInPublicMode) {
+          this.router.navigate(['hub', 'home']);
+        }
       }
-    }
 
-    login() {
-      const { email, password } = this.user;
-      this.authService.login(email, password, false)
+      login() {
+        const { email, password } = this.user;
+        this.authService.login(email, password, false)
         .subscribe((val: BasicAuth.Response) => {
           if (BasicAuth.isSuccess(val)) {
             this.router.navigateByUrl('/hub/home');
           }
         });
-    }
+      }
 
-  }
+    }

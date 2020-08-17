@@ -19,6 +19,20 @@
                         "main": "src/main.ts",
                         "tsConfig": "src/tsconfig.app.json",
                         "polyfills": "src/polyfills.ts",
+                        "allowedCommonJsDependencies": [
+                          "lie",
+                          "uuid",
+                          "url-join",
+                          "url-parse",
+                          "immediate",
+                          "lodash",
+                          "polylabel",
+                          "style-loader!leaflet/dist/leaflet.css",
+                          "zrender/lib/vml/vml",
+                          "zrender/lib/svg/svg",
+                          "angular2-chartjs",
+                          "echarts"
+                        ],
                         "assets": [
                             "src/assets",
                             "src/favicon.ico",

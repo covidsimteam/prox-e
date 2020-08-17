@@ -20,7 +20,7 @@ import { InfiniteListComponent } from './infinite-list/infinite-list.component';
 import { NewsPostComponent } from './infinite-list/news-post/news-post.component';
 import { NewsPostPlaceholderComponent } from './infinite-list/news-post-placeholder/news-post-placeholder.component';
 import { AccordionComponent } from './accordion/accordion.component';
-import { NewsService } from './news.service';
+import { NewsService } from '../../services/utils/news.service';
 
 @NgModule({
   imports: [
@@ -48,6 +48,16 @@ import { NewsService } from './news.service';
     InfiniteListComponent,
     NewsPostComponent,
     AccordionComponent,
+  ],
+  exports: [
+    LayoutComponent,
+    TabsComponent,
+    AccordionComponent,
+    InfiniteListComponent,
+    ListComponent,
+    StepperComponent,
+    NewsPostComponent,
+    NewsPostPlaceholderComponent
   ],
   providers: [
     NewsService,

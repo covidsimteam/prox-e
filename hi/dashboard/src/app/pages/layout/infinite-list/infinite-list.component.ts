@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NewsService } from '../news.service';
+import { NewsService } from '../../../services/utils/news.service';
 
 @Component({
   selector: 'ngx-infinite-list',
