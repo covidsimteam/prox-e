@@ -20,8 +20,6 @@ import { ThemeModule } from './@theme/theme.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardModule } from './services/dashboard/dashboard.module';
-import { HomePageComponent } from './services/dashboard/home-page-modules/home-page/home-page.component';
-import { AuthGuard } from './services/guards/auth.guard';
 
 const formSetting: any = {
   redirectDelay: 0,
@@ -30,7 +28,7 @@ const formSetting: any = {
   },
 };
 @NgModule({
-  declarations: [AppComponent, HomePageComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -122,8 +120,7 @@ const formSetting: any = {
     ],
     bootstrap: [AppComponent],
     providers: [
-      { provide: AppConf, useValue: appConf },
-      AuthGuard
+      { provide: AppConf, useValue: appConf }
     ],
   })
   export class AppModule {
