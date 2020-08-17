@@ -1,5 +1,5 @@
-import { IdentifiableObject, UntypedTuple } from './../../../../projects/hgraph/src/lib/model/core.model';
 import { DataSet } from 'vis-data';
+import { UntypedTuple, IdentifiableObject } from './core.model';
 
 export interface Node extends IdentifiableObject {
   attributes?: UntypedTuple;
