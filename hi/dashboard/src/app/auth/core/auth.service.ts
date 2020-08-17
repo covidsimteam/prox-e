@@ -32,7 +32,6 @@ export class AuthService extends NbAuthService {
     private idPrefixService: IdPrefixService,
     protected tokenService: NbTokenService,
     private strategy: NbPasswordAuthStrategy,
-    private strategyOptions: PasswordAuthStrategyOptions
     ) {
       super(tokenService, strategy);
       this.strat = new NbPasswordAuthStrategy(http, route);
@@ -106,7 +105,7 @@ export class AuthService extends NbAuthService {
     get strategies(): any { return [this.strat]; }
     set strategies(strats: any) { this.strat = strats[0]; }
 
-    get getStrategyOptions(): PasswordAuthStrategyOptions { return this.strategyOptions; }
+    get getStrategyOptions(): PasswordAuthStrategyOptions { return new PasswordAuthStrategyOptions(); }
 
     get auth(): string[] { return this.authArr.slice(); }
 
