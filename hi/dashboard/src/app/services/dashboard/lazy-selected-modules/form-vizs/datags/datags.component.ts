@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'ngx-datags',
   templateUrl: './datags.component.html',

@@ -31,6 +31,7 @@ import { ReturneeLocationDetailsComponent } from './form-sections/returnee-locat
 import { SymptomRecordComponent } from './form-sections/symptom-record/symptom-record.component';
 import { FormsRoutingModule } from './forms-routing.module';
 import { FormsComponent } from './forms.component';
+import { FormB2Component } from './form-b2/form-b2.component';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { FormsComponent } from './forms.component';
     SymptomRecordComponent,
     FormAComponent,
     FormB1Component,
+    FormB2Component,
   ],
 })
 export class FormsModule {}

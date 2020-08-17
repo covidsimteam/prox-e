@@ -4,6 +4,7 @@ import { AuthGuard } from '../services/guards/auth.guard';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { PagesComponent } from './pages.component';
+import { AdminGuard } from 'app/services/guards/admin.guard';
 
 
 const routes: Routes = [{
@@ -33,6 +34,7 @@ const routes: Routes = [{
     },
     {
       path: 'graphs',
+      canLoad: [AdminGuard, AuthGuard],
       loadChildren: () => import('./graphs/graphs.module')
         .then(m => m.GraphsModule),
     },
