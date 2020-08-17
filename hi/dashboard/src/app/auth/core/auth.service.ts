@@ -9,6 +9,7 @@ import { BehaviorSubject, from, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { BasicAuth } from '../../models/auth-response.model';
 import { CurrentUser } from '../../models/domain.model';
+import { PasswordAuthStrategyOptions } from './password-auth-strategy-options';
 
 @Injectable({
   providedIn: 'root',
@@ -30,7 +31,8 @@ export class AuthService extends NbAuthService {
     private roleService: RolesService,
     private idPrefixService: IdPrefixService,
     protected tokenService: NbTokenService,
-    private strategy: NbPasswordAuthStrategy
+    private strategy: NbPasswordAuthStrategy,
+    private strategyOptions: PasswordAuthStrategyOptions
     ) {
       super(tokenService, strategy);
       this.strat = new NbPasswordAuthStrategy(http, route);
@@ -50,25 +52,24 @@ export class AuthService extends NbAuthService {
       ): Observable<BasicAuth.Response> {
         this.isInPublicMode = publicMode;
         return this.basicAuthRequest(username, password, true);
-      }
+    }
 
-      signUp(
+    signUp(
         username: string,
         password: string,
         ): Observable<BasicAuth.Response> {
           return this.basicAuthRequest(username, password, true);
-        }
+    }
 
-        /**
-        * @param username CouchDB username
-        * @param password CouchDB password
-        * @param role is not used for authorization request to CouchDB.
-        * It is used to decide whether to reuse the credentials
-        * given the Couch user has the role claimed in the login request.
-        * @param refreshCredentials needs to be set to true to be able to reuse the credentials for future requests
-        */
-
-        basicAuthRequest(
+    /**
+    * @param username CouchDB username
+    * @param password CouchDB password
+    * @param role is not used for authorization request to CouchDB.
+    * It is used to decide whether to reuse the credentials
+    * given the Couch user has the role claimed in the login request.
+    * @param refreshCredentials needs to be set to true to be able to reuse the credentials for future requests
+    */
+    basicAuthRequest(
           username: string,
           password: string,
           refreshCredentials: boolean = false,
@@ -97,123 +98,126 @@ export class AuthService extends NbAuthService {
                   }
                 }),
                 );
-              }
+    }
 
-              get isInPublicMode(): boolean { return this.isInPublicMod.value; }
-              set isInPublicMode(v: boolean) { this.isInPublicMod.next(v); }
+    get isInPublicMode(): boolean { return this.isInPublicMod.value; }
+    set isInPublicMode(v: boolean) { this.isInPublicMod.next(v); }
 
-              get strategies(): any { return [this.strat]; }
-              set strategies(strats: any) { this.strat = strats[0]; }
-              get auth(): string[] { return this.authArr.slice(); }
+    get strategies(): any { return [this.strat]; }
+    set strategies(strats: any) { this.strat = strats[0]; }
 
-              private async roleArraySetter(roles: string[]) {
-                this.roleService.roles = roles;
-                this.authArr = this.idPrefixService.resolveIdPrefixes(roles);
-              }
+    get getStrategyOptions(): PasswordAuthStrategyOptions { return this.strategyOptions; }
 
-              private refreshCurrentUserCredentials(
-                isAuthenticated: boolean,
-                user: string,
-                pass: string,
-                roles: string[]
-                ) {
-                  if (isAuthenticated) {
-                    this.setCredentials(user, pass, roles);
-                    this.roleArraySetter(roles);
-                  } else {
-                    this.removeCredentials();
-                  }
-                }
+    get auth(): string[] { return this.authArr.slice(); }
 
-                private setCredentials(
-                  username: string,
-                  password: string,
-                  roles: string[]
-                  ): void {
-                    this.user_ = username;
-                    this.pass_ = password;
-                    this.authenticatedSub.next(true);
+    private async roleArraySetter(roles: string[]) {
+      this.roleService.roles = roles;
+      this.authArr = this.idPrefixService.resolveIdPrefixes(roles);
+    }
 
-                    Object.entries({ username, password, ...roles, isLoggedIn: 'true' })
-                    .forEach(
-                      ([key, val]) => {
-                        localStorage.setItem(key, val.toString());
-                      },
-                      );
-                    }
+    private refreshCurrentUserCredentials(
+      isAuthenticated: boolean,
+      user: string,
+      pass: string,
+      roles: string[]
+      ) {
+        if (isAuthenticated) {
+          this.setCredentials(user, pass, roles);
+          this.roleArraySetter(roles);
+        } else {
+          this.removeCredentials();
+        }
+    }
 
-                    logout(strategy: string = 'email'): Observable<NbAuthResult> {
-                      this.removeCredentials();
-                      this.router.navigate(['/hub/home']);
-                      this.publicLogin();
-                      return from([new NbAuthResult(
-                        true,
-                        '201: Log out succeeded.',
-                        null,
-                        null,
-                        `Log out succeeded: ${strategy}`,
-                        null)]);
-                      }
+    private setCredentials(
+      username: string,
+      password: string,
+      roles: string[]
+      ): void {
+        this.user_ = username;
+        this.pass_ = password;
+        this.authenticatedSub.next(true);
 
-                      publicLogin() {
-                        this.login(this.environment.dbPublicUser, this.environment.dbPublicPass, true).subscribe();
-                      }
+        Object.entries({ username, password, ...roles, isLoggedIn: 'true' })
+        .forEach(
+          ([key, val]) => {
+            localStorage.setItem(key, val.toString());
+          },
+          );
+    }
 
-                      roleExists(role: string): boolean {
-                        return this.roleService.roleExists(role);
-                      }
+    logout(strategy: string = 'email'): Observable<NbAuthResult> {
+          this.removeCredentials();
+          this.router.navigate(['/hub/home']);
+          this.publicLogin();
+          return from([new NbAuthResult(
+            true,
+            '201: Log out succeeded.',
+            null,
+            null,
+            `Log out succeeded: ${strategy}`,
+            null)]);
+    }
 
-                      isAdmin(): boolean {
-                        return this.roleService.isAdmin();
-                      }
+    publicLogin() {
+      this.login(this.environment.dbPublicUser, this.environment.dbPublicPass, true).subscribe();
+    }
 
-                      private removeCredentials(): void {
-                        this.user_ = '';
-                        this.pass_ = '';
-                        this.authenticatedSub.next(false);
-                        this.roleService.roles = [''];
-                        Object.values(CurrentUser).forEach(key => {
-                          localStorage.removeItem(key);
-                        });
-                      }
+    roleExists(role: string): boolean {
+      return this.roleService.roleExists(role);
+    }
 
-                      getAllRoles(): string[] {
-                        if (this.roleService.roles.length) return this.roleService.roles;
-                        return localStorage?.getItem(CurrentUser.roles).split(',') || [''];
-                      }
+    isAdmin(): boolean {
+      return this.roleService.isAdmin();
+    }
 
-                      get isPrivileged(): boolean {
-                        return this.roleService.roles.some((role: string) => {
-                          return IdPrefixService.toColonHyphen(role) !== 'common:user';
-                        });
-                      }
+    private removeCredentials(): void {
+      this.user_ = '';
+      this.pass_ = '';
+      this.authenticatedSub.next(false);
+      this.roleService.roles = [''];
+      Object.values(CurrentUser).forEach(key => {
+        localStorage.removeItem(key);
+      });
+    }
 
-                      get user(): string {
-                        if (this.user_) return this.user_;
-                        return localStorage?.getItem(CurrentUser.name) || '';
-                      }
+    getAllRoles(): string[] {
+      if (this.roleService.roles.length) return this.roleService.roles;
+      return localStorage?.getItem(CurrentUser.roles).split(',') || [''];
+    }
 
-                      set user(user: string) {
-                        this.user_ = user;
-                        localStorage?.getItem(user);
-                      }
+    get isPrivileged(): boolean {
+      return this.roleService.roles.some((role: string) => {
+        return IdPrefixService.toColonHyphen(role) !== 'common:user';
+      });
+    }
 
-                      get pass(): string {
-                        if (this.user_) return this.pass_;
-                        return localStorage?.getItem(CurrentUser.pass) || '';
-                      }
+    get user(): string {
+      if (this.user_) return this.user_;
+      return localStorage?.getItem(CurrentUser.name) || '';
+    }
 
-                      private authenticateNow(success: boolean = true): Observable<boolean> {
-                        this.authenticatedSub.next(success);
-                        return this.authenticatedSub.asObservable();
-                      }
+    set user(user: string) {
+      this.user_ = user;
+      localStorage?.getItem(user);
+    }
 
-                      get authentication(): Observable<boolean> {
-                        return this.authenticatedSub.asObservable();
-                      }
+    get pass(): string {
+      if (this.user_) return this.pass_;
+      return localStorage?.getItem(CurrentUser.pass) || '';
+    }
 
-                      set authSuccess(succ: boolean) {
-                        this.authenticatedSub.next(succ);
-                      }
+    private authenticateNow(success: boolean = true): Observable<boolean> {
+      this.authenticatedSub.next(success);
+      return this.authenticatedSub.asObservable();
+    }
 
-                    }
+    get authentication(): Observable<boolean> {
+      return this.authenticatedSub.asObservable();
+    }
+
+    set authSuccess(succ: boolean) {
+      this.authenticatedSub.next(succ);
+    }
+
+}
