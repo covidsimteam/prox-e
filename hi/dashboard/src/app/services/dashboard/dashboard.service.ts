@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
+import { DashboardModule } from './dashboard.module';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: DashboardModule
 })
 export class DashboardService {
 
