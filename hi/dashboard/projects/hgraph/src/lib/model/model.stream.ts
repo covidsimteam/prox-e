@@ -24,4 +24,3 @@ export type CosmosStream = KDBStream<PipeStream>;
 
 export type ThemeStream = KDBStream<CosmosStream>;
 
-export type AuthStream = KDBStream<ThemeStream>;

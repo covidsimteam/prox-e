@@ -18,14 +18,14 @@ export class AuthGuard implements CanActivate {
       state: RouterStateSnapshot
       ): boolean {
 
-        if (!this.authService.isAuthenticated || this.authService.isInPublicMode) {
-          this.router.navigate(['auth/login'], {
-            queryParams: {
-              returnUrl: state?.url || '/hub/home',
-            },
-          });
-          return false;
+        if (this.authService.isAuthenticated || !this.authService.isInPublicMode) {
+          return true;
         }
-        return true;
+        this.router.navigate(['auth/login'], {
+          queryParams: {
+            returnUrl: state?.url || '/hub/home',
+          },
+        });
+        return false;
       }
     }

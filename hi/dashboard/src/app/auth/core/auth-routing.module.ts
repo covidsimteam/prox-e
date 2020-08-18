@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {
-  NbAuthComponent,
-  NbRegisterComponent,
-  NbResetPasswordComponent,
-  NbRequestPasswordComponent,
-  NbLogoutComponent
-} from '@nebular/auth';
+import { RouterModule, Routes } from '@angular/router';
+import { NbAuthComponent } from '@nebular/auth';
 import { LoginComponent } from '../login/login.component';
-
+import { LogoutComponent } from '../logout/logout.component';
+import { RegisterComponent } from '../register/register.component';
+import { RequestPassComponent } from '../request-pass/request-pass.component';
+import { ResetPassComponent } from '../reset-password/reset-pass.component';
 
 const routes: Routes = [
   {
@@ -21,19 +18,19 @@ const routes: Routes = [
       },
       {
         path: 'register',
-        component: NbRegisterComponent
+        component: RegisterComponent
       },
       {
         path: 'logout',
-        component: NbLogoutComponent
+        component: LogoutComponent
       },
       {
         path: 'request-password',
-        component: NbRequestPasswordComponent
+        component: RequestPassComponent
       },
       {
         path: 'reset-password',
-        component: NbResetPasswordComponent
+        component: ResetPassComponent
       }
     ],
   },

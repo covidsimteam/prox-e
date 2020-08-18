@@ -6,6 +6,7 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
 import { PaymentsModule } from './payments/payments.module';
+import { AccountModule } from './account/account.module';
 
 @NgModule({
   imports: [
@@ -14,10 +15,11 @@ import { PaymentsModule } from './payments/payments.module';
     NbMenuModule,
     ECommerceModule,
     MiscellaneousModule,
-    PaymentsModule
+    PaymentsModule,
+    AccountModule
   ],
   declarations: [
-    PagesComponent,
+    PagesComponent
   ],
 })
 export class PagesModule {

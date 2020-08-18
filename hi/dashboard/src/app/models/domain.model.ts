@@ -171,6 +171,8 @@ export enum CurrentUser {
   name = 'username',
   pass = 'password',
   roles = 'roles',
+  id = 'id',
+  token = 'token'
 }
 
 export type DataTableService = RdtService | PcrService | ReturneeService;
