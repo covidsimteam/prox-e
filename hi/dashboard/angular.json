@@ -73,11 +73,11 @@
                             "budgets": [
                               {
                                 "type": "allScript",
-                                "maximumWarning": "100kb"
+                                "maximumWarning": "7mb"
                               },
                               {
                                 "type": "initial",
-                                "maximumWarning": "1mb"
+                                "maximumWarning": "4mb"
                               },
                               {
                                 "type": "bundle",
@@ -85,10 +85,8 @@
                               },
                               {
                                 "type": "all",
-                                "maximumWarning": "3mb"
+                                "maximumWarning": "27mb"
                               }
-
-
                             ],
                             "optimization": true,
                             "outputHashing": "all",
@@ -107,10 +105,24 @@
                             "ngswConfigPath": "ngsw-config.json"
                         },
                         "staging": {
-                            "budgets": [{
-                                "type": "any",
-                                "maximumWarning": "17kb"
-                            }],
+                            "budgets": [
+                              {
+                                "type": "allScript",
+                                "maximumWarning": "6mb"
+                              },
+                              {
+                                "type": "initial",
+                                "maximumWarning": "3mb"
+                              },
+                              {
+                                "type": "bundle",
+                                "maximumWarning": "900kb"
+                              },
+                              {
+                                "type": "all",
+                                "maximumWarning": "25mb"
+                              }
+                            ],
                             "optimization": true,
                             "outputHashing": "all",
                             "sourceMap": false,
