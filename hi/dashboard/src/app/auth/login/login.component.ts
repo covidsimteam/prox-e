@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NbLoginComponent } from '@nebular/auth';
-import { AuthService } from '../core/auth.service';
 import { BasicAuth } from '../../models/auth-response.model';
+import { AuthService } from '../core/auth.service';
 
 @Component({
   selector: 'ngx-login',
@@ -11,33 +11,36 @@ import { BasicAuth } from '../../models/auth-response.model';
 })
 export class LoginComponent extends NbLoginComponent implements OnInit {
 
+  private returnUrl: string = '/hub/home';
   constructor(
     private authService: AuthService,
     protected router: Router,
     private route: ActivatedRoute,
     private changeDetector: ChangeDetectorRef
-    ) {
-      super(authService, {}, changeDetector, router);
-      super.socialLinks = [];
-    }
+  ) {
+    super(authService, {}, changeDetector, router);
+    super.socialLinks = [];
+  }
 
-    ngOnInit() {
-      if (
-        this.authService.isAdmin() ||
-        this.authService.isPrivileged ||
-        !this.authService.isInPublicMode) {
-          this.router.navigate(['hub', 'home']);
+  ngOnInit() {
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/hub/home';
+    if (
+      this.authService.isAuthenticated ||
+      this.authService.isAdmin() ||
+      this.authService.isPrivileged ||
+      !this.authService.isInPublicMode) {
+      this.router.navigateByUrl(this.returnUrl);
+    }
+  }
+
+  login() {
+    const { email, password } = this.user;
+    this.authService.login(email, password)
+      .subscribe((val: BasicAuth.Response) => {
+        if (BasicAuth.isSuccess(val)) {
+          this.router.navigateByUrl(this.returnUrl);
         }
-      }
+      });
+  }
 
-      login() {
-        const { email, password } = this.user;
-        this.authService.login(email, password, false)
-        .subscribe((val: BasicAuth.Response) => {
-          if (BasicAuth.isSuccess(val)) {
-            this.router.navigateByUrl('/hub/home');
-          }
-        });
-      }
-
-    }
+}
