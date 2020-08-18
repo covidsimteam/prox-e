@@ -1,10 +1,10 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { NbAuthModule, NbAuthSimpleToken, NbPasswordAuthStrategy } from '@nebular/auth';
+import { NbAuthModule, NbPasswordAuthStrategy } from '@nebular/auth';
 import {
   NbDatepickerModule,
   NbDialogModule,
@@ -18,14 +18,11 @@ import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { authSetup, formSetup } from './app.conf';
 import { DashboardModule } from './services/dashboard/dashboard.module';
+import { AuthInterceptor } from './services/interceptor/auth.interceptor';
+import { ErrorInterceptor } from './services/interceptor/error.interceptor';
 
-const formSetting: any = {
-  redirectDelay: 0,
-  showMessages: {
-    success: true,
-  },
-};
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -46,80 +43,16 @@ const formSetting: any = {
     DashboardModule,
     NbAuthModule.forRoot({
       strategies: [
-        NbPasswordAuthStrategy.setup({
-          name: 'email',
-          token: {
-            key: 'token',
-            class: NbAuthSimpleToken,
-          },
-          baseEndpoint: '/auth/',
-          login: {
-            endpoint: '/sign-in',
-            method: 'post',
-            redirect: {
-              success: '/hub/',
-              failure: null,
-            },
-            defaultErrors: ['Login/Email combination is not correct, please try again.'],
-            defaultMessages: ['You have been successfully logged in.'],
-          },
-          register: {
-            endpoint: '/sign-up',
-            method: 'post',
-            redirect: {
-              success: '/welcome/',
-              failure: null,
-            },
-            defaultErrors: ['Something went wrong, please try again.'],
-            defaultMessages: ['You have been successfully registered.'],
-          },
-          logout: {
-            endpoint: '/sign-out',
-            method: 'post',
-            redirect: {
-              success: '/auth/sign-in/',
-              failure: null,
-            },
-            defaultErrors: ['Something went wrong, please try again.'],
-            defaultMessages: ['You have been successfully logged out.'],
-          },
-          requestPass: {
-            endpoint: '/request-pass',
-            method: 'post',
-            redirect: {
-              success: '/check-email/',
-              failure: null,
-            },
-            defaultErrors: ['Something went wrong, please try again.'],
-            defaultMessages: ['Reset password instructions have been sent to your email.'],
-          },
-          resetPass: {
-            endpoint: '/reset-pass',
-            method: 'post',
-            redirect: {
-              success: '/reset-success/',
-              failure: null,
-            },
-            resetPasswordTokenKey: 'covid-reset',
-            defaultErrors: ['Something went wrong, please try again.'],
-            defaultMessages: ['Your password has been successfully changed.'],
-          },
-        })],
-        forms: {
-          login: formSetting,
-          register: formSetting,
-          requestPassword: formSetting,
-          resetPassword: formSetting,
-          logout: {
-            redirectDelay: 0,
-          },
-        },
+        NbPasswordAuthStrategy.setup(authSetup)],
+        forms: formSetup,
       }),
       ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ],
     bootstrap: [AppComponent],
     providers: [
-      { provide: AppConf, useValue: appConf }
+      { provide: AppConf, useValue: appConf },
+      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+      { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     ],
   })
   export class AppModule {
