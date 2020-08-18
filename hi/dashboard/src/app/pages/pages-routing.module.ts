@@ -4,7 +4,6 @@ import { AuthGuard } from '../services/guards/auth.guard';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { PagesComponent } from './pages.component';
-import { AdminGuard } from 'app/services/guards/admin.guard';
 
 
 const routes: Routes = [{
@@ -19,30 +18,24 @@ const routes: Routes = [{
       path: 'secured/forms',
       canActivate: [AuthGuard],
       loadChildren: () => import('./forms/forms.module')
-        .then(m => m.FormsModule),
+      .then(m => m.FormsModule),
     },
     {
       path: 'secured/maps',
       canActivate: [AuthGuard],
       loadChildren: () => import('./maps/maps.module')
-        .then(m => m.MapsModule),
+      .then(m => m.MapsModule),
     },
     {
       path: 'charts',
       loadChildren: () => import('./charts/charts.module')
-        .then(m => m.ChartsModule),
-    },
-    {
-      path: 'graphs',
-      canLoad: [AdminGuard, AuthGuard],
-      loadChildren: () => import('./graphs/graphs.module')
-        .then(m => m.GraphsModule),
+      .then(m => m.ChartsModule),
     },
     {
       path: 'secured/tables',
       canActivate: [AuthGuard],
       loadChildren: () => import('./tables/tables.module')
-        .then(m => m.TablesModule),
+      .then(m => m.TablesModule),
     },
     {
       path: '',

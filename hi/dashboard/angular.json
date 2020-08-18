@@ -61,11 +61,6 @@
                         ],
                         "scripts": [
                             "node_modules/pace-js/pace.min.js",
-                            "node_modules/tinymce/tinymce.min.js",
-                            "node_modules/tinymce/themes/modern/theme.min.js",
-                            "node_modules/tinymce/plugins/link/plugin.min.js",
-                            "node_modules/tinymce/plugins/paste/plugin.min.js",
-                            "node_modules/tinymce/plugins/table/plugin.min.js",
                             "node_modules/echarts/dist/echarts.min.js",
                             "node_modules/echarts/dist/extension/bmap.min.js",
                             "node_modules/chart.js/dist/Chart.min.js",
@@ -75,10 +70,26 @@
                     },
                     "configurations": {
                         "production": {
-                            "budgets": [{
-                                "type": "anyComponentStyle",
-                                "maximumWarning": "6kb"
-                            }],
+                            "budgets": [
+                              {
+                                "type": "allScript",
+                                "maximumWarning": "100kb"
+                              },
+                              {
+                                "type": "initial",
+                                "maximumWarning": "1mb"
+                              },
+                              {
+                                "type": "bundle",
+                                "maximumWarning": "900kb"
+                              },
+                              {
+                                "type": "all",
+                                "maximumWarning": "3mb"
+                              }
+
+
+                            ],
                             "optimization": true,
                             "outputHashing": "all",
                             "sourceMap": true,
@@ -97,8 +108,8 @@
                         },
                         "staging": {
                             "budgets": [{
-                                "type": "anyComponentStyle",
-                                "maximumWarning": "6kb"
+                                "type": "any",
+                                "maximumWarning": "17kb"
                             }],
                             "optimization": true,
                             "outputHashing": "all",
@@ -147,11 +158,6 @@
                         "tsConfig": "src/tsconfig.spec.json",
                         "scripts": [
                             "node_modules/pace-js/pace.min.js",
-                            "node_modules/tinymce/tinymce.min.js",
-                            "node_modules/tinymce/themes/modern/theme.min.js",
-                            "node_modules/tinymce/plugins/link/plugin.min.js",
-                            "node_modules/tinymce/plugins/paste/plugin.min.js",
-                            "node_modules/tinymce/plugins/table/plugin.min.js",
                             "node_modules/echarts/dist/echarts.min.js",
                             "node_modules/echarts/dist/extension/bmap.min.js",
                             "node_modules/chart.js/dist/Chart.min.js"

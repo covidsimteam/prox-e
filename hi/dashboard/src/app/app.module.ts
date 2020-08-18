@@ -13,7 +13,6 @@ import {
   NbToastrModule,
   NbWindowModule
 } from '@nebular/theme';
-import { NgxEchartsModule } from 'ngx-echarts';
 import { AppConf, appConf, environment } from '../environments/environment';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
@@ -43,7 +42,7 @@ const formSetting: any = {
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     ReactiveFormsModule,
-    NgxEchartsModule,
+    // NgxEchartsModule,
     DashboardModule,
     NbAuthModule.forRoot({
       strategies: [

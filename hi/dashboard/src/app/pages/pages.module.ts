@@ -5,7 +5,6 @@ import { ECommerceModule } from './e-commerce/e-commerce.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
-import { LayoutModule } from './layout/layout.module';
 import { PaymentsModule } from './payments/payments.module';
 
 @NgModule({
@@ -15,7 +14,6 @@ import { PaymentsModule } from './payments/payments.module';
     NbMenuModule,
     ECommerceModule,
     MiscellaneousModule,
-    LayoutModule,
     PaymentsModule
   ],
   declarations: [
