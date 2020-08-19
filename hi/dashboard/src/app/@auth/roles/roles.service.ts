@@ -55,7 +55,10 @@ export class RolesService {
 
   isAdmin(): boolean {
     return this.roleArr
-      .some(role => role === 'lalitpur:lab_admin' || role === 'lalitpur:municipality_admin');
+      .some(role =>
+        role === 'lalitpur:lab_admin' ||
+        role === 'lalitpur:municipality_admin' ||
+        role === 'admin');
   }
 
   isAuthenticated(): boolean {

@@ -1,16 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NbAuthResult, NbAuthService, NbPasswordAuthStrategy, NbTokenService } from '@nebular/auth';
+import { NbAuthResult, NbAuthService, NbAuthToken, NbPasswordAuthStrategy, NbTokenService } from '@nebular/auth';
 import { BehaviorSubject, from, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { BasicAuth } from '../../models/auth-response.model';
-import { CurrentUser } from '../../models/domain.model';
-import { HubUser } from '../../models/user.model';
+import { BasicAuth } from '../../@models/auth-response.model';
+import { CurrentUser } from '../../@models/domain.model';
+import { HubUser, isHubUser } from '../../@models/user.model';
 import { EnvironmentService } from '../../services/env/environment.service';
 import { IdPrefixService } from '../../services/utils/id-prefix.service';
+import { AuthToken } from '../access/token.model';
 import { RolesService } from '../roles/roles.service';
 import { PasswordAuthStrategyOptions } from './password-auth-strategy-options';
+import { AuthResult } from './auth-result.model';
 
 @Injectable({
   providedIn: 'root',
@@ -98,11 +100,44 @@ export class AuthService extends NbAuthService {
       roles
     };
 
-    localStorage.setItem('user', JSON.stringify(user));
-
+    this.saveToken(user);
     this.isInPublicMode = false;
     this.authenticatedSub.next(true);
     this.userSub.next(user);
+
+  }
+
+  refreshToken(_: string = 'email', data?: any): Observable<NbAuthResult> {
+    if (isHubUser(data)) {
+      this.saveToken(data);
+    } else {
+      this.saveToken(this.userSub.getValue());
+    }
+    const authRes = new AuthResult(
+      true,
+      this.getCurrentToken(),
+      null,
+      '201',
+      null,
+      'Success');
+    return from([authRes]);
+  }
+
+  private readonly autoken = (user: HubUser) => `token:${user}`;
+
+  saveToken(user: HubUser) {
+    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('email', this.autoken(user));
+  }
+
+  getCurrentToken(): AuthToken {
+    const token = new AuthToken();
+    token.payload = this.autoken(this.userSub.getValue());
+    return token;
+  }
+
+  getToken(): Observable<NbAuthToken> {
+     return from([this.getCurrentToken()]);
   }
 
   logout(strategy: string = 'email'): Observable<NbAuthResult> {

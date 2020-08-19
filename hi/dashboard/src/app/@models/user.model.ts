@@ -4,3 +4,11 @@ export interface HubUser {
   roles: string[];
 }
 
+export const HUB_USER_KEYS = ['username', 'password', 'roles'];
+
+export function isHubUser(user: any): user is HubUser {
+  return Object.keys(user)
+    .every((key: string) =>
+      HUB_USER_KEYS
+        .find((uk) => uk === key));
+}
