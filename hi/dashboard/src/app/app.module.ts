@@ -22,6 +22,7 @@ import { authSetup, formSetup } from './app.conf';
 import { DashboardModule } from './services/dashboard/dashboard.module';
 import { AuthInterceptor } from './@auth/interceptor/auth.interceptor';
 import { ErrorInterceptor } from './@auth/interceptor/error.interceptor';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,7 +40,9 @@ import { ErrorInterceptor } from './@auth/interceptor/error.interceptor';
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     ReactiveFormsModule,
-    // NgxEchartsModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts'),
+    }),
     DashboardModule,
     NbAuthModule.forRoot({
       strategies: [
