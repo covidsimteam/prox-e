@@ -2,7 +2,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import PouchDB from 'pouchdb';
 import PouchAuth from 'pouchdb-authentication';
 import { from } from 'rxjs';
-import { RolesService } from '../../auth/roles/roles.service';
+import { RolesService } from '../../@auth/roles/roles.service';
 import { BulkAddResponse } from '../../models/db/response.model';
 import { Databases, DBList, Doc, ExistingDoc } from '../../models/domain.model';
 import { EnvironmentService } from '../env/environment.service';

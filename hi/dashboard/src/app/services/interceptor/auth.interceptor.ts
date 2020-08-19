@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthService } from '../../auth/core/auth.service';
+import { AuthService } from '../../@auth/core/auth.service';
 import { EnvironmentService } from '../env/environment.service';
 
 // Use this only for http communication with prox-e (rare)

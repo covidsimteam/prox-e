@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../auth/core/auth.service';
+import { AuthService } from '../../@auth/core/auth.service';
 
 @Component({
   selector: 'ngx-account',
