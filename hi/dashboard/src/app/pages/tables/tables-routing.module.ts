@@ -4,8 +4,6 @@ import { PcrComponent } from './pcr/pcr.component';
 import { RdtComponent } from './rdt/rdt.component';
 import { ReturneeComponent } from './returnee/returnee.component';
 import { TablesComponent } from './tables.component';
-import { FsIconComponent, TreeGridComponent } from './tree-grid/tree-grid.component';
-
 
 const routes: Routes = [{
   path: '',
@@ -23,10 +21,6 @@ const routes: Routes = [{
       path: 'rdt',
       component: RdtComponent,
     },
-    {
-      path: 'tree-grid',
-      component: TreeGridComponent,
-    },
   ],
 }];
 
@@ -37,10 +31,8 @@ const routes: Routes = [{
 export class TablesRoutingModule { }
 
 export const routedComponents = [
-  FsIconComponent,
   ReturneeComponent,
   PcrComponent,
   TablesComponent,
   RdtComponent,
-  TreeGridComponent,
 ];

@@ -1,7 +1,5 @@
 import { NbMenuItem } from '@nebular/theme';
 
-// TODO: remove all unused pages/modules
-
 export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Core Panels',
@@ -106,36 +104,36 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
-  {
-    title: 'Meta Graphs',
-    group: true,
-  },
-  {
-    title: 'Dashboard',
-    icon: 'activity-outline',
-    children: [
-      {
-        title: 'Concepts',
-        link: '/hub/graphs/concepts',
-      },
-      {
-        title: 'Potatoes',
-        link: '/hub/graphs/servers',
-      },
-    ],
-  },
-  {
-    title: 'System',
-    icon: 'activity-outline',
-    children: [
-      {
-        title: 'Concepts',
-        link: '/hub/graphs/concepts',
-      },
-      {
-        title: 'Couches',
-        link: '/hub/graphs/servers',
-      },
-    ],
-  },
+  // {
+  //   title: 'Meta Graphs',
+  //   group: true,
+  // },
+  // {
+  //   title: 'Dashboard',
+  //   icon: 'activity-outline',
+  //   children: [
+  //     {
+  //       title: 'Concepts',
+  //       link: '/hub/graphs/concepts',
+  //     },
+  //     {
+  //       title: 'Potatoes',
+  //       link: '/hub/graphs/servers',
+  //     },
+  //   ],
+  // },
+  // {
+  //   title: 'System',
+  //   icon: 'activity-outline',
+  //   children: [
+  //     {
+  //       title: 'Concepts',
+  //       link: '/hub/graphs/concepts',
+  //     },
+  //     {
+  //       title: 'Couches',
+  //       link: '/hub/graphs/servers',
+  //     },
+  //   ],
+  // },
 ];

@@ -1,10 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NbAuthService, NbAuthToken } from '@nebular/auth';
+import { NbAuthToken } from '@nebular/auth';
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 import { Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
+import { AuthService } from '../../../@auth/core/auth.service';
 import { LayoutService } from '../../../@core/utils';
-
+import { HubUser, HeaderBio } from '../../../@models/user.model';
 
 @Component({
   selector: 'ngx-header',
@@ -15,7 +16,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private destroy$: Subject<void> = new Subject<void>();
   userPictureOnly: boolean = false;
-  user: any;
+  user: HeaderBio;
 
   isPrivilegedUser = false;
 
@@ -30,25 +31,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
       name: 'Dark',
       icon: 'moon-outline',
     },
-    // {
-    //   value: 'cosmic',
-    //   name: 'Cosmic',
-    // },
-    // {
-    //   value: 'corporate',
-    //   name: 'Corporate',
-    // },
+    // TODO add material
   ];
 
   currentTheme = 'default';
 
-  userMenu = [ { title: 'Profile' }, { title: 'Log out' } ];
+  userMenu = this.getMenuItems();
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
               private themeService: NbThemeService,
               private layoutService: LayoutService,
-              private authService: NbAuthService,
+              private authService: AuthService,
               private breakpointService: NbMediaBreakpointsService) {
 
 
@@ -60,8 +54,25 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
   }
 
+  getMenuItems() {
+    const userLink = this.user ?  '/pages/users/current/' : '';
+    return [
+      { title: 'Profile', link: userLink, queryParams: { profile: true } },
+      { title: 'Log out', link: '/auth/logout' },
+    ];
+  }
+
   ngOnInit() {
     this.currentTheme = this.themeService.currentTheme;
+
+    this.authService.userObs
+    .pipe(
+      takeUntil(this.destroy$),
+    )
+    .subscribe((user: HubUser) => {
+      this.user = user;
+      this.userMenu = this.getMenuItems();
+    });
 
     const { xl } = this.breakpointService.getBreakpointsMap();
     this.themeService.onMediaQueryChange()

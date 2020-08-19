@@ -5,7 +5,7 @@ import 'leaflet.markercluster';
 import polylabel from 'polylabel';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
-import { Area, Feature, FeatureCollection, WardProperties } from '../../../models/domain.model';
+import { Area, Feature, FeatureCollection, WardProperties } from '../../../@models/domain.model';
 import { RegionService } from '../../../services/components/map/region.service';
 import { MapUtilsService } from '../../../services/components/map/map-utils.service';
 

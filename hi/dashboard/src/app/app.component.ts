@@ -5,7 +5,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AnalyticsService } from './@core/utils/analytics.service';
 import { SeoService } from './@core/utils/seo.service';
-import { AuthService } from './auth/core/auth.service';
+import { AuthService } from './@auth/core/auth.service';
 @Component({
   selector: 'ngx-app',
   template: '<router-outlet></router-outlet>',

@@ -1,10 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from '../services/guards/auth.guard';
+import { AuthGuard } from '../@auth/guards/auth.guard';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { PagesComponent } from './pages.component';
 
+const formsModule = () => import('./forms/forms.module')
+  .then(m => m.FormsModule);
+
+const mapsModule = () => import('./maps/maps.module')
+  .then(m => m.MapsModule);
+
+const chartsModule = () => import('./charts/charts.module')
+  .then(m => m.ChartsModule);
+
+const tablesModule = () => import('./tables/tables.module')
+  .then(m => m.TablesModule);
 
 const routes: Routes = [{
   path: '',
@@ -17,30 +28,21 @@ const routes: Routes = [{
     {
       path: 'secured/forms',
       canActivate: [AuthGuard],
-      loadChildren: () => import('./forms/forms.module')
-        .then(m => m.FormsModule),
+      loadChildren: formsModule,
     },
     {
       path: 'secured/maps',
       canActivate: [AuthGuard],
-      loadChildren: () => import('./maps/maps.module')
-        .then(m => m.MapsModule),
+      loadChildren: mapsModule,
     },
     {
       path: 'charts',
-      loadChildren: () => import('./charts/charts.module')
-        .then(m => m.ChartsModule),
-    },
-    {
-      path: 'graphs',
-      loadChildren: () => import('./graphs/graphs.module')
-        .then(m => m.GraphsModule),
+      loadChildren: chartsModule,
     },
     {
       path: 'secured/tables',
       canActivate: [AuthGuard],
-      loadChildren: () => import('./tables/tables.module')
-        .then(m => m.TablesModule),
+      loadChildren: tablesModule,
     },
     {
       path: '',

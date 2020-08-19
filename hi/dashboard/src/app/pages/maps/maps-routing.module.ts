@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { MapsComponent } from './maps.component';
-import { NationComponent } from './nation/nation.component';
-import { BubbleMapComponent } from './bubble/bubble-map.component';
-import { RegionComponent } from './region/region.component';
 import { DistrictRankingComponent } from './nation/district-ranking-bar.component';
+import { NationComponent } from './nation/nation.component';
+import { RegionComponent } from './region/region.component';
 
 const routes: Routes = [{
   path: '',
@@ -22,10 +21,6 @@ const routes: Routes = [{
       path: 'nepal',
       component: NationComponent,
     },
-    {
-      path: 'bubble',
-      component: BubbleMapComponent,
-    },
   ],
 }];
 
@@ -38,7 +33,6 @@ export class MapsRoutingModule { }
 export const routedComponents = [
   MapsComponent,
   NationComponent,
-  BubbleMapComponent,
   RegionComponent,
   DistrictRankingComponent
 ];
