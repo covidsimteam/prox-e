@@ -183,6 +183,10 @@ export class AuthService extends NbAuthService {
     });
   }
 
+  get userObs(): Observable<HubUser> {
+    return this.userSub.asObservable();
+  }
+
   get user(): string {
     if (this.user_) return this.user_;
     return localStorage?.getItem(CurrentUser.name) || '';
