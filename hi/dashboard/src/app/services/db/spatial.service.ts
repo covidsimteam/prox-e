@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { DBService } from './db.service.interface';
-import { Databases } from '../../models/domain.model';
+import { Databases } from '../../@models/domain.model';
 import { PouchDBService } from './pouchdb.service';
 
 

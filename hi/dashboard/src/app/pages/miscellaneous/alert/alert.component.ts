@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Alert, AlertType } from '../../../models/miscellaneous/alert.model';
+import { Alert, AlertType } from '../../../@models/miscellaneous/alert.model';
 import { AlertService } from '../../../services/miscellaneous/alert.service';
 
 

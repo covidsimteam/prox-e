@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { NgxCsvParser, NgxCSVParserError } from 'ngx-csv-parser';
-import { settings } from '../../../models/tabular/settings.values';
+import { settings } from '../../../@models/tabular/settings.values';
 import { ReturneeTableService } from '../../../services/components/returnee/returnee-table.service';
 import { ReturneeService } from '../../../services/db/returnee.service';
 import {

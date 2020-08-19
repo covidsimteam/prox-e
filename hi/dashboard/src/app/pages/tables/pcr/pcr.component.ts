@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { NgxCsvParser, NgxCSVParserError } from 'ngx-csv-parser';
-import { settings } from '../../../models/tabular/settings.values';
+import { settings } from '../../../@models/tabular/settings.values';
 import { PcrTableService } from '../../../services/components/pcr/pcr-table.service';
 import { PcrService } from '../../../services/db/pcr.service';
 import {

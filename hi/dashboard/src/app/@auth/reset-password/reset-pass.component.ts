@@ -1,8 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NbResetPasswordComponent } from '@nebular/auth';
-import { BasicAuth } from '../../models/auth-response.model';
+
 import { AuthService } from '../core/auth.service';
+import { BasicAuth } from '../../@models/auth-response.model';
 
 @Component({
   selector: 'ngx-reset-pass',

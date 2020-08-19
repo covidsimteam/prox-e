@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { from, Observable, ObservableInput, noop } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { Area, FeatureCollection, WardProperties } from '../../../models/domain.model';
+import { Area, FeatureCollection, WardProperties } from '../../../@models/domain.model';
 import { SpatialService } from '../../db/spatial.service';
-import { Census2011 } from '../../../models/db/docs/census.model';
-import { HealthStats } from '../../../models/db/docs/health-stats.model';
+import { Census2011 } from '../../../@models/db/docs/census.model';
+import { HealthStats } from '../../../@models/db/docs/health-stats.model';
 
 @Injectable({
   providedIn: 'root',

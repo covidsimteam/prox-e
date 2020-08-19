@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NbLoginComponent } from '@nebular/auth';
-import { BasicAuth } from 'app/models/auth-response.model';
+import { BasicAuth } from '../../@models/auth-response.model';
 import { AuthService } from '../core/auth.service';
 
 @Component({

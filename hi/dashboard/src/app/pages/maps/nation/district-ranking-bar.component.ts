@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
-import { BarChartDataSet } from '../../../models/domain.model';
+import { BarChartDataSet } from '../../../@models/domain.model';
 
 @Component({
   selector: 'ngx-district-bar',

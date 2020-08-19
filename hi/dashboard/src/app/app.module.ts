@@ -20,8 +20,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { authSetup, formSetup } from './app.conf';
 import { DashboardModule } from './services/dashboard/dashboard.module';
-import { AuthInterceptor } from './services/interceptor/auth.interceptor';
-import { ErrorInterceptor } from './services/interceptor/error.interceptor';
+import { AuthInterceptor } from './@auth/interceptor/auth.interceptor';
+import { ErrorInterceptor } from './@auth/interceptor/error.interceptor';
 
 @NgModule({
   declarations: [AppComponent],

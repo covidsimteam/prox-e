@@ -12,3 +12,8 @@ export function isHubUser(user: any): user is HubUser {
       HUB_USER_KEYS
         .find((uk) => uk === key));
 }
+
+export interface HeaderBio extends HubUser {
+  picture?: string;
+  name?: string;
+}

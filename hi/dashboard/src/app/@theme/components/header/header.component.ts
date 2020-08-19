@@ -5,8 +5,7 @@ import { Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { AuthService } from '../../../@auth/core/auth.service';
 import { LayoutService } from '../../../@core/utils';
-import { HubUser } from '../../../@models/user.model';
-
+import { HubUser, HeaderBio } from '../../../@models/user.model';
 
 @Component({
   selector: 'ngx-header',
@@ -17,7 +16,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private destroy$: Subject<void> = new Subject<void>();
   userPictureOnly: boolean = false;
-  user: HubUser;
+  user: HeaderBio;
 
   isPrivilegedUser = false;
 
