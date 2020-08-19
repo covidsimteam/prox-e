@@ -37,6 +37,7 @@ import { CORPORATE_THEME } from './styles/theme.corporate';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { DARK_THEME } from './styles/theme.dark';
 import { DEFAULT_THEME } from './styles/theme.default';
+import { MeasureConverterPipe } from './pipes/measure-converter.pipe';
 
 
 const NB_MODULES = [
@@ -68,6 +69,7 @@ const PIPES = [
   RoundPipe,
   TimingPipe,
   NumberWithCommasPipe,
+  MeasureConverterPipe
 ];
 
 @NgModule({

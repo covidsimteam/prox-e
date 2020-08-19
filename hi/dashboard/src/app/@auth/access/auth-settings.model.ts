@@ -1,3 +1,5 @@
+import { HubUser } from '../../@models/user.model';
+
 export const authSettings = {
   guest: {
   },
@@ -12,3 +14,24 @@ export const authSettings = {
       edit: ['current-user', 'users'],
   },
 };
+
+const guest = {
+  view: 'public',
+  edit: 'public',
+};
+
+const admin = {
+  view: 'authorized',
+  edit: 'authorized',
+};
+
+
+export class AuthSetting {
+
+  admin: typeof admin;
+
+  guest: typeof guest;
+
+  user: HubUser;
+
+}
