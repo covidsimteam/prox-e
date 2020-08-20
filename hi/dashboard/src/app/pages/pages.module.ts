@@ -7,6 +7,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
 import { PaymentsModule } from './payments/payments.module';
 import { AccountModule } from './account/account.module';
+import { FilesComponent } from './files/files.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { AccountModule } from './account/account.module';
     AccountModule
   ],
   declarations: [
-    PagesComponent
+    PagesComponent,
+    FilesComponent
   ],
 })
 export class PagesModule {
