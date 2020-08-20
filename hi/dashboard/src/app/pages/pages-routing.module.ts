@@ -6,7 +6,7 @@ import { NotFoundComponent } from './miscellaneous/not-found/not-found.component
 import { PagesComponent } from './pages.component';
 
 const formsModule = () => import('./forms/forms.module')
-  .then(m => m.FormsModule);
+  .then(m => m.HealthFormsModule);
 
 const mapsModule = () => import('./maps/maps.module')
   .then(m => m.MapsModule);

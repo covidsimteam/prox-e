@@ -74,4 +74,4 @@ import { FormB2Component } from './form-b2/form-b2.component';
     FormB2Component,
   ],
 })
-export class FormsModule {}
+export class HealthFormsModule {}

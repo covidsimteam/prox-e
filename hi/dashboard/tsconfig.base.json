@@ -23,6 +23,7 @@
         "name": "tslint-language-service"
       }
     ],
+    // TODO
     "paths": {
       "hgraph": [
         "dist/hgraph/hgraph",
