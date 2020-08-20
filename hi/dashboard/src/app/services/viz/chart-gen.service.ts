@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
+import { VizModule } from './viz.module';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: VizModule
 })
 export class ChartGenService {
 
