@@ -41,7 +41,8 @@
     "prepush": "npm run lint:ci",
     "release:changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s",
     "bundle:phobia": "source-map-explorer dist/*.js{,.map}",
-    "postinstall": "ngcc --properties es2015 es5 browser module main --first-only --create-ivy-entry-points --tsconfig './src/tsconfig.spec.json'"
+    "postinstall": "ngcc --properties es2015 es5 browser module main --first-only --create-ivy-entry-points --tsconfig './src/tsconfig.spec.json'",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@akveo/ng2-completer": "^9.0.1",
@@ -130,17 +131,13 @@
     "codelyzer": "^5.1.2",
     "commitizen": "^4.1.2",
     "conventional-changelog-cli": "1.3.4",
+    "cypress": "^5.0.0",
     "husky": "0.13.3",
     "jasmine-core": "2.6.4",
     "jasmine-spec-reporter": "4.1.1",
     "jest": "^26.4.0",
     "jest-preset-angular": "^8.2.1",
-    "karma": "1.7.1",
-    "karma-chrome-launcher": "2.1.1",
     "karma-cli": "1.0.1",
-    "karma-coverage-istanbul-reporter": "1.3.0",
-    "karma-jasmine": "1.1.0",
-    "karma-jasmine-html-reporter": "0.2.2",
     "npm-run-all": "4.0.2",
     "protractor": "5.1.2",
     "rimraf": "2.6.1",
