@@ -1,4 +1,4 @@
-import { IdentifiableObject, UntypedTuple } from './../../src/app/models/core/entity.model';
+import { IdentifiableObject, UntypedTuple } from './core.model';
 import { ModelStream } from './model.stream';
 
 export interface Node extends IdentifiableObject {
@@ -13,10 +13,12 @@ export interface Node extends IdentifiableObject {
 
   fx?: number | null;
   fy?: number | null;
+
+  updateNodes: (nodes: Node[]) => void;
 }
 
 export class Node implements Node {
-  constructor(public id: string) {}
+  constructor(public id: string) { }
 }
 
 export interface NodeOrder {

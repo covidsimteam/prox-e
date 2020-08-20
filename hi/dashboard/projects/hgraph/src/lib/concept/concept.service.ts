@@ -1,8 +1,8 @@
 
 import { Injectable } from '@angular/core';
-import { IdStream } from '../model/model.stream';
+import { EntityService, ValueStream } from '../entity/entity.service';
 import { IdentityService } from '../identity/identity.service';
-import { EntityService, EntityStream, ValueStream } from '../entity/entity.service';
+import { IdStream } from '../model/model.stream';
 
 export type ConceptStream = IdStream;
 @Injectable({
@@ -21,15 +21,6 @@ export class ConceptService {
 
   set concept(id: ConceptStream) {
     this.ids.id = id;
-  }
-
-  get entity(): EntityStream {
-    return this.entities.id;
-  }
-
-
-  set entity(entity: EntityStream) {
-    this.entities.id = entity;
   }
 
   get value(): ValueStream {

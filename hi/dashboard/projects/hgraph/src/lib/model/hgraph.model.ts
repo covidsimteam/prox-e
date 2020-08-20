@@ -1,7 +1,6 @@
 
 import { BinaryEdge, Edge } from './edge.model';
 import { Node, NodeOrder } from './node.model';
-import { DataSet } from 'vis-network';
 export class Graph {
 
   id: string;
@@ -67,6 +66,6 @@ export class HGraph {
 export class GraphData {
   constructor(
     public id: string,
-    public nodes: DataSet<Node>,
-    public edges: DataSet<BinaryEdge>) {}
+    public nodes: Node,
+    public edges: BinaryEdge) {}
 }

@@ -1,6 +1,6 @@
 import { IdentifiableObject } from './core.model';
-import { Node } from './node.model';
 import { ModelStream } from './model.stream';
+import { Node } from './node.model';
 
 export interface Edge extends IdentifiableObject {
 
@@ -9,10 +9,10 @@ export interface Edge extends IdentifiableObject {
   nodes: Node[];
   sources?: IdentifiableObject[];
   sinks?: IdentifiableObject[];
-
+  updateEdges: (edges: BinaryEdge[]) => void;
 }
 
-export interface BinaryEdge extends IdentifiableObject {
+export interface BinaryEdge extends Edge, IdentifiableObject {
   index?: number;
   from: string | Node;
   to: string | Node;
