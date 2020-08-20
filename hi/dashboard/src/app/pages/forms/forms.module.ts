@@ -17,6 +17,7 @@ import {
 import { ThemeModule } from '../../@theme/theme.module';
 import { FormAComponent } from './form-a/form-a.component';
 import { FormB1Component } from './form-b1/form-b1.component';
+import { FormB2Component } from './form-b2/form-b2.component';
 import { FormHospitalComponent } from './form-hospital/form-hospital.component';
 import { FormIsolationComponent } from './form-isolation/form-isolation.component';
 import { FormMunicipalityComponent } from './form-municipality/form-municipality.component';
@@ -31,7 +32,6 @@ import { ReturneeLocationDetailsComponent } from './form-sections/returnee-locat
 import { SymptomRecordComponent } from './form-sections/symptom-record/symptom-record.component';
 import { FormsRoutingModule } from './forms-routing.module';
 import { FormsComponent } from './forms.component';
-import { FormB2Component } from './form-b2/form-b2.component';
 
 
 @NgModule({
@@ -74,4 +74,4 @@ import { FormB2Component } from './form-b2/form-b2.component';
     FormB2Component,
   ],
 })
-export class HealthFormsModule {}
+export class HealthFormsModule { }

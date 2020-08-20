@@ -13,19 +13,21 @@ import {
   NbToastrModule,
   NbWindowModule
 } from '@nebular/theme';
+import { NgxEchartsModule } from 'ngx-echarts';
 import { AppConf, appConf, environment } from '../environments/environment';
+import { AuthInterceptor } from './@auth/interceptor/auth.interceptor';
+import { ErrorInterceptor } from './@auth/interceptor/error.interceptor';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { authSetup, formSetup } from './app.conf';
 import { DashboardModule } from './services/dashboard/dashboard.module';
-import { AuthInterceptor } from './@auth/interceptor/auth.interceptor';
-import { ErrorInterceptor } from './@auth/interceptor/error.interceptor';
-import { NgxEchartsModule } from 'ngx-echarts';
+import { SelectionPipe } from './services/state/selection.pipe';
+import { SelectionsDirective } from './services/state/selections.directive';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, SelectionPipe, SelectionsDirective],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -47,16 +49,16 @@ import { NgxEchartsModule } from 'ngx-echarts';
     NbAuthModule.forRoot({
       strategies: [
         NbPasswordAuthStrategy.setup(authSetup)],
-        forms: formSetup,
-      }),
-      ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    ],
-    bootstrap: [AppComponent],
-    providers: [
-      { provide: AppConf, useValue: appConf },
-      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-      { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    ],
-  })
-  export class AppModule {
-  }
+      forms: formSetup,
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+  ],
+  bootstrap: [AppComponent],
+  providers: [
+    { provide: AppConf, useValue: appConf },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
+})
+export class AppModule {
+}
