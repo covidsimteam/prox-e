@@ -11,8 +11,8 @@ import { EnvironmentService } from '../../services/env/environment.service';
 import { IdPrefixService } from '../../services/utils/id-prefix.service';
 import { AuthToken } from '../access/token.model';
 import { RolesService } from '../roles/roles.service';
-import { PasswordAuthStrategyOptions } from './password-auth-strategy-options';
 import { AuthResult } from './auth-result.model';
+import { PasswordAuthStrategyOptions } from './password-auth-strategy-options';
 
 @Injectable({
   providedIn: 'root',
@@ -137,7 +137,7 @@ export class AuthService extends NbAuthService {
   }
 
   getToken(): Observable<NbAuthToken> {
-     return from([this.getCurrentToken()]);
+    return from([this.getCurrentToken()]);
   }
 
   logout(strategy: string = 'email'): Observable<NbAuthResult> {

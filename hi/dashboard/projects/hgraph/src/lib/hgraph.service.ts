@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-
-import { Graph, HGraph } from './model/hgraph.model';
 import { BinaryEdge, Edge } from './model/edge.model';
+import { Graph, HGraph } from './model/hgraph.model';
 import { Node } from './model/node.model';
+
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,7 @@ export class HgraphService {
   private edgeArr: BinaryEdge[];
   private hedgeArr: Edge[];
 
-  constructor(private idStr: string) {}
+  constructor(private idStr: string) { }
 
   /**
    * Gets node if it exists in graph, else returns
@@ -36,6 +36,8 @@ export class HgraphService {
       label: e.label,
       from: e.from,
       to: e.to,
+      nodes: e.nodes,
+      updateEdges: (_: BinaryEdge[]) => e,
     };
   }
 

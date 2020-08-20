@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { IdStream } from '../model/model.stream';
 import { EntityService, ValueStream } from '../entity/entity.service';
+import { IdStream } from '../model/model.stream';
 
 export type KeyStream = IdStream;
 @Injectable({
@@ -17,13 +17,5 @@ export class KeyService {
 
   set value(values: ValueStream) {
     this.entityService.val = values;
-  }
-
-  get id(): KeyStream {
-    return this.entityService.id;
-  }
-
-  set id(entityIds: KeyStream) {
-    this.entityService.id = entityIds;
   }
 }
