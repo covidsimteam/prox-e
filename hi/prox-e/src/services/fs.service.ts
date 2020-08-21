@@ -6,6 +6,11 @@ import { setLogLevel } from '@azure/logger';
 
 import fs from 'fs';
 
+
+const rangeSize = 4 * 1024 * 1024; // 4MB range size
+const timeOut = 30 * 60 * 1000; // 30 mins
+const parallelism = 20;
+
 export class FsService {
 
     protected readonly logger = motherLogger.child({ file: 'FsService' });
@@ -34,16 +39,16 @@ export class FsService {
     uploadLocalToDir(filePath: string, localFilePath: string) {
         const fileName = filePath + new Date().getTime();
         return this.fileClient.uploadFile(localFilePath, {
-            rangeSize: 4 * 1024 * 1024, // 4MB range size
-            parallelism: 20, // 20 concurrency
+            rangeSize, 
+            parallelism,
             onProgress: (ev: any) => this.logger.trace(fileName, ev)
           });
     }
     
     uploadParralel(localFilePath: string) {
         return this.fileClient.uploadFile(localFilePath, {
-            rangeSize: 4 * 1024 * 1024, // 4MB range size
-            parallelism: 20, // 20 concurrency
+            rangeSize, 
+            parallelism, 
             onProgress: (ev: any) => this.logger.trace(ev)
         });
     }
@@ -51,8 +56,8 @@ export class FsService {
     uploadParralelReadableStream(localFilePath: string, fileSize: number) {
         return this.fileClient
             .uploadStream(
-                fs.createReadStream(localFilePath), fileSize, 4 * 1024 * 1024, 20, {
-                    abortSignal: AbortController.timeout(30 * 60 * 1000), // Abort uploading with timeout in 30mins
+                fs.createReadStream(localFilePath), fileSize, rangeSize, parallelism, {
+                    abortSignal: AbortController.timeout(timeOut),
                     onProgress: (ev: any) => this.logger.trace(ev)
                 });
     }
@@ -60,9 +65,9 @@ export class FsService {
     downloadParralel(fileSize: number) {
         const buffer = Buffer.alloc(fileSize);
         return this.fileClient.downloadToBuffer(buffer, 0, undefined, {
-          abortSignal: AbortController.timeout(30 * 60 * 1000),
-          rangeSize: 4 * 1024 * 1024, // 4MB range size
-          parallelism: 20, // 20 concurrency
+          abortSignal: AbortController.timeout(timeOut),
+          rangeSize,
+          parallelism,
           onProgress: (ev: any) => this.logger.trace(ev)
         });
     }
