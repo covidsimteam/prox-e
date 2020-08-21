@@ -1,9 +1,9 @@
-import { SignInFailure } from "./sign-in.model";
+import { UploadFailure } from "./upload.model";
 
-export interface SignOutSuccess {
-    account: {
+export interface DownloadSuccess {
+    file: {
         id: string;
-        username: string;
+        name: string;
         createdAt: Date;
         updateAt: Date;
         profile: {
@@ -12,12 +12,12 @@ export interface SignOutSuccess {
     }
 }
 
-export interface SignOutFailure extends SignInFailure {
+export interface DownloadFailure extends UploadFailure {
     name: 'session' | 'confict' | 'connection';
     type:  'unconfirmed' | 'unauthorized' | 'unknown';
-    hook: 'before:signout';
+    hook: 'before:Download';
     message: string; 
     stack?: string;
 }
 
-export type SignOutResponse = SignOutFailure | SignOutSuccess;
+export type DownloadResponse = DownloadFailure | DownloadSuccess;
