@@ -9,7 +9,8 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   UrlTree
-} from '@angular/router';import { Observable } from 'rxjs';
+} from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
