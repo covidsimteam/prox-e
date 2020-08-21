@@ -8,6 +8,7 @@ import { PagesComponent } from './pages.component';
 import { PaymentsModule } from './payments/payments.module';
 import { AccountModule } from './account/account.module';
 import { FilesComponent } from './files/files.component';
+import { PcrComponent } from './demand/pcr/pcr.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { FilesComponent } from './files/files.component';
   ],
   declarations: [
     PagesComponent,
-    FilesComponent
+    FilesComponent,
+    PcrComponent
   ],
 })
 export class PagesModule {
