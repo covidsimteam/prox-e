@@ -1,3 +1,4 @@
+<!-- covdbs couch, couch potato, pay blockdb -->
 # Dashboard for tracking COVID-19 stats in Nepal
 
 ## Key features
