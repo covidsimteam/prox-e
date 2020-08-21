@@ -1,0 +1,1 @@
+Self-sovereign ID management
