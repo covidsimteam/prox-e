@@ -31,8 +31,8 @@ export class FsService {
         setLogLevel("info");
     }
 
-    createDirectory() {
-        const directoryName = `newdirectory${new Date().getTime()}`;
+    createDirectory(name?: string) {
+        const directoryName = name || `new_dir_${new Date().getTime()}`;
         return this.directoryClient(directoryName).create();
     }
     
