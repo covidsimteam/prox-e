@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
+import { WizardModule } from './wizard.module';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: WizardModule
 })
 export class WizardsService {
 
