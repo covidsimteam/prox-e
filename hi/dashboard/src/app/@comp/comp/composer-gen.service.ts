@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
+import { CompModule } from '../comp.module';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: CompModule
 })
 export class ComposerGenService {
 
