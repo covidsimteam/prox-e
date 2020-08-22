@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbMenuModule } from '@nebular/theme';
+import { NbLayoutModule, NbMenuModule } from '@nebular/theme';
 import { ThemeModule } from '../@theme/theme.module';
 import { AccountModule } from './account/account.module';
 import { PcrDemandModule } from './demand/pcr-demand.module';
@@ -17,6 +17,8 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { PaymentsModule } from './payments/payments.module';
 import { TablesModule } from './tables/tables.module';
+import { PagesComponent } from './pages.component';
+import { SampleCollectionComponent } from './sample/sample-collection/sample-collection.component';
 
 @NgModule({
   imports: [
@@ -37,9 +39,10 @@ import { TablesModule } from './tables/tables.module';
     IdModule,
     MapsModule,
     MedAiModule,
-    TablesModule
+    TablesModule,
+    NbLayoutModule,
   ],
-  declarations: [],
+  declarations: [PagesComponent, SampleCollectionComponent],
 })
 export class PagesModule {
 }
