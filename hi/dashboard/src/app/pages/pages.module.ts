@@ -18,6 +18,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { PaymentsModule } from './payments/payments.module';
 import { TablesModule } from './tables/tables.module';
 import { PagesComponent } from './pages.component';
+import { SampleCollectionComponent } from './sample/sample-collection/sample-collection.component';
 
 @NgModule({
   imports: [
@@ -41,7 +42,7 @@ import { PagesComponent } from './pages.component';
     TablesModule,
     NbLayoutModule,
   ],
-  declarations: [PagesComponent],
+  declarations: [PagesComponent, SampleCollectionComponent],
 })
 export class PagesModule {
 }
