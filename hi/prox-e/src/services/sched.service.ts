@@ -1,7 +1,15 @@
-import { Entity } from 'src/models/entity.model';
 import { ProxyTableService } from './table.service';
 
-export class ProxyScheduleService extends ProxyTableService { 
+export interface Entity {
+    _id: string;
+    _rev: string;
+    type: string;
+    content: string;
+    keys: string[];
+    values: string[];
+}
+
+export class ProxyScheduleService extends ProxyTableService {
     private static proxyScheduleServiceInstance: ProxyScheduleService;
 
     constructor() {
@@ -12,7 +20,7 @@ export class ProxyScheduleService extends ProxyTableService {
         return ProxyScheduleService.proxyScheduleServiceInstance;
     }
 
-    createScheduleIfNotExists(table: string = '', callback: (error: any) => any): any { 
+    createScheduleIfNotExists(table: string = '', callback: (error: any) => any): any {
         return this.createTableIfNotExists(table, callback);
     }
 
@@ -20,7 +28,7 @@ export class ProxyScheduleService extends ProxyTableService {
         return this.insertToTable(entity, table, callback);
     }
 
-    getFromSchedule(entity: Entity, table: string, callback: (error: any) => any): any { 
+    getFromSchedule(entity: Entity, table: string, callback: (error: any) => any): any {
         return this.getFromTable(entity, table, callback);
     }
 }

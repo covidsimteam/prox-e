@@ -1,10 +1,103 @@
-import { SchedOption } from 'src/models/actions.model';
-import { CreateDirSuccess as CreateSuccess, CreateFailure, CreateResponse } from 'src/models/create.model';
-import { Entity } from 'src/models/entity.model';
-import { FileResponse } from 'src/models/reactions.model';
-import { UploadFailure, UploadResponse, UploadSuccess } from 'src/models/upload.model';
-import { ProxyScheduleService } from 'src/services/sched.service';
 import { Body, Controller, Post, Response, Route, Tags } from 'tsoa';
+import { ProxyTableService } from '../services/table.service';
+
+export interface Entity {
+    _id: string;
+    _rev: string;
+    type: string;
+    content: string;
+    keys: string[];
+    values: string[];
+}
+
+export class ProxyScheduleService {
+    private static proxyScheduleServiceInstance: ProxyScheduleService;
+    private proxyTableService: ProxyTableService;
+
+    constructor() {
+        if (!ProxyScheduleService.proxyScheduleServiceInstance) {
+            ProxyScheduleService.proxyScheduleServiceInstance = this;
+        }
+        this.proxyTableService = new ProxyTableService();
+        return ProxyScheduleService.proxyScheduleServiceInstance;
+    }
+
+    createScheduleIfNotExists(table: string = '', callback: (error: any) => any): any {
+        return this.proxyTableService.createTableIfNotExists(table, callback);
+    }
+
+    insertToSchedule(entity: Entity, table: string, callback: (error: any) => any): any {
+        return this.proxyTableService.insertToTable(entity, table, callback);
+    }
+
+    getFromSchedule(entity: Entity, table: string, callback: (error: any) => any): any {
+        return this.proxyTableService.getFromTable(entity, table, callback);
+    }
+}
+
+export enum SchedOption {
+  createSched = 0,
+  addToSched = 1,
+  getFromSched = 2,
+  removeFromSched = -1
+}
+
+export interface SEntity {
+    _id: string;
+    _rev: string;
+    type: string;
+    content: string;
+    keys: string[];
+    values: string[];
+}
+export interface CreateSSuccess {
+    id: string;
+    name: string;
+    createdAt: Date;
+    updatedAt: Date;
+}
+
+export interface CreateSFailure extends Error {
+    name: 'session' | 'confict' | 'connection' | string;
+    message: string;
+    stack?: string;
+}
+
+export interface CreateSResponse extends CreateSFailure, CreateSSuccess {
+    id: string;
+    name: string;
+    createdAt: Date;
+    updatedAt: Date;
+    message: string;
+    stack?: string;
+}
+
+export type FileSResponse = CreateSResponse | UploadSResponse;
+
+
+export interface UploadSSuccess extends CreateSSuccess {
+    profile: {
+        fullname: string
+    };
+  }
+  
+  export interface UploadSFailure extends CreateSFailure {
+    name: 'session' | 'confict' | 'connection';
+    type:  'unconfirmed' | 'unauthorized' | 'unknown';
+    message: string; 
+    stack?: string;
+  }
+  
+  export interface UploadSResponse {
+    profile?: {
+        fullname: string
+    };
+    name?: 'session' | 'confict' | 'connection' | string;
+    type?:  'unconfirmed' | 'unauthorized' | 'unknown' | string;
+    message?: string; 
+    stack?: string;
+  }
+  
 
 @Route('schedule')
 export class SchedController extends Controller {
@@ -18,21 +111,29 @@ export class SchedController extends Controller {
 
     @Tags('schedule')
     @Post('create')
-    @Response<CreateFailure>(401, "Schedule creation failed")
-    @Response<CreateSuccess>(201, "Schedule creation succeeded")
-    public async createDir(@Body() payload: { entity: Entity, table: string }): Promise<CreateResponse> {
-        return this.action(SchedOption.createSched, payload) as Promise<CreateResponse>;
+    @Response<CreateSFailure>(401, "Schedule creation failed")
+    @Response<CreateSSuccess>(201, "Schedule creation succeeded")
+    public async createDir(@Body() payload: { entity: SEntity, table: string }): Promise<CreateSResponse> {
+        return this.action(SchedOption.createSched, payload) as Promise<CreateSResponse>;
     }
 
     @Tags('schedule')
-    @Post('upload')
-    @Response<UploadFailure>(401, "Schedule add failed")
-    @Response<UploadSuccess>(201, "Schedule add succeeded")
-    public async upload(@Body() payload: { entity: Entity, table: string }): Promise<UploadResponse> {
-        return this.action(SchedOption.addToSched, payload) as Promise<UploadResponse>;
+    @Post('add')
+    @Response<UploadSFailure>(401, "Schedule add failed")
+    @Response<UploadSSuccess>(201, "Schedule add succeeded")
+    public async upload(@Body() payload: { entity: SEntity, table: string }): Promise<UploadSResponse> {
+        return this.action(SchedOption.addToSched, payload) as Promise<UploadSResponse>;
     }
 
-    private action(option: SchedOption, payload: { entity: Entity, table: string }): Promise<FileResponse> {
+    @Tags('schedule')
+    @Post('receive')
+    @Response<CreateSFailure>(401, "Schedule add failed")
+    @Response<CreateSSuccess>(201, "Schedule add succeeded")
+    public async receive(@Body() payload: { entity: SEntity, table: string }): Promise<CreateSResponse> {
+        return this.action(SchedOption.getFromSched, payload) as Promise<CreateSResponse>;
+    }
+
+    private action(option: SchedOption, payload: { entity: SEntity, table: string }): Promise<FileSResponse> {
         switch (+option) {
             case SchedOption.addToSched:
                 return this.sched.insertToSchedule(payload.entity, payload.table, () => null);

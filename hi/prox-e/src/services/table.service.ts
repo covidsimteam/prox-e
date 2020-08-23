@@ -4,14 +4,14 @@ import { Entity } from 'src/models/entity.model';
 import motherLogger from '../logger';
 import { ProxyQService } from './q.service';
 
-export class ProxyTableService extends ProxyQService { 
+export class ProxyTableService extends ProxyQService {
     protected readonly tablelogger = motherLogger.child({ file: 'TableService' });
 
     private defaultTable: string = guid.v1().replace(/-/g, '');
-    
+
     // private entityGenerator = storage.TableUtilities.entityGenerator;
     private storageClient = storage.createTableService(this.STORAGE_CONNECTION_STRING);
-    
+
     private static proxyTableServiceInstance: ProxyTableService;
 
     constructor() {
@@ -21,11 +21,11 @@ export class ProxyTableService extends ProxyQService {
         }
         return ProxyTableService.proxyTableServiceInstance;
     }
-    
-    createTableIfNotExists(table: string = '', callback: (error: any) => any): any {     
-        if (!table || !table.length) table = table + ':' + this.defaultTable; 
+
+    createTableIfNotExists(table: string = '', callback: (error: any) => any): any {
+        if (!table || !table.length) table = table + ':' + this.defaultTable;
         const loggr = this.tablelogger;
-        return this.storageClient.createTableIfNotExists(table, 
+        return this.storageClient.createTableIfNotExists(table,
             (error: any, createResult: any) => {
                 if (error) return callback(error);
                 if (createResult.isSuccessful) {
@@ -36,7 +36,7 @@ export class ProxyTableService extends ProxyQService {
 
     insertToTable(entity: Entity, table: string, callback: (error: any) => any): any {
         return this.storageClient
-            .insertOrMergeEntity(table, entity, 
+            .insertOrMergeEntity(table, entity,
                 (error: any, result: any, response: any) => {
                     if (error) return callback(error);
                     return [result, response];
@@ -45,7 +45,7 @@ export class ProxyTableService extends ProxyQService {
 
     getFromTable(entity: Entity, table: string, callback: (error: any) => any): any {
         return this.storageClient
-            .retrieveEntity(table, entity._id, entity.type, 
+            .retrieveEntity(table, entity._id, entity.type,
                 (error: any, result: any, response: any) => {
                     if (error) return callback(error);
                     return [result, response];
