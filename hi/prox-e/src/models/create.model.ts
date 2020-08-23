@@ -12,3 +12,7 @@ export interface CreateDirFailure extends Error {
 }
 
 export type CreateDirResponse = CreateDirFailure | CreateDirSuccess;
+
+export type CreateResponse = CreateDirResponse;
+export type CreateFailure = CreateDirFailure;
+export type CreateSuccess = CreateDirSuccess;

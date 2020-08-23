@@ -2,17 +2,17 @@ import { FileOption } from 'src/models/actions.model';
 import { CreateDirFailure, CreateDirResponse, CreateDirSuccess } from 'src/models/create.model';
 import { FileResponse } from 'src/models/reactions.model';
 import { UploadFailure, UploadResponse, UploadSuccess } from 'src/models/upload.model';
-import { FsService } from 'src/services/fs.service';
+import { ProxyFsService } from 'src/services/fs.service';
 import { Body, Controller, Post, Response, Route, Tags } from 'tsoa';
 
 @Route('fs')
 export class FsController extends Controller {
   
-  private fs: FsService;
+  private fs: ProxyFsService;
   
   constructor() {
     super();
-    this.fs = new FsService();
+    this.fs = new ProxyFsService();
   }
 
   @Tags('fs')
