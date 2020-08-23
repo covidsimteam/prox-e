@@ -12,7 +12,6 @@ import {
   UrlTree
 } from '@angular/router';
 
-
 import { Observable } from 'rxjs';
 
 @Injectable({
