@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NbLoginComponent } from '@nebular/auth';
 import { BasicAuth } from '../../@models/auth-response.model';
 import { AuthService } from '../core/auth.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'ngx-login',
@@ -11,7 +12,15 @@ import { AuthService } from '../core/auth.service';
 })
 export class LoginComponent extends NbLoginComponent implements OnInit {
 
+  loginForm: FormGroup;
+
+  loading = false;
+
+  redirectDelay: number;
+  showMessages = { error: null, success: null };
+  submitted = false;
   private returnUrl: string = '/hub/home';
+
   constructor(
     private authService: AuthService,
     protected router: Router,
@@ -33,12 +42,18 @@ export class LoginComponent extends NbLoginComponent implements OnInit {
     }
   }
 
+  get f() {
+    return this.loginForm.controls;
+  }
+
   login() {
     const { email, password } = this.user;
     this.authService.login(email, password)
       .subscribe((val: BasicAuth.Response) => {
         if (BasicAuth.isSuccess(val)) {
           this.router.navigateByUrl(this.returnUrl);
+        } else {
+          this.showMessages.error = val.error;
         }
       });
   }

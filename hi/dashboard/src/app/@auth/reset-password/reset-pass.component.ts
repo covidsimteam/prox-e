@@ -31,6 +31,7 @@ export class ResetPassComponent extends NbResetPasswordComponent implements OnIn
   }
 
   resetPass() {
+    // TODO use pouchdb authenticate to fulfill the request
     const { email, password } = this.user;
     this.authService.login(email, password)
       .subscribe((val: BasicAuth.Response) => {
