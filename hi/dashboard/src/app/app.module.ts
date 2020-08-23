@@ -1,10 +1,10 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { NbAuthModule, NbAuthSimpleToken, NbPasswordAuthStrategy } from '@nebular/auth';
+import { NbAuthModule, NbPasswordAuthStrategy } from '@nebular/auth';
 import {
   NbDatepickerModule,
   NbDialogModule,
@@ -15,22 +15,19 @@ import {
 } from '@nebular/theme';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { AppConf, appConf, environment } from '../environments/environment';
+import { AuthInterceptor } from './@auth/interceptor/auth.interceptor';
+import { ErrorInterceptor } from './@auth/interceptor/error.interceptor';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthGuard } from './services/guards/auth.guard';
-import { HomePageComponent } from './services/dashboard/home-page-modules/home-page/home-page.component';
+import { authSetup, formSetup } from './app.conf';
 import { DashboardModule } from './services/dashboard/dashboard.module';
+import { SelectionPipe } from './services/state/selection.pipe';
+import { SelectionsDirective } from './services/state/selections.directive';
 
-const formSetting: any = {
-  redirectDelay: 0,
-  showMessages: {
-    success: true,
-  },
-};
 @NgModule({
-  declarations: [AppComponent, HomePageComponent],
+  declarations: [AppComponent, SelectionPipe, SelectionsDirective],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -45,86 +42,23 @@ const formSetting: any = {
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     ReactiveFormsModule,
-    NgxEchartsModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts'),
+    }),
     DashboardModule,
     NbAuthModule.forRoot({
       strategies: [
-        NbPasswordAuthStrategy.setup({
-          name: 'email',
-          token: {
-            key: 'token',
-            class: NbAuthSimpleToken,
-          },
-          baseEndpoint: '/auth/',
-          login: {
-            endpoint: '/sign-in',
-            method: 'post',
-            redirect: {
-              success: '/hub/',
-              failure: null,
-            },
-            defaultErrors: ['Login/Email combination is not correct, please try again.'],
-            defaultMessages: ['You have been successfully logged in.'],
-          },
-          register: {
-            endpoint: '/sign-up',
-            method: 'post',
-            redirect: {
-              success: '/welcome/',
-              failure: null,
-            },
-            defaultErrors: ['Something went wrong, please try again.'],
-            defaultMessages: ['You have been successfully registered.'],
-          },
-          logout: {
-            endpoint: '/sign-out',
-            method: 'post',
-            redirect: {
-              success: '/auth/sign-in/',
-              failure: null,
-            },
-            defaultErrors: ['Something went wrong, please try again.'],
-            defaultMessages: ['You have been successfully logged out.'],
-          },
-          requestPass: {
-            endpoint: '/request-pass',
-            method: 'post',
-            redirect: {
-              success: '/check-email/',
-              failure: null,
-            },
-            defaultErrors: ['Something went wrong, please try again.'],
-            defaultMessages: ['Reset password instructions have been sent to your email.'],
-          },
-          resetPass: {
-            endpoint: '/reset-pass',
-            method: 'post',
-            redirect: {
-              success: '/reset-success/',
-              failure: null,
-            },
-            resetPasswordTokenKey: 'covid-reset',
-            defaultErrors: ['Something went wrong, please try again.'],
-            defaultMessages: ['Your password has been successfully changed.'],
-          },
-        })],
-        forms: {
-          login: formSetting,
-          register: formSetting,
-          requestPassword: formSetting,
-          resetPassword: formSetting,
-          logout: {
-            redirectDelay: 0,
-          },
-        },
-      }),
+        NbPasswordAuthStrategy.setup(authSetup)],
+      forms: formSetup,
+    }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    ],
-    bootstrap: [AppComponent],
-    providers: [
-      { provide: AppConf, useValue: appConf },
-      AuthGuard
-    ],
-  })
-  export class AppModule {
-  }
+  ],
+  bootstrap: [AppComponent],
+  providers: [
+    { provide: AppConf, useValue: appConf },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
+})
+export class AppModule {
+}

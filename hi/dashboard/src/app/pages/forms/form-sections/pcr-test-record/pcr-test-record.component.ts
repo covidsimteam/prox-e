@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TestRecord } from '../../../../models/forms.model';
+import { TestRecord } from '../../../../@models/forms.model';
 
 @Component({
   selector: 'ngx-pcr-test-record',

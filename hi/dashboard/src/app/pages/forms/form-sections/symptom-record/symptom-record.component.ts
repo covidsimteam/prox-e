@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SymptomRecord } from '../../../../models/forms.model';
+import { SymptomRecord } from '../../../../@models/forms.model';
 
 @Component({
   selector: 'ngx-symptom-record',

@@ -9,7 +9,7 @@ export const routes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: () => import('./auth/core/auth.module')
+    loadChildren: () => import('./@auth/auth.module')
       .then(m => m.AuthModule),
   },
   { path: '', redirectTo: 'hub/home', pathMatch: 'full' },

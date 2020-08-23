@@ -5,8 +5,8 @@ import { SCHEMA_VER } from '../../../@core/data/pschema:pcrs:v8';
 
 import { PcrService } from '../../db/pcr.service';
 import { TabularService } from '../tabular/tabular.service';
-import { PCRTupleRev } from '../../../models/db/table-headers.model';
-import { PSchemaDoc } from '../../../models/db/schema/pschema.model';
+import { PCRTupleRev } from '../../../@models/db/table-headers.model';
+import { PSchemaDoc } from '../../../@models/db/schema/pschema.model';
 
 @Injectable({
   providedIn: 'root',

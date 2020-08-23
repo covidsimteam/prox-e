@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-form-pcr',
-  styleUrls: ['./form-b1.component.scss'],
+  selector: 'ngx-form-b1',
   templateUrl: './form-b1.component.html',
+  styleUrls: ['./form-b1.component.scss']
 })
-export class FormBComponent implements OnInit {
+export class FormB1Component implements OnInit {
 
-  ngOnInit() {}
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
 }

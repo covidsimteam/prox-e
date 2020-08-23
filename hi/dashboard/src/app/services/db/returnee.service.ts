@@ -1,11 +1,11 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { Databases, ExistingDoc, Doc } from '../../models/domain.model';
+import { Databases, ExistingDoc, Doc } from '../../@models/domain.model';
 import { DBService } from './db.service.interface';
 import { PouchDBService } from './pouchdb.service';
-import { AllDocs } from '../../models/db/all-docs.model';
-import { BulkAddResponse } from '../../models/db/response.model';
-import { RETTupleRev } from '../../models/db/table-headers.model';
-import { PSchema } from '../../models/db/schema/pschema.model';
+import { AllDocs } from '../../@models/db/all-docs.model';
+import { BulkAddResponse } from '../../@models/db/response.model';
+import { RETTupleRev } from '../../@models/db/table-headers.model';
+import { PSchema } from '../../@models/db/schema/pschema.model';
 
 @Injectable({
   providedIn: 'root',

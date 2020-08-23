@@ -1,5 +1,5 @@
 import { EventEmitter } from '@angular/core';
-import { Doc, ExistingDoc } from '../../models/domain.model';
+import { ExistingDoc, Doc } from '../../@models/domain.model';
 
 export interface DBService {
   instance(): PouchDB.Database<{}> | undefined;

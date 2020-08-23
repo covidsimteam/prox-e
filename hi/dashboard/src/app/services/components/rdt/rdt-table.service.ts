@@ -5,8 +5,8 @@ import { SCHEMA_VER } from '../../../@core/data/pschema:rdts:v8';
 
 import { RdtService } from '../../db/rdt.service';
 import { TabularService } from '../tabular/tabular.service';
-import { RDTTupleRev } from '../../../models/db/table-headers.model';
-import { PSchemaDoc } from '../../../models/db/schema/pschema.model';
+import { RDTTupleRev } from '../../../@models/db/table-headers.model';
+import { PSchemaDoc } from '../../../@models/db/schema/pschema.model';
 
 @Injectable({
   providedIn: 'root',

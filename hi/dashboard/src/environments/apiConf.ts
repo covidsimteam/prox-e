@@ -1,8 +1,8 @@
 export const appUris = {
-  docDBUser: 'public',
+  docDBUser: 'open@nep.work',
   docDBPassword: 'public',
 
   devDocDB: 'http://localhost:5984/',
-  prodDocDB: 'http://localhost:5984/',
-  stagingDocDB: 'http://localhost:5984/',
+  prodDocDB: 'https://covidb.cosys.work/db/',
+  stagingDocDB: 'http://covsimteam.cosys.work:5984/',
 };

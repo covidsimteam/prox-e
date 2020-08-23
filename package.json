@@ -29,6 +29,5 @@
     "url": "https://github.com/covidsimteam/prox-e/issues"
   },
   "homepage": "https://github.com/covidsimteam/prox-e#readme",
-  "dependencies": {
-  }
+  "dependencies": {}
 }

@@ -1,5 +1,7 @@
 version: '3'
-
+# m-dbs postgres, covdbs couch, ohif viewer, 
+# job-m postgres, couch potato, pay blockdb
+# elk postgres couch, redis, zeromq  
 volumes:
   postgres_data:
       driver: local

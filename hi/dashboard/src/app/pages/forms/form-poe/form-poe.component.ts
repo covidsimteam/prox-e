@@ -7,5 +7,5 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormPOEComponent implements OnInit {
 
-  ngOnInit() {}
+  ngOnInit() { }
 }
