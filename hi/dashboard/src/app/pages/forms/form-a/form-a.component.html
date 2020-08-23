@@ -1,15 +1,15 @@
-
-<nb-layout center>
-  <nb-layout-header class="form-a-header">A फाराम कोभिड १९ का संकास्पद र निस्चित केसको लागी रिपोर्टिङ फाराम </nb-layout-header>
-
+<nb-layout>
+  <nb-layout-header class="form-a-header">
+    {{ 'fa.title' | translate }}
+  </nb-layout-header>
   <nb-layout-column>
-    <nb-card>
+    <nb-card center>
       <nb-card-body>
         <nb-stepper orientation="vertical">
           <nb-step label>
             <div class="col-md-12">
               <div class="form-group">
-                <label for="inputDate" class="label">राष्ट्रिय स्वास्थ्य निकायालाई रिपोर्टिंग गरिएको मिति - दिन महिना वर्ष </label>
+                <label for="inputDate" class="label"> {{ "fa.date1" | translate }}</label>
                 <input [nbDatepicker]="datepicker">
                 <nb-datepicker #datepicker></nb-datepicker> <br/>
               </div>
@@ -1585,12 +1585,13 @@
                                                       <button nbButton disabled nbStepperNext>next</button>
                                                     </nb-step>
                                                   </nb-stepper>
-                                                </nb-card-body>
-                                              </nb-card>
+      </nb-card-body>
+      <nb-card-footer>
+        Interim reporting form for confirmed or probable cases of COVID-19
+      </nb-card-footer>
+    </nb-card>
+  </nb-layout-column>
+</nb-layout>
 
-                                            </nb-layout-column>
-
-                                            <nb-layout-footer>Interim reporting form for confirmed or probable cases of COVID-19</nb-layout-footer>
-                                          </nb-layout>
 
 

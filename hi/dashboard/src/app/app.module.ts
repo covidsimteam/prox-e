@@ -1,4 +1,4 @@
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,6 +13,8 @@ import {
   NbToastrModule,
   NbWindowModule
 } from '@nebular/theme';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { AppConf, appConf, environment } from '../environments/environment';
 import { AuthInterceptor } from './@auth/interceptor/auth.interceptor';
@@ -26,6 +28,10 @@ import { DashboardModule } from './services/dashboard/dashboard.module';
 import { SelectionPipe } from './services/state/selection.pipe';
 import { SelectionsDirective } from './services/state/selections.directive';
 
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 @NgModule({
   declarations: [AppComponent, SelectionPipe, SelectionsDirective],
   imports: [
@@ -42,6 +48,13 @@ import { SelectionsDirective } from './services/state/selections.directive';
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     ReactiveFormsModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+    }),
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts'),
     }),

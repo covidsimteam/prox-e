@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'ngx-form-a',
@@ -9,8 +10,14 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 export class FormAComponent implements OnInit, OnDestroy {
 
   aForm: FormGroup;
+  // TODO put all the translatable labels in the en.json file for now
+  constructor(
+    private fb: FormBuilder,
+    translator: TranslateService,
+    ) {
+    translator.use('np');
+  }
 
-  constructor(private fb: FormBuilder) { }
   ngOnDestroy(): void {
   }
 
@@ -23,6 +30,6 @@ export class FormAComponent implements OnInit, OnDestroy {
     this.aForm.valueChanges.subscribe(this.formValueChanged);
   }
 
-  formValueChanged(formValue) {}
+  formValueChanged(formValue: any) {}
 
 }
