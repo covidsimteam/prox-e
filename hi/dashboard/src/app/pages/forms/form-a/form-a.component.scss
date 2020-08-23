@@ -1,3 +1,8 @@
+@font-face {
+  font-family: kantipur;
+  src: url('../../../../assets/fonts/Kantipur_Reg.ttf');
+}
+
 nb-accordion-item-header {
   background-color: #5f8df0;
 
@@ -13,11 +18,22 @@ nb-accordion {
 
 }
 
+.form-a-header {
+  font-family: kantipur;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.label {
+  font-family: kantipur;
+  font-size: larger;
+}
 
 
 nb-card-body.example-items-rows {
   align-items: center;
 }
+
 
 nb-checkbox:not(:only-child) {
   margin-right: 1.5rem;
