@@ -1,7 +1,7 @@
 {
   "name": "prox-e",
-  "version": "1.0.0",
-  "description": "prox-e ui and logic",
+  "version": "0.0.1",
+  "description": "prox-e sonata pro: packages with proxy ui and logic",
   "main": "index.html",
   "scripts": {
     "build-prox-e": "cd ./hi/prox-e && yarn build",
