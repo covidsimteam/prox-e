@@ -59,7 +59,7 @@ export class AuthService extends NbAuthService {
   }
 
   signUp(username: string, password: string): Observable<BasicAuth.Response> {
-    return this.basicAuthRequest(username, password);
+    return this.basicAuthRequest(username, password); // TODO change to actual sign-up later
   }
 
   get isInPublicMode(): boolean { return this.isInPublicModSub.value; }

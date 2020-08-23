@@ -19,10 +19,10 @@ export class LogoutComponent extends NbLogoutComponent implements OnInit {
 
     ngOnInit() {
       if (
-        this.authService.isAdmin() ||
+        this.authService.isAuthenticated() ||
         this.authService.isPrivileged ||
         !this.authService.isInPublicMode) {
-          this.router.navigate(['hub', 'home']);
+          this.authService.logout();
         }
       }
 

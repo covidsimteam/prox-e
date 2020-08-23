@@ -1,1 +1,243 @@
-<p>register works!</p>
+<nb-alert
+  *ngIf="showMessages.error && !submitted"
+  outline="danger"
+  role="alert"
+>
+  <p class="alert-title"><b>Registration Failed</b></p>
+  <ul class="alert-message-list">
+    <li class="alert-message">{{ showMessages.error }}</li>
+  </ul>
+</nb-alert>
+
+<nb-alert
+  *ngIf="showMessages.success && !submitted"
+  outline="success"
+  role="alert"
+>
+  <p class="alert-title"><b>Registration Succeeded</b></p>
+  <ul class="alert-message-list">
+    <li class="alert-message">{{ showMessages.success }}</li>
+  </ul>
+</nb-alert>
+
+
+<div class="row centrino">
+  <div class="col-md-6">
+    <nb-card>
+      <nb-card-header
+        >User Registration</nb-card-header
+      >
+      <nb-card-body>
+
+<form
+  (ngSubmit)="register()"
+  aria-labelledby="title"
+>
+
+  <div class="form-group row">
+    <label for="input-firstname" class="label col-sm-2 form-control-label"
+      >First Name</label
+    >
+    <div class="col-sm-8">
+      <input
+        nbInput
+        fullWidth
+        formControlName="firstName"
+        name="firstName"
+        id="input-firstname"
+        placeholder="First Name"
+        fieldSize="large"
+        autofocus
+        [status]="
+          fval.firstName.dirty
+            ? fval.firstName.invalid
+              ? 'danger'
+              : 'success'
+            : 'basic'
+        "
+        [required]="true"
+        [attr.aria-invalid]="
+          fval.firstName.invalid && fval.firstName.touched ? true : null
+        "
+      />
+      <ng-container *ngIf="fval.firstName.invalid && fval.firstName.touched">
+        <p
+          class="caption status-danger"
+          *ngIf="fval.firstName.errors?.required"
+        >
+          First Name is required
+        </p>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="input-lastname" class="label col-sm-2 form-control-label"
+      >Last Name</label
+    >
+    <div class="col-sm-8">
+      <input
+        nbInput
+        fullWidth
+        formControlName="lastName"
+        name="lastName"
+        id="input-lastname"
+        placeholder="Last Name"
+        fieldSize="large"
+        autofocus
+        [status]="
+          fval.lastName.dirty
+            ? fval.lastName.invalid
+              ? 'danger'
+              : 'success'
+            : 'basic'
+        "
+        [required]="true"
+        [attr.aria-invalid]="
+          fval.lastName.invalid && fval.lastName.touched ? true : null
+        "
+      />
+      <ng-container *ngIf="fval.lastName.invalid && fval.lastName.touched">
+        <p
+          class="caption status-danger"
+          *ngIf="fval.lastName.errors?.required"
+        >
+          Last Name is required
+        </p>
+      </ng-container>
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label for="input-email" class="label col-sm-2 form-control-label"
+      >Email</label
+    >
+    <div class="col-sm-8">
+      <input
+        nbInput
+        fullWidth
+        formControlName="email"
+        name="email"
+        id="input-email"
+        placeholder="Email"
+        fieldSize="large"
+        autofocus
+        [status]="
+          fval.email.dirty
+            ? fval.email.invalid
+              ? 'danger'
+              : 'success'
+            : 'basic'
+        "
+        [required]="true"
+        [attr.aria-invalid]="
+          fval.email.invalid && fval.email.touched ? true : null
+        "
+      />
+      <ng-container *ngIf="fval.email.invalid && fval.email.touched">
+        <p
+          class="caption status-danger"
+          *ngIf="fval.email.errors?.required"
+        >
+          Email is required
+        </p>
+      </ng-container>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="input-password" class="label col-sm-2 form-control-label"
+      >Password</label
+    >
+    <div class="col-sm-8">
+      <input
+        nbInput
+        fullWidth
+        formControlName="password"
+        name="password"
+        id="input-password"
+        placeholder="password"
+        fieldSize="large"
+        autofocus
+        [status]="
+          fval.password.dirty
+            ? fval.password.invalid
+              ? 'danger'
+              : 'success'
+            : 'basic'
+        "
+        [required]="true"
+        [attr.aria-invalid]="
+          fval.password.invalid && fval.password.touched ? true : null
+        "
+      />
+      <ng-container *ngIf="fval.password.invalid && fval.password.touched">
+        <p
+          class="caption status-danger"
+          *ngIf="fval.password.errors?.required"
+        >
+        Password is required
+        </p>
+      </ng-container>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="input-phone" class="label col-sm-2 form-control-label"
+      >Phone</label
+    >
+    <div class="col-sm-8">
+      <input
+        nbInput
+        fullWidth
+        formControlName="phone"
+        name="phone"
+        id="input-phone"
+        placeholder="phone"
+        fieldSize="large"
+        autofocus
+        [status]="
+          fval.phone.dirty
+            ? fval.phone.invalid
+              ? 'danger'
+              : 'success'
+            : 'basic'
+        "
+        [required]="true"
+        [attr.aria-invalid]="
+          fval.phone.invalid && fval.phone.touched ? true : null
+        "
+      />
+      <ng-container *ngIf="fval.phone.invalid && fval.phone.touched">
+        <p
+          class="caption status-danger"
+          *ngIf="fval.phone.errors?.required"
+        >
+        Phone is required
+        </p>
+      </ng-container>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="offset-sm-2 col-sm-4">
+      <button
+        nbButton
+        fullWidth
+        outline
+        status="primary"
+        size="large"
+        [disabled]="!registerForm.valid"
+      >
+        Register
+      </button>
+    </div>
+  </div>
+
+<div class="form-group">
+<a routerLink="/auth/login" class="btn btn-link">Login to continue</a>
+</div>
+</form>
+</nb-card-body>
+</nb-card>
+</div>
+</div>
+<nb-layout style="display: none"></nb-layout>
