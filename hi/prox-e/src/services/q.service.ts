@@ -1,14 +1,20 @@
 import motherLogger from '../logger';
-import { FsService } from "./fs.service";
+import { ProxyFsService } from "./fs.service";
 
-export class QService extends FsService {
+export class ProxyQService extends ProxyFsService {
 
-    protected readonly logger = motherLogger.child({ file: 'QService' });
+    protected readonly qlogger = motherLogger.child({ file: 'QService' });
 
     private readonly clients: string[] = [''];
 
+    private static proxyQServiceInstance: ProxyQService;
+
     constructor() {
         super();
+        if (!ProxyQService.proxyQServiceInstance) {
+            ProxyQService.proxyQServiceInstance = this;
+        }
+        return ProxyQService.proxyQServiceInstance;
     }
 
     getQueue(clientQueue: string): any {
@@ -23,13 +29,13 @@ export class QService extends FsService {
     createQueue() {
         const queueName = `newqueue${new Date().getTime()}`;
         const queueClient = this.queueServiceClient.getQueueClient(queueName);
-        this.logger.trace(`Create queue ${queueName} successfully`);
+        this.qlogger.trace(`Create queue ${queueName} successfully`);
         return queueClient.create();
         
     }
 
     sendMsgToCurrentQueue(queue: string, msg: string) {
-        this.logger.trace(`Message sent to queue: Msg: ${msg}, Queue: ${queue}`);
+        this.qlogger.trace(`Message sent to queue: Msg: ${msg}, Queue: ${queue}`);
         return this.getQueue(queue).sendMessage(msg);
     }
 
@@ -46,7 +52,7 @@ export class QService extends FsService {
             dequeueMessageItem.messageId,
             dequeueMessageItem.popReceipt
           );
-          this.logger.trace(
+          this.qlogger.trace(
             `Delete message successfully, service assigned request Id: ${deleteMessageResponse.requestId}`
           );
         }

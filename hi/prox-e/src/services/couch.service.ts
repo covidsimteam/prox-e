@@ -1,14 +1,12 @@
-export class CouchService {
+export class ProxyCouchService {
   
-  private static instance: CouchService;
+  private static proxyCouchServiceInstance: ProxyCouchService;
 
   constructor() {
-
-    if (!CouchService.instance) {
-      CouchService.instance = this;
+    if (!ProxyCouchService.proxyCouchServiceInstance) {
+      ProxyCouchService.proxyCouchServiceInstance = this;
     }
-
-    return CouchService.instance;
+    return ProxyCouchService.proxyCouchServiceInstance;
   }
 
   async getUser() {}
