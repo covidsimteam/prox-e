@@ -1,11 +1,19 @@
+@font-face {
+  font-family: kantipur;
+  src: url('../../../../assets/fonts/Kantipur_Reg.ttf');
+  style: normal;
+  weight: 400;
+  stretch: 100;
+  index: 0;
+}
+
 nb-accordion-item-header {
   background-color: #5f8df0;
-
 }
 
 nb-stepper {
-  height:500px;
-  width:700px;
+  height: 500px;
+  width: 700px;
 }
 
 nb-accordion {
@@ -13,11 +21,22 @@ nb-accordion {
 
 }
 
+.form-a-header {
+  font-family: kantipur;
+  font-weight: bolder;
+  font-size: large;
+}
+
+.label {
+  font-family: kantipur;
+  font-size: larger;
+}
 
 
 nb-card-body.example-items-rows {
   align-items: center;
 }
+
 
 nb-checkbox:not(:only-child) {
   margin-right: 1.5rem;

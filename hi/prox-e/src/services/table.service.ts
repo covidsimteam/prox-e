@@ -1,23 +1,31 @@
-import motherLogger from '../logger';
-import { QService } from './q.service';
 import storage from 'azure-storage';
 import guid from 'node-uuid';
 import { Entity } from 'src/models/entity.model';
+import motherLogger from '../logger';
+import { ProxyQService } from './q.service';
 
-export class TableService extends QService { 
-    protected readonly logger = motherLogger.child({ file: 'TableService' });
+export class ProxyTableService extends ProxyQService {
+    protected readonly tablelogger = motherLogger.child({ file: 'TableService' });
 
     private defaultTable: string = guid.v1().replace(/-/g, '');
-    
+
     // private entityGenerator = storage.TableUtilities.entityGenerator;
     private storageClient = storage.createTableService(this.STORAGE_CONNECTION_STRING);
-    
-    constructor() { super(); }
-    
-    createTableIfNotExists(table: string = '', callback: (error: any) => any): any {     
-        if (!table || !table.length) table = table + ':' + this.defaultTable; 
-        const loggr = this.logger;
-        return this.storageClient.createTableIfNotExists(table, 
+
+    private static proxyTableServiceInstance: ProxyTableService;
+
+    constructor() {
+        super();
+        if (!ProxyTableService.proxyTableServiceInstance) {
+            ProxyTableService.proxyTableServiceInstance = this;
+        }
+        return ProxyTableService.proxyTableServiceInstance;
+    }
+
+    createTableIfNotExists(table: string = '', callback: (error: any) => any): any {
+        if (!table || !table.length) table = table + ':' + this.defaultTable;
+        const loggr = this.tablelogger;
+        return this.storageClient.createTableIfNotExists(table,
             (error: any, createResult: any) => {
                 if (error) return callback(error);
                 if (createResult.isSuccessful) {
@@ -28,7 +36,7 @@ export class TableService extends QService {
 
     insertToTable(entity: Entity, table: string, callback: (error: any) => any): any {
         return this.storageClient
-            .insertOrMergeEntity(table, entity, 
+            .insertOrMergeEntity(table, entity,
                 (error: any, result: any, response: any) => {
                     if (error) return callback(error);
                     return [result, response];
@@ -37,7 +45,7 @@ export class TableService extends QService {
 
     getFromTable(entity: Entity, table: string, callback: (error: any) => any): any {
         return this.storageClient
-            .retrieveEntity(table, entity._id, entity.type, 
+            .retrieveEntity(table, entity._id, entity.type,
                 (error: any, result: any, response: any) => {
                     if (error) return callback(error);
                     return [result, response];

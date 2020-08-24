@@ -14,6 +14,7 @@ import {
   NbStepperModule,
   NbUserModule
 } from '@nebular/theme';
+import { TranslateModule } from '@ngx-translate/core';
 import { ThemeModule } from '../../@theme/theme.module';
 import { FormAComponent } from './form-a/form-a.component';
 import { FormB1Component } from './form-b1/form-b1.component';
@@ -25,6 +26,7 @@ import { FormPCRComponent } from './form-pcr-lab/form-pcr.component';
 import { FormPOEComponent } from './form-poe/form-poe.component';
 import { FormQFComponent } from './form-quarantine-facility/form-qf.component';
 import { FormRDTComponent } from './form-rdt-lab/form-rdt.component';
+import { SchedulerComponent } from './form-schedule/scheduler.component';
 import { PcrTestRecordComponent } from './form-sections/pcr-test-record/pcr-test-record.component';
 import { RdtTestRecordComponent } from './form-sections/rdt-test-record/rdt-test-record.component';
 import { ReturneeDetailsComponent } from './form-sections/returnee-details/returnee-details.component';
@@ -32,7 +34,6 @@ import { ReturneeLocationDetailsComponent } from './form-sections/returnee-locat
 import { SymptomRecordComponent } from './form-sections/symptom-record/symptom-record.component';
 import { FormsRoutingModule } from './forms-routing.module';
 import { FormsComponent } from './forms.component';
-
 
 @NgModule({
   imports: [
@@ -53,7 +54,8 @@ import { FormsComponent } from './forms.component';
     ngFormsModule,
     ReactiveFormsModule,
     NbStepperModule,
-    NbLayoutModule
+    NbLayoutModule,
+    TranslateModule.forChild({ extend: true }),
   ],
   declarations: [
     FormsComponent,
@@ -72,6 +74,7 @@ import { FormsComponent } from './forms.component';
     FormAComponent,
     FormB1Component,
     FormB2Component,
+    SchedulerComponent,
   ],
 })
 export class HealthFormsModule { }

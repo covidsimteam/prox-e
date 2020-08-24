@@ -3,17 +3,16 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import express, { NextFunction, Request as ExRequest, Response as ExResponse } from "express";
 import session from 'express-session';
-import hogan from 'hogan-express';
+import KcAdminClient from 'keycloak-admin';
 import Keycloak from 'keycloak-connect';
 import swaggerUi from "swagger-ui-express";
 import { ValidateError } from "tsoa";
 import { RegisterRoutes } from "../build/routes";
 import motherLogger from './logger';
 
-import KcAdminClient from 'keycloak-admin';
 
 
-const logger = motherLogger.child({file: 'app'});
+const logger = motherLogger.child({ file: 'app' });
 
 export const app = express();
 
@@ -32,7 +31,6 @@ app.use(cors());
 // Register '.mustache' extension with The Mustache Express
 app.set('view engine', 'html');
 app.set('views', require('path').join(__dirname, '/view'));
-app.engine('html', hogan);
 
 // Create a session-store to be used by both the express-session
 // middleware and the keycloak middleware.
@@ -67,7 +65,7 @@ const kcAdminClient: KcAdminClient = new KcAdminClient();
     password: 'public',
     grantType: 'password',
     clientId: 'proxe'
-  }).catch((reason: any) => logger.debug({ msg: reason }));  
+  }).catch((reason: any) => logger.debug({ msg: reason }));
 })();
 
 
@@ -79,15 +77,15 @@ app.get('/login', keycloak.protect(), function (req: any, res: express.Response<
 });
 
 app.get('/service/pub', function (_, res) {
-  res.json({message: 'public'});
+  res.json({ message: 'public' });
 });
 
 app.get('/service/fed', keycloak.protect('realm:federation'), function (_, res) {
-  res.json({message: 'secured'});
+  res.json({ message: 'secured' });
 });
 
 app.get('/service/proxe', keycloak.protect('realm:kuh'), function (_, res) {
-  res.json({message: 'admin'});
+  res.json({ message: 'admin' });
 });
 
 app.get('/secured/resource', keycloak.enforcer(['resource:view', 'resource:write'], {
