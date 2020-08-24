@@ -1,0 +1,157 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>Hospitalized Patient Reporting</nb-card-header>
+      <nb-card-body>
+        <nb-accordion multi>
+          <nb-accordion-item #patientDetails expanded>
+            <nb-accordion-item-header>
+              Patient Hospitalization Details
+            </nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="hospitalStartDate" class="label"
+                      >First Hospitalization Date</label
+                    >
+                    <input
+                      nbInput
+                      fullWidth
+                      placeholder="Select Hospitalization Start Date"
+                      [nbDatepicker]="hospitalizationDatePicker"
+                      id="hospitalStartDate"
+                    />
+                    <nb-datepicker #hospitalizationDatePicker></nb-datepicker>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="hospitalEndDate" class="label"
+                      >Hospitalization End Date</label
+                    >
+                    <input
+                      nbInput
+                      fullWidth
+                      placeholder="Select Hospitalization End Date"
+                      [nbDatepicker]="hospitalEndDatePicker"
+                      id="hospitalEndDate"
+                    />
+                    <nb-datepicker #hospitalEndDatePicker></nb-datepicker>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="hospitalName" class="label"
+                      >Name of Hospital</label
+                    >
+                    <input
+                      nbInput
+                      fullWidth
+                      placeholder="Name of Hospital"
+                      id="hospitalName"
+                    />
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="hospitalAddress" class="label"
+                      >Hospital Address</label
+                    >
+                    <input
+                      nbInput
+                      fullWidth
+                      placeholder="Hospital Address"
+                      id="hospitalAddress"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="underlyingCondition" class="label"
+                      >Underlying Condition</label
+                    >
+                    <input
+                      nbInput
+                      fullWidth
+                      placeholder="Underlying Condition"
+                      id="underlyingCondition"
+                    />
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="comorbidity" class="label"
+                      >Comorbid Conditions, if any</label
+                    >
+                    <input
+                      nbInput
+                      fullWidth
+                      placeholder="Comorbid Conditions, if any"
+                      id="comorbidity"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="inputVentilation" class="label"
+                      >Hospitalization Status</label
+                    >
+                    <div class="col-sm-6">
+                      <nb-radio-group (valueChange)="statusChange($event)" id="inputVentilation" class="row">
+                        <nb-radio value="Recovery">Recovery</nb-radio>
+                        <nb-radio value="Death">Death</nb-radio>
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="finalDate" class="label"
+                      >Date of {{ status }}</label
+                    >
+                    <input
+                      nbInput
+                      fullWidth
+                      placeholder="Date of {{ status }}"
+                      [nbDatepicker]="finalDatePicker"
+                      id="finalDate"
+                    />
+                    <nb-datepicker #finalDatePicker></nb-datepicker>
+                  </div>
+                </div>
+              </div>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item #patientDetails>
+            <nb-accordion-item-header>
+              Patient Details
+            </nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-returnee-details></ngx-returnee-details>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          <nb-accordion-item #patientContactDetails>
+            <nb-accordion-item-header>
+              Patient Address
+            </nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ngx-returnee-location-details></ngx-returnee-location-details>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+        </nb-accordion>
+        <nb-card>
+          <button type="submit" status="primary" nbButton>
+            <nb-icon icon="save-outline"></nb-icon> Save Hospital Patient's Details
+          </button>
+        </nb-card>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

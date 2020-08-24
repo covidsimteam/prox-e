@@ -1,0 +1,28 @@
+{
+  "name": "@nepwork/dashboards",
+  "version": "0.0.2",
+  "description": "Dashboards for emergencies and monitoring",
+  "main": "index.html",
+  "scripts": {
+    "test": "ng test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nepwork/admin-ui.git"
+  },
+  "keywords": [
+    "dashboards",
+    "emergency",
+    "monitoring",
+    "public",
+    "health",
+    "general",
+    "purpose"
+  ],
+  "author": "Risav Karna",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/nepwork/admin-ui/issues"
+  },
+  "homepage": "https://github.com/nepwork/admin-ui#readme"
+}
