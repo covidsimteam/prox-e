@@ -26,6 +26,7 @@ import { FormPCRComponent } from './form-pcr-lab/form-pcr.component';
 import { FormPOEComponent } from './form-poe/form-poe.component';
 import { FormQFComponent } from './form-quarantine-facility/form-qf.component';
 import { FormRDTComponent } from './form-rdt-lab/form-rdt.component';
+import { SchedulerComponent } from './form-schedule/scheduler.component';
 import { PcrTestRecordComponent } from './form-sections/pcr-test-record/pcr-test-record.component';
 import { RdtTestRecordComponent } from './form-sections/rdt-test-record/rdt-test-record.component';
 import { ReturneeDetailsComponent } from './form-sections/returnee-details/returnee-details.component';
@@ -73,6 +74,7 @@ import { FormsComponent } from './forms.component';
     FormAComponent,
     FormB1Component,
     FormB2Component,
+    SchedulerComponent,
   ],
 })
 export class HealthFormsModule { }
