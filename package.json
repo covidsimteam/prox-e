@@ -1,6 +1,6 @@
 {
   "name": "prox-e",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "prox-e sonata pro: packages with proxy ui and logic",
   "main": "index.html",
   "scripts": {
