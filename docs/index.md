@@ -8,20 +8,20 @@ Content To Do
 
 What this is all about
 
-## [An architecture]('./anarchitecture.md')
+## [An architecture]('anarchitecture/index.html')
 
-## [Components]('./components.md')
+## [Components]('components/index.html')
 
-## [Concepts]('./concepts.md')
+## [Concepts]('concepts/index.html')
 
-## [Files]('./files.md')
+## [Files]('files/index.html')
 
-## [Indexes]('./indexes.md')
+## [Indexes]('indexes/index.html')
 
-## [Services]('./services.md')
+## [Services]('services/index.html')
 
-## [Usage]('./usage.md')
+## [Usage]('usage/index.html')
 
-## [Viz]('./viz.data.md')
+## [Viz]('viz.data/index.html')
 
-## [Data]('./viz.data.md')
+## [Data]('viz.data/index.html')
