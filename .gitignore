@@ -4,3 +4,4 @@ hi/dashboard/projects/hgraph/node_modules/
 node_modules
 .DS_Store
 *.package_lock.json
+.npm/
