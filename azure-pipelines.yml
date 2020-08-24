@@ -17,6 +17,7 @@ steps:
 
 - script: |
     npm config set cache $(pwd)/.npm --global
+    npm config set scripts-prepend-node-path true
     npm install -g npm@latest
     npm install -g yarn@latest
     yarn run build-dashboard
