@@ -1,15 +1,15 @@
 <div class="row">
   <div class="col-xxl-7">
-    <ngx-ecommerce-charts></ngx-ecommerce-charts>
+    <cov-hub-charts matRipple (click)="on = !on" [ngClass]="{'off': !on}"></cov-hub-charts>
   </div>
 
   <div class="col-xxl-5">
-    <ngx-traffic-reveal-card></ngx-traffic-reveal-card>
+    <ngx-traffic-reveal-card matRipple (click)="on = !on" [ngClass]="{'off': !on}"></ngx-traffic-reveal-card>
     <div class="row">
       <div class="col-md-6">
-        <ngx-test-card testName="RDT"></ngx-test-card>
+        <ngx-test-card testName="RDT" matRipple (click)="on = !on" [ngClass]="{'off': !on}"></ngx-test-card>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6" matRipple (click)="on = !on" [ngClass]="{'off': !on}">
         <ngx-test-card testName="PCR"></ngx-test-card>
       </div>
     </div>
@@ -21,7 +21,7 @@
 
 <div class="row">
   <div class="col-xxl-9">
-    <ngx-ecommerce-visitors-analytics></ngx-ecommerce-visitors-analytics>
+    <cov-hub-visitors-analytics></cov-hub-visitors-analytics>
   </div>
 
   <div class="col-xxl-3">
@@ -38,4 +38,3 @@
     <ngx-progress-section></ngx-progress-section>
   </div>
 </div> -->
-
