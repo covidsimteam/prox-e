@@ -1,5 +1,4 @@
-
-import { UserStream } from './../model/model.stream';
+import { UserStream } from '../model/model.stream';
 import { Injectable } from '@angular/core';
 
 @Injectable({

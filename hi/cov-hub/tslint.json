@@ -112,7 +112,7 @@
     "component-selector": [
       true,
       "element",
-      ["cov", "ngx"],
+      ["cov", "ngx", "lib"],
       "kebab-case"
     ],
     "ban": [

@@ -1,4 +1,4 @@
-import { ThemeStream } from './../model/model.stream';
+import { ThemeStream } from '../model/model.stream';
 import { Injectable } from '@angular/core';
 
 @Injectable({
