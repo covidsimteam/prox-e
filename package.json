@@ -4,7 +4,7 @@
   "description": "prox-e sonata pro: packages with proxy ui and logic",
   "main": "index.html",
   "scripts": {
-    "build-prox-e": "cd ./hi/prox-e && yarn && yarn build",
+    "build-prox-e": "cd ./hi/prox-e && yarn install --ignore-engines && yarn build",
     "build-cov-hub": "cd ./hi/cov-hub && npm i && npm run build:prod",
     "test-cov-hub": "cd ./hi/cov-hub && ng test",
     "start-cov-hub": "cd ./hi/cov-hub && npm start",
