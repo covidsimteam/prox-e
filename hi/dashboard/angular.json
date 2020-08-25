@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "covhub-demo": {
+    "covhub": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -278,7 +278,7 @@
           }
         }
       },
-      "defaultProject": "covhub-demo",
+      "defaultProject": "covhub",
       "schematics": {
         "@schematics/angular:component": {
           "prefix": "cov",

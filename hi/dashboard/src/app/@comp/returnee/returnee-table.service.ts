@@ -3,10 +3,11 @@ import { Observable, from } from 'rxjs';
 
 import { ReturneeService } from '../../services/db/returnee.service';
 import { LocalDataSource } from 'ng2-smart-table';
-import { TabularService } from '../../components/tabular/tabular.service';
+
 import { RETTupleRev } from '../../@models/db/table-headers.model';
 import { PSchemaDoc } from '../../@models/db/schema/pschema.model';
 import { SCHEMA_VER } from '../../@core/data/pschema:pcrs:v8';
+import { TabularService } from '../../services/tabular/tabular.service';
 
 @Injectable({
   providedIn: 'root',

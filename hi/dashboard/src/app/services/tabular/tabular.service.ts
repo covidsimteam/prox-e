@@ -1,10 +1,10 @@
 import { LocalDataSource } from 'ng2-smart-table';
 import { from, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PSchemaDoc } from '../../../@models/db/schema/pschema.model';
-import { TABTuple } from '../../../@models/db/table-headers.model';
-import { DataTableService, ExistingDoc, isReturneeService } from '../../../@models/domain.model';
-import { Column, ColumnDetails } from '../../../@models/tabular/column.model';
+import { PSchemaDoc } from '../../@models/db/schema/pschema.model';
+import { TABTuple } from '../../@models/db/table-headers.model';
+import { DataTableService, ExistingDoc, isReturneeService } from '../../@models/domain.model';
+import { Column, ColumnDetails } from '../../@models/tabular/column.model';
 
 export abstract class TabularService {
 
