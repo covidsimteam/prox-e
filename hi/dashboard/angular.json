@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-admin-demo": {
+    "covhub-demo": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -147,22 +147,22 @@
               "builder": "@angular-devkit/build-angular:dev-server",
               "options": {
                 "port": 2003,
-                "browserTarget": "ngx-admin-demo:build",
+                "browserTarget": "covhub:build",
                 "proxyConfig": "proxy.conf.json"
               },
               "configurations": {
                 "production": {
-                  "browserTarget": "ngx-admin-demo:build:production"
+                  "browserTarget": "covhub:build:production"
                 },
                 "staging": {
-                  "browserTarget": "ngx-admin-demo:build:staging"
+                  "browserTarget": "covhub:build:staging"
                 }
               }
             },
             "extract-i18n": {
               "builder": "@angular-devkit/build-angular:extract-i18n",
               "options": {
-                "browserTarget": "ngx-admin-demo:build"
+                "browserTarget": "covhub:build"
               }
             },
             "test": {
@@ -214,7 +214,7 @@
             }
           }
         },
-        "ngx-admin-demo-e2e": {
+        "covhub-e2e": {
           "root": "e2e",
           "sourceRoot": "",
           "projectType": "application",
@@ -278,7 +278,7 @@
           }
         }
       },
-      "defaultProject": "ngx-admin-demo",
+      "defaultProject": "covhub-demo",
       "schematics": {
         "@schematics/angular:component": {
           "prefix": "ngx",
