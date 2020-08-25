@@ -3,8 +3,8 @@
 // @nebular out of the box themes
 @import '~@nebular/theme/styles/themes';
 
-@import './material-dark';
-@import './material-light';
+@import './material/material-dark';
+@import './material/material-light';
 
 $nb-themes: nb-register-theme((
   layout-padding-top: 2.25rem,
