@@ -125,6 +125,10 @@
                   {
                     "type": "all",
                     "maximumWarning": "25mb"
+                  },
+                  {
+                    "type": "anyComponentStyle",
+                    "maximumWarning": "25kb"
                   }
                 ],
                 "optimization": true,

@@ -1,9 +1,5 @@
 {
   "/ouch": {
     "target": "http://localhost:5984/"
-  },
-  "/db": {
-    "target": "https://covid.nep.work/db/",
-    "secured": true
   }
 }
