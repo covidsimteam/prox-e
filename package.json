@@ -5,11 +5,11 @@
   "main": "index.html",
   "scripts": {
     "build-prox-e": "cd ./hi/prox-e && yarn build",
-    "build-dashboard": "cd ./hi/dashboard && npm i && npm run build:prod",
-    "test-dashboard": "cd ./hi/dashboard && ng test",
-    "start-dashboard": "cd ./hi/dashboard && npm start",
+    "build-cov-hub": "cd ./hi/dashboard && npm i && npm run build:prod",
+    "test-cov-hub": "cd ./hi/dashboard && ng test",
+    "start-cov-hub": "cd ./hi/dashboard && npm start",
     "start-prox-e": "cd ./hi/prox-e && yarn start",
-    "build": "yarn build-prox-e && yarn build-dashboard"
+    "build": "yarn build-prox-e && yarn build-cov-hub"
   },
   "repository": {
     "type": "git",
