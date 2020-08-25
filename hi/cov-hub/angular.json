@@ -73,11 +73,11 @@
               "budgets": [
                 {
                   "type": "allScript",
-                  "maximumWarning": "7mb"
+                  "maximumWarning": "8mb"
                 },
                 {
                   "type": "initial",
-                  "maximumWarning": "4mb"
+                  "maximumWarning": "5mb"
                 },
                 {
                   "type": "bundle",
