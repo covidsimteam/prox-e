@@ -1,0 +1,5 @@
+{
+  "/ouch": {
+    "target": "http://localhost:5984/"
+  }
+}

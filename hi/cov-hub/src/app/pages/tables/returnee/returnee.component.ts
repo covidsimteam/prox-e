@@ -2,13 +2,14 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { NgxCsvParser, NgxCSVParserError } from 'ngx-csv-parser';
 import { settings } from '../../../@models/tabular/settings.values';
-import { ReturneeTableService } from '../../../services/components/returnee/returnee-table.service';
+
 import { ReturneeService } from '../../../services/db/returnee.service';
 import {
   CSV_UPLOAD_INSTR,
   CSV_UPLOAD_INSTR_ERR,
   CSV_UPLOAD_CONFIRM,
 } from '../../../@core/data/messages';
+import { ReturneeTableService } from '../../../@comp/returnee/returnee-table.service';
 
 // TODO refactor repeated codes in Returnee, PCR and RDT table component
 // use Tabular service or higher order component or abstract component class

@@ -20,7 +20,11 @@
 
 @import './layout';
 @import './overrides';
+<<<<<<< HEAD:hi/cov-hub/src/app/@theme/styles/styles.scss
 @import './material/_material-overrides';
+=======
+@import './material/_material_overrides';
+>>>>>>> develop:hi/dashboard/src/app/@theme/styles/styles.scss
 
 // install the framework and custom global styles
 @include nb-install() {

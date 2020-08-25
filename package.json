@@ -5,9 +5,15 @@
   "main": "index.html",
   "scripts": {
     "build-prox-e": "cd ./hi/prox-e && yarn build",
+<<<<<<< HEAD
     "build-cov-hub": "cd ./hi/cov-hub && npm i && npm run build:prod",
     "test-cov-hub": "cd ./hi/cov-hub && ng test",
     "start-cov-hub": "cd ./hi/cov-hub && npm start",
+=======
+    "build-cov-hub": "cd ./hi/dashboard && npm i && npm run build:prod",
+    "test-cov-hub": "cd ./hi/dashboard && ng test",
+    "start-cov-hub": "cd ./hi/dashboard && npm start",
+>>>>>>> develop
     "start-prox-e": "cd ./hi/prox-e && yarn start",
     "build": "yarn build-prox-e && yarn build-cov-hub"
   },
