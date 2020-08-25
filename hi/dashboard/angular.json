@@ -281,11 +281,11 @@
       "defaultProject": "covhub-demo",
       "schematics": {
         "@schematics/angular:component": {
-          "prefix": "ngx",
+          "prefix": "cov",
           "style": "scss"
         },
         "@schematics/angular:directive": {
-          "prefix": "ngx"
+          "prefix": "cov"
         }
       },
       "cli": {

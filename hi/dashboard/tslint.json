@@ -106,13 +106,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "ngx",
+      "cov",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "ngx",
+      "cov",
       "kebab-case"
     ],
     "ban": [
@@ -125,6 +125,7 @@
         "message": "please don't"
       }
     ],
+    "no-use-before-declare": true,
     "no-inputs-metadata-property": true,
     "no-outputs-metadata-property": true,
     "no-output-rename": true,

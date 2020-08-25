@@ -6,6 +6,9 @@
 */
 {
   "files": [],
+  "compilerOptions": {
+    "baseUrl": "./",
+  },
   "references": [
     {
       "path": "./tsconfig.base.json"
