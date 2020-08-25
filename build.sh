@@ -17,12 +17,12 @@ npm config set scripts-prepend-node-path true
 
 npm install -g npm@latest yarn@latest
 
-yarn run build-dashboard
+yarn run build
 
 echo node ubuntu setup finish
 
-echo node couch setup finish
-curl -X PUT http://127.0.0.1:8080/_users
-curl -X PUT http://127.0.0.1:8080/_replicator
-curl -X PUT http://127.0.0.1:8080/_global_changes
-echo node couch setup finish
+# echo node couch setup finish
+# curl -X PUT http://127.0.0.1:8080/_users
+# curl -X PUT http://127.0.0.1:8080/_replicator
+# curl -X PUT http://127.0.0.1:8080/_global_changes
+# echo node couch setup finish
