@@ -1,32 +1,32 @@
 import { Injectable } from '@angular/core';
-import { ReturneeService } from '../../db/returnee.service';
-import { Observable, from } from 'rxjs';
-
 import { LocalDataSource } from 'ng2-smart-table';
-import { TabularService } from '../tabular/tabular.service';
-import { SCHEMA_VER } from '../../../@core/data/pschema:returnees:v8';
-import { RETTupleRev } from '../../../@models/db/table-headers.model';
-import { PSchemaDoc } from '../../../@models/db/schema/pschema.model';
+import { from, Observable } from 'rxjs';
+import { SCHEMA_VER } from '../../@core/data/pschema:pcrs:v8';
+import { PSchemaDoc } from '../../@models/db/schema/pschema.model';
+import { PCRTupleRev } from '../../@models/db/table-headers.model';
+import { TabularService } from '../../components/tabular/tabular.service';
+import { PcrService } from '../../services/db/pcr.service';
+
 
 @Injectable({
   providedIn: 'root',
 })
-export class ReturneeTableService extends TabularService {
+export class PcrTableService extends TabularService {
 
-  constructor(private returneeService: ReturneeService) {
+  constructor(private pcrService: PcrService) {
     super();
   }
 
   protected getTableHeaders(): Observable<string[][]> {
-    return from(this.returneeService.getTableHeaders());
+    return from(this.pcrService.getTableHeaders());
   }
 
   protected async getJsonData(): Promise<{}[] | undefined> {
     try {
-      const tableHeaders = await this.returneeService.getTableHeaders();
-      const rowsData = await this.returneeService.getAllWards();
-      return rowsData?.map((item: RETTupleRev) => {
-        const columnObj: any | {} = {};
+      const tableHeaders = await this.pcrService.getTableHeaders();
+      const rowsData = await this.pcrService.getAllDistricts();
+      return rowsData?.map((item: PCRTupleRev) => {
+        const columnObj: any | {}[] = [];
         tableHeaders.forEach((header, index) => {
           columnObj[header[0]] = item[index];
         });
@@ -39,8 +39,8 @@ export class ReturneeTableService extends TabularService {
 
   protected async getCsvData(): Promise<string> {
     try {
-      const tableHeaders = await this.returneeService.getTableHeaders();
-      const rowsData = await this.returneeService.getAllWards();
+      const tableHeaders = await this.pcrService.getTableHeaders();
+      const rowsData = await this.pcrService.getAllDistricts();
 
       const csvFileContent = [];
       // add header
@@ -51,7 +51,7 @@ export class ReturneeTableService extends TabularService {
           .join(','));
 
       // add rows
-      rowsData?.forEach((rowItem: RETTupleRev) => {
+      rowsData?.forEach((rowItem: PCRTupleRev) => {
         csvFileContent.push(
           rowItem
             .slice(1, tableHeaders.length - 1)
@@ -60,7 +60,7 @@ export class ReturneeTableService extends TabularService {
 
       return csvFileContent.join('\n');
     } catch (error) {
-      throw Error('Unable to fetch Returnee data');
+      throw Error('Unable to fetch PCR tests data');
     }
   }
 
@@ -70,29 +70,30 @@ export class ReturneeTableService extends TabularService {
 
     const tempAnchor = document.createElement('a');
     tempAnchor.href = window.URL.createObjectURL(blob);
-    tempAnchor.download = 'returnee-cov-data-hub.csv';
+    tempAnchor.download = 'pcr-test-cov-data-hub.csv';
     document.body.appendChild(tempAnchor);
     tempAnchor.click();
     document.body.removeChild(tempAnchor);
   }
 
   enableDBToTableSync(source: LocalDataSource) {
-    super.enableDBToTableSyncTabular(source, this.returneeService);
+    super.enableDBToTableSyncTabular(source, this.pcrService);
   }
 
   prepareDoc(newRow: any, removeRev = false): PSchemaDoc {
-    return super.prepareDocTabular(newRow, SCHEMA_VER, this.returneeService, removeRev);
+    return super.prepareDocTabular(newRow, SCHEMA_VER, this.pcrService, removeRev);
   }
 
   saveTableRowChanges(oldRow: any, newRow: any) {
-    super.saveTableRowChangesTabular(oldRow, newRow, SCHEMA_VER, this.returneeService);
+    super.saveTableRowChangesTabular(oldRow, newRow, SCHEMA_VER, this.pcrService);
   }
 
   saveTableRowAddition(newRow: any) {
-    super.saveTableRowAdditionTabular(newRow, SCHEMA_VER, this.returneeService);
+    super.saveTableRowAdditionTabular(newRow, SCHEMA_VER, this.pcrService);
   }
 
   saveTableRowDeletion(deletedRow: any) {
-    super.saveTableRowDeletionTabular(deletedRow, SCHEMA_VER, this.returneeService);
+    super.saveTableRowDeletionTabular(deletedRow, SCHEMA_VER, this.pcrService);
   }
+
 }

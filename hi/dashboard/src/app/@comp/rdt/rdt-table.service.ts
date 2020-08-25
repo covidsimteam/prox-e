@@ -1,31 +1,31 @@
 import { Injectable } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { from, Observable } from 'rxjs';
-import { SCHEMA_VER } from '../../../@core/data/pschema:pcrs:v8';
+import { SCHEMA_VER } from '../../@core/data/pschema:pcrs:v8';
+import { PSchemaDoc } from '../../@models/db/schema/pschema.model';
+import { RDTTupleRev } from '../../@models/db/table-headers.model';
+import { TabularService } from '../../components/tabular/tabular.service';
+import { RdtService } from '../../services/db/rdt.service';
 
-import { PcrService } from '../../db/pcr.service';
-import { TabularService } from '../tabular/tabular.service';
-import { PCRTupleRev } from '../../../@models/db/table-headers.model';
-import { PSchemaDoc } from '../../../@models/db/schema/pschema.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PcrTableService extends TabularService {
+export class RdtTableService extends TabularService {
 
-  constructor(private pcrService: PcrService) {
+  constructor(private rdtService: RdtService) {
     super();
   }
 
   protected getTableHeaders(): Observable<string[][]> {
-    return from(this.pcrService.getTableHeaders());
+    return from(this.rdtService.getTableHeaders());
   }
 
   protected async getJsonData(): Promise<{}[] | undefined> {
     try {
-      const tableHeaders = await this.pcrService.getTableHeaders();
-      const rowsData = await this.pcrService.getAllDistricts();
-      return rowsData?.map((item: PCRTupleRev) => {
+      const tableHeaders = await this.rdtService.getTableHeaders();
+      const rowsData = await this.rdtService.getAllDistricts();
+      return rowsData?.map((item: RDTTupleRev) => {
         const columnObj: any | {}[] = [];
         tableHeaders.forEach((header, index) => {
           columnObj[header[0]] = item[index];
@@ -33,14 +33,14 @@ export class PcrTableService extends TabularService {
         return columnObj;
       });
     } catch (error) {
-      throw Error('Unable to fetch PCR tests data');
+      throw Error('Unable to fetch RDT tests data');
     }
   }
 
   protected async getCsvData(): Promise<string> {
     try {
-      const tableHeaders = await this.pcrService.getTableHeaders();
-      const rowsData = await this.pcrService.getAllDistricts();
+      const tableHeaders = await this.rdtService.getTableHeaders();
+      const rowsData = await this.rdtService.getAllDistricts();
 
       const csvFileContent = [];
       // add header
@@ -51,7 +51,7 @@ export class PcrTableService extends TabularService {
           .join(','));
 
       // add rows
-      rowsData?.forEach((rowItem: PCRTupleRev) => {
+      rowsData?.forEach((rowItem: RDTTupleRev) => {
         csvFileContent.push(
           rowItem
             .slice(1, tableHeaders.length - 1)
@@ -60,7 +60,7 @@ export class PcrTableService extends TabularService {
 
       return csvFileContent.join('\n');
     } catch (error) {
-      throw Error('Unable to fetch PCR tests data');
+      throw Error('Unable to fetch RDT tests data');
     }
   }
 
@@ -70,30 +70,30 @@ export class PcrTableService extends TabularService {
 
     const tempAnchor = document.createElement('a');
     tempAnchor.href = window.URL.createObjectURL(blob);
-    tempAnchor.download = 'pcr-test-cov-data-hub.csv';
+    tempAnchor.download = 'rdt-test-cov-data-hub.csv';
     document.body.appendChild(tempAnchor);
     tempAnchor.click();
     document.body.removeChild(tempAnchor);
   }
 
+
   enableDBToTableSync(source: LocalDataSource) {
-    super.enableDBToTableSyncTabular(source, this.pcrService);
+    super.enableDBToTableSyncTabular(source, this.rdtService);
   }
 
   prepareDoc(newRow: any, removeRev = false): PSchemaDoc {
-    return super.prepareDocTabular(newRow, SCHEMA_VER, this.pcrService, removeRev);
+    return super.prepareDocTabular(newRow, SCHEMA_VER, this.rdtService, removeRev);
   }
 
   saveTableRowChanges(oldRow: any, newRow: any) {
-    super.saveTableRowChangesTabular(oldRow, newRow, SCHEMA_VER, this.pcrService);
+    super.saveTableRowChangesTabular(oldRow, newRow, SCHEMA_VER, this.rdtService);
   }
 
   saveTableRowAddition(newRow: any) {
-    super.saveTableRowAdditionTabular(newRow, SCHEMA_VER, this.pcrService);
+    super.saveTableRowAdditionTabular(newRow, SCHEMA_VER, this.rdtService);
   }
 
   saveTableRowDeletion(deletedRow: any) {
-    super.saveTableRowDeletionTabular(deletedRow, SCHEMA_VER, this.pcrService);
+    super.saveTableRowDeletionTabular(deletedRow, SCHEMA_VER, this.rdtService);
   }
-
 }
