@@ -39,7 +39,8 @@ import { CORPORATE_THEME } from './styles/theme.corporate';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { DARK_THEME } from './styles/theme.dark';
 import { DEFAULT_THEME } from './styles/theme.default';
-
+import { MATERIAL_LIGHT_THEME } from './styles/material/theme.material-light';
+import { MATERIAL_DARK_THEME } from './styles/material/theme.material-dark';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -92,7 +93,9 @@ export class ThemeModule {
             DEFAULT_THEME,
             COSMIC_THEME,
             CORPORATE_THEME,
-            DARK_THEME
+            DARK_THEME,
+            MATERIAL_LIGHT_THEME,
+            MATERIAL_DARK_THEME
           ],
           ).providers!,
         ],
