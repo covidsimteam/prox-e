@@ -7,3 +7,4 @@ node_modules
 .npm/
 hi/dashboard/dist/
 
+hi/prox-e/package-lock.json
