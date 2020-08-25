@@ -5,3 +5,5 @@ node_modules
 .DS_Store
 *.package_lock.json
 .npm/
+hi/dist/
+hi/dashboard/dist/
