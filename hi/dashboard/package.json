@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "@akveo/ng2-completer": "^9.0.1",
+    "@angular-builders/jest": "^10.0.0",
     "@angular-devkit/build-ng-packagr": "^0.1000.6",
     "@angular/animations": "^9.1.12",
     "@angular/cdk": "^9.2.4",
@@ -101,7 +102,7 @@
   "jest": {
     "preset": "jest-preset-angular",
     "setupFilesAfterEnv": [
-      "<rootDir>/setupJest.ts"
+      "<rootDir>/jest.config.js"
     ]
   },
   "config": {
@@ -116,6 +117,8 @@
     "@angular/language-service": "9.0.4",
     "@compodoc/compodoc": "^1.1.11",
     "@fortawesome/fontawesome-free": "^5.2.0",
+    "@nrwl/cypress": "^10.1.0",
+    "@nrwl/workspace": "^10.1.0",
     "@types/d3-color": "1.2.2",
     "@types/dotenv": "^8.2.0",
     "@types/echarts": "^4.6.4",
