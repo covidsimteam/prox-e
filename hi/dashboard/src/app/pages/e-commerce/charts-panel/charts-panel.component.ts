@@ -1,14 +1,13 @@
 import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { takeWhile } from 'rxjs/operators';
-
+import { OrdersChart } from '../../../@core/data/orders-chart';
+import { OrderProfitChartSummary, OrdersProfitChartData } from '../../../@core/data/orders-profit-chart';
+import { ProfitChart } from '../../../@core/data/profit-chart';
 import { OrdersChartComponent } from './charts/orders-chart.component';
 import { ProfitChartComponent } from './charts/profit-chart.component';
-import { OrdersChart } from '../../../@core/data/orders-chart';
-import { ProfitChart } from '../../../@core/data/profit-chart';
-import { OrderProfitChartSummary, OrdersProfitChartData } from '../../../@core/data/orders-profit-chart';
 
 @Component({
-  selector: 'ngx-ecommerce-charts',
+  selector: 'cov-hub-charts',
   styleUrls: ['./charts-panel.component.scss'],
   templateUrl: './charts-panel.component.html',
 })

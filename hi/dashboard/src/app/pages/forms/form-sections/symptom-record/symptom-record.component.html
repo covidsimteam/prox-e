@@ -2,26 +2,26 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="form-group">
-        <label [for]="'symptomDate' + index" class="label"
-          >First Occurrence of Recent Symptoms</label
-        >
+        <label class="label"
+          >First Occurrence of Recent Symptoms
         <input
           nbInput
           fullWidth
           placeholder="Select First Date of Symptoms"
           [nbDatepicker]="symptomDatePicker"
-          [id]="'symptomDate' + index"
+          [id]="index"
         />
+        </label>
         <nb-datepicker #symptomDatePicker></nb-datepicker>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="form-group">
-        <label for="inputSymptoms" class="label"
-          >Symptoms in Last Two Weeks</label
-        >
+        <label class="label"
+          >Symptoms in Last Two Weeks
         <nb-select
-          [id]="'inputSymptoms' + index"
+          matRipple
+          [id]="index"
           fullWidth
           multiple
           placeholder="Recent Symptoms"
@@ -32,20 +32,21 @@
             >Shortness of Breath</nb-option
           >
         </nb-select>
+        </label>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="form-group">
-        <label for="inputOtherSymptoms" class="label"
-          >Other symptoms, if any</label
-        >
+        <label class="label"
+          >Other symptoms, if any
         <input
           type="text"
           nbInput
           fullWidth
-          [id]="'inputOtherSymptoms' + index"
+          [id]="index"
           placeholder="Other symptoms (if any)"
         />
+        </label>
       </div>
     </div>
   </div>
@@ -54,6 +55,7 @@
   <div class="col-sm-4">
     <div class="form-group">
       <button
+        matRipple
         nbButton
         outline
         status="primary"

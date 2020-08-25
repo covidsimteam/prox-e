@@ -1,291 +1,258 @@
 {
-    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-    "version": 1,
-    "newProjectRoot": "projects",
-    "projects": {
-        "ngx-admin-demo": {
-            "root": "",
-            "sourceRoot": "src",
-            "projectType": "application",
-            "architect": {
-                "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
-                    "options": {
-                        "aot": true,
-                        "preserveSymlinks": true,
-                        "rebaseRootRelativeCssUrls": true,
-                        "outputPath": "dist",
-                        "index": "src/index.html",
-                        "main": "src/main.ts",
-                        "tsConfig": "src/tsconfig.app.json",
-                        "polyfills": "src/polyfills.ts",
-                        "allowedCommonJsDependencies": [
-                          "lie",
-                          "uuid",
-                          "url-join",
-                          "url-parse",
-                          "immediate",
-                          "lodash",
-                          "polylabel",
-                          "style-loader!leaflet/dist/leaflet.css",
-                          "zrender/lib/vml/vml",
-                          "zrender/lib/svg/svg",
-                          "angular2-chartjs",
-                          "echarts"
-                        ],
-                        "assets": [
-                            "src/assets",
-                            "src/favicon.ico",
-                            "src/favicon.png",
-                            {
-                                "glob": "**/*",
-                                "input": "node_modules/leaflet/dist/images",
-                                "output": "/assets/img/markers"
-                            },
-                            "src/manifest.webmanifest"
-                        ],
-                        "styles": [
-                            "node_modules/bootstrap/dist/css/bootstrap.css",
-                            "node_modules/typeface-exo/index.css",
-                            "node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
-                            "node_modules/ionicons/scss/ionicons.scss",
-                            "node_modules/@fortawesome/fontawesome-free/css/all.css",
-                            "node_modules/socicon/css/socicon.css",
-                            "node_modules/nebular-icons/scss/nebular-icons.scss",
-                            "node_modules/pace-js/templates/pace-theme-flash.tmpl.css",
-                            "node_modules/leaflet/dist/leaflet.css",
-                            "node_modules/leaflet.fullscreen/Control.FullScreen.css",
-                            "node_modules/leaflet.markercluster/dist/MarkerCluster.css",
-                            "node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
-                            "src/app/@theme/styles/styles.scss"
-                        ],
-                        "scripts": [
-                            "node_modules/pace-js/pace.min.js",
-                            "node_modules/echarts/dist/echarts.min.js",
-                            "node_modules/echarts/dist/extension/bmap.min.js",
-                            "node_modules/chart.js/dist/Chart.min.js",
-                            "node_modules/leaflet/dist/leaflet.js",
-                            "node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"
-                        ]
-                    },
-                    "configurations": {
-                        "production": {
-                            "budgets": [
-                              {
-                                "type": "allScript",
-                                "maximumWarning": "7mb"
-                              },
-                              {
-                                "type": "initial",
-                                "maximumWarning": "4mb"
-                              },
-                              {
-                                "type": "bundle",
-                                "maximumWarning": "900kb"
-                              },
-                              {
-                                "type": "all",
-                                "maximumWarning": "27mb"
-                              }
-                            ],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": true,
-                            "extractCss": true,
-                            "namedChunks": true,
-                            "aot": true,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "buildOptimizer": true,
-                            "fileReplacements": [{
-                                "replace": "src/environments/environment.ts",
-                                "with": "src/environments/environment.prod.ts"
-                            }],
-                            "serviceWorker": true,
-                            "ngswConfigPath": "ngsw-config.json"
-                        },
-                        "staging": {
-                            "budgets": [
-                              {
-                                "type": "allScript",
-                                "maximumWarning": "6mb"
-                              },
-                              {
-                                "type": "initial",
-                                "maximumWarning": "3mb"
-                              },
-                              {
-                                "type": "bundle",
-                                "maximumWarning": "900kb"
-                              },
-                              {
-                                "type": "all",
-                                "maximumWarning": "25mb"
-                              }
-                            ],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "extractCss": true,
-                            "namedChunks": false,
-                            "aot": true,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "buildOptimizer": true,
-                            "fileReplacements": [{
-                                "replace": "src/environments/environment.ts",
-                                "with": "src/environments/environment.staging.ts"
-                            }]
-                        }
-                    }
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "covhub": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "aot": true,
+            "preserveSymlinks": true,
+            "rebaseRootRelativeCssUrls": true,
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "polyfills": "src/polyfills.ts",
+            "assets": [
+              "src/assets",
+              "src/favicon.ico",
+              "src/favicon.png",
+              {
+                "glob": "**/*",
+                "input": "node_modules/leaflet/dist/images",
+                "output": "/assets/img/markers"
+              },
+              "src/manifest.webmanifest"
+            ],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/typeface-exo/index.css",
+              "node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
+              "node_modules/ionicons/scss/ionicons.scss",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "node_modules/socicon/css/socicon.css",
+              "node_modules/nebular-icons/scss/nebular-icons.scss",
+              "node_modules/pace-js/templates/pace-theme-flash.tmpl.css",
+              "node_modules/leaflet/dist/leaflet.css",
+              "node_modules/leaflet.fullscreen/Control.FullScreen.css",
+              "node_modules/leaflet.markercluster/dist/MarkerCluster.css",
+              "node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
+              "src/app/@theme/styles/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/pace-js/pace.min.js",
+              "node_modules/echarts/dist/echarts.min.js",
+              "node_modules/echarts/dist/extension/bmap.min.js",
+              "node_modules/chart.js/dist/Chart.min.js",
+              "node_modules/leaflet/dist/leaflet.js",
+              "node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "lie",
+              "uuid",
+              "url-join",
+              "url-parse",
+              "immediate",
+              "lodash",
+              "polylabel",
+              "style-loader!leaflet/dist/leaflet.css",
+              "zrender/lib/vml/vml",
+              "zrender/lib/svg/svg",
+              "angular2-chartjs",
+              "echarts"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "allScript",
+                  "maximumWarning": "7mb"
                 },
-                "serve": {
-                    "builder": "@angular-devkit/build-angular:dev-server",
-                    "options": {
-                        "port": 2003,
-                        "browserTarget": "ngx-admin-demo:build",
-                        "proxyConfig": "proxy.conf.json"
-                    },
-                    "configurations": {
-                        "production": {
-                            "browserTarget": "ngx-admin-demo:build:production"
-                        },
-                        "staging": {
-                            "browserTarget": "ngx-admin-demo:build:staging"
-                        }
-                    }
+                {
+                  "type": "initial",
+                  "maximumWarning": "4mb"
                 },
-                "extract-i18n": {
-                    "builder": "@angular-devkit/build-angular:extract-i18n",
-                    "options": {
-                        "browserTarget": "ngx-admin-demo:build"
-                    }
+                {
+                  "type": "bundle",
+                  "maximumWarning": "900kb"
                 },
-                "test": {
-                    "builder": "@angular-devkit/build-angular:karma",
-                    "options": {
-                        "main": "src/test.ts",
-                        "karmaConfig": "./karma.conf.js",
-                        "polyfills": "src/polyfills.ts",
-                        "tsConfig": "src/tsconfig.spec.json",
-                        "scripts": [
-                            "node_modules/pace-js/pace.min.js",
-                            "node_modules/echarts/dist/echarts.min.js",
-                            "node_modules/echarts/dist/extension/bmap.min.js",
-                            "node_modules/chart.js/dist/Chart.min.js"
-                        ],
-                        "styles": [
-                            "node_modules/bootstrap/dist/css/bootstrap.css",
-                            "node_modules/typeface-exo/index.css",
-                            "node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
-                            "node_modules/ionicons/scss/ionicons.scss",
-                            "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss",
-                            "node_modules/socicon/css/socicon.css",
-                            "node_modules/nebular-icons/scss/nebular-icons.scss",
-                            "node_modules/pace-js/templates/pace-theme-flash.tmpl.css",
-                            "src/app/@theme/styles/styles.scss"
-                        ],
-                        "assets": [
-                            "src/assets",
-                            "src/favicon.ico",
-                            "src/favicon.png",
-                            {
-                                "glob": "**/*",
-                                "input": "node_modules/leaflet/dist/images",
-                                "output": "/assets/img/markers"
-                            },
-                            "src/manifest.webmanifest"
-                        ]
-                    }
+                {
+                  "type": "all",
+                  "maximumWarning": "27mb"
                 },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "src/tsconfig.app.json",
-                            "src/tsconfig.spec.json"
-                        ],
-                        "typeCheck": true,
-                        "exclude": []
-                    }
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "25kb"
                 }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": true,
+              "extractCss": true,
+              "namedChunks": true,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
+            },
+            "staging": {
+              "budgets": [
+                {
+                  "type": "allScript",
+                  "maximumWarning": "6mb"
+                },
+                {
+                  "type": "initial",
+                  "maximumWarning": "3mb"
+                },
+                {
+                  "type": "bundle",
+                  "maximumWarning": "900kb"
+                },
+                {
+                  "type": "all",
+                  "maximumWarning": "25mb"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.staging.ts"
+                }
+              ]
             }
+          }
         },
-        "ngx-admin-demo-e2e": {
-            "root": "e2e",
-            "sourceRoot": "",
-            "projectType": "application",
-            "architect": {
-                "e2e": {
-                    "builder": "@angular-devkit/build-angular:protractor",
-                    "options": {
-                        "protractorConfig": "./protractor.conf.js",
-                        "devServerTarget": "ngx-admin-demo:serve"
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "e2e/tsconfig.e2e.json"
-                        ],
-                        "exclude": []
-                    }
-                }
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "port": 2003,
+            "browserTarget": "covhub:build",
+            "proxyConfig": "proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "covhub:build:production"
+            },
+            "staging": {
+              "browserTarget": "covhub:build:staging"
             }
+          }
         },
-        "hgraph": {
-            "projectType": "library",
-            "root": "projects/hgraph",
-            "sourceRoot": "projects/hgraph/src",
-            "prefix": "lib",
-            "architect": {
-                "build": {
-                    "builder": "@angular-devkit/build-ng-packagr:build",
-                    "options": {
-                        "tsConfig": "projects/hgraph/tsconfig.lib.json",
-                        "project": "projects/hgraph/ng-package.json"
-                    },
-                    "configurations": {
-                        "production": {
-                            "tsConfig": "projects/hgraph/tsconfig.lib.prod.json"
-                        }
-                    }
-                },
-                "test": {
-                    "builder": "@angular-devkit/build-angular:karma",
-                    "options": {
-                        "main": "projects/hgraph/src/test.ts",
-                        "tsConfig": "projects/hgraph/tsconfig.spec.json",
-                        "karmaConfig": "projects/hgraph/karma.conf.js"
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "projects/hgraph/tsconfig.lib.json",
-                            "projects/hgraph/tsconfig.spec.json"
-                        ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
-                    }
-                }
-            }
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "covhub:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-builders/jest:run",
+          "options": {
+            "configPath": "./jest.config.js",
+            "tsConfig": "src/tsconfig.spec.json",
+            "polyfills": "src/polyfills.ts",
+            "scripts": [
+              "node_modules/pace-js/pace.min.js",
+              "node_modules/echarts/dist/echarts.min.js",
+              "node_modules/echarts/dist/extension/bmap.min.js",
+              "node_modules/chart.js/dist/Chart.min.js"
+            ],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/typeface-exo/index.css",
+              "node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
+              "node_modules/ionicons/scss/ionicons.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss",
+              "node_modules/socicon/css/socicon.css",
+              "node_modules/nebular-icons/scss/nebular-icons.scss",
+              "node_modules/pace-js/templates/pace-theme-flash.tmpl.css",
+              "src/app/@theme/styles/styles.scss"
+            ],
+            "assets": [
+              "src/assets",
+              "src/favicon.ico",
+              "src/favicon.png",
+              {
+                "glob": "**/*",
+                "input": "node_modules/leaflet/dist/images",
+                "output": "/assets/img/markers"
+              },
+              "src/manifest.webmanifest"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "typeCheck": true,
+            "exclude": []
+          }
         }
+      }
     },
-    "defaultProject": "ngx-admin-demo",
-    "schematics": {
-        "@schematics/angular:component": {
-            "prefix": "ngx",
-            "style": "scss"
+    "covhub-e2e": {
+      "root": "e2e",
+      "sourceRoot": "",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "e2e/cypress.json",
+            "tsConfig": "e2e/tsconfig.e2e.json"
+          }
         },
-        "@schematics/angular:directive": {
-            "prefix": "ngx"
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "e2e/tsconfig.e2e.json"
+            ],
+            "exclude": []
+          }
         }
-    },
-    "cli": {
-        "analytics": "eafc427e-7d44-41b3-adf5-b52d2511efd5"
+      }
     }
+  },
+  "defaultProject": "covhub",
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "cov",
+      "style": "scss"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "cov"
+    }
+  },
+  "cli": {
+    "analytics": "eafc427e-7d44-41b3-adf5-b52d2511efd5"
+  }
 }

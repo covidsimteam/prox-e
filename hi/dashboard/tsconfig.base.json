@@ -2,7 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "importHelpers": true,
-    "module": "esnext",
+    "module": "es2020",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -23,12 +23,12 @@
         "name": "tslint-language-service"
       }
     ],
-    // TODO
-    "paths": {
-      "hgraph": [
-        "dist/hgraph/hgraph",
-        "dist/hgraph"
-      ]
-    }
+    // see discussion here https://github.com/microsoft/TypeScript/issues/31869
+    // "paths": {
+    //   "hgraph": [
+    //     "./dist/hgraph/hgraph",
+    //     "./dist/hgraph"
+    //   ]
+    // }
   }
 }
