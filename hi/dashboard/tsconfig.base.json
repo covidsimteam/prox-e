@@ -24,11 +24,11 @@
       }
     ],
     // see discussion here https://github.com/microsoft/TypeScript/issues/31869
-    "paths": {
-      "hgraph": [
-        "./dist/hgraph/hgraph",
-        "./dist/hgraph"
-      ]
-    }
+    // "paths": {
+    //   "hgraph": [
+    //     "./dist/hgraph/hgraph",
+    //     "./dist/hgraph"
+    //   ]
+    // }
   }
 }

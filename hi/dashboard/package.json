@@ -22,7 +22,6 @@
   "scripts": {
     "ng": "ng",
     "conventional-changelog": "conventional-changelog",
-    "stage-all": "git add .",
     "commit": "npx git-cz",
     "start": "ng serve",
     "build": "ng build",
@@ -47,7 +46,6 @@
   "dependencies": {
     "@akveo/ng2-completer": "^9.0.1",
     "@angular-builders/jest": "^10.0.0",
-    "@angular-devkit/build-ng-packagr": "^0.1000.7",
     "@angular/animations": "^10.0.10",
     "@angular/cdk": "^10.1.3",
     "@angular/common": "^10.0.10",

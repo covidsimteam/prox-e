@@ -18,12 +18,6 @@
     },
     {
       "path": "./src/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/hgraph/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/hgraph/tsconfig.spec.json"
     }
   ]
 }

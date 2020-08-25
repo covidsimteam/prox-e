@@ -240,46 +240,6 @@
           }
         }
       }
-    },
-    "hgraph": {
-      "projectType": "library",
-      "root": "projects/hgraph",
-      "sourceRoot": "projects/hgraph/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/hgraph/tsconfig.lib.json",
-            "project": "projects/hgraph/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/hgraph/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/hgraph/src/test.ts",
-            "tsConfig": "projects/hgraph/tsconfig.spec.json",
-            "karmaConfig": "projects/hgraph/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/hgraph/tsconfig.lib.json",
-              "projects/hgraph/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
     }
   },
   "defaultProject": "covhub",

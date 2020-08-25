@@ -6,7 +6,6 @@
 
 # dependencies
 /node_modules
-projects/hgraph/node_modules/
 
 # IDEs and editors
 /.idea
