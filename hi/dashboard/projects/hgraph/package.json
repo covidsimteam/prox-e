@@ -2,12 +2,8 @@
     "name": "@cosys-work/hgraph",
     "version": "0.0.2",
     "peerDependencies": {
-        "@angular/common": "^10.0.8",
-        "@angular/core": "^10.0.8"
-    },
-    "dependencies": {
-        "@hoodie/client": "^10.2.0",
-        "pouchdb": "^7.2.2"
+        "@angular/common": "^10.0.12",
+        "@angular/core": "^10.0.12"
     },
     "description": "This library provides hypergraph services for nep.work, cosys.work and coplanetary.work nodes.",
     "main": "src/public-api.ts",
@@ -29,5 +25,9 @@
     "bugs": {
         "url": "https://github.com/cosys-work/ts/issues"
     },
-    "homepage": "https://github.com/cosys-work/ts#readme"
+    "homepage": "https://github.com/cosys-work/ts#readme",
+    "dependencies": {
+        "@angular/common": "^10.0.12",
+        "@angular/core": "^10.0.12"
+    }
 }
