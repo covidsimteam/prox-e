@@ -3,3 +3,4 @@ node_modules
 *.package_lock.json
 .npm/
 hi/dist/
+hi/dashboard/dist/
