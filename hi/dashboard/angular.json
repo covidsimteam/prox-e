@@ -89,7 +89,7 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
+                  "maximumWarning": "25kb"
                 }
               ],
               "optimization": true,
