@@ -5,12 +5,14 @@
         >Final Destination</label
       >
       <nb-select
+        matRipple
         id="inputDestinationProvince"
         fullWidth
         placeholder="Select Province"
         (selectedChange)="changeDestProvince($event)"
       >
         <nb-option
+          matRipple
           *ngFor="let province of provinces"
           [value]="province"
           >{{ province }}</nb-option
@@ -22,12 +24,14 @@
     <div class="form-group">
       <label for="inputDestinationDistrict" class="label">&nbsp;</label>
       <nb-select
+        matRipple
         id="inputDestinationDistrict"
         fullWidth
         placeholder="Select District"
         [disabled]="finalDestProvince === null"
       >
         <nb-option
+          matRipple
           *ngFor="let district of districts.destinationOpts"
           [value]="district"
           >{{ district }}</nb-option
@@ -41,12 +45,14 @@
         >Permanent Address</label
       >
       <nb-select
+        matRipple
         id="inputAddressProvince"
         fullWidth
         placeholder="Select Province"
         (selectedChange)="changeAddrProvince($event)"
       >
         <nb-option
+          matRipple
           *ngFor="let province of provinces"
           [value]="province"
           >{{ province }}</nb-option
@@ -58,12 +64,14 @@
     <div class="form-group">
       <label for="inputAddressDistrict" class="label">&nbsp;</label>
       <nb-select
+        matRipple
         id="inputAddressDistrict"
         fullWidth
         [disabled]="permanentAddrProvince === null"
         placeholder="Select District"
       >
         <nb-option
+          matRipple
           *ngFor="let district of districts.addressOpts"
           [value]="district"
           >{{ district }}</nb-option
@@ -133,13 +141,14 @@
         >Traveled Country</label
       >
       <nb-select
+        matRipple
         id="inputTraveledCountry"
         fullWidth
         multiple
         placeholder="Select one or more Traveled Countries"
       >
         <nb-option-group title="Nearby Countries">
-          <nb-option
+          <nb-option matRipple
             *ngFor="let country of nearbyCountries"
             [value]="country"
             >{{ country }}</nb-option
@@ -159,13 +168,14 @@
     <div class="form-group">
       <label for="inputNationality" class="label">Nationality</label>
       <nb-select
+        matRipple
         id="inputNationality"
         fullWidth
         selected="Nepal"
         placeholder="Select Nationality"
       >
         <nb-option-group title="Nearby Countries">
-          <nb-option
+          <nb-option matRipple
             *ngFor="let country of nepalAndNeighbors"
             [value]="country"
             >{{ country }}</nb-option

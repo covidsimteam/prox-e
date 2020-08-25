@@ -1,6 +1,13 @@
 <div class="header-container">
   <div class="logo-container">
-    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+    <a
+      href="#"
+      (click)="toggleSidebar()"
+      matRipple
+      [matRippleUnbounded]="true"
+      [matRippleCentered]="true"
+      class="sidebar-toggle"
+    >
       <nb-icon icon="menu-2-outline"></nb-icon>
     </a>
     <a class="logo" href="#" (click)="navigateHome()">CovData<strong>Hub</strong></a>
@@ -11,7 +18,12 @@
 <div class="header-container">
   <nb-actions size="small">
 
-    <nb-action class="control-item">
+    <nb-action
+      matRipple
+      class="control-item"
+      [matRippleUnbounded]="true"
+      [matRippleCentered]="true"
+    >
       <nb-search type="rotate-layout"></nb-search>
     </nb-action>
     <nb-action class="user-action" >
@@ -21,8 +33,14 @@
                [picture]="user?.picture">
       </nb-user>
     </nb-action>
-    <nb-action>
+    <nb-action
+      class="control-item"
+      matRipple
+      [matRippleUnbounded]="true"
+      [matRippleCentered]="true"
+    >
       <button
+        matRipple
         nbButton
         outline
         nbPopover="Toggle light/dark"
@@ -34,6 +52,7 @@
     <nb-action *ngIf="isPrivilegedUser">
       <button
         nbButton
+        matRipple
         outline (click)="logout()"
         nbPopover="Log out"
         nbPopoverPlacement="bottom"
