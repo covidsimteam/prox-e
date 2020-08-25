@@ -5,7 +5,12 @@
   "pluginsFile": "./src/plugins/index",
   "supportFile": false,
   "video": true,
+<<<<<<< HEAD:hi/cov-hub/e2e/cypress.json
   "videosFolder": "../dist/cypress/covhub-e2e/videos",
   "screenshotsFolder": "../dist/cypress/covhub-e2e/screenshots",
+=======
+  "videosFolder": "../../dist/cypress/covhub-e2e/videos",
+  "screenshotsFolder": "../../dist/cypress/covhub-e2e/screenshots",
+>>>>>>> develop:hi/dashboard/e2e/cypress.json
   "chromeWebSecurity": false
 }

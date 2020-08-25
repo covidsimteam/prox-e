@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { settings } from '../../../@models/tabular/settings.values';
-import { RdtTableService } from '../../../services/components/rdt/rdt-table.service';
+
 import { RdtService } from '../../../services/db/rdt.service';
 import { NgxCSVParserError, NgxCsvParser } from 'ngx-csv-parser';
 import {
@@ -9,6 +9,7 @@ import {
   CSV_UPLOAD_INSTR_ERR,
   CSV_UPLOAD_CONFIRM,
 } from '../../../@core/data/messages';
+import { RdtTableService } from '../../../@comp/rdt/rdt-table.service';
 
 @Component({
   selector: 'ngx-rdt',

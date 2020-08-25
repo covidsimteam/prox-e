@@ -12,12 +12,13 @@ import {
   GovProvinceProperties,
   RoadMajorProperties
 } from '../../../@models/domain.model';
-import { MapUtilsService } from '../../../services/components/map/map-utils.service';
-import { RegionService } from '../../../services/components/map/region.service';
+
 import { ReturneeService } from '../../../services/db/returnee.service';
 import { HealthStats } from '../../../@models/db/docs/health-stats.model';
 import { Census2011 } from '../../../@models/db/docs/census.model';
 import { RETTupleRev } from '../../../@models/db/table-headers.model';
+import { MapUtilsService } from '../../../@comp/map/map-utils.service';
+import { RegionService } from '../../../@comp/map/region.service';
 
 interface MapLayer {
   bucket: string;

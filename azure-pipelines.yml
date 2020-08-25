@@ -20,5 +20,5 @@ steps:
     npm config set scripts-prepend-node-path true
     npm install -g npm@latest
     npm install -g yarn@latest
-    yarn run build-dashboard
+    yarn run build
   displayName: 'npm install and build'
