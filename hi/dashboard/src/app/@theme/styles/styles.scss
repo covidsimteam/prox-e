@@ -18,6 +18,8 @@
 @import './layout';
 @import './overrides';
 
+@import './ripple';
+
 // install the framework and custom global styles
 @include nb-install() {
 
@@ -30,4 +32,6 @@
   @include ngx-pace-theme();
 
   @include nb-overrides();
+
+  @include ngx-ripple();
 };

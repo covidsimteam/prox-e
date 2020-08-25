@@ -1,10 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
+import { MatRippleModule } from '@angular/material/core';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
-
-import { MATERIAL_LIGHT_THEME } from './styles/theme.material-light';
-import { MATERIAL_DARK_THEME } from './styles/theme.material-dark';
-
 import {
   NbActionsModule,
   NbButtonModule,
@@ -37,11 +34,11 @@ import {
   RoundPipe,
   TimingPipe
 } from './pipes';
+import { MeasureConverterPipe } from './pipes/measure-converter.pipe';
 import { CORPORATE_THEME } from './styles/theme.corporate';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { DARK_THEME } from './styles/theme.dark';
 import { DEFAULT_THEME } from './styles/theme.default';
-import { MeasureConverterPipe } from './pipes/measure-converter.pipe';
 
 
 const NB_MODULES = [
@@ -77,8 +74,8 @@ const PIPES = [
 ];
 
 @NgModule({
-  imports: [CommonModule, ...NB_MODULES],
-  exports: [CommonModule, ...PIPES, ...COMPONENTS],
+  imports: [CommonModule, MatRippleModule, ...NB_MODULES],
+  exports: [CommonModule, MatRippleModule, ...PIPES, ...COMPONENTS],
   declarations: [...COMPONENTS, ...PIPES],
 })
 export class ThemeModule {
