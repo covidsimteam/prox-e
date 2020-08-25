@@ -22,8 +22,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   themes = [
     {
-      value: 'default',
-      name: 'Light',
+      value: 'material-light',
+      name: 'Material Light',
       icon: 'bulb-outline',
     },
     {
@@ -31,10 +31,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
       name: 'Dark',
       icon: 'moon-outline',
     },
-    // TODO add material
   ];
 
-  currentTheme = 'default';
+  currentTheme = 'material-light';
 
   userMenu = this.getMenuItems();
 

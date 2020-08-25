@@ -1,6 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+
+import { MATERIAL_LIGHT_THEME } from './styles/theme.material-light';
+import { MATERIAL_DARK_THEME } from './styles/theme.material-dark';
+
 import {
   NbActionsModule,
   NbButtonModule,
@@ -87,7 +91,12 @@ export class ThemeModule {
           {
             name: 'default',
           },
-          [ DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME, DARK_THEME ],
+          [
+            DEFAULT_THEME,
+            COSMIC_THEME,
+            CORPORATE_THEME,
+            DARK_THEME
+          ],
           ).providers!,
         ],
       };

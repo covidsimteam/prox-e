@@ -27,7 +27,7 @@
         outline
         nbPopover="Toggle light/dark"
         nbPopoverPlacement="bottom"
-        (click)="changeTheme(currentTheme == 'dark' ? 'default' : 'dark')">
+        (click)="changeTheme(currentTheme == 'dark' ? 'material-light' : 'dark')">
           <nb-icon [icon]="currentTheme == 'dark' ? 'bulb-outline' : 'moon-outline'"></nb-icon>
       </button>
     </nb-action>
