@@ -19,4 +19,10 @@
   .table {
     color: nb-theme(text-basic-color) !important;
   }
+
+
+  nb-search button:focus {
+    background-color: transparent !important;
+    border-color: transparent !important;
+  }
 }
