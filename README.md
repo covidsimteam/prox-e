@@ -61,3 +61,21 @@ This is the dashboard and the central activity hub for all things related to pay
 ### indy-vot
 
 This is the additional Open API server for communicating with our system and acts as a proxy to our single source of consensus - core kdb.
+
+
+## lo
+
+All sub-projects in the `lo` project group are of underground projects that serve as enablers for the other projects above. This group has three distinct sub-projects.
+
+### khetala
+
+This is currently just a collection of geojson based id-metadata blobs for CDN and redundant blob storage on edge networks. 
+
+### medigai
+
+This is the dashboard and the central activity hub for all things related to medical ikigai for everyone as a member of any given organization or as an individual. 
+
+### indycol
+
+This is the additional Open API server for communicating with our system and acts as a proxy to our single source of collaboration - curedit.
+
