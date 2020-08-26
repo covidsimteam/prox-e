@@ -1,7 +1,5 @@
 #!/bin/bash
 
-type parallel >/dev/null 2>&1 || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
-
 echo "pushing..."
 git push
 
@@ -12,7 +10,7 @@ echo "going..."
 cd ./sh
 
 echo "running..."
-bash ./metab.sh | parallel echo :::: - def-file
+bash ./metab.sh >> runsync.log
 
 echo "updating..."
 git merge develop
