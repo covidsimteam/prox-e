@@ -1,1 +1,43 @@
-<p>reset-pass works!</p>
+<nb-alert
+  *ngIf="showMessages.error && !submitted"
+  outline="danger"
+  role="alert"
+>
+  <p class="alert-title"><b>Login Failed</b></p>
+  <ul class="alert-message-list">
+    <li class="alert-message">{{ showMessages.error }}</li>
+  </ul>
+</nb-alert>
+
+<nb-alert
+  *ngIf="showMessages.success && !submitted"
+  outline="success"
+  role="alert"
+>
+  <p class="alert-title"><b>Login Succeeded</b></p>
+  <ul class="alert-message-list">
+    <li class="alert-message">{{ showMessages.success }}</li>
+  </ul>
+</nb-alert>
+
+<div class="row centrino">
+  <div class="col-md-6">
+    <nb-card-header>Change Password</nb-card-header>
+    <nb-card-body>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="inputConfirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm Password">
+          </div>
+        </div>
+      </div>
+    </nb-card-body>  </div>
+</div>
+<nb-layout style="display: none"></nb-layout>

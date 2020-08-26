@@ -8,6 +8,7 @@ import { LayoutService } from '../../../@core/utils';
 import { HubUser, HeaderBio } from '../../../@models/user.model';
 
 import { RippleService } from '../../../@core/utils/ripple.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ngx-header',
@@ -46,7 +47,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private layoutService: LayoutService,
     private authService: AuthService,
     private breakpointService: NbMediaBreakpointsService,
-    private rippleService: RippleService
+    private rippleService: RippleService,
+    private router: Router
   ) {
 
     this.authService.onTokenChange()
@@ -55,6 +57,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
           this.user = token.getPayload();
         }
       });
+
+      this.menuService.onItemClick()
+        .pipe(takeUntil(this.destroy$))
+        .subscribe(({ item }) => {
+          if (item.title === 'Profile') {
+            this.router.navigateByUrl(item?.link || '/pages/profile');
+          }
+        });
   }
 
   getMenuItems() {

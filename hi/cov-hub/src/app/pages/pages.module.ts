@@ -19,6 +19,7 @@ import { PaymentsModule } from './payments/payments.module';
 import { TablesModule } from './tables/tables.module';
 import { PagesComponent } from './pages.component';
 import { SampleCollectionComponent } from './sample/sample-collection/sample-collection.component';
+import { ProfileComponent } from './profile/profile/profile.component';
 
 @NgModule({
   imports: [
@@ -42,7 +43,7 @@ import { SampleCollectionComponent } from './sample/sample-collection/sample-col
     TablesModule,
     NbLayoutModule,
   ],
-  declarations: [PagesComponent, SampleCollectionComponent],
+  declarations: [PagesComponent, SampleCollectionComponent, ProfileComponent],
 })
 export class PagesModule {
 }
