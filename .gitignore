@@ -8,3 +8,4 @@ node_modules
 hi/dashboard/dist/
 
 hi/prox-e/package-lock.json
+**/dist/**
