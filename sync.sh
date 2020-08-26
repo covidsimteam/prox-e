@@ -14,4 +14,10 @@ cd ./sh
 echo "running..."
 bash ./metab.sh | parallel echo :::: - def-file
 
+echo "updating..."
+git merge develop
+
+echo "pushing..."
+git push
+
 echo "...done"
