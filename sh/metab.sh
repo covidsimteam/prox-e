@@ -5,11 +5,10 @@ then
 	echo "Proceeding after confirming develop as current"
 else 
 	echo "Current branch is not develop"
-	exit 1;
+	git checkout develop
+	git fetch
 fi
 
-git checkout develop
-git pull
 
 bash ./b0.sh
 bash ./b1.sh

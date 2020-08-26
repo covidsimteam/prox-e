@@ -1,6 +1,7 @@
 #!/bin/bash
 
 pusher() {
+	git pull
 	git push
 }
 

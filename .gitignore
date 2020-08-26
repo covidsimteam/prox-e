@@ -9,4 +9,4 @@ hi/dashboard/dist/
 
 hi/prox-e/package-lock.json
 **/dist/**
-sh/runsync.log
+**/runsync.log
