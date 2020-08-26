@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { TranslationServiceEn } from '../../../services/i18n/translation-gen.service'
 
 @Component({
   selector: 'ngx-form-a',
@@ -14,6 +15,7 @@ export class FormAComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     translator: TranslateService,
+    public t: TranslationServiceEn
     ) {
     translator.use('np');
   }
