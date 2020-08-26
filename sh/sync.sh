@@ -1,7 +1,7 @@
 #!/bin/bash
 
 pusher() {
- git push
+	git push
 }
 
 checkouter() {
