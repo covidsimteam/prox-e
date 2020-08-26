@@ -4,3 +4,43 @@ Simple Dashboard to demonstrate what the system and the APIs above can do.
 
 
 Reduce your program's rendering costs using our dashboard.
+
+## docs
+
+Github pages driven by eleventy SSG.
+
+## sync.sh
+
+The `./sync.sh` script utilizes the sh scripts in `sh` folder to update all the current branches with the latest from develop.
+
+## tp
+
+TP stands for Transport Protocols and Transport Protobufs and Top Priority. It has three important sub-projects.
+
+### channels
+
+All pub-sub and stream channels are available under this single API and SDK.
+
+### nginx
+
+All the nginx conf for all the projects will be made available here. 
+
+### protocols
+
+All the OpenAPI specs and spec drafts will be made available here.
+
+## hi
+
+All sub-projects in the `hi` project group are of high priority. It has three distinct sub-projects.
+
+### couch-potato
+
+This is currently just a collection of geojson blobs for CDN and redundant blob storage on edge networks. 
+
+### cov-hub
+
+This is the dashboard and the central activity hub for all things related to covid for everyone in any given organization or as an individual. 
+
+### prox-e
+
+This is the additional Open API server for communicating with our system and acts as a proxy to our single source of truth - core db.
