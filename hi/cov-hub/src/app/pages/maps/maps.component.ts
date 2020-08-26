@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <router-outlet></router-outlet>
   `,
+  styleUrls: ['./maps.component.scss'],
 })
 export class MapsComponent {
 }
