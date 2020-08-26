@@ -39,8 +39,25 @@ This is currently just a collection of geojson blobs for CDN and redundant blob 
 
 ### cov-hub
 
-This is the dashboard and the central activity hub for all things related to covid for everyone in any given organization or as an individual. 
+This is the dashboard and the central activity hub for all things related to covid for everyone as a member of any given organization or as an individual. 
 
 ### prox-e
 
 This is the additional Open API server for communicating with our system and acts as a proxy to our single source of truth - core db.
+
+
+## md
+
+All sub-projects in the `md` project group are of medium priority. It has three distinct sub-projects.
+
+### indy
+
+This is currently just a collection of geojson based id blobs for CDN and redundant blob storage on edge networks. 
+
+### indy-pay
+
+This is the dashboard and the central activity hub for all things related to payments for everyone as a member of any given organization or as an individual. 
+
+### indy-vot
+
+This is the additional Open API server for communicating with our system and acts as a proxy to our single source of consensus - core kdb.
