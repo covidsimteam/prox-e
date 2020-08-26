@@ -1,1588 +1,1571 @@
-<nb-layout>
-  <nb-layout-header class="form-a-header">
-    {{ 'fa.title' | translate }}
-  </nb-layout-header>
-  <nb-layout-column>
-    <nb-card center>
-      <nb-card-body>
-        <nb-stepper orientation="vertical">
-          <nb-step label>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="inputDate" class="label"> {{ "fa.date1" | translate }}</label>
-                <input [nbDatepicker]="datepicker">
-                <nb-datepicker #datepicker></nb-datepicker> <br/>
+<nb-layout-header class="form-a-header">
+  {{ 'fa.title' | translate }}
+</nb-layout-header>
+<nb-layout-column>
+  <nb-card center>
+    <nb-card-body>
+      <nb-stepper orientation="vertical">
+        <nb-step label>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="reportDate1" class="label"> {{ "fa.reportDate1" | translate }}</label>
+              <input [nbDatepicker]="reportDate1Picker">
+              <nb-datepicker #reporttDate1Picker></nb-datepicker> <br />
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="testAgency" class="label"> {{ "fa.testAgency" | translate }}</label>
+              <input type="text" nbInput placeholder={{ "fab.naamRaThegana" | translate }}>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="" class="label">{{ "fa.inputCaseStatus" | translate }}</label>
+              <div class="col-sm-6">
+                <nb-radio-group id="inputCaseStatus" class="row">
+                  <nb-radio>{{ "fab.ho" | translate }}</nb-radio>
+                  <nb-radio>{{ "fab.hoina" | translate }}</nb-radio>
+                  <nb-radio>{{ "fab.thahaChhaina" | translate }}</nb-radio>
+                </nb-radio-group>
               </div>
             </div>
+          </div>
 
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="inputFirstName" class="label">रिपोर्टिंग गरिएको संस्थाको नाम र ठेगाना</label>
-                <input type="text" nbInput placeholder="नाम र ठेगाना">
-              </div>
+
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="inputDate2" class="label">{{ "fab.hoBhaneDate" | translate }}</label>
+              <input [nbDatepicker]="inputDate2Picker" id="inputDate2">
+              <nb-datepicker #inputDate2Picker></nb-datepicker> <br />
             </div>
+          </div>
 
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="" class="label"
-                >भित्रिएको प्वाइन्ट (PoE) / क्वारेन्टिनमा पत्ता लगाइएका</label
-                >
-                <div class="col-sm-6">
-                  <nb-radio-group id="inputCaseStatus" class="row">
-                    <nb-radio>हो</nb-radio>
-                    <nb-radio>होइन</nb-radio>
-                    <nb-radio>थाहा छैन</nb-radio>
-                  </nb-radio-group>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="inputFirstName" class="label">{{ "fa.inputCaseStatus" | translate }}</label>
+              <input type="text" nbInput placeholder={{ "fab.naamRaThegana" | translate }}>
+            </div>
+          </div>
+
+          <nb-accordion>
+            <nb-accordion-item>
+              <nb-accordion-item-header>{{ "fah.heading1" | translate }}</nb-accordion-item-header>
+              <nb-accordion-item-body>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputId" class="label">{{ "fah.heading1" | translate }}</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
                 </div>
-              </div>
-            </div>
 
-
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="inputDate" class="label">यदि हो भने, मिति ( दिन / महिना / वर्ष ):</label>
-                <input [nbDatepicker]="datepicker">
-                <nb-datepicker #datepicker></nb-datepicker> <br/>
-              </div>
-            </div>
-
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="inputFirstName" class="label">भित्रिएको प्वाइन्ट (PoE) /क्वारेन्टिनको नाम:</label>
-                <input type="text" nbInput placeholder="नाम">
-              </div>
-            </div>
-
-            <nb-accordion>
-              <nb-accordion-item>
-                <nb-accordion-item-header>भाग १. केसको व्यक्तिगत जानकारीहरु</nb-accordion-item-header>
-                <nb-accordion-item-body>
-
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="inputId" class="label">केसको यूनिक परिचय (Case Epi Id): </label>
-                      <input type="text" nbInput placeholder="">
-                    </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">नाम: </label>
+                    <input type="text" nbInput placeholder="नाम">
                   </div>
+                </div>
 
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="inputFirstName" class="label">नाम: </label>
-                      <input type="text" nbInput placeholder="नाम">
-                    </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">आमा बुवा श्रीमान श्रीमतीको नाम: </label>
+                    <input type="text" nbInput placeholder="नाम र ठेगाना">
                   </div>
+                </div>
 
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="inputFirstName" class="label">आमा बुवा श्रीमान श्रीमतीको नाम: </label>
-                      <input type="text" nbInput placeholder="नाम र ठेगाना">
-                    </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">उमेर(दिन/महिना): </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
                   </div>
+                </div>
 
-
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="inputDate" class="label">उमेर(दिन/महिना): </label>
-                      <input [nbDatepicker]="datepicker">
-                      <nb-datepicker #datepicker></nb-datepicker> <br/>
-                    </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">राष्ट्रियता: </label>
+                    <input type="text" nbInput placeholder="">
                   </div>
+                </div>
 
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="inputFirstName" class="label">राष्ट्रियता: </label>
-                      <input type="text" nbInput placeholder="">
-                    </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">फोन नम्बर: </label>
+                    <input type="text" nbInput placeholder="">
                   </div>
+                </div>
 
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="inputFirstName" class="label">फोन नम्बर: </label>
-                      <input type="text" nbInput placeholder="">
-                    </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">
+                      अन्य सम्पर्क फोन नम्बर: </label>
+                    <input type="text" nbInput placeholder="">
                   </div>
+                </div>
 
+                <nb-accordion>
+                  <nb-accordion-item>
+                    <nb-accordion-item-header>हालको ठेगाना</nb-accordion-item-header>
+                    <nb-accordion-item-body>
 
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="inputFirstName" class="label">
-                        अन्य सम्पर्क फोन नम्बर: </label>
-                        <input type="text" nbInput placeholder="">
-                      </div>
-                    </div>
-
-                    <nb-accordion>
-                      <nb-accordion-item>
-                        <nb-accordion-item-header>हालको ठेगाना</nb-accordion-item-header>
-                        <nb-accordion-item-body>
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputFirstName" class="label">देश: </label>
-                              <input type="text" nbInput placeholder="">
-                            </div>
-                          </div>
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputFirstName" class="label">प्रदेश: </label>
-                              <input type="text" nbInput placeholder="">
-                            </div>
-                          </div>
-
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputFirstName" class="label">जिल्ला: </label>
-                              <input type="text" nbInput placeholder="">
-                            </div>
-                          </div>
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputFirstName" class="label">वार्ड नं: </label>
-                              <input type="text" nbInput placeholder="">
-                            </div>
-                          </div>
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputFirstName" class="label">नगरपालिका: </label>
-                              <input type="text" nbInput placeholder="">
-                            </div>
-                          </div>
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputFirstName" class="label">टोल / चिन्ह(): </label>
-                              <input type="text" nbInput placeholder="">
-                            </div>
-                          </div>
-
-
-
-
-
-
-
-                        </nb-accordion-item-body>
-                      </nb-accordion-item>
-                    </nb-accordion>
-
-
-                    <nb-accordion>
-                      <nb-accordion-item>
-                        <nb-accordion-item-header>स्थाई ठेगाना, हालको ठेगाना फरक छ भने मात्र भर्नुहोस्:</nb-accordion-item-header>
-                        <nb-accordion-item-body>
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputFirstName" class="label">देश: </label>
-                              <input type="text" nbInput placeholder="">
-                            </div>
-                          </div>
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputFirstName" class="label">प्रदेश: </label>
-                              <input type="text" nbInput placeholder="">
-                            </div>
-                          </div>
-
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputFirstName" class="label">जिल्ला: </label>
-                              <input type="text" nbInput placeholder="">
-                            </div>
-                          </div>
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputFirstName" class="label">वार्ड नं: </label>
-                              <input type="text" nbInput placeholder="">
-                            </div>
-                          </div>
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputFirstName" class="label">नगरपालिका: </label>
-                              <input type="text" nbInput placeholder="">
-                            </div>
-                          </div>
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputFirstName" class="label">टोल / चिन्ह(): </label>
-                              <input type="text" nbInput placeholder="">
-                            </div>
-                          </div>
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputFirstName" class="label">हालको स्थान(होटल / क्वारेन्टिन / घर)): </label>
-                              <input type="text" nbInput placeholder="">
-                            </div>
-                          </div>
-
-
-
-
-
-
-
-                        </nb-accordion-item-body>
-                      </nb-accordion-item>
-                    </nb-accordion>
-
-
-
-
-
-
-
-
-                    <div class=""><br></div>
-
-
-
-
-
-
-
-
-
-
-
-                  </nb-accordion-item-body>
-                </nb-accordion-item>
-              </nb-accordion>
-
-
-              <nb-accordion>
-                <nb-accordion-item>
-                  <nb-accordion-item-header>भाग २. क्लिनिकल जानकारी</nb-accordion-item-header>
-                  <nb-accordion-item-body>
-
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label for="" class="label"
-                        >२.१ हाल लक्षण देखिएको </label
-                        >
-                        <div class="col-sm-6">
-                          <nb-radio-group id="inputCaseStatus" class="row">
-                            <nb-radio>छ</nb-radio>
-                            <nb-radio>छैन(यदि छैन भने,२.३ को उत्तर दिनु आवश्यक छैन)</nb-radio>
-
-                          </nb-radio-group>
-                        </div>
-                      </div>
-                    </div>
-
-
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label for="" class="label"
-                        >२.२ यदि छैन भने, पछिल्लो ४ हप्तामा कोभिड -19(को लक्षण देखिएको)</label
-                        >
-                        <div class="col-sm-6">
-                          <nb-radio-group id="inputCaseStatus" class="row">
-                            <nb-radio>छ</nb-radio>
-                            <nb-radio>छैन(तलका लक्षणहरू हेर्नुहोस्, यदि छैन भने,२.३ को उत्तर दिनु आवश्यक छैन)</nb-radio>
-
-                          </nb-radio-group>
-                        </div>
-                      </div>
-                    </div>
-
-
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label for="inputFirstName" class="label">२.३ यदि २.१ र २.२ मा छैन भने,केस अनुसन्धानकरताले टेस्टिंगको चिन्हको सुचि तयार गरनुहोला
-                          : </label>
-
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="inputFirstName" class="label">देश: </label>
+                          <input type="text" nbInput placeholder="">
                         </div>
                       </div>
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="inputDate" class="label">यदि २.१ र २.२ मा उत्तर छ भने, लक्षणहरू देखा परेको मिति(दिन/महिना): </label>
-                          <input [nbDatepicker]="datepicker">
-                          <nb-datepicker #datepicker></nb-datepicker> <br/>
+                          <label for="inputFirstName" class="label">प्रदेश: </label>
+                          <input type="text" nbInput placeholder="">
                         </div>
                       </div>
 
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="" class="label"
-                          >यदि २.१ र २.२ मा उत्तर छ भने, रिपोर्ट गरेको सबै लक्षणहरुमा सही चिन्ह गर्नुहोस्: </label
-                          >
-                          <div class="col-sm-12">
-                            <nb-card>
-                              <nb-card-body class="example-items-rows">
-                                <nb-checkbox status="basic"> History of fever / chills ज्वरो </nb-checkbox>
-                                <nb-checkbox status="basic"> General weakness कमजोरी </nb-checkbox>
-                                <nb-checkbox status="basic"> Cough खोकी </nb-checkbox>
-                                <nb-checkbox status="basic"> Sore Throat घाँटी दुख्ने </nb-checkbox>
-                                <nb-checkbox status="basic"> Runny nose नाक बग्नु</nb-checkbox>
-                                <nb-checkbox status="basic"> Shortness of breath सास फेर्न गाह्रो </nb-checkbox>
-                                <nb-checkbox status="basic"> Diarrhea पखाला</nb-checkbox>
-                                <nb-checkbox status="basic"> Nausea/Vomiting मतली / बान्ता</nb-checkbox>
-                                <nb-checkbox status="basic"> Headache टाउको दुखाइ</nb-checkbox>
-                                <nb-checkbox status="basic"> Irritability/Confusion चिडचिड / भ्रम </nb-checkbox>
-                                <nb-checkbox status="basic"> Loss of taste स्वाद हराउनु </nb-checkbox>
-                                <nb-checkbox status="basic"> Loss of smell गन्ध हराउनु</nb-checkbox>
-                                <nb-checkbox status="basic"> Pain(check all that apply) लागू हुने सबैमा टिक गर्नुहोस् </nb-checkbox>
-                                <nb-checkbox status="basic"> Muscular मांसपेशी </nb-checkbox>
-                                <nb-checkbox status="basic"> Chest छाती </nb-checkbox>
-                                <nb-checkbox status="basic"> Abdominal पेट </nb-checkbox>
-                                <nb-checkbox status="basic"> Join </nb-checkbox>
-                                <nb-checkbox status="basic"> Other, specify अन्य, निर्दिष्ट गर्नुहोस् </nb-checkbox>
-                              </nb-card-body>
-                            </nb-card>
-
-                          </div>
+                          <label for="inputFirstName" class="label">जिल्ला: </label>
+                          <input type="text" nbInput placeholder="">
                         </div>
                       </div>
-
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="" class="label"
-                          >बिरामीको लक्षणहरु, सही चिन्ह गर्नुहोस्: </label
-                          >
-                          <div class="col-sm-12">
-                            <nb-card>
-                              <nb-card-body class="example-items-rows">
-                                <nb-checkbox status="basic"> Pharyngeal exudate</nb-checkbox>
-                                <nb-checkbox status="basic"> Conjunctival injection (red eye) </nb-checkbox>
-                                <nb-checkbox status="basic"> Seizure </nb-checkbox>
-                                <nb-checkbox status="basic"> Coma </nb-checkbox>
-                                <nb-checkbox status="basic"> Dyspnea / tachypnea (DB/Fast breathing)</nb-checkbox>
-                                <nb-checkbox status="basic"> Abnormal lung auscultation</nb-checkbox>
-                                <nb-checkbox status="basic"> Abnormal lung x-ray/CT scan findings</nb-checkbox>
-                                <nb-checkbox status="basic"> None</nb-checkbox>
-                                <nb-checkbox status="basic"> Other, specify अन्य, निर्दिष्ट गर्नुहोस् </nb-checkbox>
-                              </nb-card-body>
-                            </nb-card>
-
-                          </div>
+                          <label for="inputFirstName" class="label">वार्ड नं: </label>
+                          <input type="text" nbInput placeholder="">
                         </div>
                       </div>
-
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="" class="label"
-                          >रेिांभकत मेभडकल अवस्थािरु तथा अन्य अस्वस्थता (मेभडकल रेकोडषको सिायताले) (भमल्दोमा ठीक भचन्ह लगाउनु िोला) </label
-                          >
-                          <div class="col-sm-12">
-                            <nb-card>
-                              <nb-card-body class="example-items-rows">
-                                <nb-checkbox status="basic"> गभाषवस्था (िैमाभसक) </nb-checkbox>
-                                <nb-checkbox status="basic"> सुत्के रीवस्था (६ िप्ता) </nb-checkbox>
-                                <nb-checkbox status="basic"> मुिु सम्बन्धी रोग, रिचाप सभित</nb-checkbox>
-                                <nb-checkbox status="basic"> मधुमेि </nb-checkbox>
-                                <nb-checkbox status="basic"> कलेजोको रोग</nb-checkbox>
-                                <nb-checkbox status="basic"> नसा सम्बन्धी रोग</nb-checkbox>
-                                <nb-checkbox status="basic"> मृगौलाको रोगिरु </nb-checkbox>
-                                <nb-checkbox status="basic"> ु पोर्ण</nb-checkbox>
-                                <nb-checkbox status="basic"> अिोइम्युन रोगिरु </nb-checkbox>
-                                <nb-checkbox status="basic"> इम्युनोडेभफभशयन्सी, एच.आईभी सभित</nb-checkbox>
-                                <nb-checkbox status="basic"> Malignancy म्याभलगनेन्शी
-                                </nb-checkbox>
-                                <nb-checkbox status="basic">फोक्सोको दीघष रोग/दम/धमनी</nb-checkbox>
-                                <nb-checkbox status="basic"> Other, specify अन्य, निर्दिष्ट गर्नुहोस् </nb-checkbox>
-                                <nb-checkbox status="basic"> कु नै पभन छैन </nb-checkbox>
-
-                              </nb-card-body>
-                            </nb-card>
-
-                          </div>
+                          <label for="inputFirstName" class="label">नगरपालिका: </label>
+                          <input type="text" nbInput placeholder="">
                         </div>
                       </div>
+
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="inputFirstName" class="label">टोल / चिन्ह(): </label>
+                          <input type="text" nbInput placeholder="">
+                        </div>
+                      </div>
+
+
+
+
+
 
 
                     </nb-accordion-item-body>
                   </nb-accordion-item>
                 </nb-accordion>
 
-                <button nbButton disabled nbStepperNext>prev</button>
-                <button nbButton matRipple nbStepperNext>next</button>
-              </nb-step>
-              <nb-step label>
 
                 <nb-accordion>
                   <nb-accordion-item>
-                    <nb-accordion-item-header>भाग ३. प्रयोगशालाको जानकारी</nb-accordion-item-header>
+                    <nb-accordion-item-header>स्थाई ठेगाना, हालको ठेगाना फरक छ भने मात्र भर्नुहोस्:
+                    </nb-accordion-item-header>
                     <nb-accordion-item-body>
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="" class="label"
-                          >संकभलत नमुनािरु (Nasopharyngeal -नाकबाि))</label
-                          >
-                          <div class="col-sm-6">
-                            <nb-radio-group id="inputCaseStatus" class="row">
-                              <nb-radio>छ</nb-radio>
-                              <nb-radio>छैन</nb-radio>
-
-                            </nb-radio-group>
-                          </div>
+                          <label for="inputFirstName" class="label">देश: </label>
+                          <input type="text" nbInput placeholder="">
                         </div>
                       </div>
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="inputDate" class="label">नमुना संकलन
-                            गररएको भमती (भदन/मभिना/वर्ष) </label>
-                            <input [nbDatepicker]="datepicker">
-                            <nb-datepicker #datepicker></nb-datepicker> <br/>
-                          </div>
+                          <label for="inputFirstName" class="label">प्रदेश: </label>
+                          <input type="text" nbInput placeholder="">
                         </div>
+                      </div>
 
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label for="inputDate" class="label">नमुना पठाएको भमती (भदन/मभिना/वर्ष) </label>
-                            <input [nbDatepicker]="datepicker">
-                            <nb-datepicker #datepicker></nb-datepicker> <br/>
-                          </div>
+
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="inputFirstName" class="label">जिल्ला: </label>
+                          <input type="text" nbInput placeholder="">
                         </div>
+                      </div>
 
-
-
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label for="inputDate" class="label">यभद नमुना जााँचको नभतजा थािा भयो भने(नभतजा थािा भएको भमती (भदन/मभिना/वर्ष)) </label>
-                            <input [nbDatepicker]="datepicker">
-                            <nb-datepicker #datepicker></nb-datepicker> <br/>
-                          </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="inputFirstName" class="label">वार्ड नं: </label>
+                          <input type="text" nbInput placeholder="">
                         </div>
+                      </div>
 
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label for="inputFirstName" class="label">यभद नमुना जााँचको नभतजा थािा भयो भने(नभतजा) </label>
-                            <input type="text" nbInput placeholder="">
-                          </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="inputFirstName" class="label">नगरपालिका: </label>
+                          <input type="text" nbInput placeholder="">
                         </div>
+                      </div>
 
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label for="" class="label"
-                            >Oropharyngeal (Throat) -घािीबाि</label
-                            >
-                            <div class="col-sm-6">
-                              <nb-radio-group id="inputCaseStatus" class="row">
-                                <nb-radio>छ</nb-radio>
-                                <nb-radio>छैन</nb-radio>
-
-                              </nb-radio-group>
-                            </div>
-                          </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="inputFirstName" class="label">टोल / चिन्ह(): </label>
+                          <input type="text" nbInput placeholder="">
                         </div>
+                      </div>
 
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label for="inputDate" class="label">नमुना संकलन
-                              गररएको भमती (भदन/मभिना/वर्ष) </label>
-                              <input [nbDatepicker]="datepicker">
-                              <nb-datepicker #datepicker></nb-datepicker> <br/>
-                            </div>
-                          </div>
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputDate" class="label">नमुना पठाएको भमती (भदन/मभिना/वर्ष) </label>
-                              <input [nbDatepicker]="datepicker">
-                              <nb-datepicker #datepicker></nb-datepicker> <br/>
-                            </div>
-                          </div>
-
-
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputDate" class="label">यभद नमुना जााँचको नभतजा थािा भयो भने(नभतजा थािा भएको भमती (भदन/मभिना/वर्ष)) </label>
-                              <input [nbDatepicker]="datepicker">
-                              <nb-datepicker #datepicker></nb-datepicker> <br/>
-                            </div>
-                          </div>
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputFirstName" class="label">यभद नमुना जााँचको नभतजा थािा भयो भने(नभतजा) </label>
-                              <input type="text" nbInput placeholder="">
-                            </div>
-                          </div>
-
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="" class="label"
-                              >अन्य (उल्लेि गनुष______________)</label
-                              >
-                              <div class="col-sm-6">
-                                <nb-radio-group id="inputCaseStatus" class="row">
-                                  <nb-radio>छ</nb-radio>
-                                  <nb-radio>छैन</nb-radio>
-
-                                </nb-radio-group>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="inputDate" class="label">नमुना संकलन
-                                गररएको भमती (भदन/मभिना/वर्ष) </label>
-                                <input [nbDatepicker]="datepicker">
-                                <nb-datepicker #datepicker></nb-datepicker> <br/>
-                              </div>
-                            </div>
-
-                            <div class="col-md-12">
-                              <div class="form-group">
-                                <label for="inputDate" class="label">नमुना पठाएको भमती (भदन/मभिना/वर्ष) </label>
-                                <input [nbDatepicker]="datepicker">
-                                <nb-datepicker #datepicker></nb-datepicker> <br/>
-                              </div>
-                            </div>
-
-
-
-                            <div class="col-md-12">
-                              <div class="form-group">
-                                <label for="inputDate" class="label">यभद नमुना जााँचको नभतजा थािा भयो भने(नभतजा थािा भएको भमती (भदन/मभिना/वर्ष)) </label>
-                                <input [nbDatepicker]="datepicker">
-                                <nb-datepicker #datepicker></nb-datepicker> <br/>
-                              </div>
-                            </div>
-
-                            <div class="col-md-12">
-                              <div class="form-group">
-                                <label for="inputFirstName" class="label">यभद नमुना जााँचको नभतजा थािा भयो भने(नभतजा) </label>
-                                <input type="text" nbInput placeholder="">
-                              </div>
-                            </div>
-
-
-                            <div class="col-md-12">
-                              <div class="form-group">
-                                <label for="inputFirstName" class="label">अन्य भए (उल्लेि गन </label>
-                                <input type="text" nbInput placeholder="">
-                              </div>
-                            </div>
-
-
-                            <div class="col-md-12">
-                              <div class="form-group">
-                                <label for="" class="label"
-                                >नमुना पठाइएको स्थानीः)</label
-                                >
-                                <div class="col-sm-6">
-                                  <nb-radio-group id="inputCaseStatus" class="row">
-                                    <nb-radio>NPHL</nb-radio>
-                                    <nb-radio>Non-NPHL</nb-radio>
-
-                                  </nb-radio-group>
-                                </div>
-                              </div>
-                            </div>
-
-
-                            <div class="col-md-12">
-                              <div class="form-group">
-                                <label for="" class="label"
-                                >कोभभड-१९ पत्ता लगाउन स्वास्थ्य संस्थामा/अन्य कु नै प्रयोगशालामा कु नै जााँच गररएको छ?</label
-                                >
-                                <div class="col-sm-6">
-                                  <nb-radio-group id="inputCaseStatus" class="row">
-                                    <nb-radio>छै न</nb-radio>
-                                    <nb-radio>छ</nb-radio>
-
-                                  </nb-radio-group>
-                                </div>
-                              </div>
-                            </div>
-
-
-
-                            <div class="col-md-12">
-                              <div class="form-group">
-                                <label for="inputFirstName" class="label">यभद छ भने, जााँचको नामीः </label>
-                                <input type="text" nbInput placeholder="">
-                              </div>
-                            </div>
-
-                            <div class="col-md-12">
-                              <div class="form-group">
-                                <label for="inputFirstName" class="label">जााँचको नभतजाीः </label>
-                                <input type="text" nbInput placeholder="">
-                              </div>
-                            </div>
-                          </nb-accordion-item-body>
-                        </nb-accordion-item>
-                      </nb-accordion>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="inputFirstName" class="label">हालको स्थान(होटल / क्वारेन्टिन / घर)): </label>
+                          <input type="text" nbInput placeholder="">
+                        </div>
+                      </div>
 
 
-                      <nb-accordion>
-                        <nb-accordion-item>
-                          <nb-accordion-item-header>भाग ४ लक्षण देक्लिएको के सिरुमा लक्ष्ण देक्लिएको १४ भदन अगाडी वा लक्ष्ण नदेक्लिएको के सिरुमा नमुना संकलन गररएकोभमतीबाि ६ िप्ता अगाडीको सम्पकष र यािाको जानकारीिरु <label for="inputDate" class="label" style="color:black">नमुना पठाएको भमती (भदन/मभिना/वर्ष) </label>
-                            <input [nbDatepicker]="datepicker">
-                            <nb-datepicker #datepicker></nb-datepicker></nb-accordion-item-header>
-                            <nb-accordion-item-body>
 
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="" class="label"
-                                  >पेशा (भमल्नेमा ठीक भचन्ह लगाउनु िोला) </label
-                                  >
-                                  <div class="col-sm-6">
-                                    <nb-radio-group id="inputCaseStatus" class="row">
-                                      <nb-radio>भवद्याथी</nb-radio>
-                                      <nb-radio>स्वास्थ्यकमी</nb-radio>
-                                      <nb-radio>स्वास्थ्य प्रयोगशाला कायषकताष</nb-radio>
-                                      <nb-radio>जनावरसंग काम गने</nb-radio>
-                                      <nb-radio>सेक्युररिी</nb-radio>
-                                      <nb-radio>िोिेल/ रेिुरेन्ट/ बारिरु</nb-radio>
-                                      <nb-radio>फोिर व्यवस्थापनको काम गने</nb-radio>
-                                      <nb-radio>अन्य (िुलाउनुिोस्)</nb-radio>
 
-                                    </nb-radio-group>
-                                  </div>
-                                </div>
-                              </div>
 
-
-
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="" class="label"
-                                  >के भबरामीले लक्ष्ण देक्लिनु भन्दा १४ भदन अगाडी वा लक्ष्ण नदेक्लिएको के सिरुमा नमुना संकलनका गररको भमतीबाि ६ िप्ता अगाडी कतै यािा गरेको भथयो ]</label
-                                  >
-                                  <div class="col-sm-6">
-                                    <nb-radio-group id="inputCaseStatus" class="row">
-                                      <nb-radio>भथयो</nb-radio>
-                                      <nb-radio>भथएन</nb-radio>
-                                      <nb-radio> थािा छै न यभद छ भने, ठााँउिरु उल्लेि गनुषिोस्</nb-radio>
-
-                                    </nb-radio-group>
-                                  </div>
-                                </div>
-                              </div>
-
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="inputFirstName" class="label">देश </label>
-                                  <input type="text" nbInput placeholder="">
-                                </div>
-                              </div>
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="inputFirstName" class="label">शिर </label>
-                                  <input type="text" nbInput placeholder="">
-                                </div>
-                              </div>
 
 
+                    </nb-accordion-item-body>
+                  </nb-accordion-item>
+                </nb-accordion>
 
-
-
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="inputDate" class="label">सो स्थान गमन भएको भमती (भदन/ मभिना/वर्ष) </label>
-                                  <input [nbDatepicker]="datepicker">
-                                  <nb-datepicker #datepicker></nb-datepicker> <br/>
-                                </div>
-                              </div>
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="inputDate" class="label">नेपाल आगमनको भमती (भदन/मभिना/वर्ष) </label>
-                                  <input [nbDatepicker]="datepicker">
-                                  <nb-datepicker #datepicker></nb-datepicker> <br/>
-                                </div>
-                              </div>
-
-
-
-
-
-
-
-
-
-
-                            </nb-accordion-item-body>
-                          </nb-accordion-item>
-                        </nb-accordion>
-
-                        <!--part5-->
-
-                        <nb-accordion>
-                          <nb-accordion-item>
-                            <nb-accordion-item-header>भाग ५. भबरामीको व्यवस्थापन सम्बन्धी </nb-accordion-item-header>
-                            <nb-accordion-item-body>
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="" class="label"
-                                  >अस्पतालमा भनाष भएको/आइसोलेसनमा </label
-                                  >
-                                  <div class="col-sm-6">
-                                    <nb-radio-group id="inputCaseStatus" class="row">
-                                      <nb-radio>छैन</nb-radio>
-                                      <nb-radio>छ</nb-radio>
-
-                                    </nb-radio-group>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="inputDate" class="label">यभद छ भने, अस्पतालमा भनाष भएको भमती (भदन/ मभिना/ वर्ष) </label>
-                                  <input [nbDatepicker]="datepicker">
-                                  <nb-datepicker #datepicker></nb-datepicker> <br/>
-                                </div>
-                              </div>
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="inputFirstName" class="label">भनाष भएको अस्पतालको नाम </label>
-                                  <input type="text" nbInput placeholder="">
-                                </div>
-                              </div>
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="" class="label"
-                                  >आइसोलेसनको स्थानीः </label
-                                  >
-                                  <div class="col-sm-6">
-                                    <nb-radio-group id="inputCaseStatus" class="row">
-                                      <nb-radio>घर</nb-radio>
-                                      <nb-radio>संस्था</nb-radio>
-
-                                    </nb-radio-group>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="inputFirstName" class="label">नाम र ठेगाना उल्लेि गनुषिोस</label>
-                                  <input type="text" nbInput placeholder="">
-                                </div>
-                              </div>
-
-
-
-
-
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="inputDate" class="label">आइसोलेसनको भमती (भदन/मभिना/ वर्ष) </label>
-                                  <input [nbDatepicker]="datepicker">
-                                  <nb-datepicker #datepicker></nb-datepicker> <br/>
-                                </div>
-                              </div>
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="" class="label"
-                                  >भबरामीलाई भेक्लन्टलेसनमा रािेको </label
-                                  >
-                                  <div class="col-sm-6">
-                                    <nb-radio-group id="inputCaseStatus" class="row">
-                                      <nb-radio>छैन</nb-radio>
-                                      <nb-radio>छ</nb-radio>
-                                      <nb-radio>थािा छैन</nb-radio>
-
-                                    </nb-radio-group>
-                                  </div>
-                                </div>
-                              </div>
-
-                            </nb-accordion-item-body>
-                          </nb-accordion-item>
-                        </nb-accordion>
-
-                        <!--PART 6-->
-
-                        <nb-accordion>
-                          <nb-accordion-item>
-                            <nb-accordion-item-header>भाग ६. संभाभवत संक्रमणको श्रोत पत्ता लगाउन मदत गने प्रश्निरु (Exposure History)
-                              नोिीः भय प्रश्निरु भनदेशनको लागी हुन॰ संभाभवत संक्रमणको श्रोत पत्ता नलगाउनजेल थप प्रश्निरु सोध्नसक्ने॰
-                            </nb-accordion-item-header>
-                            <nb-accordion-item-body>
-
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="inputDate" class="label">लक्षण देक्लिएको के सिरुमा लक्षण देक्लिएको १४ भदन अगाडी वा लक्षण नदेक्लिएको के सिरुमा नमुना संकलन गररको भमतीबाि ६ िप्ता अगाडीको ररफरेन्स भमती (भदन/ मभिना/वर्ष) </label>
-                                  <input [nbDatepicker]="datepicker">
-                                  <nb-datepicker #datepicker></nb-datepicker> <br/>
-                                </div>
-                              </div>
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="" class="label"
-                                  >के के सको कोभभड–१९ को संक्रमण भएको ठााँउबाि आएका वा सो ठााँउबाि आएका कु नै व्यक्लि सम्पकष भएको संग सम्पकष भएको छ </label
-                                  >
-                                  <div class="col-sm-6">
-                                    <nb-radio-group id="inputCaseStatus" class="row">
-                                      <nb-radio>छ</nb-radio>
-                                      <nb-radio>छैन</nb-radio>
-                                      <nb-radio>थािा छैन</nb-radio>
-
-                                    </nb-radio-group>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="" class="label"
-                                  >यभद छ भने </label
-                                  >
-                                  <div class="col-sm-6">
-                                    <nb-radio-group id="inputCaseStatus" class="row">
-                                      <nb-radio>देश भभिै</nb-radio>
-                                      <nb-radio>देश बाभिर</nb-radio>
-                                    </nb-radio-group>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="inputFirstName" class="label">नाम </label>
-                                  <input type="text" nbInput placeholder="">
-                                </div>
-                              </div>
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="inputFirstName" class="label">सम्बन्धीः </label>
-                                  <input type="text" nbInput placeholder="">
-                                </div>
-                              </div>
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="inputDate" class="label">यभद छ भने, अस्पतालमा भनाष भएको भमती (भदन/ मभिना/ वर्ष) </label>
-                                  <input [nbDatepicker]="datepicker">
-                                  <nb-datepicker #datepicker></nb-datepicker> <br/>
-                                </div>
-                              </div>
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="inputFirstName" class="label">आएको ठााँउ/ देश को नामीः </label>
-                                  <input type="text" nbInput placeholder="">
-                                </div>
-                              </div>
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="" class="label"
-                                  >के के सले कु नै चाडपवषमा वा हुल जम्मा वा सावषजभनक ठााँउिरुमा (बजार, एयरपोिष/ बसपाकष , भचया पसल, प्राथना गने ठााँउ) गएको छ </label
-                                  >
-                                  <div class="col-sm-6">
-                                    <nb-radio-group id="inputCaseStatus" class="row">
-                                      <nb-radio>छ</nb-radio>
-                                      <nb-radio>छैन</nb-radio>
-                                      <nb-radio>थािा छैन</nb-radio>
-
-                                    </nb-radio-group>
-                                  </div>
-                                </div>
-                              </div>
-
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="inputFirstName" class="label">यभद छ भने, उल्लेि गनुषिोला (किााँ र कभिले)</label>
-                                  <input type="text" nbInput placeholder="">
-                                </div>
-                              </div>
-
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="" class="label"
-                                  >के के स उस्तै भबरामी भएको व्यक्लिसंग सम्पकष मा आएको िो? </label
-                                  >
-                                  <div class="col-sm-6">
-                                    <nb-radio-group id="inputCaseStatus" class="row">
-                                      <nb-radio>िो</nb-radio>
-                                      <nb-radio>िोइन</nb-radio>
-                                      <nb-radio>थािा छैन</nb-radio>
-
-                                    </nb-radio-group>
-                                  </div>
-                                </div>
-                              </div>
-
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="inputFirstName" class="label">यभद छ भने, उल्लेि गनुषिोलाीः (कोसंग, किााँ र कभिले)</label>
-                                  <input type="text" nbInput placeholder="">
-                                </div>
-                              </div>
-
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="" class="label"
-                                  >के के सले कु नै स्वास्थ्य संस्था/ अस्पताल/ धामी–झााँक्री/ भनजी क्लिभनक/ और्धी पसल/ ल्याब गएको छ? </label
-                                  >
-                                  <div class="col-sm-6">
-                                    <nb-radio-group id="inputCaseStatus" class="row">
-                                      <nb-radio>छ</nb-radio>
-                                      <nb-radio>छैन</nb-radio>
-                                      <nb-radio>थािा छैन</nb-radio>
-
-                                    </nb-radio-group>
-                                  </div>
-                                </div>
-                              </div>
-
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="inputFirstName" class="label">यभद छ भने, उल्लेि गनुषिोलाीः (कोसंग, किााँ र कभिले)</label>
-                                  <input type="text" nbInput placeholder="">
-                                </div>
-                              </div>
-
-
-                              <nb-card>
-                                <nb-card-body class="example-items-col">
-                                  <label for="inputFirstName" class="label">संभाभवत संक्रमणको संभाभवत श्रोत पत्ता लगाउने िाले कु नै कथा वा थप जानकारी</label>
-                                  <textarea nbInput fullWidth placeholder=""></textarea>
-                                </nb-card-body>
-                              </nb-card>
-
-
-
-
-
-
-                            </nb-accordion-item-body>
-                          </nb-accordion-item>
-                        </nb-accordion>
-
-                        <!--PART 7-->
-
-
-                        <nb-accordion>
-                          <nb-accordion-item>
-                            <nb-accordion-item-header>भाग ७. कन्याक्टिरुको िोज (के सले संक्रमण गरेको हुन सक्ने व्यभतको पभिचान)
-                            </nb-accordion-item-header>
-                            <nb-accordion-item-body>
-
-
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="inputDate" class="label">लक्ष्ण देक्लिएका के सिरुीः के समा लक्ष्ण देक्लिएको २ भदन अगाडी र लक्ष्ण देक्लिएको १४ भदन पभछ सम्मको
-                                    लक्ष्ण नदेक्लिएका के सिरुीः के सको भनभित गररएको नमुना संकलन गररएको ४ िप्ता अगाडी र १४ भदन पभछ सम्मको
-                                    ररफरेन्स भमतीीः (भदन/ मभिना/ वर्ष) </label>
-                                    <input [nbDatepicker]="datepicker">
-                                    <nb-datepicker #datepicker></nb-datepicker> <br/>
-                                  </div>
-                                </div>
-
-                                <div class="col-md-12">
-                                  <div class="form-group">
-                                    <label for="" class="label" style="color:black">घरधुरी </label>
-
-                                  </div>
-                                  <div class="form-group">
-                                    <div class="label" >
-                                      के स बसेको घरमा अन्य कोिी बसेको छ? </div>
-                                      <div class="col-sm-6">
-                                        <nb-radio-group id="inputCaseStatus" class="row">
-                                          <nb-radio>छ</nb-radio>
-                                          <nb-radio>छैन</nb-radio>
-                                          <nb-radio>थािा छैन</nb-radio>
-
-                                        </nb-radio-group>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                  <div class="col-md-12">
-                                    <div class="form-group">
-                                      <div class="label" >
-                                        घरमा के सलाई कसैले प्रत्यक्ष सेवा कसैले प्रदान गरेको छ? </div>
-                                        <div class="col-sm-6">
-                                          <nb-radio-group id="inputCaseStatus" class="row">
-                                            <nb-radio>छ</nb-radio>
-                                            <nb-radio>छैन</nb-radio>
-                                            <nb-radio>थािा छैन</nb-radio>
-
-                                          </nb-radio-group>
-                                        </div>
-                                      </div>
-                                    </div>
-
-
-
-
-                                    <div class="col-md-12">
-                                      <div class="form-group">
-                                        <label for="inputFirstName" class="label">यभद छ भने, भाग ८ मा नामिरुको सुची उल्लेि गनषुिोला॰</label>
-                                        <input type="text" nbInput placeholder="">
-                                      </div>
-                                    </div>
-
-                                    <div class="col-md-12">
-                                      <div class="form-group">
-                                        <label for="" class="label" style="color:black">संस्था(अस्पताल/ धामीझााँक्री/ भनजी क्लिभनक/ और्धी पसल/ ल्याब) </label>
-
-                                      </div>
-                                      <div class="form-group">
-                                        <div class="label" >
-                                          के के सलाई स्वास्थ्यकमीले प्रत्यक्ष स्वास्थ्य सेवा भदएको छ? </div>
-                                          <div class="col-sm-6">
-                                            <nb-radio-group id="inputCaseStatus" class="row">
-                                              <nb-radio>छ</nb-radio>
-                                              <nb-radio>छैन</nb-radio>
-                                              <nb-radio>थािा छैन</nb-radio>
-
-                                            </nb-radio-group>
-                                          </div>
-                                        </div>
-                                      </div>
-
-
-
-                                      <div class="col-md-12">
-                                        <div class="form-group">
-                                          <label for="inputFirstName" class="label">यभद छ भने, भाग ८ मा नामिरुको सुची उल्लेि गनषुिोला॰</label>
-                                          <input type="text" nbInput placeholder="">
-                                        </div>
-                                      </div>
-
-                                      <div class="col-md-12">
-                                        <div class="form-group">
-                                          <label for="" class="label" style="color:black">यातायात </label>
-
-                                        </div>
-                                        <div class="form-group">
-                                          <div class="label" >
-                                            के के सले कु नै सावषजभनक यातायातको साधनमा यािा गरेको छ?</div>
-                                            <div class="col-sm-6">
-                                              <nb-radio-group id="inputCaseStatus" class="row">
-                                                <nb-radio>छ</nb-radio>
-                                                <nb-radio>छैन</nb-radio>
-                                                <nb-radio>थािा छैन</nb-radio>
-
-                                              </nb-radio-group>
-                                            </div>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-md-12">
-                                          <div class="form-group">
-                                            <div class="label" >
-                                              यभद छ भने,केमा यािा गरेको िोीः</div>
-                                              <div class="col-sm-6">
-                                                <nb-radio-group id="inputCaseStatus" class="row">
-                                                  <nb-radio>प्लेन</nb-radio>
-                                                  <nb-radio>याक्सी</nb-radio>
-                                                  <nb-radio>बस/ माइक्रो</nb-radio>
-                                                  <nb-radio>िक</nb-radio>
-                                                  <nb-radio>अन्य</nb-radio>
-
-                                                </nb-radio-group>
-                                              </div>
-                                            </div>
-                                          </div>
-
-
-                                          <div class="col-md-12">
-                                            <div class="form-group">
-                                              <label for="inputDate" class="label">यािा गरेको भमतीीः </label>
-                                              <input [nbDatepicker]="datepicker">
-                                              <nb-datepicker #datepicker></nb-datepicker> <br/>
-                                            </div>
-                                          </div>
-
-                                          <div class="col-md-12">
-                                            <div class="form-group">
-                                              <label for="inputFirstName" class="label">बस/ माइक्रो/ ििक/ अन्यीः</label>
-                                              <input type="text" nbInput placeholder="">
-                                            </div>
-                                          </div>
-
-                                          <div class="col-md-12">
-                                            <div class="form-group">
-                                              <label for="inputFirstName" class="label">रुिीः</label>
-                                              <input type="text" nbInput placeholder="">
-                                            </div>
-                                          </div>
-
-                                          <div class="col-md-12">
-                                            <div class="form-group">
-                                              <label for="inputFirstName" class="label">गाडीको नंम्बरीः</label>
-                                              <input type="text" nbInput placeholder="">
-                                            </div>
-                                          </div>
-
-                                          <div class="col-md-12">
-                                            <div class="form-group">
-                                              <label for="inputFirstName" class="label">भसिको नंम्बरीः(उपलब्ध छ/ भमल्छ भने)</label>
-                                              <input type="text" nbInput placeholder="">
-                                            </div>
-                                          </div>
-
-
-                                          <div class="col-md-12">
-                                            <div class="form-group">
-                                              <label for="inputFirstName" class="label">गायाक्सीको नंम्बरीः</label>
-                                              <input type="text" nbInput placeholder="">
-                                            </div>
-                                          </div>
-
-                                          <div class="col-md-12">
-                                            <div class="form-group">
-                                              <label for="inputFirstName" class="label">याक्सीमा चढेको स्थानीः</label>
-                                              <input type="text" nbInput placeholder="">
-                                            </div>
-                                          </div>
-
-
-                                          <div class="col-md-12">
-                                            <div class="form-group">
-                                              <label for="inputFirstName" class="label">फलाइि नंम्बरीः</label>
-                                              <input type="text" nbInput placeholder="">
-                                            </div>
-                                          </div>
-
-                                          <div class="col-md-12">
-                                            <div class="form-group">
-                                              <label for="inputFirstName" class="label">भसिको नंम्बरीः</label>
-                                              <input type="text" nbInput placeholder="">
-                                            </div>
-                                          </div>
-
-                                          <div class="col-md-12">
-                                            <div class="form-group">
-                                              <label for="inputFirstName" class="label">यािा सुरु गरेको स्थानीः</label>
-                                              <input type="text" nbInput placeholder="">
-                                            </div>
-                                          </div>
-
-                                          <div class="col-md-12">
-                                            <div class="form-group">
-                                              <label for="inputFirstName" class="label">पुग्नु पने गिब्यीः</label>
-                                              <input type="text" nbInput placeholder="">
-                                            </div>
-                                          </div>
-
-                                          <div class="col-md-12">
-                                            <div class="form-group">
-                                              <label for="inputFirstName" class="label">यभद धेरै माध्यमबाि यािा गरेको छ भने,प्रत्येक यातायातको भववरण भदनुिोस्॰
-                                                यातायातमा के ससंग नभजकबाि सम्पकष भएका व्यभतिरु को–को हुन ? भाग ८ मा नामिरुको सुची उल्लेि
-                                                गनुषिोला॰</label>
-                                              </div>
-                                            </div>
-
-
-                                            <div class="col-md-12">
-                                              <div class="form-group">
-                                                <label for="" class="label" style="color:black">कायाषलय वा कक्षाकोठा </label>
-
-                                              </div>
-                                              <div class="form-group">
-                                                <div class="label" >
-                                                  के के स भवद्यालय/ कायाषलय गएको छ?</div>
-                                                  <div class="col-sm-6">
-                                                    <nb-radio-group id="inputCaseStatus" class="row">
-                                                      <nb-radio>छ</nb-radio>
-                                                      <nb-radio>छैन</nb-radio>
-                                                      <nb-radio>थािा छैन</nb-radio>
-
-                                                    </nb-radio-group>
-                                                  </div>
-                                                </div>
-                                              </div>
-
-                                              <div class="col-md-12">
-                                                <div class="form-group">
-                                                  <label for="inputFirstName" class="label">यभद छ भने, भवद्यालय/ कायाषलयको नाम उल्लेि गनुषिोला</label>
-                                                </div>
-                                              </div>
-
-                                              <div class="col-md-12">
-                                                <div class="form-group">
-                                                  <label for="inputFirstName" class="label">ठे गानाीः</label>
-                                                  <input type="text" nbInput placeholder="">
-                                                </div>
-                                              </div>
-
-                                              <div class="col-md-12">
-                                                <div class="form-group">
-                                                  <label for="inputFirstName" class="label">फोन नंम्बरीः</label>
-                                                  <input type="text" nbInput placeholder="">
-                                                </div>
-                                              </div>
-
-                                              <div class="col-md-12">
-                                                <div class="form-group">
-                                                  <label for="inputFirstName" class="label">सुपररवेक्षक/ प्रधानाध्यापकको नामीः</label>
-                                                  <input type="text" nbInput placeholder="">
-                                                </div>
-                                              </div>
-
-                                              <div class="col-md-12">
-                                                <div class="form-group">
-                                                  <label for="inputFirstName" class="label">के ससंग नभजकबाि सम्पकष (कन्याक्ट) भएका
-                                                    के ससंग नभजकबाि सम्पकष (कन्याक्ट) भएका व्यक्लििरु
-                                                    को–को हुन ? भाग ८ मा नामिरुको सुची उल्लेि गनुषिोला॰</label>
-                                                  </div>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                  <div class="form-group">
-                                                    <label for="" class="label" style="color:black">अन्य बन्द वातावरणिरु </label>
-
-                                                  </div>
-                                                  <div class="form-group">
-                                                    <div class="label" >
-                                                      के के सले कसैसाँग अन्य बन्द वातावरणिरुमा (क्वारानिाइन, िोिल/
-                                                      रेिुरेन्ट नभजकको सम्पकष मा कोिी आएका छ?</div>
-                                                      <div class="col-sm-6">
-                                                        <nb-radio-group id="inputCaseStatus" class="row">
-                                                          <nb-radio>छ</nb-radio>
-                                                          <nb-radio>छैन</nb-radio>
-                                                          <nb-radio>थािा छैन</nb-radio>
-
-                                                        </nb-radio-group>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-
-
-
-                                                  <div class="col-md-12">
-                                                    <div class="form-group">
-                                                      <label for="inputFirstName" class="label">के ससंग नभजकबाि सम्पकष (कन्याक्ट) भएका व्यक्लििरु को–को हुन ? भाग ८ मा नामिरुको सुची उल्लेि गनुषिोला॰</label>
-                                                      <input type="text" nbInput placeholder="">
-                                                    </div>
-                                                  </div>
-
-
-                                                  <div class="col-md-12">
-                                                    <div class="form-group">
-                                                      <label for="" class="label" style="color:black">सामाभजक कन्याक्ट </label>
-
-                                                    </div>
-                                                    <div class="form-group">
-                                                      <div class="label" >
-                                                        के के सले कु नै साथी/नातेदार/भछमेकी वा अरु कसैले भेिेको छ?</div>
-                                                        <div class="col-sm-6">
-                                                          <nb-radio-group id="inputCaseStatus" class="row">
-                                                            <nb-radio>छ</nb-radio>
-                                                            <nb-radio>छैन</nb-radio>
-                                                            <nb-radio>थािा छैन</nb-radio>
-
-                                                          </nb-radio-group>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-
-
-
-                                                    <div class="col-md-12">
-                                                      <div class="form-group">
-                                                        <label for="inputFirstName" class="label">यभद छ भने, के ससंग नभजकबाि सम्पकष (कन्याक्ट)
-                                                          भएका व्यक्लििरु को–को हुन ?भाग ८ मा नामिरुको सुची उल्लेि गनुषिोला॰</label>
-                                                          <input type="text" nbInput placeholder="">
-                                                        </div>
-                                                      </div>
-
-
-                                                      <div class="col-md-12">
-                                                        <div class="form-group">
-                                                          <label for="" class="label" style="color:black">कायषक्रमिरु</label>
-
-                                                        </div>
-                                                        <div class="form-group">
-                                                          <div class="label" >
-                                                            के के स कु नै सामाभजक कायषक्रम/भोज/ हुलमुल/ धामीकसेवािरुमा समावेश हुन गएको छ ?</div>
-                                                            <div class="col-sm-6">
-                                                              <nb-radio-group id="inputCaseStatus" class="row">
-                                                                <nb-radio>छ</nb-radio>
-                                                                <nb-radio>छैन</nb-radio>
-                                                                <nb-radio>थािा छैन</nb-radio>
-
-                                                              </nb-radio-group>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-
-                                                        <div class="col-md-12">
-                                                          <div class="form-group">
-                                                            <label for="inputFirstName" class="label">यभद छ भने, सामाभजक कायषक्रम/ संयोजकको नामिरु उल्लेि गनुषिोस्</label>
-                                                          </div>
-                                                        </div>
-
-                                                        <div class="col-md-12">
-                                                          <div class="form-group">
-                                                            <label for="inputFirstName" class="label">ठे गानाीः</label>
-                                                            <input type="text" nbInput placeholder="">
-                                                          </div>
-                                                        </div>
-
-                                                        <div class="col-md-12">
-                                                          <div class="form-group">
-                                                            <label for="inputFirstName" class="label">फोन नंम्बरीः</label>
-                                                            <input type="text" nbInput placeholder="">
-                                                          </div>
-                                                        </div>
-
-                                                        <div class="col-md-12">
-                                                          <div class="form-group">
-                                                            <label for="inputFirstName" class="label">कायषक्रमको भमतीीः</label>
-                                                            <input type="text" nbInput placeholder="">
-                                                          </div>
-                                                        </div>
-
-                                                        <div class="col-md-12">
-                                                          <div class="form-group">
-                                                            <label for="inputFirstName" class="label">के ससंग नभजकबाि सम्पकष (कन्याक्ट) भएका व्यक्लििरु
-                                                              को–को हुन ? भाग ८ मा नामिरुको सुची उल्लेि गनुषिोला॰</label>
-                                                            </div>
-                                                          </div>
-
-                                                          <div class="col-md-12">
-                                                            <div class="form-group">
-                                                              <label for="inputFirstName" class="label">के ससाँग सम्पकष भएका कन्याक्टिरु पत्ता लगाउने िाले कु नै पभन भवस्तृत जानकारीिरुीः</label>
-                                                              <input type="text" nbInput placeholder="">
-                                                            </div>
-                                                          </div>
-
-
-                                                          <div class="col-md-12">
-                                                            <div class="form-group">
-                                                              <div class="label" >
-                                                                भाग छ मा एक वा धेरै कन्टयाक्टिरु पत्ता लागेका छन् भक छैनन् ?</div>
-                                                                <div class="col-sm-6">
-                                                                  <nb-radio-group id="inputCaseStatus" class="row">
-                                                                    <nb-radio>छ</nb-radio>
-                                                                    <nb-radio>छैन</nb-radio>
-
-
-                                                                  </nb-radio-group>
-                                                                </div>
-                                                              </div>
-                                                            </div>
-
-
-                                                          </nb-accordion-item-body>
-                                                        </nb-accordion-item>
-                                                      </nb-accordion>
-
-                                                      <nb-accordion>
-                                                        <nb-accordion-item>
-                                                          <nb-accordion-item-header>भाग ७.१. जानकारी संकलन गनेको जानकारी</nb-accordion-item-header>
-                                                          <nb-accordion-item-body>
-
-
-
-
-
-
-
-
-
-                                                            <div class="col-md-12">
-                                                              <div class="form-group">
-                                                                <label for="inputFirstName" class="label">नामीः </label>
-                                                                <input type="text" nbInput placeholder="">
-                                                              </div>
-                                                            </div>
-
-                                                            <div class="col-md-12">
-                                                              <div class="form-group">
-                                                                <label for="inputFirstName" class="label">सम्पकष नंम्बरीः</label>
-                                                                <input type="text" nbInput placeholder="">
-                                                              </div>
-                                                            </div>
-
-                                                            <div class="col-md-12">
-                                                              <div class="form-group">
-                                                                <label for="inputFirstName" class="label">संस्थाीः </label>
-                                                                <input type="text" nbInput placeholder="">
-                                                              </div>
-                                                            </div>
-
-                                                            <div class="col-md-12">
-                                                              <div class="form-group">
-                                                                <label for="inputFirstName" class="label">इमेल ठेगानाीः</label>
-                                                                <input type="text" nbInput placeholder="">
-                                                              </div>
-                                                            </div>
-
-
-
-
-
-                                                            <div class="col-md-12">
-                                                              <div class="form-group">
-                                                                <label for="inputDate" class="label">फाराम पूरा गरेको भमतीीः (भदन/मभिना/वर्ष) </label>
-                                                                <input [nbDatepicker]="datepicker">
-                                                                <nb-datepicker #datepicker></nb-datepicker> <br/>
-                                                              </div>
-                                                            </div>
-
-
-
-
-
-
-
-
-
-
-                                                          </nb-accordion-item-body>
-                                                        </nb-accordion-item>
-                                                      </nb-accordion>
-
-                                                      <!--PART 8-->
-
-                                                      <nb-accordion>
-                                                        <nb-accordion-item>
-                                                          <nb-accordion-item-header>भाग ८. कन्ट्याक्टहरुको सूचि</nb-accordion-item-header>
-                                                          <nb-accordion-item-body>
-
-
-
-
 
 
 
 
 
-                                                            <div class="col-md-12">
-                                                              <div class="form-group">
-                                                                <label for="inputFirstName" class="label">सं.नं </label>
-                                                                <input type="text" nbInput placeholder="">
-                                                              </div>
-                                                            </div>
-
-                                                            <div class="col-md-12">
-                                                              <div class="form-group">
-                                                                <label for="inputFirstName" class="label">सं.नं भलड्ड</label>
-                                                                <input type="text" nbInput placeholder="">
-                                                              </div>
-                                                            </div>
 
-                                                            <div class="col-md-12">
-                                                              <div class="form-group">
-                                                                <label for="inputFirstName" class="label">संस्थाीः </label>
-                                                                <input type="text" nbInput placeholder="">
-                                                              </div>
-                                                            </div>
 
-                                                            <div class="col-md-12">
-                                                              <div class="form-group">
-                                                                <label for="inputFirstName" class="label">इमेल ठेगानाीः</label>
-                                                                <input type="text" nbInput placeholder="">
-                                                              </div>
-                                                            </div>
+                <div class=""><br></div>
 
-                                                            <div class="col-md-12">
-                                                              <div class="form-group">
-                                                                <label for="inputFirstName" class="label">सं.नं भलड्ड</label>
-                                                                <input type="text" nbInput placeholder="">
-                                                              </div>
-                                                            </div>
 
-                                                            <div class="col-md-12">
-                                                              <div class="form-group">
-                                                                <label for="inputFirstName" class="label">संस्थाीः </label>
-                                                                <input type="text" nbInput placeholder="">
-                                                              </div>
-                                                            </div>
 
-                                                            <div class="col-md-12">
-                                                              <div class="form-group">
-                                                                <label for="inputFirstName" class="label">इमेल ठेगानाीः</label>
-                                                                <input type="text" nbInput placeholder="">
-                                                              </div>
-                                                            </div>
 
 
 
 
 
-                                                            <div class="col-md-12">
-                                                              <div class="form-group">
-                                                                <label for="inputDate" class="label">फाराम पूरा गरेको भमतीीः (भदन/मभिना/वर्ष) </label>
-                                                                <input [nbDatepicker]="datepicker">
-                                                                <nb-datepicker #datepicker></nb-datepicker> <br/>
-                                                              </div>
-                                                            </div>
 
 
 
+              </nb-accordion-item-body>
+            </nb-accordion-item>
+          </nb-accordion>
 
 
+          <nb-accordion>
+            <nb-accordion-item>
+              <nb-accordion-item-header>भाग २. क्लिनिकल जानकारी</nb-accordion-item-header>
+              <nb-accordion-item-body>
 
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">२.१ हाल लक्षण देखिएको </label>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन(यदि छैन भने,२.३ को उत्तर दिनु आवश्यक छैन)</nb-radio>
 
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
 
 
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">२.२ यदि छैन भने, पछिल्लो ४ हप्तामा कोभिड -19(को लक्षण देखिएको)</label>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन(तलका लक्षणहरू हेर्नुहोस्, यदि छैन भने,२.३ को उत्तर दिनु आवश्यक छैन)</nb-radio>
 
-                                                          </nb-accordion-item-body>
-                                                        </nb-accordion-item>
-                                                      </nb-accordion>
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
 
 
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">२.३ यदि २.१ र २.२ मा छैन भने,केस अनुसन्धानकरताले
+                      टेस्टिंगको चिन्हको सुचि तयार गरनुहोला
+                      : </label>
 
+                  </div>
+                </div>
 
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">यदि २.१ र २.२ मा उत्तर छ भने, लक्षणहरू देखा परेको
+                      मिति(दिन/महिना): </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                  </div>
+                </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                                      <button nbButton matRipple nbStepperPrevious>prev</button>
-                                                      <button nbButton disabled nbStepperNext>next</button>
-                                                    </nb-step>
-                                                  </nb-stepper>
-                                                </nb-card-body>
-                                                <nb-card-footer>
-                                                  Interim reporting form for confirmed or probable cases of COVID-19
-                                                </nb-card-footer>
-                                              </nb-card>
-                                            </nb-layout-column>
-                                          </nb-layout>
-
-
-
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">यदि २.१ र २.२ मा उत्तर छ भने, रिपोर्ट गरेको सबै लक्षणहरुमा सही चिन्ह
+                      गर्नुहोस्: </label>
+                    <div class="col-sm-12">
+                      <nb-card>
+                        <nb-card-body class="example-items-rows">
+                          <nb-checkbox matRipple status="basic"> History of fever / chills | ज्वरो </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> General weakness | कमजोरी </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Cough | खोकी </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Sore Throat | घाँटी दुख्ने </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Runny nose | नाक बग्नु</nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Shortness of breath | सास फेर्न गाह्रो </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Diarrhea | पखाला</nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Nausea/Vomiting | मतली / बान्ता</nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Headache | टाउको दुखाइ</nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Irritability/Confusion | चिडचिड / भ्रम </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Loss of taste | स्वाद हराउनु </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Loss of smell | गन्ध हराउनु</nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Pain(check all that apply) | लागू हुने सबैमा टिक गर्नुहोस्
+                          </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Muscular  | मांसपेशी </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Chest | छाती </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Abdominal | पेट </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Joint | जोइन्ट </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Other, specify | अन्य, निर्दिष्ट गर्नुहोस् </nb-checkbox>
+                        </nb-card-body>
+                      </nb-card>
+
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">बिरामीको लक्षणहरु, सही चिन्ह गर्नुहोस्: </label>
+                    <div class="col-sm-12">
+                      <nb-card>
+                        <nb-card-body class="example-items-rows">
+                          <nb-checkbox matRipple status="basic"> Pharyngeal exudate</nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Conjunctival injection (red eye) </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Seizure </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Coma </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Dyspnea / tachypnea (DB/Fast breathing)</nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Abnormal lung auscultation</nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Abnormal lung x-ray/CT scan findings</nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> None</nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Other, specify | अन्य, निर्दिष्ट गर्नुहोस् </nb-checkbox>
+                        </nb-card-body>
+                      </nb-card>
+
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">रेिांभकत मेभडकल अवस्थािरु तथा अन्य अस्वस्थता (मेभडकल रेकोडषको सिायताले)
+                      (भमल्दोमा ठीक भचन्ह लगाउनु िोला) </label>
+                    <div class="col-sm-12">
+                      <nb-card>
+                        <nb-card-body class="example-items-rows">
+                          <nb-checkbox matRipple status="basic"> गभाषवस्था (िैमाभसक) </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> सुत्के रीवस्था (६ िप्ता) </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> मुिु सम्बन्धी रोग, रिचाप सभित</nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> मधुमेि </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> कलेजोको रोग</nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> नसा सम्बन्धी रोग</nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> मृगौलाको रोगिरु </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> ु पोर्ण</nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> अिोइम्युन रोगिरु </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> इम्युनोडेभफभशयन्सी, एच.आईभी सभित</nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Malignancy म्याभलगनेन्शी
+                          </nb-checkbox>
+                          <nb-checkbox matRipple status="basic">फोक्सोको दीघष रोग/दम/धमनी</nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Other, specify अन्य, निर्दिष्ट गर्नुहोस् </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> कु नै पभन छैन </nb-checkbox>
+
+                        </nb-card-body>
+                      </nb-card>
+
+                    </div>
+                  </div>
+                </div>
+
+
+              </nb-accordion-item-body>
+            </nb-accordion-item>
+          </nb-accordion>
+
+          <button nbButton disabled nbStepperNext>prev</button>
+          <button nbButton matRipple nbStepperNext>next</button>
+        </nb-step>
+        <nb-step label>
+
+          <nb-accordion>
+            <nb-accordion-item>
+              <nb-accordion-item-header>भाग ३. प्रयोगशालाको जानकारी</nb-accordion-item-header>
+              <nb-accordion-item-body>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">संकभलत नमुनािरु (Nasopharyngeal -नाकबाि))</label>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">नमुना संकलन
+                      गररएको भमती (भदन/मभिना/वर्ष) </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">नमुना पठाएको भमती (भदन/मभिना/वर्ष) </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                  </div>
+                </div>
+
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">यभद नमुना जााँचको नभतजा थािा भयो भने(नभतजा थािा भएको भमती
+                      (भदन/मभिना/वर्ष)) </label>
+                    <input [nbDatepicker]="resultDatepicker">
+                    <nb-datepicker #resultDatepicker></nb-datepicker> <br />
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">यभद नमुना जााँचको नभतजा थािा भयो भने(नभतजा) </label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">Oropharyngeal (Throat) -घािीबाि</label>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">नमुना संकलन
+                      गररएको भमती (भदन/मभिना/वर्ष) </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">नमुना पठाएको भमती (भदन/मभिना/वर्ष) </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                  </div>
+                </div>
+
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">यभद नमुना जााँचको नभतजा थािा भयो भने(नभतजा थािा भएको भमती
+                      (भदन/मभिना/वर्ष)) </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">यभद नमुना जााँचको नभतजा थािा भयो भने(नभतजा) </label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">अन्य (उल्लेि गनुष______________)</label>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">नमुना संकलन
+                      गररएको भमती (भदन/मभिना/वर्ष) </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">नमुना पठाएको भमती (भदन/मभिना/वर्ष) </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                  </div>
+                </div>
+
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">यभद नमुना जााँचको नभतजा थािा भयो भने(नभतजा थािा भएको भमती
+                      (भदन/मभिना/वर्ष)) </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">यभद नमुना जााँचको नभतजा थािा भयो भने(नभतजा) </label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">अन्य भए (उल्लेि गन </label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">नमुना पठाइएको स्थानीः)</label>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>NPHL</nb-radio>
+                        <nb-radio>Non-NPHL</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">कोभभड-१९ पत्ता लगाउन स्वास्थ्य संस्थामा/अन्य कु नै प्रयोगशालामा कु नै
+                      जााँच गररएको छ?</label>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छै न</nb-radio>
+                        <nb-radio>छ</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">यभद छ भने, जााँचको नामीः </label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">जााँचको नभतजाीः </label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+              </nb-accordion-item-body>
+            </nb-accordion-item>
+          </nb-accordion>
+
+
+          <nb-accordion>
+            <nb-accordion-item>
+              <nb-accordion-item-header>भाग ४ लक्षण देक्लिएको के सिरुमा लक्ष्ण देक्लिएको १४ भदन अगाडी वा लक्ष्ण
+                नदेक्लिएको के सिरुमा नमुना संकलन गररएकोभमतीबाि ६ िप्ता अगाडीको सम्पकष र यािाको जानकारीिरु <label
+                  for="inputDate" class="label" style="color:black">नमुना पठाएको भमती (भदन/मभिना/वर्ष) </label>
+                <input [nbDatepicker]="datepicker">
+                <nb-datepicker #datepicker></nb-datepicker>
+              </nb-accordion-item-header>
+              <nb-accordion-item-body>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">पेशा (भमल्नेमा ठीक भचन्ह लगाउनु िोला) </label>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>भवद्याथी</nb-radio>
+                        <nb-radio>स्वास्थ्यकमी</nb-radio>
+                        <nb-radio>स्वास्थ्य प्रयोगशाला कायषकताष</nb-radio>
+                        <nb-radio>जनावरसंग काम गने</nb-radio>
+                        <nb-radio>सेक्युररिी</nb-radio>
+                        <nb-radio>िोिेल/ रेिुरेन्ट/ बारिरु</nb-radio>
+                        <nb-radio>फोिर व्यवस्थापनको काम गने</nb-radio>
+                        <nb-radio>अन्य (िुलाउनुिोस्)</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">के भबरामीले लक्ष्ण देक्लिनु भन्दा १४ भदन अगाडी वा लक्ष्ण नदेक्लिएको के
+                      सिरुमा नमुना संकलनका गररको भमतीबाि ६ िप्ता अगाडी कतै यािा गरेको भथयो ]</label>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>भथयो</nb-radio>
+                        <nb-radio>भथएन</nb-radio>
+                        <nb-radio> थािा छै न यभद छ भने, ठााँउिरु उल्लेि गनुषिोस्</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">देश </label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">शिर
+                       </label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+
+
+
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">सो स्थान गमन भएको भमती (भदन/ मभिना/वर्ष) </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">नेपाल आगमनको भमती (भदन/मभिना/वर्ष) </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+              </nb-accordion-item-body>
+            </nb-accordion-item>
+          </nb-accordion>
+
+          <!--part5-->
+
+          <nb-accordion>
+            <nb-accordion-item>
+              <nb-accordion-item-header>भाग ५. भबरामीको व्यवस्थापन सम्बन्धी </nb-accordion-item-header>
+              <nb-accordion-item-body>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">अस्पतालमा भनाष भएको/आइसोलेसनमा </label>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छैन</nb-radio>
+                        <nb-radio>छ</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">यभद छ भने, अस्पतालमा भनाष भएको भमती (भदन/ मभिना/ वर्ष) </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">भनाष भएको अस्पतालको नाम </label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">आइसोलेसनको स्थानीः </label>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>घर</nb-radio>
+                        <nb-radio>संस्था</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">नाम र ठेगाना उल्लेि गनुषिोस</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+
+
+
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">आइसोलेसनको भमती (भदन/मभिना/ वर्ष) </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">भबरामीलाई भेक्लन्टलेसनमा रािेको </label>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छैन</nb-radio>
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>थािा छैन</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+              </nb-accordion-item-body>
+            </nb-accordion-item>
+          </nb-accordion>
+
+          <!--PART 6-->
+
+          <nb-accordion>
+            <nb-accordion-item>
+              <nb-accordion-item-header>भाग ६. संभाभवत संक्रमणको श्रोत पत्ता लगाउन मदत गने प्रश्निरु (Exposure History)
+                नोिीः भय प्रश्निरु भनदेशनको लागी हुन॰ संभाभवत संक्रमणको श्रोत पत्ता नलगाउनजेल थप प्रश्निरु सोध्नसक्ने॰
+              </nb-accordion-item-header>
+              <nb-accordion-item-body>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">लक्षण देक्लिएको के सिरुमा लक्षण देक्लिएको १४ भदन अगाडी वा लक्षण
+                      नदेक्लिएको के सिरुमा नमुना संकलन गररको भमतीबाि ६ िप्ता अगाडीको ररफरेन्स भमती (भदन/ मभिना/वर्ष)
+                    </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">के के सको कोभभड–१९ को संक्रमण भएको ठााँउबाि आएका वा सो ठााँउबाि आएका कु
+                      नै व्यक्लि सम्पकष भएको संग सम्पकष भएको छ </label>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन</nb-radio>
+                        <nb-radio>थािा छैन</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">यभद छ भने </label>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>देश भभिै</nb-radio>
+                        <nb-radio>देश बाभिर</nb-radio>
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">नाम </label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">सम्बन्धीः </label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">यभद छ भने, अस्पतालमा भनाष भएको भमती (भदन/ मभिना/ वर्ष) </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">आएको ठााँउ/ देश को नामीः </label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">के के सले कु नै चाडपवषमा वा हुल जम्मा वा सावषजभनक ठााँउिरुमा (बजार,
+                      एयरपोिष/ बसपाकष , भचया पसल, प्राथना गने ठााँउ) गएको छ </label>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन</nb-radio>
+                        <nb-radio>थािा छैन</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">यभद छ भने, उल्लेि गनुषिोला (किााँ र कभिले)</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">के के स उस्तै भबरामी भएको व्यक्लिसंग सम्पकष मा आएको िो? </label>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>िो</nb-radio>
+                        <nb-radio>िोइन</nb-radio>
+                        <nb-radio>थािा छैन</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">यभद छ भने, उल्लेि गनुषिोलाीः (कोसंग, किााँ र
+                      कभिले)</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label">के के सले कु नै स्वास्थ्य संस्था/ अस्पताल/ धामी–झााँक्री/ भनजी क्लिभनक/
+                      और्धी पसल/ ल्याब गएको छ? </label>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन</nb-radio>
+                        <nb-radio>थािा छैन</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">यभद छ भने, उल्लेि गनुषिोलाीः (कोसंग, किााँ र
+                      कभिले)</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+
+                <nb-card>
+                  <nb-card-body class="example-items-col">
+                    <label for="inputFirstName" class="label">संभाभवत संक्रमणको संभाभवत श्रोत पत्ता लगाउने िाले कु नै
+                      कथा वा थप जानकारी</label>
+                    <textarea nbInput fullWidth placeholder=""></textarea>
+                  </nb-card-body>
+                </nb-card>
+
+
+
+
+
+
+              </nb-accordion-item-body>
+            </nb-accordion-item>
+          </nb-accordion>
+
+          <!--PART 7-->
+
+
+          <nb-accordion>
+            <nb-accordion-item>
+              <nb-accordion-item-header>भाग ७. कन्याक्टिरुको िोज (के सले संक्रमण गरेको हुन सक्ने व्यभतको पभिचान)
+              </nb-accordion-item-header>
+              <nb-accordion-item-body>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">लक्ष्ण देक्लिएका के सिरुीः के समा लक्ष्ण देक्लिएको २ भदन अगाडी
+                      र लक्ष्ण देक्लिएको १४ भदन पभछ सम्मको
+                      लक्ष्ण नदेक्लिएका के सिरुीः के सको भनभित गररएको नमुना संकलन गररएको ४ िप्ता अगाडी र १४ भदन पभछ
+                      सम्मको
+                      ररफरेन्स भमतीीः (भदन/ मभिना/ वर्ष) </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label" style="color:black">घरधुरी </label>
+
+                  </div>
+                  <div class="form-group">
+                    <div class="label">
+                      के स बसेको घरमा अन्य कोिी बसेको छ? </div>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन</nb-radio>
+                        <nb-radio>थािा छैन</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="label">
+                      घरमा के सलाई कसैले प्रत्यक्ष सेवा कसैले प्रदान गरेको छ? </div>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन</nb-radio>
+                        <nb-radio>थािा छैन</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">यभद छ भने, भाग ८ मा नामिरुको सुची उल्लेि गनषुिोला॰</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label" style="color:black">संस्था(अस्पताल/ धामीझााँक्री/ भनजी क्लिभनक/ और्धी
+                      पसल/ ल्याब) </label>
+
+                  </div>
+                  <div class="form-group">
+                    <div class="label">
+                      के के सलाई स्वास्थ्यकमीले प्रत्यक्ष स्वास्थ्य सेवा भदएको छ? </div>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन</nb-radio>
+                        <nb-radio>थािा छैन</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">यभद छ भने, भाग ८ मा नामिरुको सुची उल्लेि गनषुिोला॰</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label" style="color:black">यातायात </label>
+
+                  </div>
+                  <div class="form-group">
+                    <div class="label">
+                      के के सले कु नै सावषजभनक यातायातको साधनमा यािा गरेको छ?</div>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन</nb-radio>
+                        <nb-radio>थािा छैन</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="label">
+                      यभद छ भने,केमा यािा गरेको िोीः</div>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>प्लेन</nb-radio>
+                        <nb-radio>याक्सी</nb-radio>
+                        <nb-radio>बस/ माइक्रो</nb-radio>
+                        <nb-radio>िक</nb-radio>
+                        <nb-radio>अन्य</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">यािा गरेको भमतीीः </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">बस/ माइक्रो/ ििक/ अन्यीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">रुिीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">गाडीको नंम्बरीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">भसिको नंम्बरीः(उपलब्ध छ/ भमल्छ भने)</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">गायाक्सीको नंम्बरीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">याक्सीमा चढेको स्थानीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">फलाइि नंम्बरीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">भसिको नंम्बरीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">यािा सुरु गरेको स्थानीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">पुग्नु पने गिब्यीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">यभद धेरै माध्यमबाि यािा गरेको छ भने,प्रत्येक यातायातको
+                      भववरण भदनुिोस्॰
+                      यातायातमा के ससंग नभजकबाि सम्पकष भएका व्यभतिरु को–को हुन ? भाग ८ मा नामिरुको सुची उल्लेि
+                      गनुषिोला॰</label>
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label" style="color:black">कायाषलय वा कक्षाकोठा </label>
+
+                  </div>
+                  <div class="form-group">
+                    <div class="label">
+                      के के स भवद्यालय/ कायाषलय गएको छ?</div>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन</nb-radio>
+                        <nb-radio>थािा छैन</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">यभद छ भने, भवद्यालय/ कायाषलयको नाम उल्लेि गनुषिोला</label>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">ठे गानाीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">फोन नंम्बरीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">सुपररवेक्षक/ प्रधानाध्यापकको नामीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">के ससंग नभजकबाि सम्पकष (कन्याक्ट) भएका
+                      के ससंग नभजकबाि सम्पकष (कन्याक्ट) भएका व्यक्लििरु
+                      को–को हुन ? भाग ८ मा नामिरुको सुची उल्लेि गनुषिोला॰</label>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label" style="color:black">अन्य बन्द वातावरणिरु </label>
+
+                  </div>
+                  <div class="form-group">
+                    <div class="label">
+                      के के सले कसैसाँग अन्य बन्द वातावरणिरुमा (क्वारानिाइन, िोिल/
+                      रेिुरेन्ट नभजकको सम्पकष मा कोिी आएका छ?</div>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन</nb-radio>
+                        <nb-radio>थािा छैन</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">के ससंग नभजकबाि सम्पकष (कन्याक्ट) भएका व्यक्लििरु को–को
+                      हुन ? भाग ८ मा नामिरुको सुची उल्लेि गनुषिोला॰</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label" style="color:black">सामाभजक कन्याक्ट </label>
+
+                  </div>
+                  <div class="form-group">
+                    <div class="label">
+                      के के सले कु नै साथी/नातेदार/भछमेकी वा अरु कसैले भेिेको छ?</div>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन</nb-radio>
+                        <nb-radio>थािा छैन</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">यभद छ भने, के ससंग नभजकबाि सम्पकष (कन्याक्ट)
+                      भएका व्यक्लििरु को–को हुन ?भाग ८ मा नामिरुको सुची उल्लेि गनुषिोला॰</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="" class="label" style="color:black">कायषक्रमिरु</label>
+
+                  </div>
+                  <div class="form-group">
+                    <div class="label">
+                      के के स कु नै सामाभजक कायषक्रम/भोज/ हुलमुल/ धामीकसेवािरुमा समावेश हुन गएको छ ?</div>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन</nb-radio>
+                        <nb-radio>थािा छैन</nb-radio>
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">यभद छ भने, सामाभजक कायषक्रम/ संयोजकको नामिरु उल्लेि
+                      गनुषिोस्</label>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">ठे गानाीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">फोन नंम्बरीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">कायषक्रमको भमतीीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">के ससंग नभजकबाि सम्पकष (कन्याक्ट) भएका व्यक्लििरु
+                      को–को हुन ? भाग ८ मा नामिरुको सुची उल्लेि गनुषिोला॰</label>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">के ससाँग सम्पकष भएका कन्याक्टिरु पत्ता लगाउने िाले कु नै
+                      पभन भवस्तृत जानकारीिरुीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="label">
+                      भाग छ मा एक वा धेरै कन्टयाक्टिरु पत्ता लागेका छन् भक छैनन् ?</div>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन</nb-radio>
+
+
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+
+              </nb-accordion-item-body>
+            </nb-accordion-item>
+          </nb-accordion>
+
+          <nb-accordion>
+            <nb-accordion-item>
+              <nb-accordion-item-header>भाग ७.१. जानकारी संकलन गनेको जानकारी</nb-accordion-item-header>
+              <nb-accordion-item-body>
+
+
+
+
+
+
+
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">नामीः </label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">सम्पकष नंम्बरीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">संस्थाीः </label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">इमेल ठेगानाीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+
+
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">फाराम पूरा गरेको भमतीीः (भदन/मभिना/वर्ष) </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+              </nb-accordion-item-body>
+            </nb-accordion-item>
+          </nb-accordion>
+
+          <!--PART 8-->
+
+          <nb-accordion>
+            <nb-accordion-item>
+              <nb-accordion-item-header>भाग ८. कन्ट्याक्टहरुको सूचि</nb-accordion-item-header>
+              <nb-accordion-item-body>
+
+
+
+
+
+
+
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">सं.नं </label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">सं.नं भलड्ड</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">संस्थाीः </label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">इमेल ठेगानाीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">सं.नं भलड्ड</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">संस्थाीः </label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">इमेल ठेगानाीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+
+
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputDate" class="label">फाराम पूरा गरेको भमतीीः (भदन/मभिना/वर्ष) </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+              </nb-accordion-item-body>
+            </nb-accordion-item>
+          </nb-accordion>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <button nbButton matRipple nbStepperPrevious>prev</button>
+          <button nbButton disabled nbStepperNext>next</button>
+        </nb-step>
+      </nb-stepper>
+    </nb-card-body>
+    <nb-card-footer>
+      Interim reporting form for confirmed or probable cases of COVID-19
+    </nb-card-footer>
+  </nb-card>
+</nb-layout-column>
