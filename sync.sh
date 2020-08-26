@@ -1,14 +1,5 @@
-git push
+#!/bin/bash
 
-git checkout master
-git merge develop 
+type parallel >/dev/null 2>&1 || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
 
-git checkout feature/scheduler
-git merge develop
-
-git checkout feature/wizard
-git merge develop
-
-git push
-git push
-git push 
+parallel -j 4 ./sh/metab.sh > response.log
