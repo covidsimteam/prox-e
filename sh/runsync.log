@@ -1,0 +1,30 @@
+Proceeding after confirming develop as current
+Your branch is up to date with 'origin/develop'.
+Already up to date.
+Your branch is up to date with 'origin/master'.
+Updating da79b16..d4577c3
+Fast-forward
+ README.md        | 77 +++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ md/vot/README.md |  1 +
+ 2 files changed, 77 insertions(+), 1 deletion(-)
+ create mode 100644 md/vot/README.md
+Your branch is ahead of 'origin/feature/scheduler' by 15 commits.
+  (use "git push" to publish your local commits)
+Updating da79b16..d4577c3
+Fast-forward
+ README.md        | 77 +++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ md/vot/README.md |  1 +
+ 2 files changed, 77 insertions(+), 1 deletion(-)
+ create mode 100644 md/vot/README.md
+Your branch is up to date with 'origin/feature/wizard'.
+Updating da79b16..d4577c3
+Fast-forward
+ README.md        | 77 +++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ md/vot/README.md |  1 +
+ 2 files changed, 77 insertions(+), 1 deletion(-)
+ create mode 100644 md/vot/README.md
+Your branch is up to date with 'origin/develop'.
+Your branch is ahead of 'origin/master' by 6 commits.
+  (use "git push" to publish your local commits)
+Your branch is up to date with 'origin/feature/wizard'.
+All branches are synced to develop ~~!

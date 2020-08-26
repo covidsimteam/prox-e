@@ -18,4 +18,6 @@ git merge develop
 echo "pushing..."
 git push
 
+git checkout develop
 echo "...done"
+

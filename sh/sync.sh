@@ -10,7 +10,7 @@ checkouter() {
 }
 
 syncer() {
-	branches=( develop master feature/wizard feature/schedule )
+	branches=( develop master feature/wizard feature/scheduler )
 	for d in "${branches[@]}"
 	do
 		checkouter "$d"
