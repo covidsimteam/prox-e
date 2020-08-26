@@ -16,21 +16,23 @@
 
           <div class="col-md-12">
             <div class="form-group">
-              <label for="testAgency" class="label"> {{ "fa.testAgency" | translate }}</label>
-              <input type="text" nbInput placeholder={{ t.fab.naamRaThegana | translate }}>
+              <label class="label"> {{ t.fab.naamRaThegana | translate }}
+                <input type="text" nbInput placeholder={{ t.fab.naamRaThegana | translate }}>
+              </label>
             </div>
           </div>
 
           <div class="col-md-12">
             <div class="form-group">
-              <label for="" class="label">{{ t.fa.inputCaseStatus | translate }}</label>
-              <div class="col-sm-6">
-                <nb-radio-group id="inputCaseStatus" class="row">
-                  <nb-radio>{{ t.fab.ho | translate }}</nb-radio>
-                  <nb-radio>{{ t.fab.hoina | translate }}</nb-radio>
-                  <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
-                </nb-radio-group>
-              </div>
+              <label class="label">{{ t.fa.inputCaseStatus | translate }}
+                <div class="col-sm-6">
+                  <nb-radio-group id="inputCaseStatus" class="row">
+                    <nb-radio>{{ t.fab.ho | translate }}</nb-radio>
+                    <nb-radio>{{ t.fab.hoina | translate }}</nb-radio>
+                    <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+                  </nb-radio-group>
+                </div>
+              </label>
             </div>
           </div>
 
@@ -45,8 +47,8 @@
 
           <div class="col-md-12">
             <div class="form-group">
-              <label for="inputFirstName" class="label">{{ "fa.inputCaseStatus" | translate }}</label>
-              <input type="text" nbInput placeholder={{ t.fab.naamRaThegana | translate }}>
+              <label for="inputCaseStatus" class="label">{{ t.fa.inputCaseStatus | translate }}</label>
+              <input id="inputCaseStatus" type="text" nbInput>
             </div>
           </div>
 
@@ -57,110 +59,118 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputId" class="label">{{ t.fa.uniqueEpiId | translate }}</label>
-                    <input type="text" nbInput placeholder="">
+                    <label for="uniqueEpiId" class="label">{{ t.fa.uniqueEpiId | translate }}
+                      <input type="text" nbInput placeholder="">
+                    </label>
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">{{ t.fab.naam | translate}}</label>
-                    <input type="text" nbInput placeholder={{ t.fab.naam | translate}}>
+                    <label class="label">{{ t.fab.naam | translate}}
+                      <input type="text" nbInput placeholder={{ t.fab.naam | translate}}>
+                    </label>
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">आमा बुवा श्रीमान श्रीमतीको नाम: </label>
-                    <input type="text" nbInput placeholder="नाम र ठेगाना">
-                  </div>
-                </div>
-
-
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label for="inputDate" class="label">उमेर(दिन/महिना): </label>
-                    <input [nbDatepicker]="datepicker">
-                    <nb-datepicker #datepicker></nb-datepicker> <br />
-                  </div>
-                </div>
-
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label for="inputFirstName" class="label">राष्ट्रियता: </label>
-                    <input type="text" nbInput placeholder="">
-                  </div>
-                </div>
-
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label for="inputFirstName" class="label">फोन नम्बर: </label>
-                    <input type="text" nbInput placeholder="">
+                    <label class="label">{{ t.fa.parentsOrSpouse | translate }}</label>
+                    <input type="text" nbInput placeholder={{ t.fab.naamRaThegana | translate }}>
                   </div>
                 </div>
 
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">
-                      अन्य सम्पर्क फोन नम्बर: </label>
-                    <input type="text" nbInput placeholder="">
+                    <label class="label"> {{ t.fa.age | translate }}
+                      <input [nbDatepicker]="agePicker">
+                      <nb-datepicker #agePicker></nb-datepicker> <br />
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="label"> {{ t.fa.country | translate}}
+                      <input type="text" nbInput placeholder="">
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="label"> {{ t.fa.phoneNumber | translate}}
+                      <input type="text" nbInput placeholder="">
+                    </label>
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="label">
+                      {{ t.fa.phoneOther | translate}}
+                      <input type="text" nbInput placeholder="">
+                    </label>
                   </div>
                 </div>
 
                 <nb-accordion>
                   <nb-accordion-item>
-                    <nb-accordion-item-header>हालको ठेगाना</nb-accordion-item-header>
+                    <nb-accordion-item-header> {{ t.fah.heading1a | translate }} </nb-accordion-item-header>
                     <nb-accordion-item-body>
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="inputFirstName" class="label">देश: </label>
+                          <label class="label">{{ t.fa.country | translate }}
                           <input type="text" nbInput placeholder="">
+                        </label>
                         </div>
                       </div>
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="inputFirstName" class="label">प्रदेश: </label>
+                          <label class="label">{{ t.fa.province | translate }}
                           <input type="text" nbInput placeholder="">
+                        </label>
                         </div>
                       </div>
 
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="inputFirstName" class="label">जिल्ला: </label>
-                          <input type="text" nbInput placeholder="">
+                          <label class="label">{{ t.fa.district | translate }}
+                            <input type="text" nbInput placeholder="">
+                          </label>
                         </div>
                       </div>
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="inputFirstName" class="label">वार्ड नं: </label>
-                          <input type="text" nbInput placeholder="">
+                          <label class="label">{{ t.fa.wardNum | translate }}
+                            <input type="text" nbInput placeholder="">
+                          </label>
                         </div>
                       </div>
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="inputFirstName" class="label">नगरपालिका: </label>
-                          <input type="text" nbInput placeholder="">
+                          <label class="label">{{ t.fa.municipality | translate }}
+
+                            <input type="text" nbInput placeholder="">
+                          </label>
                         </div>
                       </div>
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="inputFirstName" class="label">टोल / चिन्ह(): </label>
-                          <input type="text" nbInput placeholder="">
+                          <label class="label">{{ t.fa.tole | translate }}
+
+                            <input type="text" nbInput placeholder="">
+                          </label>
                         </div>
                       </div>
-
-
-
-
-
-
 
                     </nb-accordion-item-body>
                   </nb-accordion-item>
@@ -169,88 +179,75 @@
 
                 <nb-accordion>
                   <nb-accordion-item>
-                    <nb-accordion-item-header>स्थाई ठेगाना, हालको ठेगाना फरक छ भने मात्र भर्नुहोस्:
+                    <nb-accordion-item-header>{{ t.fah.heading1b | translate }}
                     </nb-accordion-item-header>
                     <nb-accordion-item-body>
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="inputFirstName" class="label">देश: </label>
-                          <input type="text" nbInput placeholder="">
+                          <label class="label">{{ t.fa.country | translate }}
+                            <input type="text" nbInput placeholder="">
+                          </label>
                         </div>
                       </div>
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="inputFirstName" class="label">प्रदेश: </label>
-                          <input type="text" nbInput placeholder="">
+                          <label class="label">{{ t.fa.province | translate }}
+
+                            <input type="text" nbInput placeholder="">
+                          </label>
                         </div>
                       </div>
 
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="inputFirstName" class="label">जिल्ला: </label>
+                          <label class="label"> {{ t.fa.district | translate }}
                           <input type="text" nbInput placeholder="">
+                          </label>
                         </div>
                       </div>
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="inputFirstName" class="label">वार्ड नं: </label>
+                          <label class="label">{{ t.fa.wardNum | translate }}
                           <input type="text" nbInput placeholder="">
+                          </label>
                         </div>
                       </div>
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="inputFirstName" class="label">नगरपालिका: </label>
+                          <label class="label">{{ t.fa.municipality | translate }}
                           <input type="text" nbInput placeholder="">
+                          </label>
+
                         </div>
                       </div>
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="inputFirstName" class="label">टोल / चिन्ह(): </label>
+                          <label class="label">{{ t.fa.tole | translate }}
                           <input type="text" nbInput placeholder="">
+                          </label>
                         </div>
                       </div>
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="inputFirstName" class="label">हालको स्थान(होटल / क्वारेन्टिन / घर)): </label>
+                          <label class="label">{{ t.fa.currentLocation | translate }}
                           <input type="text" nbInput placeholder="">
+                          </label>
                         </div>
                       </div>
-
-
-
-
-
 
 
                     </nb-accordion-item-body>
                   </nb-accordion-item>
                 </nb-accordion>
 
-
-
-
-
-
-
-
                 <div class=""><br></div>
-
-
-
-
-
-
-
-
-
-
 
               </nb-accordion-item-body>
             </nb-accordion-item>
@@ -259,19 +256,19 @@
 
           <nb-accordion>
             <nb-accordion-item>
-              <nb-accordion-item-header>भाग २. क्लिनिकल जानकारी</nb-accordion-item-header>
+              <nb-accordion-item-header>{{ t.fah.heading2 | translate }}</nb-accordion-item-header>
               <nb-accordion-item-body>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="" class="label">२.१ हाल लक्षण देखिएको </label>
+                    <label for="" class="label">{{ t.fa.recentSymptoms | translate }}
                     <div class="col-sm-6">
                       <nb-radio-group id="inputCaseStatus" class="row">
-                        <nb-radio>छ</nb-radio>
-                        <nb-radio>छैन(यदि छैन भने,२.३ को उत्तर दिनु आवश्यक छैन)</nb-radio>
-
+                        <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+                        <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
                       </nb-radio-group>
                     </div>
+                    </label>
                   </div>
                 </div>
 
@@ -292,27 +289,27 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">२.३ यदि २.१ र २.२ मा छैन भने,केस अनुसन्धानकरताले
-                      टेस्टिंगको चिन्हको सुचि तयार गरनुहोला
-                      : </label>
+                    <span>
+                      {{ t.fa.symptomaticCaseInvestigation | translate }}
+                    </span>
 
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputDate" class="label">यदि २.१ र २.२ मा उत्तर छ भने, लक्षणहरू देखा परेको
-                      मिति(दिन/महिना): </label>
+                    <label for="inputDate" class="label">{{ t.fa.symptomsDate | translate }}
                     <input [nbDatepicker]="datepicker">
-                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                    <nb-datepicker #datepicker></nb-datepicker>
+                    </label>
+                    <br />
                   </div>
                 </div>
 
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="" class="label">यदि २.१ र २.२ मा उत्तर छ भने, रिपोर्ट गरेको सबै लक्षणहरुमा सही चिन्ह
-                      गर्नुहोस्: </label>
+                    <label class="label">{{ t.fa.symptomsKnown | translate }}
                     <div class="col-sm-12">
                       <nb-card>
                         <nb-card-body class="example-items-rows">
@@ -328,24 +325,27 @@
                           <nb-checkbox matRipple status="basic"> Irritability/Confusion | चिडचिड / भ्रम </nb-checkbox>
                           <nb-checkbox matRipple status="basic"> Loss of taste | स्वाद हराउनु </nb-checkbox>
                           <nb-checkbox matRipple status="basic"> Loss of smell | गन्ध हराउनु</nb-checkbox>
-                          <nb-checkbox matRipple status="basic"> Pain(check all that apply) | लागू हुने सबैमा टिक गर्नुहोस्
+                          <nb-checkbox matRipple status="basic"> Pain(check all that apply) | लागू हुने सबैमा टिक
+                            गर्नुहोस्
                           </nb-checkbox>
-                          <nb-checkbox matRipple status="basic"> Muscular  | मांसपेशी </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Muscular | मांसपेशी </nb-checkbox>
                           <nb-checkbox matRipple status="basic"> Chest | छाती </nb-checkbox>
                           <nb-checkbox matRipple status="basic"> Abdominal | पेट </nb-checkbox>
                           <nb-checkbox matRipple status="basic"> Joint | जोइन्ट </nb-checkbox>
-                          <nb-checkbox matRipple status="basic"> Other, specify | अन्य, निर्दिष्ट गर्नुहोस् </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Other, specify | अन्य, निर्दिष्ट गर्नुहोस्
+                          </nb-checkbox>
                         </nb-card-body>
                       </nb-card>
 
                     </div>
+                    </label>
                   </div>
                 </div>
 
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="" class="label">बिरामीको लक्षणहरु, सही चिन्ह गर्नुहोस्: </label>
+                    <label for="" class="label">{{ t.fa.symptoms | translate }}
                     <div class="col-sm-12">
                       <nb-card>
                         <nb-card-body class="example-items-rows">
@@ -357,19 +357,20 @@
                           <nb-checkbox matRipple status="basic"> Abnormal lung auscultation</nb-checkbox>
                           <nb-checkbox matRipple status="basic"> Abnormal lung x-ray/CT scan findings</nb-checkbox>
                           <nb-checkbox matRipple status="basic"> None</nb-checkbox>
-                          <nb-checkbox matRipple status="basic"> Other, specify | अन्य, निर्दिष्ट गर्नुहोस् </nb-checkbox>
+                          <nb-checkbox matRipple status="basic"> Other, specify | अन्य, निर्दिष्ट गर्नुहोस्
+                          </nb-checkbox>
                         </nb-card-body>
                       </nb-card>
 
                     </div>
+                    </label>
                   </div>
                 </div>
 
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="" class="label">रेिांभकत मेभडकल अवस्थािरु तथा अन्य अस्वस्थता (मेभडकल रेकोडषको सिायताले)
-                      (भमल्दोमा ठीक भचन्ह लगाउनु िोला) </label>
+                    <label for="" class="label">{{ t.fa.healthDifficulties | translate }}
                     <div class="col-sm-12">
                       <nb-card>
                         <nb-card-body class="example-items-rows">
@@ -393,6 +394,7 @@
                       </nb-card>
 
                     </div>
+                    </label>
                   </div>
                 </div>
 
@@ -408,12 +410,12 @@
 
           <nb-accordion>
             <nb-accordion-item>
-              <nb-accordion-item-header>भाग ३. प्रयोगशालाको जानकारी</nb-accordion-item-header>
+              <nb-accordion-item-header>{{ t.fah.heading3 | translate }}</nb-accordion-item-header>
               <nb-accordion-item-body>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="" class="label">संकभलत नमुनािरु (Nasopharyngeal -नाकबाि))</label>
+                    <label for="" class="label">{{ t.fa.nasopharyngeal | translate }}
                     <div class="col-sm-6">
                       <nb-radio-group id="inputCaseStatus" class="row">
                         <nb-radio>छ</nb-radio>
@@ -421,15 +423,17 @@
 
                       </nb-radio-group>
                     </div>
+                    </label>
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputDate" class="label">नमुना संकलन
-                      गररएको भमती (भदन/मभिना/वर्ष) </label>
-                    <input [nbDatepicker]="datepicker">
-                    <nb-datepicker #datepicker></nb-datepicker> <br />
+                    <label for="sampleCollectionDate" class="label">{{ t.fa.sampleCollectionDate | translate }}
+                    <input [nbDatepicker]="sampleCollectionDatePicker">
+                    <nb-datepicker #sampleCollectionDatePicker></nb-datepicker>
+                    </label>
+                    <br />
                   </div>
                 </div>
 
@@ -454,7 +458,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">यभद नमुना जााँचको नभतजा थािा भयो भने(नभतजा) </label>
+                    <label class="label">यभद नमुना जााँचको नभतजा थािा भयो भने(नभतजा) </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
@@ -502,7 +506,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">यभद नमुना जााँचको नभतजा थािा भयो भने(नभतजा) </label>
+                    <label class="label">यभद नमुना जााँचको नभतजा थािा भयो भने(नभतजा) </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
@@ -551,7 +555,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">यभद नमुना जााँचको नभतजा थािा भयो भने(नभतजा) </label>
+                    <label class="label">यभद नमुना जााँचको नभतजा थािा भयो भने(नभतजा) </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
@@ -559,7 +563,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">अन्य भए (उल्लेि गन </label>
+                    <label class="label">अन्य भए (उल्लेि गन </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
@@ -597,14 +601,14 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">यभद छ भने, जााँचको नामीः </label>
+                    <label class="label">यभद छ भने, जााँचको नामीः </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">जााँचको नभतजाीः </label>
+                    <label class="label">जााँचको नभतजाीः </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
@@ -663,15 +667,15 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">देश </label>
+                    <label class="label">देश </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">शिर
-                       </label>
+                    <label class="label">शिर
+                    </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
@@ -740,7 +744,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">भनाष भएको अस्पतालको नाम </label>
+                    <label class="label">भनाष भएको अस्पतालको नाम </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
@@ -760,7 +764,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">नाम र ठेगाना उल्लेि गनुषिोस</label>
+                    <label class="label">नाम र ठेगाना उल्लेि गनुषिोस</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
@@ -845,14 +849,14 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">नाम </label>
+                    <label class="label">नाम </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">सम्बन्धीः </label>
+                    <label class="label">सम्बन्धीः </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
@@ -867,7 +871,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">आएको ठााँउ/ देश को नामीः </label>
+                    <label class="label">आएको ठााँउ/ देश को नामीः </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
@@ -890,7 +894,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">यभद छ भने, उल्लेि गनुषिोला (किााँ र कभिले)</label>
+                    <label class="label">यभद छ भने, उल्लेि गनुषिोला (किााँ र कभिले)</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
@@ -913,7 +917,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">यभद छ भने, उल्लेि गनुषिोलाीः (कोसंग, किााँ र
+                    <label class="label">यभद छ भने, उल्लेि गनुषिोलाीः (कोसंग, किााँ र
                       कभिले)</label>
                     <input type="text" nbInput placeholder="">
                   </div>
@@ -938,7 +942,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">यभद छ भने, उल्लेि गनुषिोलाीः (कोसंग, किााँ र
+                    <label class="label">यभद छ भने, उल्लेि गनुषिोलाीः (कोसंग, किााँ र
                       कभिले)</label>
                     <input type="text" nbInput placeholder="">
                   </div>
@@ -947,7 +951,7 @@
 
                 <nb-card>
                   <nb-card-body class="example-items-col">
-                    <label for="inputFirstName" class="label">संभाभवत संक्रमणको संभाभवत श्रोत पत्ता लगाउने िाले कु नै
+                    <label class="label">संभाभवत संक्रमणको संभाभवत श्रोत पत्ता लगाउने िाले कु नै
                       कथा वा थप जानकारी</label>
                     <textarea nbInput fullWidth placeholder=""></textarea>
                   </nb-card-body>
@@ -1023,7 +1027,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">यभद छ भने, भाग ८ मा नामिरुको सुची उल्लेि गनषुिोला॰</label>
+                    <label class="label">यभद छ भने, भाग ८ मा नामिरुको सुची उल्लेि गनषुिोला॰</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
@@ -1052,7 +1056,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">यभद छ भने, भाग ८ मा नामिरुको सुची उल्लेि गनषुिोला॰</label>
+                    <label class="label">यभद छ भने, भाग ८ मा नामिरुको सुची उल्लेि गनषुिोला॰</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
@@ -1104,43 +1108,28 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">बस/ माइक्रो/ ििक/ अन्यीः</label>
+                    <label class="label">बस/ माइक्रो/ ििक/ अन्यीः</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">रुिीः</label>
+                    <label class="label">रुिीः</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">गाडीको नंम्बरीः</label>
+                    <label class="label">गाडीको नंम्बरीः</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">भसिको नंम्बरीः(उपलब्ध छ/ भमल्छ भने)</label>
-                    <input type="text" nbInput placeholder="">
-                  </div>
-                </div>
-
-
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label for="inputFirstName" class="label">गायाक्सीको नंम्बरीः</label>
-                    <input type="text" nbInput placeholder="">
-                  </div>
-                </div>
-
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label for="inputFirstName" class="label">याक्सीमा चढेको स्थानीः</label>
+                    <label class="label">भसिको नंम्बरीः(उपलब्ध छ/ भमल्छ भने)</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
@@ -1148,35 +1137,50 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">फलाइि नंम्बरीः</label>
+                    <label class="label">गायाक्सीको नंम्बरीः</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">भसिको नंम्बरीः</label>
+                    <label class="label">याक्सीमा चढेको स्थानीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="label">फलाइि नंम्बरीः</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">यािा सुरु गरेको स्थानीः</label>
+                    <label class="label">भसिको नंम्बरीः</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">पुग्नु पने गिब्यीः</label>
+                    <label class="label">यािा सुरु गरेको स्थानीः</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">यभद धेरै माध्यमबाि यािा गरेको छ भने,प्रत्येक यातायातको
+                    <label class="label">पुग्नु पने गिब्यीः</label>
+                    <input type="text" nbInput placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="label">यभद धेरै माध्यमबाि यािा गरेको छ भने,प्रत्येक यातायातको
                       भववरण भदनुिोस्॰
                       यातायातमा के ससंग नभजकबाि सम्पकष भएका व्यभतिरु को–को हुन ? भाग ८ मा नामिरुको सुची उल्लेि
                       गनुषिोला॰</label>
@@ -1205,34 +1209,34 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">यभद छ भने, भवद्यालय/ कायाषलयको नाम उल्लेि गनुषिोला</label>
+                    <label class="label">यभद छ भने, भवद्यालय/ कायाषलयको नाम उल्लेि गनुषिोला</label>
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">ठे गानाीः</label>
+                    <label class="label">ठे गानाीः</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">फोन नंम्बरीः</label>
+                    <label class="label">फोन नंम्बरीः</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">सुपररवेक्षक/ प्रधानाध्यापकको नामीः</label>
+                    <label class="label">सुपररवेक्षक/ प्रधानाध्यापकको नामीः</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">के ससंग नभजकबाि सम्पकष (कन्याक्ट) भएका
+                    <label class="label">के ससंग नभजकबाि सम्पकष (कन्याक्ट) भएका
                       के ससंग नभजकबाि सम्पकष (कन्याक्ट) भएका व्यक्लििरु
                       को–को हुन ? भाग ८ मा नामिरुको सुची उल्लेि गनुषिोला॰</label>
                   </div>
@@ -1262,7 +1266,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">के ससंग नभजकबाि सम्पकष (कन्याक्ट) भएका व्यक्लििरु को–को
+                    <label class="label">के ससंग नभजकबाि सम्पकष (कन्याक्ट) भएका व्यक्लििरु को–को
                       हुन ? भाग ८ मा नामिरुको सुची उल्लेि गनुषिोला॰</label>
                     <input type="text" nbInput placeholder="">
                   </div>
@@ -1292,7 +1296,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">यभद छ भने, के ससंग नभजकबाि सम्पकष (कन्याक्ट)
+                    <label class="label">यभद छ भने, के ससंग नभजकबाि सम्पकष (कन्याक्ट)
                       भएका व्यक्लििरु को–को हुन ?भाग ८ मा नामिरुको सुची उल्लेि गनुषिोला॰</label>
                     <input type="text" nbInput placeholder="">
                   </div>
@@ -1320,42 +1324,42 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">यभद छ भने, सामाभजक कायषक्रम/ संयोजकको नामिरु उल्लेि
+                    <label class="label">यभद छ भने, सामाभजक कायषक्रम/ संयोजकको नामिरु उल्लेि
                       गनुषिोस्</label>
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">ठे गानाीः</label>
+                    <label class="label">ठे गानाीः</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">फोन नंम्बरीः</label>
+                    <label class="label">फोन नंम्बरीः</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">कायषक्रमको भमतीीः</label>
+                    <label class="label">कायषक्रमको भमतीीः</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">के ससंग नभजकबाि सम्पकष (कन्याक्ट) भएका व्यक्लििरु
+                    <label class="label">के ससंग नभजकबाि सम्पकष (कन्याक्ट) भएका व्यक्लििरु
                       को–को हुन ? भाग ८ मा नामिरुको सुची उल्लेि गनुषिोला॰</label>
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">के ससाँग सम्पकष भएका कन्याक्टिरु पत्ता लगाउने िाले कु नै
+                    <label class="label">के ससाँग सम्पकष भएका कन्याक्टिरु पत्ता लगाउने िाले कु नै
                       पभन भवस्तृत जानकारीिरुीः</label>
                     <input type="text" nbInput placeholder="">
                   </div>
@@ -1397,28 +1401,28 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">नामीः </label>
+                    <label class="label">नामीः </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">सम्पकष नंम्बरीः</label>
+                    <label class="label">सम्पकष नंम्बरीः</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">संस्थाीः </label>
+                    <label class="label">संस्थाीः </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">इमेल ठेगानाीः</label>
+                    <label class="label">इमेल ठेगानाीः</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
@@ -1465,49 +1469,49 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">सं.नं </label>
+                    <label class="label">सं.नं </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">सं.नं भलड्ड</label>
+                    <label class="label">सं.नं भलड्ड</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">संस्थाीः </label>
+                    <label class="label">संस्थाीः </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">इमेल ठेगानाीः</label>
+                    <label class="label">इमेल ठेगानाीः</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">सं.नं भलड्ड</label>
+                    <label class="label">सं.नं भलड्ड</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">संस्थाीः </label>
+                    <label class="label">संस्थाीः </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">इमेल ठेगानाीः</label>
+                    <label class="label">इमेल ठेगानाीः</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
