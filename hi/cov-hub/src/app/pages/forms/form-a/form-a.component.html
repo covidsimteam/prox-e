@@ -8,27 +8,27 @@
         <nb-step label>
           <div class="col-md-12">
             <div class="form-group">
-              <label for="reportDate1" class="label"> {{ "fa.reportDate1" | translate }}</label>
+              <label for="reportDate1" class="label"> {{ t.fa.reportDate1 | translate }}</label>
               <input [nbDatepicker]="reportDate1Picker">
-              <nb-datepicker #reporttDate1Picker></nb-datepicker> <br />
+              <nb-datepicker #reportDate1Picker></nb-datepicker> <br />
             </div>
           </div>
 
           <div class="col-md-12">
             <div class="form-group">
               <label for="testAgency" class="label"> {{ "fa.testAgency" | translate }}</label>
-              <input type="text" nbInput placeholder={{ "fab.naamRaThegana" | translate }}>
+              <input type="text" nbInput placeholder={{ t.fab.naamRaThegana | translate }}>
             </div>
           </div>
 
           <div class="col-md-12">
             <div class="form-group">
-              <label for="" class="label">{{ "fa.inputCaseStatus" | translate }}</label>
+              <label for="" class="label">{{ t.fa.inputCaseStatus | translate }}</label>
               <div class="col-sm-6">
                 <nb-radio-group id="inputCaseStatus" class="row">
-                  <nb-radio>{{ "fab.ho" | translate }}</nb-radio>
-                  <nb-radio>{{ "fab.hoina" | translate }}</nb-radio>
-                  <nb-radio>{{ "fab.thahaChhaina" | translate }}</nb-radio>
+                  <nb-radio>{{ t.fab.ho | translate }}</nb-radio>
+                  <nb-radio>{{ t.fab.hoina | translate }}</nb-radio>
+                  <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
                 </nb-radio-group>
               </div>
             </div>
@@ -37,7 +37,7 @@
 
           <div class="col-md-12">
             <div class="form-group">
-              <label for="inputDate2" class="label">{{ "fab.hoBhaneDate" | translate }}</label>
+              <label for="inputDate2" class="label">{{ t.fab.hoBhaneDate | translate }}</label>
               <input [nbDatepicker]="inputDate2Picker" id="inputDate2">
               <nb-datepicker #inputDate2Picker></nb-datepicker> <br />
             </div>
@@ -46,26 +46,26 @@
           <div class="col-md-12">
             <div class="form-group">
               <label for="inputFirstName" class="label">{{ "fa.inputCaseStatus" | translate }}</label>
-              <input type="text" nbInput placeholder={{ "fab.naamRaThegana" | translate }}>
+              <input type="text" nbInput placeholder={{ t.fab.naamRaThegana | translate }}>
             </div>
           </div>
 
           <nb-accordion>
             <nb-accordion-item>
-              <nb-accordion-item-header>{{ "fah.heading1" | translate }}</nb-accordion-item-header>
+              <nb-accordion-item-header>{{ t.fah.heading1 | translate }}</nb-accordion-item-header>
               <nb-accordion-item-body>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputId" class="label">{{ "fah.heading1" | translate }}</label>
+                    <label for="inputId" class="label">{{ t.fa.uniqueEpiId | translate }}</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">नाम: </label>
-                    <input type="text" nbInput placeholder="नाम">
+                    <label for="inputFirstName" class="label">{{ t.fab.naam | translate}}</label>
+                    <input type="text" nbInput placeholder={{ t.fab.naam | translate}}>
                   </div>
                 </div>
 
