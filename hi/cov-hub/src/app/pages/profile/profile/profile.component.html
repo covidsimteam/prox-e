@@ -1,1 +1,41 @@
-<p>profile works!</p>
+<nb-card>
+  <nb-card-header>General Information</nb-card-header>
+  <nb-card-body>
+    <form class="form-horizontal">
+      <div class="form-group row">
+        <div class="col-sm-12 center">
+          <div (mouseenter)="imageHover()" (mouseleave)="imageLeave()" (click)="file.click()"
+            *ngIf="originalProfilePic; else getNewPic" class="user center"
+            [style.background-image]="'url(' + user?.pic + ')'">
+          </div>
+          <ng-template #getNewPic>
+            <button class="get-new-pic-button" (click)="file.click()">
+              <img class="user" (mouseenter)="imageHover()" (mouseleave)="imageLeave()" [src]="filePreview" />
+            </button>
+          </ng-template>
+          <div>
+            <div>
+              <input #file type="file" [hidden]="true" accept="image/*" (change)="getFilePath($event)">
+            </div>
+          </div>
+          <div (mouseenter)="imageHover()" (mouseleave)="imageLeave()" [class]="class">
+            <p>Change Profile Picture</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <label for="inputEmail">Email</label>
+          <input nbInput type="text" class="form-control" id="inputEmail" placeholder="Your email@ddress">
+        </div>
+        <div class="col-sm-6">
+          <label for="inputPassword">Password</label>
+          <input nbInput type="password" class="form-control" id="inputPassword">
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>
+
+<cov-contact [user]='user'></cov-contact>
+

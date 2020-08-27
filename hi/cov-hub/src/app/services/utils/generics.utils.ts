@@ -1,3 +1,3 @@
-export function Gen<Props>(): new () => Props {
+export function GenClassFactory<Props>(): new () => Props {
   return class {} as any;
 }

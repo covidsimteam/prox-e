@@ -1,7 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { TranslationServiceEn } from '../../../services/i18n/translation-gen.service'
+import { take } from 'rxjs/operators';
+import { TranslationServiceEn } from '../../../services/i18n/translation-gen.service';
 
 @Component({
   selector: 'ngx-form-a',
@@ -11,13 +12,21 @@ import { TranslationServiceEn } from '../../../services/i18n/translation-gen.ser
 export class FormAComponent implements OnInit, OnDestroy {
 
   aForm: FormGroup;
+  caseStatus: string;
+
+
   // TODO put all the translatable labels in the en.json file for now
   constructor(
     private fb: FormBuilder,
-    translator: TranslateService,
+    private translator: TranslateService,
     public t: TranslationServiceEn
     ) {
-    translator.use('np');
+    translator.use('en');
+    translator.get(t.fab.thahaChhaina)
+      .pipe(take(1))
+      .subscribe((chhaina: string) => {
+        this.caseStatus = chhaina;
+      });
   }
 
   ngOnDestroy(): void {
@@ -30,6 +39,10 @@ export class FormAComponent implements OnInit, OnDestroy {
     });
 
     this.aForm.valueChanges.subscribe(this.formValueChanged);
+  }
+
+  changeCaseStatus(event: any) {
+    this.caseStatus = event as string;
   }
 
   formValueChanged(formValue: any) {}

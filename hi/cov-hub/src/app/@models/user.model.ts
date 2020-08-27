@@ -2,6 +2,7 @@ export interface HubUser {
   username: string;
   password: string;
   roles: string[];
+  pic?: string;
 }
 
 export const HUB_USER_KEYS = ['username', 'password', 'roles'];

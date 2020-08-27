@@ -8,6 +8,7 @@
   "files": [],
   "compilerOptions": {
     "baseUrl": "./",
+    "experimentalDecorators": true,
   },
   "references": [
     {

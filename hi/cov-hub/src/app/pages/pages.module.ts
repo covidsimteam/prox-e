@@ -15,11 +15,11 @@ import { MapsModule } from './maps/maps.module';
 import { MedAiModule } from './medical/med-ai.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { PagesRoutingModule } from './pages-routing.module';
-import { PaymentsModule } from './payments/payments.module';
-import { TablesModule } from './tables/tables.module';
 import { PagesComponent } from './pages.component';
-import { SampleCollectionComponent } from './sample/sample-collection/sample-collection.component';
-import { ProfileComponent } from './profile/profile/profile.component';
+import { PaymentsModule } from './payments/payments.module';
+import { ProfileModule } from './profile/profile.module';
+import { SampleCollectionModule } from './sample/sample-collection.module';
+import { TablesModule } from './tables/tables.module';
 
 @NgModule({
   imports: [
@@ -42,8 +42,10 @@ import { ProfileComponent } from './profile/profile/profile.component';
     MedAiModule,
     TablesModule,
     NbLayoutModule,
+    SampleCollectionModule,
+    ProfileModule
   ],
-  declarations: [PagesComponent, SampleCollectionComponent, ProfileComponent],
+  declarations: [PagesComponent],
 })
 export class PagesModule {
 }
