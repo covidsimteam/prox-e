@@ -13,7 +13,7 @@ nb-accordion-item-header {
 
 nb-stepper {
   height: 500px;
-  width: 700px;
+  width: 75vw;
 }
 
 nb-accordion {
@@ -42,7 +42,6 @@ nb-checkbox:not(:only-child) {
   margin-right: 1.5rem;
 }
 
-nb-layout-header {
+nb-card-header {
   text-align: center;
-  padding-left:550px;
 }
