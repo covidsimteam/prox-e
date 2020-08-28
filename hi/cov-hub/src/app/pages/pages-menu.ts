@@ -20,6 +20,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/hub/secured/forms/form-a',
       },
       {
+        title: 'Form B1',
+        link: '/hub/secured/forms/form-b1',
+      },
+      {
+        title: 'Form B2',
+        link: '/hub/secured/forms/form-b2',
+      },
+      {
         title: 'Point of Entry',
         link: '/hub/secured/forms/point-of-entry',
       },
