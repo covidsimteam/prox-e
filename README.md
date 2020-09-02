@@ -6,10 +6,6 @@ Simple REST APIs and dashboard to showcase CST's core functionalities & simple c
 
 Github pages driven by eleventy SSG.
 
-## sync.sh
-
-The `./sync.sh` script utilizes the sh scripts in `sh` folder to update all the current branches with the latest from develop.
-
 ## tp
 
 TP stands for Transport Protocols and Transport Protobufs and Top Priority. It has three important sub-projects.
@@ -76,3 +72,6 @@ This is the dashboard and the central activity hub for all things related to med
 
 This is the additional Open API server for communicating with our system and acts as a proxy to our single source of collaboration - curedit.
 
+## sync.sh
+
+The `./sync.sh` script utilizes the sh scripts in `sh` folder to update all the current branches with the latest from develop. We run this script before and after creating new commits. We have the luxury to do this because we have sensisble, segregated branches including special segregated branches that show us overlaps between two branches.
