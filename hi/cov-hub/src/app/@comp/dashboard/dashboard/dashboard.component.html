@@ -7,68 +7,115 @@
         badgeText="0"
         badgePosition="top right"
         badgeStatus="success"
+        [nbPopover]="templatePopupRefCases"
+        nbPopoverTrigger="hover"
+        nbPopoverPlacement="left"
       >
-        <p>List of <strong>New Cases Today</strong>.</p>
       </nb-tab>
+
       <nb-tab
         tabTitle="Active Cases"
         tabIcon="calendar-outline"
+        [nbPopover]="templatePopupRefActive"
+        nbPopoverTrigger="hover"
+        nbPopoverPlacement="left"
       >
-        <p>List of <strong>Active Cases Today</strong>.</p>
       </nb-tab>
+
       <nb-tab
         tabTitle="Recovered"
         tabIcon="bookmark-outline"
+        [nbPopover]="templatePopupRefRecovered"
       >
-        <p>List of <strong>Recovered Till Today</strong>.</p>
       </nb-tab>
+
       <nb-tab
         tabTitle="Quarantined"
         tabIcon="home-outline"
+        [nbPopover]="templatePopupRefQuarantined"
       >
-        <p>List of <strong>Quarantined Till Today</strong>.</p>
       </nb-tab>
+
       <nb-tab
         tabTitle="Isolated"
         tabIcon="person-outline"
+        [nbPopover]="templatePopupRefIsolated"
       >
-        <p>List of <strong>Isolated Till Today</strong>.</p>
       </nb-tab>
+
       <nb-tab
         tabTitle="Swabs"
         tabIcon="thermometer-plus-outline"
+        [nbPopover]="templatePopupRefSwabs"
       >
-        <p>List of <strong>Swabs Till Today</strong>.</p>
       </nb-tab>
+
       <nb-tab
         tabTitle="Tests"
         tabIcon="checkmark-square-outline"
+        [nbPopover]="templatePopupRefPcRdt"
       >
-        <p>List of <strong>PCR & RDT Tests Till Today</strong>.</p>
       </nb-tab>
+
       <nb-tab
         tabTitle="Returnees"
         tabIcon="people-outline"
         badgeText="12"
         badgeStatus="warning"
+        [nbPopover]="templatePopupRefReturnees"
       >
-        <p>List of <strong>Returnees Till Today</strong>.</p>
       </nb-tab>
+
       <nb-tab
         tabTitle="Deaths"
         tabIcon="person-delete-outline"
         badgeText="99+"
         badgeStatus="danger"
+        [nbPopover]="templatePopupRefDeaths"
       >
-        <p>List of <strong>Deaths Till Today</strong>.</p>
       </nb-tab>
+
     </nb-tabset>
     <cov-map></cov-map>
-    A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
-    Originally, nebula was a name for any diffuse astronomical object,
-    including galaxies beyond the Milky Way.
   </nb-card-body>
   <nb-card-footer>Source: Bipad</nb-card-footer>
 </nb-card>
 
 <cov-dashboard-grid></cov-dashboard-grid>
+
+
+<ng-template #templatePopupRefCases>
+  <p>List of <strong>New Cases Today</strong>.</p>
+</ng-template>
+
+<ng-template #templatePopupRefActive>
+  <p>List of <strong>Active Cases Today</strong>.</p>
+</ng-template>
+
+<ng-template #templatePopupRefRecovered>
+  <p>List of <strong>Recovered Till Today</strong>.</p>
+</ng-template>
+
+<ng-template #templatePopupRefQuarantined>
+  <p>List of <strong>Quarantined Till Today</strong>.</p>
+</ng-template>
+
+<ng-template #templatePopupRefIsolated>
+  <p>List of <strong>Isolated Till Today</strong>.</p>
+</ng-template>
+
+<ng-template #templatePopupRefSwabs>
+  <p>List of <strong>Swabs Till Today</strong>.</p>
+</ng-template>
+
+<ng-template #templatePopupRefPcRdt>
+  <p>List of <strong>PCR & RDT Tests Till Today</strong>.</p>
+</ng-template>
+
+<ng-template #templatePopupRefReturnees>
+  <p>List of <strong>Returnees Till Today</strong>.</p>
+</ng-template>
+
+<ng-template #templatePopupRefDeaths>
+  <p>List of <strong>Deaths Till Today</strong>.</p>
+</ng-template>

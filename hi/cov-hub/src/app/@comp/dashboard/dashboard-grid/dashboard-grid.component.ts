@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MapSeroService } from '../map-sero.service';
 
 @Component({
   selector: 'cov-dashboard-grid',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardGridComponent implements OnInit {
 
-  constructor() { }
+  constructor(public mapSero: MapSeroService) { }
 
   ngOnInit(): void {
   }
