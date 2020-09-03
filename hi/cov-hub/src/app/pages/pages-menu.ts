@@ -8,6 +8,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
+    title: 'Core Stats',
+    icon: 'activity-outline',
+    link: '/hub/stats',
+  },
+  {
     title: 'Data Entry',
     group: true,
   },

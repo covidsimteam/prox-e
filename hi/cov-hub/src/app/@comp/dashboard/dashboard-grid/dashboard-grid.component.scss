@@ -1,5 +1,5 @@
 :host {
-  display: block;
+  display: flexbox;
 }
 
 .card-row {
@@ -13,6 +13,6 @@
 }
 
 :host nb-tab {
-  padding: 1.25rem;
+  flex: auto;
+  overflow: hidden;
 }
-
