@@ -177,6 +177,10 @@ export class AuthService extends NbAuthService {
     return localStorage?.getItem(CurrentUser.roles).split(',') || [''];
   }
 
+  setAllRoles(roles: string[]) {
+    this.roleService.roles = roles; // TODO  add role validation
+  }
+
   get isPrivileged(): boolean {
     return this.roleService.roles.some((role: string) => {
       return IdPrefixService.toColonHyphen(role) !== 'common:user';

@@ -10,9 +10,9 @@
 
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label class="label"> {{ t.fab.naam | translate }}
-                    <input nbInput fullWidth type="text">
-                  </label>
+                  <label for="naam" class="label"> {{ t.fab.naam | translate }}</label>
+                    <input id="naam" nbInput fullWidth type="text">
+
                 </div>
               </div>
 
@@ -27,19 +27,19 @@
               </div>
 
             </div>
-            <br />
+            <br/>
             <div class="row">
 
               <div class="col-sm-6">
                 <div class="form-group">
                   <label class="label">{{ t.fa.inputCaseStatus | translate }}
-                    <div class="col-sm-12">
-                      <nb-radio-group id="inputCaseStatus" class="row" (onChange)="changeCaseStatus($event)">
-                        <nb-radio>{{ t.fab.ho | translate }}</nb-radio>
-                        <nb-radio>{{ t.fab.hoina | translate }}</nb-radio>
-                        <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
-                      </nb-radio-group>
-                    </div>
+
+                    <nb-radio-group id="inputCaseStatus" class="row" (onChange)="changeCaseStatus($event)">
+                      <nb-radio>{{ t.fab.ho | translate }}</nb-radio>
+                      <nb-radio>{{ t.fab.hoina | translate }}</nb-radio>
+                      <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+                    </nb-radio-group>
+
                   </label>
                 </div>
               </div>
@@ -47,7 +47,7 @@
               <div class="col-sm-6">
                 <div class="form-group">
                   <label class="label">{{ t.fab.hoBhaneDate | translate }}
-                    <input nbInput fullWidth [nbDatepicker]="inputDate2Picker" id="inputDate2">
+                    <input nbInput fullWidth [nbDatepicker]="inputDate2Picker">
                     <nb-datepicker #inputDate2Picker></nb-datepicker>
                   </label>
                   <br />

@@ -5,14 +5,12 @@ import { AbortController } from '@azure/abort-controller';
 import { setLogLevel } from '@azure/logger';
 
 import fs from 'fs';
-import { ProxyCouchService } from './couch.service';
-
 
 const rangeSize = 4 * 1024 * 1024; // 4MB range size
 const timeOut = 30 * 60 * 1000; // 30 mins
 const parallelism = 20;
 
-export class ProxyFsService extends ProxyCouchService {
+export class ProxyFsService {
 
     protected readonly fslogger = motherLogger.child({ file: 'FsService' });
 
@@ -31,7 +29,7 @@ export class ProxyFsService extends ProxyCouchService {
     private static proxyFsServiceInstance: ProxyFsService;
 
     constructor() {
-        super();
+
         setLogLevel("info");
         if (!ProxyFsService.proxyFsServiceInstance) {
             ProxyFsService.proxyFsServiceInstance = this;
