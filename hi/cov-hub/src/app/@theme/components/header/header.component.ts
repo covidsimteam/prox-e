@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbAuthToken } from '@nebular/auth';
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 import { Subject } from 'rxjs';
-import { map, takeUntil } from 'rxjs/operators';
+import { map, takeUntil, filter } from 'rxjs/operators';
 import { AuthService } from '../../../@auth/core/auth.service';
 import { LayoutService } from '../../../@core/utils';
 import { HubUser, HeaderBio } from '../../../@models/user.model';
@@ -87,6 +87,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.userMenu = this.getMenuItems();
       });
 
+    this.menuService.onItemClick()
+      .pipe(
+        filter(({ tag }) => tag === 'context-menu'),
+        map(({ item: { title } }) => title),
+      ).subscribe((title: string) => {
+        this.navigateToMenuPage(
+          title
+          .toLowerCase()
+          .replace(/ /g, '_')); // pages are named profile and settings TODO create those pages
+      });
+
     const { xl } = this.breakpointService.getBreakpointsMap();
     this.themeService.onMediaQueryChange()
       .pipe(
@@ -104,6 +115,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.currentTheme = themeName;
         this.rippleService.toggle(themeName?.startsWith('material'));
       });
+  }
+
+  navigateToMenuPage(page: string) {
+    this.router.navigateByUrl(page);
   }
 
   ngOnDestroy() {
