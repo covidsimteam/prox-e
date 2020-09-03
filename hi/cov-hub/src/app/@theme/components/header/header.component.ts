@@ -25,8 +25,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   themes = [
     {
-      value: 'material-light',
-      name: 'Material Light',
+      value: 'default',
+      name: 'Default',
       icon: 'bulb-outline',
     },
     {
@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     },
   ];
 
-  currentTheme = 'material-light';
+  currentTheme = 'default'; // can be switched back to material-light
 
   userMenu = this.getMenuItems();
 
@@ -117,6 +117,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   changeTheme(themeName: string) {
     this.themeService.changeTheme(themeName);
+  }
+
+  changeRoles(roleNames: string) {
+    this.authService.setAllRoles(roleNames.split(','));
+  }
+
+  get roles() {
+    return this.authService.getAllRoles();
   }
 
   toggleSidebar(): boolean {
