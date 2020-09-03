@@ -36,10 +36,10 @@ export class ProxyScheduleService {
 }
 
 export enum SchedOption {
-  createSched = 0,
-  addToSched = 1,
-  getFromSched = 2,
-  removeFromSched = -1
+    createSched = 0,
+    addToSched = 1,
+    getFromSched = 2,
+    removeFromSched = -1
 }
 
 export interface SEntity {
@@ -79,25 +79,25 @@ export interface UploadSSuccess extends CreateSSuccess {
     profile: {
         fullname: string
     };
-  }
-  
-  export interface UploadSFailure extends CreateSFailure {
+}
+
+export interface UploadSFailure extends CreateSFailure {
     name: 'session' | 'confict' | 'connection';
-    type:  'unconfirmed' | 'unauthorized' | 'unknown';
-    message: string; 
+    type: 'unconfirmed' | 'unauthorized' | 'unknown';
+    message: string;
     stack?: string;
-  }
-  
-  export interface UploadSResponse {
+}
+
+export interface UploadSResponse {
     profile?: {
         fullname: string
     };
     name?: 'session' | 'confict' | 'connection' | string;
-    type?:  'unconfirmed' | 'unauthorized' | 'unknown' | string;
-    message?: string; 
+    type?: 'unconfirmed' | 'unauthorized' | 'unknown' | string;
+    message?: string;
     stack?: string;
-  }
-  
+}
+
 
 @Route('schedule')
 export class SchedController extends Controller {

@@ -16,28 +16,34 @@ export class AuthInterceptor implements HttpInterceptor {
       ) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const username = this.authService.user;
-        const password = this.authService.pass;
-        const isLoggedIn = this.authService.isAuthenticated;
-        const isApiUrl = request.url.startsWith(this.envService.authUri);
-        if (isLoggedIn && isApiUrl) {
-          const base64AuthString = btoa(`${username}:${password}`);
-          request = request?.clone({
-              setHeaders: {
-                  Authorization: `Basic ${base64AuthString}`
-              }
-          });
-        }
-        if (request) {
-          next.handle(request)
-            .pipe(catchError((error: HttpErrorResponse) => {
-              if (error.status === 401) {
-                this.router.navigate(['auth/login']);
-              }
-              // TODO: handle 403 error ?
-              return throwError(error);
-            }));
-        }
-        return next.handle(request);
+      return null;
     }
+
+    interceptor(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>  {
+      const username = this.authService.user;
+      const password = this.authService.pass;
+      const isLoggedIn = this.authService.isAuthenticated;
+      const isApiUrl = request.url.startsWith(this.envService.authUri);
+      if (isLoggedIn && isApiUrl) {
+        const base64AuthString = btoa(`${username}:${password}`);
+        request = request?.clone({
+            setHeaders: {
+                Authorization: `Basic ${base64AuthString}`
+            }
+        });
+      }
+      if (request) {
+        next.handle(request)
+          .pipe(catchError((error: HttpErrorResponse) => {
+            if (error.status === 401) {
+              this.router.navigate(['auth/login']);
+            }
+            // TODO: handle 403 error ?
+            console.log('From interceptor', error);
+            return throwError(error);
+          }));
+      }
+      return next.handle(request);
+  }
+
 }

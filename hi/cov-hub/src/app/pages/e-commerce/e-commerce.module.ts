@@ -12,6 +12,7 @@ import {
 } from '@nebular/theme';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ChartModule } from 'angular2-chartjs';
+import { NgxEchartsModule } from 'ngx-echarts';
 import { ThemeModule } from '../../@theme/theme.module';
 import { ChartPanelHeaderComponent } from './charts-panel/chart-panel-header/chart-panel-header.component';
 import { ChartPanelSummaryComponent } from './charts-panel/chart-panel-summary/chart-panel-summary.component';
@@ -46,8 +47,6 @@ import { ECommerceUserActivityComponent } from './user-activity/user-activity.co
 import { ECommerceVisitorsAnalyticsChartComponent } from './visitors-analytics/visitors-analytics-chart/visitors-analytics-chart.component';
 import { ECommerceVisitorsAnalyticsComponent } from './visitors-analytics/visitors-analytics.component';
 import { ECommerceVisitorsStatisticsComponent } from './visitors-analytics/visitors-statistics/visitors-statistics.component';
-import { NgxEchartsModule } from 'ngx-echarts';
-
 
 @NgModule({
   imports: [
@@ -63,7 +62,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
     NbProgressBarModule,
     NgxEchartsModule,
     NgxChartsModule,
-    LeafletModule,
+    LeafletModule
   ],
   declarations: [
     ECommerceComponent,

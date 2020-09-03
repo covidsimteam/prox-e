@@ -5,6 +5,7 @@ import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { PagesComponent } from './pages.component';
 import { ProfileComponent } from './profile/profile/profile.component';
+import { DashboardComponent } from '../@comp/dashboard/dashboard/dashboard.component';
 
 const formsModule = () => import('./forms/forms.module')
   .then(m => m.HealthFormsModule);
@@ -24,6 +25,10 @@ const routes: Routes = [{
   children: [
     {
       path: 'home',
+      component: DashboardComponent,
+    },
+    {
+      path: 'stats',
       component: ECommerceComponent,
     },
     {
