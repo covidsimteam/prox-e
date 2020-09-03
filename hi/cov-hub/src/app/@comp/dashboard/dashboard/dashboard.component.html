@@ -1,6 +1,6 @@
 <nb-card>
   <nb-card-body>
-    <nb-tabset>
+    <nb-tabset (changeTab)="tabChanged($event)">
       <nb-tab
         tabTitle="New Cases"
         tabIcon="plus-circle-outline"
@@ -9,7 +9,9 @@
         badgeStatus="success"
         [nbPopover]="templatePopupRefCases"
         nbPopoverTrigger="hover"
-        nbPopoverPlacement="left"
+        nbPopoverPlacement="bottom"
+        tabId="new-cases"
+        [active]="checkCurrent('new-cases')"
       >
       </nb-tab>
 
@@ -18,7 +20,9 @@
         tabIcon="calendar-outline"
         [nbPopover]="templatePopupRefActive"
         nbPopoverTrigger="hover"
-        nbPopoverPlacement="left"
+        nbPopoverPlacement="bottom"
+        tabId="active-cases"
+        [active]="checkCurrent('active-cases')"
       >
       </nb-tab>
 
@@ -26,6 +30,8 @@
         tabTitle="Recovered"
         tabIcon="bookmark-outline"
         [nbPopover]="templatePopupRefRecovered"
+        tabId="recovered"
+        [active]="checkCurrent('recovered')"
       >
       </nb-tab>
 
@@ -33,6 +39,8 @@
         tabTitle="Quarantined"
         tabIcon="home-outline"
         [nbPopover]="templatePopupRefQuarantined"
+        tabId="quarantined"
+        [active]="checkCurrent('quarantined')"
       >
       </nb-tab>
 
@@ -40,6 +48,8 @@
         tabTitle="Isolated"
         tabIcon="person-outline"
         [nbPopover]="templatePopupRefIsolated"
+        tabId="isolated"
+        [active]="checkCurrent('isolated')"
       >
       </nb-tab>
 
@@ -47,6 +57,8 @@
         tabTitle="Swabs"
         tabIcon="thermometer-plus-outline"
         [nbPopover]="templatePopupRefSwabs"
+        tabId="swabs"
+        [active]="checkCurrent('swabs')"
       >
       </nb-tab>
 
@@ -54,6 +66,8 @@
         tabTitle="Tests"
         tabIcon="checkmark-square-outline"
         [nbPopover]="templatePopupRefPcRdt"
+        tabId="tests"
+        [active]="checkCurrent('tests')"
       >
       </nb-tab>
 
@@ -63,6 +77,8 @@
         badgeText="12"
         badgeStatus="warning"
         [nbPopover]="templatePopupRefReturnees"
+        tabId="returnees"
+        [active]="checkCurrent('returnees')"
       >
       </nb-tab>
 
@@ -72,6 +88,8 @@
         badgeText="99+"
         badgeStatus="danger"
         [nbPopover]="templatePopupRefDeaths"
+        tabId="deaths"
+        [active]="checkCurrent('deaths')"
       >
       </nb-tab>
 
