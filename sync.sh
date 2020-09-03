@@ -1,6 +1,8 @@
 #!/bin/bash
 
 echo "pushing..."
+git fetch
+git pull
 git push
 
 echo "merging..."
