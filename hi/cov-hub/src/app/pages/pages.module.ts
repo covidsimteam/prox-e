@@ -43,7 +43,7 @@ import { TablesModule } from './tables/tables.module';
     TablesModule,
     NbLayoutModule,
     SampleCollectionModule,
-    ProfileModule
+    ProfileModule,
   ],
   declarations: [PagesComponent],
 })
