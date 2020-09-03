@@ -1,8 +1,8 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { RegionService } from './region.service';
-import { AppConf, appConf } from '../../../../environments/environment';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { appConf, AppConf } from '../../../environments/environment.staging';
 
 describe('RegionService', () => {
   let service: RegionService;
