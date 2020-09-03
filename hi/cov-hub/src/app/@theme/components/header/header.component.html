@@ -17,11 +17,7 @@
         type="rotate-layout" tag="rotate-layout"></nb-search>
     </nb-action>
     <nb-action class="user-action">
-      <nb-user [nbContextMenu]="userMenu" [onlyPicture]="userPictureOnly" [name]="user?.name" [picture]="user?.picture">
-        <nb-select [selected]="user?.roles" (selectedChange)="changeRoles($event)" status="primary">
-          <nb-option *ngFor="let role of roles" [value]="role"> </nb-option>
-        </nb-select>
-      </nb-user>
+      <button nbButton [nbContextMenu]="getMenuItems()"><nb-icon icon="person"> </nb-icon></button>
     </nb-action>
     <nb-action class="control-item" matRipple [matRippleUnbounded]="true" [matRippleCentered]="true">
       <button matRipple nbButton outline nbPopover="Toggle light/dark" nbPopoverPlacement="bottom"
