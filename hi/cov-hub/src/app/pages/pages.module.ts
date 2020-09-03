@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { NbLayoutModule, NbMenuModule } from '@nebular/theme';
+import { DashboardModule } from '../@comp/dashboard/dashboard.module';
 import { ThemeModule } from '../@theme/theme.module';
 import { AccountModule } from './account/account.module';
 import { PcrDemandModule } from './demand/pcr-demand.module';
@@ -11,7 +12,6 @@ import { FilesModule } from './files/files.module';
 import { HealthFormsModule } from './forms/forms.module';
 import { HpcConfigModule } from './hpc/hpc-config.module';
 import { IdModule } from './id/id.module';
-import { MapsModule } from './maps/maps.module';
 import { MedAiModule } from './medical/med-ai.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { PagesRoutingModule } from './pages-routing.module';
@@ -20,7 +20,6 @@ import { PaymentsModule } from './payments/payments.module';
 import { ProfileModule } from './profile/profile.module';
 import { SampleCollectionModule } from './sample/sample-collection.module';
 import { TablesModule } from './tables/tables.module';
-import { DashboardModule } from '../@comp/dashboard/dashboard.module';
 
 @NgModule({
   imports: [
@@ -39,7 +38,6 @@ import { DashboardModule } from '../@comp/dashboard/dashboard.module';
     HealthFormsModule,
     HpcConfigModule,
     IdModule,
-    MapsModule,
     MedAiModule,
     TablesModule,
     NbLayoutModule,

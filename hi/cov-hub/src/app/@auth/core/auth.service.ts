@@ -50,11 +50,13 @@ export class AuthService extends NbAuthService {
     username: string,
     password: string
   ): Observable<BasicAuth.Response> {
+    console.log(username, password);
     return this.basicAuthRequest(username, password);
   }
 
   publicLogin() {
     this.isInPublicMode = true;
+    console.log("username, password", this.environment.dbPublicUser, this.environment.dbPublicPass);
     this.login(this.environment.dbPublicUser, this.environment.dbPublicPass).subscribe();
   }
 
@@ -227,6 +229,7 @@ export class AuthService extends NbAuthService {
     password: string,
   ) {
     const base64AuthString = btoa(`${username}:${password}`);
+    console.log('auths string', base64AuthString);
     return this.http.get<BasicAuth.Response>(this.environment.authUri, {
       headers: {
         Accept: 'application/json',
