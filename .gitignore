@@ -10,3 +10,4 @@ hi/dashboard/dist/
 hi/prox-e/package-lock.json
 **/dist/**
 **/runsync.log
+hi/cov-hub/src/environments/apiConf.ts

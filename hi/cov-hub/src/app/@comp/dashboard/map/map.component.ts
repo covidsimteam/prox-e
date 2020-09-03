@@ -47,6 +47,8 @@ export class MapComponent implements OnInit, OnDestroy {
   private districtPopulation: Census2011.Districts;
   private returneeStats: Array<RETTupleRev> | undefined;
 
+  displayOwnCharts = false;
+
   districtNameValPairsSero: [string, number][] = [];
   districtNamesSero: string[];
   districtNameValPairsRatio: [string, number][] = [];

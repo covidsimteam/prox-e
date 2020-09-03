@@ -16,8 +16,8 @@ import { RoleBasedModules } from './role-based-modules/role-based.module';
 
 
 const COMPS = [
-  DashboardComponent,
   DashboardGridComponent,
+  DashboardComponent,
   HomePageComponent,
   HomeBoardsComponent,
   MapComponent,
@@ -26,7 +26,6 @@ const COMPS = [
 @NgModule({
   declarations: [
     ...COMPS,
-    DashboardGridComponent
   ],
   imports: [
     CommonModule,
