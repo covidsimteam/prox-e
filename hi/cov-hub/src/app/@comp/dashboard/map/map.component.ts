@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NbColorHelper, NbThemeService } from '@nebular/theme';
 import * as L from 'leaflet';
 import 'leaflet.markercluster';
@@ -75,6 +75,8 @@ export class MapComponent implements OnInit, OnDestroy {
     zoomControl: true,
     preferCanvas: false,
   };
+
+  @ViewChild('map') mapContainer: any;
 
   private geoJsonLayerOptions = {
     onEachFeature: (_: any, layer: L.Layer) => {
@@ -182,6 +184,30 @@ export class MapComponent implements OnInit, OnDestroy {
     this.quadDataCounter.subscribe((count) => {
       if (count === 4) this.setStats();
     });
+  }
+
+  ngOnDestroy() {
+    this.map = null;
+    // this.map.remove(); TODO see if already cleaned up once viewchild is removed
+    this.themeSubscription.unsubscribe();
+  }
+
+  onMapReady(currentMap: L.Map) {
+    this.map = currentMap;
+    this.mapUtilsService.fullScreenControl.addTo(this.map);
+    this.mapReady.next(true);
+
+    this.map.on('click', function() {
+      if (this.map.scrollWheelZoom.enabled()) {
+        this.map.scrollWheelZoom.disable();
+      } else {
+        this.map.scrollWheelZoom.enable();
+      }
+    });
+
+    setTimeout(() => {
+      this.map.invalidateSize();
+    }, 0);
   }
 
   findByNameFromReturneeStats(districtName: string): RETTupleRev | undefined {
@@ -401,18 +427,5 @@ export class MapComponent implements OnInit, OnDestroy {
     poiMarker.bindPopup(popup);
   }
 
-  ngOnDestroy() {
-    this.map.remove();
-    this.themeSubscription.unsubscribe();
-  }
 
-  onMapReady(currentMap: L.Map) {
-    this.map = currentMap;
-    this.mapUtilsService.fullScreenControl.addTo(this.map);
-    this.mapReady.next(true);
-
-    setTimeout(() => {
-      this.map.invalidateSize();
-    }, 0);
-  }
 }
