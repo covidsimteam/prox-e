@@ -4,6 +4,7 @@
     <div leaflet #map
       [leafletOptions]="options"
       (leafletMapReady)="onMapReady($event)"
+      (click)="onMapClick($event)"
       [leafletLayersControl]="layersControl">
     </div>
   </nb-card-body>

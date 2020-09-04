@@ -8,7 +8,7 @@ import 'style-loader!leaflet/dist/leaflet.css';
 import { Census2011 } from '../../../@models/db/docs/census.model';
 import { HealthStats } from '../../../@models/db/docs/health-stats.model';
 import { RETTupleRev } from '../../../@models/db/table-headers.model';
-import { BarChartDataSet, FeatureCollection, GovDistrictProperties, GovProvinceProperties, RoadMajorProperties } from '../../../@models/domain.model';
+import { FeatureCollection, GovDistrictProperties, GovProvinceProperties, RoadMajorProperties } from '../../../@models/domain.model';
 import { ReturneeService } from '../../../services/db/returnee.service';
 import { MapUtilsService } from '../../services/map-utils.service';
 import { RegionService } from '../../services/region.service';
@@ -72,7 +72,7 @@ export class MapComponent implements OnInit, OnDestroy {
     zoom: 7,
     crs: L.CRS.EPSG3857,
     center: L.latLng({ lat: 27.700769, lng: 85.30014 }),
-    zoomControl: true,
+    zoomControl: false,
     preferCanvas: false,
   };
 
@@ -192,19 +192,19 @@ export class MapComponent implements OnInit, OnDestroy {
     this.themeSubscription.unsubscribe();
   }
 
+  onMapClick(_: any) {
+    if (this.map.scrollWheelZoom.enabled()) {
+      this.map.scrollWheelZoom.disable();
+    } else {
+      this.map.scrollWheelZoom.enable();
+    }
+  }
+
   onMapReady(currentMap: L.Map) {
     this.map = currentMap;
     this.mapUtilsService.fullScreenControl.addTo(this.map);
     this.mapReady.next(true);
-
-    this.map.on('click', function() {
-      if (this.map.scrollWheelZoom.enabled()) {
-        this.map.scrollWheelZoom.disable();
-      } else {
-        this.map.scrollWheelZoom.enable();
-      }
-    });
-
+    this.map.scrollWheelZoom.disable();
     setTimeout(() => {
       this.map.invalidateSize();
     }, 0);
