@@ -5,7 +5,9 @@
       <nb-card-body>
         <nb-stepper orientation="horizontal">
           <nb-step label="Step 1">
+            <cov-form-hr-break></cov-form-hr-break>
             <cov-form-a-step-o></cov-form-a-step-o>
+            <cov-form-hr-break></cov-form-hr-break>
             <nb-accordion>
               <nb-accordion-item>
                 <nb-accordion-item-header>{{ t.fah.heading1 | translate }}</nb-accordion-item-header>
@@ -32,7 +34,7 @@
                 </nb-accordion-item-body>
               </nb-accordion-item>
             </nb-accordion>
-            <ng-container *ngTemplateOutlet="hrDivider"></ng-container>
+            <cov-form-hr-break></cov-form-hr-break>
             <nb-accordion>
               <nb-accordion-item>
                 <nb-accordion-item-header>{{ t.fah.heading2 | translate }}</nb-accordion-item-header>
@@ -41,11 +43,13 @@
                 </nb-accordion-item-body>
               </nb-accordion-item>
             </nb-accordion>
+            <cov-form-hr-break></cov-form-hr-break>
             <button nbButton disabled nbStepperNext>prev</button>
             <button nbButton matRipple nbStepperNext>next</button>
           </nb-step>
           <ng-container *ngTemplateOutlet="hrDivider"></ng-container>
           <nb-step label="Step 2">
+            <cov-form-hr-break></cov-form-hr-break>
             <nb-accordion>
               <nb-accordion-item>
                 <nb-accordion-item-header>{{ t.fah.heading3 | translate }}</nb-accordion-item-header>
@@ -54,6 +58,7 @@
                 </nb-accordion-item-body>
               </nb-accordion-item>
             </nb-accordion>
+            <cov-form-hr-break></cov-form-hr-break>
             <nb-accordion>
               <nb-accordion-item>
                 <nb-accordion-item-header> {{ t.fah.heading4 | translate }} <label
@@ -66,6 +71,7 @@
                 </nb-accordion-item-body>
               </nb-accordion-item>
             </nb-accordion>
+            <cov-form-hr-break></cov-form-hr-break>
             <nb-accordion>
               <nb-accordion-item>
                 <nb-accordion-item-header>भाग ५. भबरामीको व्यवस्थापन सम्बन्धी </nb-accordion-item-header>
@@ -150,9 +156,7 @@
                 </nb-accordion-item-body>
               </nb-accordion-item>
             </nb-accordion>
-
-            <!--PART 6-->
-
+            <cov-form-hr-break></cov-form-hr-break>
             <nb-accordion>
               <nb-accordion-item>
                 <nb-accordion-item-header>भाग ६. संभाभवत संक्रमणको श्रोत पत्ता लगाउन मदत गने प्रश्निरु (Exposure
@@ -321,10 +325,7 @@
                 </nb-accordion-item-body>
               </nb-accordion-item>
             </nb-accordion>
-
-            <!--PART 7-->
-
-
+            <cov-form-hr-break></cov-form-hr-break>
             <nb-accordion>
               <nb-accordion-item>
                 <nb-accordion-item-header>भाग ७. कन्याक्टिरुको िोज (के सले संक्रमण गरेको हुन सक्ने व्यभतको पभिचान)
@@ -742,7 +743,7 @@
                 </nb-accordion-item-body>
               </nb-accordion-item>
             </nb-accordion>
-
+            <cov-form-hr-break></cov-form-hr-break>
             <nb-accordion>
               <nb-accordion-item>
                 <nb-accordion-item-header>भाग ७.१. जानकारी संकलन गनेको जानकारी</nb-accordion-item-header>
@@ -791,9 +792,7 @@
                 </nb-accordion-item-body>
               </nb-accordion-item>
             </nb-accordion>
-
-            <!--PART 8-->
-
+            <cov-form-hr-break></cov-form-hr-break>
             <nb-accordion>
               <nb-accordion-item>
                 <nb-accordion-item-header>भाग ८. कन्ट्याक्टहरुको सूचि</nb-accordion-item-header>
@@ -863,8 +862,7 @@
                 </nb-accordion-item-body>
               </nb-accordion-item>
             </nb-accordion>
-
-
+            <cov-form-hr-break></cov-form-hr-break>
             <button nbButton matRipple nbStepperPrevious>prev</button>
             <button nbButton disabled nbStepperNext>next</button>
           </nb-step>

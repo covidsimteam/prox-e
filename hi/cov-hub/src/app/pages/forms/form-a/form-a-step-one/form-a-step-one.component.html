@@ -1,58 +1,60 @@
-<div class="col-md-12">
-  <div class="form-group">
-    <label class="label">{{ t.fa.uniqueEpiId | translate }}
-      <input type="text" nbInput placeholder="">
-    </label>
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group row">
+      <label class="label">{{ t.fa.uniqueEpiId | translate }}
+        <input type="text" nbInput placeholder="">
+      </label>
+    </div>
   </div>
-</div>
 
-<div class="col-md-12">
-  <div class="form-group">
-    <label class="label">{{ t.fab.naam | translate}}
+  <div class="col-md-12">
+    <div class="form-group row">
+      <label class="label">{{ t.fab.naam | translate}}
+        <input type="text" nbInput>
+      </label>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="form-group">
+      <label class="label">{{ t.fa.parentsOrSpouse | translate }}</label>
       <input type="text" nbInput>
-    </label>
+    </div>
   </div>
-</div>
 
-<div class="col-md-12">
-  <div class="form-group">
-    <label class="label">{{ t.fa.parentsOrSpouse | translate }}</label>
-    <input type="text" nbInput>
+
+  <div class="col-md-12">
+    <div class="form-group">
+      <label class="label"> {{ t.fa.age | translate }}
+        <input [nbDatepicker]="agePicker">
+        <nb-datepicker #agePicker></nb-datepicker> <br />
+      </label>
+    </div>
   </div>
-</div>
 
-
-<div class="col-md-12">
-  <div class="form-group">
-    <label class="label"> {{ t.fa.age | translate }}
-      <input [nbDatepicker]="agePicker">
-      <nb-datepicker #agePicker></nb-datepicker> <br />
-    </label>
+  <div class="col-md-12">
+    <div class="form-group">
+      <label class="label"> {{ t.fa.country | translate}}
+        <input type="text" nbInput placeholder="">
+      </label>
+    </div>
   </div>
-</div>
 
-<div class="col-md-12">
-  <div class="form-group">
-    <label class="label"> {{ t.fa.country | translate}}
-      <input type="text" nbInput placeholder="">
-    </label>
+  <div class="col-md-12">
+    <div class="form-group">
+      <label class="label"> {{ t.fa.phoneNumber | translate}}
+        <input type="text" nbInput placeholder="">
+      </label>
+    </div>
   </div>
-</div>
-
-<div class="col-md-12">
-  <div class="form-group">
-    <label class="label"> {{ t.fa.phoneNumber | translate}}
-      <input type="text" nbInput placeholder="">
-    </label>
-  </div>
-</div>
 
 
-<div class="col-md-12">
-  <div class="form-group">
-    <label class="label">
-      {{ t.fa.phoneOther | translate}}
-      <input type="text" nbInput placeholder="">
-    </label>
+  <div class="col-md-12">
+    <div class="form-group">
+      <label class="label">
+        {{ t.fa.phoneOther | translate}}
+        <input type="text" nbInput placeholder="">
+      </label>
+    </div>
   </div>
 </div>

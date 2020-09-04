@@ -41,6 +41,7 @@ import { FormAStepOneBComponent } from './form-a/form-a-step-one-b/form-a-step-o
 import { FormAStepTwoComponent } from './form-a/form-a-step-two/form-a-step-two.component';
 import { FormAStepThreeComponent } from './form-a/form-a-step-three/form-a-step-three.component';
 import { FormAStepFourComponent } from './form-a/form-a-step-four/form-a-step-four.component';
+import { FormHrBreakComponent } from './form-hr-break/form-hr-break.component';
 
 @NgModule({
   imports: [
@@ -89,6 +90,7 @@ import { FormAStepFourComponent } from './form-a/form-a-step-four/form-a-step-fo
     FormAStepTwoComponent,
     FormAStepThreeComponent,
     FormAStepFourComponent,
+    FormHrBreakComponent
   ],
 })
 export class HealthFormsModule { }

@@ -18,6 +18,10 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit, OnDestroy {
 
   private destroy$: Subject<void> = new Subject<void>();
+
+  private static readonly PROFILE = 'Profile';
+  private static readonly LOGOUT = 'Log Out';
+
   userPictureOnly: boolean = false;
   user: HeaderBio;
 
@@ -57,21 +61,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
           this.user = token.getPayload();
         }
       });
-
-      this.menuService.onItemClick()
-        .pipe(takeUntil(this.destroy$))
-        .subscribe(({ item }) => {
-          if (item.title === 'Profile') {
-            this.router.navigateByUrl(item?.link || '/pages/profile');
-          }
-        });
   }
 
   getMenuItems() {
     const userLink = this.user ? '/pages/users/current/' : '';
     return [
-      { title: 'Profile', link: userLink, queryParams: { profile: true } },
-      { title: 'Log out', link: '/auth/logout' },
+      { title: HeaderComponent.PROFILE, link: userLink, queryParams: { profile: true } },
+      { title: HeaderComponent.LOGOUT },
     ];
   }
 
@@ -89,13 +85,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     this.menuService.onItemClick()
       .pipe(
+        takeUntil(this.destroy$),
         filter(({ tag }) => tag === 'context-menu'),
         map(({ item: { title } }) => title),
       ).subscribe((title: string) => {
-        this.navigateToMenuPage(
-          title
-          .toLowerCase()
-          .replace(/ /g, '_')); // pages are named profile and settings TODO create those pages
+        title === HeaderComponent.LOGOUT ?
+          this.logout() :
+          this.navigateToMenuPage(
+            title.toLowerCase().replace(/ /g, '_')
+          ); // pages are named profile and settings TODO create those pages
       });
 
     const { xl } = this.breakpointService.getBreakpointsMap();

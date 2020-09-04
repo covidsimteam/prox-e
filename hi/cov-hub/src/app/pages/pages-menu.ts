@@ -18,7 +18,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Forms',
-    icon: 'clipboard-outline',
+    icon: 'calendar-outline',
     children: [
       {
         title: 'Form A',
