@@ -17,8 +17,8 @@ export const MENU_ITEMS: NbMenuItem[] = [
     group: true,
   },
   {
-    title: 'Returnees',
-    icon: 'people-outline',
+    title: 'Forms',
+    icon: 'clipboard-outline',
     children: [
       {
         title: 'Form A',
