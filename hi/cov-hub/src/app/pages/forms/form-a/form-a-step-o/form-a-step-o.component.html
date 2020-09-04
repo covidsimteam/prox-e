@@ -10,15 +10,15 @@
   <div class="col-sm-6">
     <div class="form-group">
       <label class="label"> {{ t.fa.reportDate1 | translate }}
-        <input nbInput fullWidth [nbDatepicker]="reportDate1Picker">
-        <nb-datepicker #reportDate1Picker></nb-datepicker>
+        <input nbInput fullWidth [nbDatepicker]="reportDatePicker">
+        <nb-datepicker #reportDatePicker></nb-datepicker>
       </label>
       <br />
     </div>
   </div>
 
 </div>
-<br />
+<cov-form-hr-break></cov-form-hr-break>
 <div class="row">
 
   <div class="col-sm-6">
@@ -36,8 +36,8 @@
   <div class="col-sm-6">
     <div class="form-group">
       <label class="label">{{ t.fab.hoBhaneDate | translate }}
-        <input nbInput fullWidth [nbDatepicker]="inputDate2Picker">
-        <nb-datepicker #inputDate2Picker></nb-datepicker>
+        <input nbInput fullWidth [nbDatepicker]="inputHoBhaneDatePicker">
+        <nb-datepicker #inputHoBhaneDatePicker></nb-datepicker>
       </label>
       <br />
     </div>
