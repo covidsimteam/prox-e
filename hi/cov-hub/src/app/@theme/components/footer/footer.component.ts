@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { version } from '../../../../../package.json';
 
 @Component({
   selector: 'ngx-footer',
@@ -10,8 +11,14 @@ import { Component } from '@angular/core';
       by <a href="https://risav.dev/introducing-nepwork-ck5294zz401bvmus1p2oskup0">Risav Karna</a>
     </span>
     <div class="socials">
-      <a href="https://github.com/covidsimteam" target="_blank" class="ion ion-social-github"></a>-
+      <a href="https://github.com/covidsimteam" target="_blank" class="ion ion-social-github"></a>
+
+      <span class="version">
+        v{{appVersion}}
+      </span>
     </div>
   `,
 })
-export class FooterComponent {}
+export class FooterComponent {
+  public appVersion: string = version;
+}
