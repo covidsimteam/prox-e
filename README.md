@@ -74,13 +74,13 @@ This is the additional Open API server for communicating with our system and act
 
 ## sync.sh
 
-First thing you should do to use this repository is run the sync,sh script, if you have not done so recently. The `./sync.sh` script utilizes the sh scripts in `sh` folder to update all the current branches with the latest from develop. We run this script before and after creating new commits. We have the luxury to do this because we have sensisble, segregated branches including special segregated branches that show us overlaps between two branches.
+First thing you should do to use this repository is run the `sync.sh` script, if you have not done so recently. The `./sync.sh` script utilizes the shell scripts in `sh` folder to update all the current branches with the latest commits from develop. We run this script before and after creating new commits. We have the luxury to do this because we have sensisble, segregated branching including specially segregated branches that show us any possible overlaps between two branches.
 
 ## build.sh
 
-First thing you should do after running ./sync.sh is run ./build.sh. It contains the necessary step to get your system ready to build and serve this project.
+First thing you should do after running `./sync.sh` is run `./build.sh`. It contains the necessary step to get your system ready to build and serve this project.
 
-To serve this project after running ./build.sh, run yarn start-cov-hub
+To serve this project after running `./build.sh`, run `yarn start-cov-hub`.
 
 ## sync.sh with a graph theoretic context
 
