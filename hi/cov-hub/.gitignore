@@ -40,3 +40,12 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+
+# NPM/Yarn
+*.lock
+package-lock.json
+
+# extra yml files generated
+docker/cov-hub-*.yml
+cov-hub.yml

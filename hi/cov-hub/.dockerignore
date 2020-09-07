@@ -47,3 +47,12 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+.dockerignore
+Dockerfile
+
+
+.env
+.eslintrc
+.editorconfig
+.travis.yml
