@@ -6,7 +6,7 @@ import { LocalDataSource } from 'ng2-smart-table';
 
 import { RETTupleRev } from '../../@models/db/table-headers.model';
 import { PSchemaDoc } from '../../@models/db/schema/pschema.model';
-import { SCHEMA_VER } from '../../@core/data/pschema-pcrs-v8';
+import { SCHEMA_VER } from '../../@core/data/pschema:pcrs:v8';
 import { TabularService } from '../../services/tabular/tabular.service';
 
 @Injectable({

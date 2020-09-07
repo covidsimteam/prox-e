@@ -34,14 +34,6 @@ import { ReturneeLocationDetailsComponent } from './form-sections/returnee-locat
 import { SymptomRecordComponent } from './form-sections/symptom-record/symptom-record.component';
 import { FormsRoutingModule } from './forms-routing.module';
 import { FormsComponent } from './forms.component';
-import { FormAStepOComponent } from './form-a/form-a-step-o/form-a-step-o.component';
-import { FormAStepOneComponent } from './form-a/form-a-step-one/form-a-step-one.component';
-import { FormAStepOneAComponent } from './form-a/form-a-step-one-a/form-a-step-one-a.component';
-import { FormAStepOneBComponent } from './form-a/form-a-step-one-b/form-a-step-one-b.component';
-import { FormAStepTwoComponent } from './form-a/form-a-step-two/form-a-step-two.component';
-import { FormAStepThreeComponent } from './form-a/form-a-step-three/form-a-step-three.component';
-import { FormAStepFourComponent } from './form-a/form-a-step-four/form-a-step-four.component';
-import { FormHrBreakComponent } from './form-hr-break/form-hr-break.component';
 
 @NgModule({
   imports: [
@@ -83,14 +75,6 @@ import { FormHrBreakComponent } from './form-hr-break/form-hr-break.component';
     FormB1Component,
     FormB2Component,
     SchedulerComponent,
-    FormAStepOComponent,
-    FormAStepOneComponent,
-    FormAStepOneAComponent,
-    FormAStepOneBComponent,
-    FormAStepTwoComponent,
-    FormAStepThreeComponent,
-    FormAStepFourComponent,
-    FormHrBreakComponent
   ],
 })
 export class HealthFormsModule { }

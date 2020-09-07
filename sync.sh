@@ -1,26 +1,23 @@
 #!/bin/bash
 
-echo "fetching current..."
-git fetch
-
-echo "pulling current..."
-git pull
-
-echo "pushing current..."
+echo "pushing..."
 git push
 
-echo "going to sh..."
+echo "merging..."
+git merge master
+
+echo "going..."
 cd ./sh
 
-echo "running meta..."
+echo "running..."
 bash ./metab.sh >> runsync.log
 
-echo "updating develop..."
+echo "updating..."
 git merge develop
 
-echo "pushing develop..."
+echo "pushing..."
 git push
 
 git checkout develop
-echo "checkout develop...done"
+echo "...done"
 

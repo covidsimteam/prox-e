@@ -5,20 +5,20 @@ import 'leaflet.markercluster';
 import polylabel from 'polylabel';
 import { BehaviorSubject, from, merge, Subscription } from 'rxjs';
 import 'style-loader!leaflet/dist/leaflet.css';
-import { MapUtilsService } from '../../../@comp/services/map-utils.service';
-import { RegionService } from '../../../@comp/services/region.service';
-import { Census2011 } from '../../../@models/db/docs/census.model';
-import { HealthStats } from '../../../@models/db/docs/health-stats.model';
-import { RETTupleRev } from '../../../@models/db/table-headers.model';
+
 import {
   BarChartDataSet, FeatureCollection,
   GovDistrictProperties,
   GovProvinceProperties,
   RoadMajorProperties
 } from '../../../@models/domain.model';
+
 import { ReturneeService } from '../../../services/db/returnee.service';
-
-
+import { HealthStats } from '../../../@models/db/docs/health-stats.model';
+import { Census2011 } from '../../../@models/db/docs/census.model';
+import { RETTupleRev } from '../../../@models/db/table-headers.model';
+import { MapUtilsService } from '../../../@comp/map/map-utils.service';
+import { RegionService } from '../../../@comp/map/region.service';
 
 interface MapLayer {
   bucket: string;
@@ -183,7 +183,7 @@ export class NationComponent implements OnInit, OnDestroy {
         this.districtPopulation = stats;
         this.raiseQuadDataCount();
       } else {
-        this.returneeStats = stats as RETTupleRev[];
+        this.returneeStats = stats;
         this.raiseQuadDataCount();
       }
     });

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { from, Observable } from 'rxjs';
-import { SCHEMA_VER } from '../../@core/data/pschema-pcrs-v8';
+import { SCHEMA_VER } from '../../@core/data/pschema:pcrs:v8';
 import { PSchemaDoc } from '../../@models/db/schema/pschema.model';
 import { RDTTupleRev } from '../../@models/db/table-headers.model';
 import { RdtService } from '../../services/db/rdt.service';

@@ -1,5 +1,4 @@
 #!/bin/bash
 
-git checkout master
+git checkout feature/wizard
 git merge develop
-

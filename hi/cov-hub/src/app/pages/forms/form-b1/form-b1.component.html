@@ -8,21 +8,21 @@
 
         <div class="col-md-12">
           <div class="form-group">
-            <label for="inputFirstName" class="label">{{ t.fb.caseName | translate }}</label>
+            <label for="inputFirstName" class="label">केसकोनाम</label>
             <input type="text" nbInput placeholder="नाम र ठेगाना">
           </div>
         </div>
 
         <div class="col-md-12">
           <div class="form-group">
-            <label for="inputFirstName" class="label">{{ t.fb.caseId | translate }}</label>
+            <label for="inputFirstName" class="label">केसआइडी÷क्ऱस्टरनम्बर(यदिऱागूभएमा)</label>
             <input type="text" nbInput placeholder="नाम र ठेगाना">
           </div>
         </div>
 
         <div class="col-md-12">
           <div class="form-group">
-            <label for="inputFirstName" class="label">">{{ t.fb.quarantineName | translate }}</label>
+            <label for="inputFirstName" class="label">कन्टयाककोनाम</label>
             <input type="text" nbInput placeholder="नाम र ठेगाना">
           </div>
         </div>
@@ -31,26 +31,26 @@
 
         <nb-accordion>
           <nb-accordion-item>
-            <nb-accordion-item-header>{{ t.fb.contactDetail | translate }}</nb-accordion-item-header>
+            <nb-accordion-item-header>कन्ट्याक्टकोव्यक्तिगतजानकारी</nb-accordion-item-header>
             <nb-accordion-item-body>
 
               <div class="col-md-12">
                 <div class="form-group">
-                  <label for="inputFirstName" class="label">{{ t.fb.contactName | translate }}</label>
+                  <label for="inputFirstName" class="label"> नाम</label>
                   <input type="text" nbInput placeholder="">
                 </div>
               </div>
 
               <div class="col-md-12">
                 <div class="form-group">
-                  <label for="inputFirstName" class="label">{{ t.fb.caseRelation | translate }} </label>
+                  <label for="inputFirstName" class="label">के ससंगकोसम्बन्धः </label>
                   <input type="text" nbInput placeholder="">
                 </div>
               </div>
 
               <div class="col-md-12">
                 <div class="form-group">
-                  <label for="inputDate" class="label">{{ t.fb.contactAge | translate }} </label>
+                  <label for="inputDate" class="label">जन्मममती/उमेरः </label>
                   <input [nbDatepicker]="datepicker">
                   <nb-datepicker #datepicker></nb-datepicker> <br />
                 </div>
@@ -59,12 +59,12 @@
 
               <div class="col-md-12">
                 <div class="form-group">
-                  <label for="" class="label">{{ t.fb.gender | translate}} </label>
+                  <label for="" class="label">मिगः </label>
                   <div class="col-sm-6">
                     <nb-radio-group id="inputCaseStatus" class="row">
-                      <nb-radio>{{ t.fb.male | translate }}</nb-radio>
-                      <nb-radio>{{ t.fb.female | translate }}</nb-radio>
-                      <nb-radio>{{ t.fb.other | translate}}</nb-radio>
+                      <nb-radio>पुरुष</nb-radio>
+                      <nb-radio>ममहिा</nb-radio>
+                      <nb-radio>अन्य</nb-radio>
 
                     </nb-radio-group>
                   </div>
@@ -95,19 +95,19 @@
 
               <nb-accordion>
                 <nb-accordion-item>
-                  <nb-accordion-item-header>{{ t.fb.currentLocation | translate }}</nb-accordion-item-header>
+                  <nb-accordion-item-header>हालको ठेगाना</nb-accordion-item-header>
                   <nb-accordion-item-body>
 
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="inputFirstName" class="label">{{ t.fb.nationality | translate }} </label>
+                        <label for="inputFirstName" class="label">देश: </label>
                         <input type="text" nbInput placeholder="">
                       </div>
                     </div>
 
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="inputFirstName" class="label">{{ t.fb.province | translate }} </label>
+                        <label for="inputFirstName" class="label">प्रदेश: </label>
                         <input type="text" nbInput placeholder="">
                       </div>
                     </div>
@@ -115,28 +115,28 @@
 
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="inputFirstName" class="label">{{ t.fb.district | translate }} </label>
+                        <label for="inputFirstName" class="label">जिल्ला: </label>
                         <input type="text" nbInput placeholder="">
                       </div>
                     </div>
 
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="inputFirstName" class="label">{{ t.fb.wardNum | translate }} </label>
+                        <label for="inputFirstName" class="label">वार्ड नं: </label>
                         <input type="text" nbInput placeholder="">
                       </div>
                     </div>
 
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="inputFirstName" class="label">{{ t.fb.municipality | translate }} </label>
+                        <label for="inputFirstName" class="label">नगरपालिका: </label>
                         <input type="text" nbInput placeholder="">
                       </div>
                     </div>
 
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="inputFirstName" class="label">{{ t.fb.tole | translate }} </label>
+                        <label for="inputFirstName" class="label">टोल / चिन्ह(): </label>
                         <input type="text" nbInput placeholder="">
                       </div>
                     </div>
@@ -156,19 +156,20 @@
 
               <nb-accordion>
                 <nb-accordion-item>
-                  <nb-accordion-item-header>{{ t.fb.contactLocation | translate }}</nb-accordion-item-header>
+                  <nb-accordion-item-header>हािकोस्थानकोनाम(अस्थाइरुपमाकु नैक्वारेक्तिनसेिर,
+                    होटेिवासोसमानठाउँमाबसेकोभएमात्रभनुमहोस्)</nb-accordion-item-header>
                     <nb-accordion-item-body>
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="inputFirstName" class="label">{{ t.fb.phoneNumber | translate}} </label>
+                          <label for="inputFirstName" class="label">टेमिफोननम्बरः </label>
                           <input type="text" nbInput placeholder="">
                         </div>
                       </div>
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="inputFirstName" class="label">{{ t.fb.phoneOther | translate }} </label>
+                          <label for="inputFirstName" class="label">वैकक्तिकसम्पकमनंम्बरः </label>
                           <input type="text" nbInput placeholder="">
                         </div>
                       </div>
@@ -176,14 +177,14 @@
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="inputFirstName" class="label">{{ t.fab.email | translate }} </label>
+                          <label for="inputFirstName" class="label">इमेिठेगानाः </label>
                           <input type="text" nbInput placeholder="">
                         </div>
                       </div>
 
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="inputFirstName" class="label">{{ t.fa.nationality | translate }} </label>
+                          <label for="inputFirstName" class="label">राष्ट्रीयताः </label>
                           <input type="text" nbInput placeholder="">
                         </div>
                       </div>
@@ -206,26 +207,26 @@
 
           <nb-accordion>
             <nb-accordion-item>
-              <nb-accordion-item-header>{{ t.fb.personalQuarantineInfo | translate }}</nb-accordion-item-header>
+              <nb-accordion-item-header>कन्ट्याक्टकोव्यक्तिगतजानकारी</nb-accordion-item-header>
               <nb-accordion-item-body>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">{{ t.fb.contactName | translate }} </label>
+                    <label for="inputFirstName" class="label"> नाम</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">{{ t.fb.caseRelation | translate }}</label>
+                    <label for="inputFirstName" class="label">के ससंगकोसम्बन्धः </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputDate" class="label">{{ t.fb.contactAge | translate }} </label>
+                    <label for="inputDate" class="label">जन्मममती/उमेरः </label>
                     <input [nbDatepicker]="datepicker">
                     <nb-datepicker #datepicker></nb-datepicker> <br />
                   </div>
@@ -234,12 +235,12 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="" class="label">{{ t.fb.gender | translate }} </label>
+                    <label for="" class="label">मिगः </label>
                     <div class="col-sm-6">
                       <nb-radio-group id="inputCaseStatus" class="row">
-                        <nb-radio>{{ t.fb.male | translate }}</nb-radio>
-                        <nb-radio>{{ t.fb.female | translate }}</nb-radio>
-                        <nb-radio>{{ t.fb.other | translate }}</nb-radio>
+                        <nb-radio>पुरुष</nb-radio>
+                        <nb-radio>ममहिा</nb-radio>
+                        <nb-radio>अन्य</nb-radio>
 
                       </nb-radio-group>
                     </div>
@@ -248,14 +249,14 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">{{ t.fb.location | translate }} </label>
+                    <label for="inputFirstName" class="label">ठेगानाः </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">{{ t.fb.phoneNumber | translate }} </label>
+                    <label for="inputFirstName" class="label">सम्पकमनंम्बरः </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
@@ -268,7 +269,7 @@
 
           <nb-accordion>
             <nb-accordion-item>
-              <nb-accordion-item-header>{{ t.fb.exposure | translate }} </nb-accordion-item-header>
+              <nb-accordion-item-header>अन्यएक्सपोजर(Exposure) कोजानकारी</nb-accordion-item-header>
               <nb-accordion-item-body>
 
 
@@ -276,12 +277,12 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="" class="label">{{ t.fb.travelDuringQuarantine | translate }} </label>
+                    <label for="" class="label">किरयाक्टिेमवगत१४मदनमादेशमभत्रकतैयात्रागरेकोछ? </label>
                     <div class="col-sm-6">
                       <nb-radio-group id="inputCaseStatus" class="row">
-                        <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
-                          <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
-                          <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन</nb-radio>
+                        <nb-radio>थाहाछैन</nb-radio>
 
                       </nb-radio-group>
                     </div>
@@ -290,7 +291,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputDate" class="label"> {{ t.fb.ifYestravelDate | translate }}</label>
+                    <label for="inputDate" class="label">यमदछभने,यात्रागरेकोममती(मदन/ममहना/वषम) </label>
                     <input [nbDatepicker]="datepicker">
                     <nb-datepicker #datepicker></nb-datepicker> <br />
                   </div>
@@ -298,14 +299,14 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">{{ t.fb.travelProvince | translate }} </label>
+                    <label for="inputFirstName" class="label">यात्रागरेकोक्षेत्रहरुः </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">{{ t.fb.travelCity | translate }}
+                    <label for="inputFirstName" class="label">यात्रागरेकाशहरहरुः
                     </label>
                     <input type="text" nbInput placeholder="">
                   </div>
@@ -314,12 +315,12 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="" class="label">{{ t.fb.travelCountry | translate }} </label>
+                    <label for="" class="label">किरयाक्टिेमवगत१४मदनमादेशबामहरकतैयात्रागरेकोछ? </label>
                     <div class="col-sm-6">
                       <nb-radio-group id="inputCaseStatus" class="row">
-                        <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
-                        <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
-                        <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन</nb-radio>
+                        <nb-radio>थाहाछैन</nb-radio>
 
                       </nb-radio-group>
                     </div>
@@ -328,7 +329,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputDate" class="label">{{ t.fb.ifYestravelDate | translate }} </label>
+                    <label for="inputDate" class="label">यमदछभने,यात्रागरेकोममती(मदन/ममहना/वषम) </label>
                     <input [nbDatepicker]="datepicker">
                     <nb-datepicker #datepicker></nb-datepicker> <br />
                   </div>
@@ -336,14 +337,14 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">{{ t.fb.travelCountry | translate }}</label>
+                    <label for="inputFirstName" class="label">यात्रागरेकादेशहरुः.. </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">{{ t.fb.travelCity | translate }}
+                    <label for="inputFirstName" class="label">यात्रागरेकाशहरहरुः
                     </label>
                     <input type="text" nbInput placeholder="">
                   </div>
@@ -353,12 +354,13 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for=""
-                    class="label">{{ t.fb.contactWithCoronaPositive | translate }} </label>
+                    class="label">मवगत१४मदनमभत्रकेकन्ट्याक्टकोरोनासंक्रममतवाकोरोनासंक्रमणकोआसंकागररएकोव्यक्तिकोनमजककोसम्पकम
+                    मारहेकोमथयो? </label>
                     <div class="col-sm-6">
                       <nb-radio-group id="inputCaseStatus" class="row">
-                        <nb-radio>{{ t.fab.bhayo | translate }}</nb-radio>
-                        <nb-radio>{{ t.fab.bhayena | translate }}</nb-radio>
-                        <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+                        <nb-radio> मथयो</nb-radio>
+                        <nb-radio>मथएन</nb-radio>
+                        <nb-radio>थाहाछैन</nb-radio>
 
                       </nb-radio-group>
                     </div>
@@ -367,7 +369,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputDate" class="label">{{ t.fb.ifYestravelDate | translate }} </label>
+                    <label for="inputDate" class="label">यमदछभने,यात्रागरेकोममती(मदन/ममहना/वषम) </label>
                     <input [nbDatepicker]="datepicker">
                     <nb-datepicker #datepicker></nb-datepicker> <br />
                   </div>
@@ -403,20 +405,20 @@
 
           <nb-accordion>
             <nb-accordion-item>
-              <nb-accordion-item-header>{{ t.fah.headingb4 | translate }}
+              <nb-accordion-item-header>४. एक्सपोजरसम्बन्धीजानकारी( कन्ट्याक्टस्वास्थ्यकमीभएमात्रभनुमहोस्)
               </nb-accordion-item-header>
               <nb-accordion-item-body>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">{{ t.fb.post | translate }}</label>
+                    <label for="inputFirstName" class="label"> पद(िुिाउनुहोस्)</label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">{{ t.fb.organizationName | translate }} </label>
+                    <label for="inputFirstName" class="label">कायमरतसंस्थाकोनामः </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
@@ -424,7 +426,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="inputFirstName"
-                    class="label">{{ t.fb.station | translate }}</label>
+                    class="label">स्टेशनःमफभरक्तिनीक/आइसोिेसनवाडम/आइ.सी.यू/ल्याब/अन्य(िुिाउनुहोस्). </label>
                     <input type="text" nbInput placeholder="">
                   </div>
                 </div>
@@ -434,12 +436,12 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="" class="label">{{ t.fb.useOfPPE | translate }}</label>
+                    <label for="" class="label">केउपयुिपीपीईप्रयोगगररएकोमथयो?</label>
                     <div class="col-sm-6">
                       <nb-radio-group id="inputCaseStatus" class="row">
-                        <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
-                        <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
-                        <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+                        <nb-radio>□छ□</nb-radio>
+                        <nb-radio>छैन□ </nb-radio>
+                        <nb-radio>थाहाछैन</nb-radio>
 
                       </nb-radio-group>
                     </div>
@@ -448,7 +450,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputDate" class="label">{{ t.fb.firstContactDate | translate }} </label>
+                    <label for="inputDate" class="label">पमहिोपटकसम्पकमभएकोममती(मदन/ममहना/वषम) </label>
                     <input [nbDatepicker]="datepicker">
                     <nb-datepicker #datepicker></nb-datepicker> <br />
                   </div>
@@ -456,7 +458,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputDate" class="label">{{ t.fb.lastContactDate | translate }} </label>
+                    <label for="inputDate" class="label">अक्तन्तमपटकसम्पकमभएकोममती(मदन/ममहना/वषम).. </label>
                     <input [nbDatepicker]="datepicker">
                     <nb-datepicker #datepicker></nb-datepicker> <br />
                   </div>
@@ -490,11 +492,11 @@
             </nb-accordion-item>
           </nb-accordion>
 
-          <!--part 5-->
+          <!--PART 5-->
 
           <nb-accordion>
             <nb-accordion-item>
-              <nb-accordion-item-header>">{{ t.fah.headingb5 | translate }}</nb-accordion-item-header>
+              <nb-accordion-item-header>५. एक्सपोजरसम्बन्धीजानकारी(स्वास्थ्यकमीभन्दाअन्यभएमा)</nb-accordion-item-header>
               <nb-accordion-item-body>
 
 
@@ -504,14 +506,14 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="" class="label">{{ t.fb.locationOfContact | translate }}</label>
+                    <label for="" class="label">सम्पकमभएकोस्थानः</label>
                     <div class="col-sm-6">
                       <nb-radio-group id="inputCaseStatus" class="row">
-                        <nb-radio>{{ t.fb.home | translate }}</nb-radio>
-                        <nb-radio>{{ t.fb.transport | translate }} </nb-radio>
-                        <nb-radio>{{ t.fb.school | translate }}</nb-radio>
-                        <nb-radio>{{ t.fb.speechWithPublic | translate }} </nb-radio>
-                        <nb-radio>{{ t.fb.other | translate }}</nb-radio>
+                        <nb-radio>घर</nb-radio>
+                        <nb-radio>यातायात </nb-radio>
+                        <nb-radio> मवद्यािय/काम</nb-radio>
+                        <nb-radio>आमसभा </nb-radio>
+                        <nb-radio>अन्य</nb-radio>
 
 
                       </nb-radio-group>
@@ -521,7 +523,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputDate" class="label">{{ t.fb.firstContactDate | translate }} </label>
+                    <label for="inputDate" class="label">पमहिोपटकसम्पकमभएकोममती(मदन/ममहना/वषम) </label>
                     <input [nbDatepicker]="datepicker">
                     <nb-datepicker #datepicker></nb-datepicker> <br />
                   </div>
@@ -529,7 +531,7 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputDate" class="label">">{{ t.fb.lastContactDate | translate }} </label>
+                    <label for="inputDate" class="label">अक्तन्तमपटकसम्पकमभएकोममती(मदन/ममहना/वषम).. </label>
                     <input [nbDatepicker]="datepicker">
                     <nb-datepicker #datepicker></nb-datepicker> <br />
                   </div>
@@ -544,12 +546,12 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="" class="label">{{ t.fb.typeOfExposure | translate }}</label>
+                    <label for="" class="label">एक्सपोजरकोआधारमासम्पकम कोवगीकरणः</label>
                     <div class="col-sm-6">
                       <nb-radio-group id="inputCaseStatus" class="row">
-                        <nb-radio>{{ t.fb.closeExposure | translate }}</nb-radio>
-                        <nb-radio>{{ t.fb.normalExposure | translate }}</nb-radio>
-                        <nb-radio>{{ t.fb.highlyExposed | translate }} </nb-radio>
+                        <nb-radio>नमजक</nb-radio>
+                        <nb-radio>सामान्य </nb-radio>
+                        <nb-radio>उच्चजोक्तिम६ </nb-radio>
 
 
                       </nb-radio-group>
@@ -568,7 +570,7 @@
 
           <nb-accordion>
             <nb-accordion-item>
-              <nb-accordion-item-header>{{ t.fah.headingb6 | translate}}</nb-accordion-item-header>
+              <nb-accordion-item-header>६. क्लक्लदनकलजानकारी</nb-accordion-item-header>
               <nb-accordion-item-body>
 
 
@@ -578,11 +580,11 @@
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="" class="label">{{ t.fb.education | translate}}</label>
+                    <label for="" class="label">२.१हाििक्षणः</label>
                     <div class="col-sm-6">
                       <nb-radio-group id="inputCaseStatus" class="row">
-                        <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
-                        <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+                        <nb-radio>छ</nb-radio>
+                        <nb-radio>छैन </nb-radio>
 
 
                       </nb-radio-group>
@@ -596,8 +598,8 @@
                       नैपमनकोमभड१९संगसम्बक्तन्धतिक्षणहरुदेिापरेकोछ? </label>
                       <div class="col-sm-6">
                         <nb-radio-group id="inputCaseStatus" class="row">
-                          <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
-                          <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+                          <nb-radio>छ</nb-radio>
+                          <nb-radio>छैन </nb-radio>
 
 
                         </nb-radio-group>
@@ -652,7 +654,7 @@
 
               <nb-accordion>
                 <nb-accordion-item>
-                  <nb-accordion-item-header>{{ t.fah.headingb7 | translate}}</nb-accordion-item-header>
+                  <nb-accordion-item-header>७. कन्ट्याक्टकोिामगमिइएकोएक्सन</nb-accordion-item-header>
                   <nb-accordion-item-body>
 
 
@@ -681,7 +683,7 @@
 
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="inputFirstName" class="label">{{ t.fb.address | translate }} </label>
+                        <label for="inputFirstName" class="label">ठेगानाः </label>
                         <input type="text" nbInput placeholder="">
                       </div>
                     </div>
@@ -695,21 +697,21 @@
 
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="inputFirstName" class="label">{{ t.fb.province | translate }} </label>
+                        <label for="inputFirstName" class="label">प्रदेशः </label>
                         <input type="text" nbInput placeholder="">
                       </div>
                     </div>
 
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="inputFirstName" class="label">{{ t.fb.municipality | translate }} </label>
+                        <label for="inputFirstName" class="label">नगरपामिकाः </label>
                         <input type="text" nbInput placeholder="">
                       </div>
                     </div>
 
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="inputFirstName" class="label">{{ t.fb.wardNum | translate }} </label>
+                        <label for="inputFirstName" class="label">वाडमनः </label>
                         <input type="text" nbInput placeholder="">
                       </div>
                     </div>
@@ -732,16 +734,16 @@
 
               <nb-accordion>
                 <nb-accordion-item>
-                  <nb-accordion-item-header>{{ t.fah.headingb8 | translate }}</nb-accordion-item-header>
+                  <nb-accordion-item-header>८.कन्ट्याक्टकोपरीक्षणक्तस्थती</nb-accordion-item-header>
                   <nb-accordion-item-body>
 
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="" class="label">{{ t.fb.contactCheckup | translate }} </label>
+                        <label for="" class="label">कन्ट्याक्टकोपरीक्षणगररएकोछ?(के शसंगअक्तन्तमपटकभेटभएपमछ </label>
                         <div class="col-sm-6">
                           <nb-radio-group id="inputCaseStatus" class="row">
-                            <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
-                            <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+                            <nb-radio>छ</nb-radio>
+                            <nb-radio>छैन</nb-radio>
 
 
 
@@ -796,7 +798,7 @@
 
               <nb-accordion>
                 <nb-accordion-item>
-                  <nb-accordion-item-header>{{ t.fah.headingb9 | translate }}</nb-accordion-item-header>
+                  <nb-accordion-item-header>९. फिोअपक्तस्थती(मनधामररतअनुगमनअवमधकोअन्तमापूराहुने</nb-accordion-item-header>
                   <nb-accordion-item-body>
 
                     <div class="col-md-12">
@@ -820,29 +822,29 @@
                 </nb-accordion-item>
               </nb-accordion>
 
-              <!--PART 10-->
+              <!--PART 11-->
               <nb-accordion>
                 <nb-accordion-item>
-                  <nb-accordion-item-header> {{ t.fah.headingb10 | translate }}</nb-accordion-item-header>
+                  <nb-accordion-item-header>११.र्थ्ाांकसांकलनगनेकोजानकारी</nb-accordion-item-header>
                   <nb-accordion-item-body>
 
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="inputFirstName" class="label"> {{ t.fb.contactName | translate }}</label>
+                        <label for="inputFirstName" class="label"> नाम</label>
                         <input type="text" nbInput placeholder="">
                       </div>
                     </div>
 
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="inputFirstName" class="label">{{ t.fb.organization | translate }} </label>
+                        <label for="inputFirstName" class="label">संस्थाः </label>
                         <input type="text" nbInput placeholder="">
                       </div>
                     </div>
 
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="inputDate" class="label">{{ t.fb.contactAge | translate }} </label>
+                        <label for="inputDate" class="label">जन्मममती/उमेरः </label>
                         <input [nbDatepicker]="datepicker">
                         <nb-datepicker #datepicker></nb-datepicker> <br />
                       </div>
@@ -852,14 +854,14 @@
 
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="inputFirstName" class="label">{{ t.fb.phoneNumber | translate }} </label>
+                        <label for="inputFirstName" class="label">फोननम्बरः </label>
                         <input type="text" nbInput placeholder="">
                       </div>
                     </div>
 
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="inputFirstName" class="label">{{ t.fab.email | translate }} </label>
+                        <label for="inputFirstName" class="label">इमेिः </label>
                         <input type="text" nbInput placeholder="">
                       </div>
                     </div>
