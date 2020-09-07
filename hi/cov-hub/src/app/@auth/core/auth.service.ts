@@ -243,7 +243,6 @@ export class AuthService extends NbAuthService {
     password: string,
   ) {
     const base64AuthString = btoa(`${username}:${password}`);
-    console.log('auths string', base64AuthString);
     return this.http.get<BasicAuth.Response>(this.environment.authUri, {
       headers: {
         Accept: 'application/json',
