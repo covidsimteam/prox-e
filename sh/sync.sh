@@ -1,6 +1,7 @@
 #!/bin/bash
 
 pusher() {
+	git fetch
 	git pull
 	git push
 }
@@ -11,7 +12,7 @@ checkouter() {
 }
 
 syncer() {
-	branches=( develop master feature/wizard feature/scheduler )
+	branches=( develop feature/wizard feature/scheduler feature/i18n master )
 	for d in "${branches[@]}"
 	do
 		checkouter "$d"
