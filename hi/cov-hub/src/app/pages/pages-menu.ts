@@ -8,29 +8,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
-    title: 'Core Stats',
-    icon: 'activity-outline',
-    link: '/hub/stats',
-  },
-  {
     title: 'Data Entry',
     group: true,
   },
   {
-    title: 'Forms',
-    icon: 'calendar-outline',
+    title: 'Returnees',
+    icon: 'people-outline',
     children: [
       {
         title: 'Form A',
         link: '/hub/secured/forms/form-a',
-      },
-      {
-        title: 'Form B1',
-        link: '/hub/secured/forms/form-b1',
-      },
-      {
-        title: 'Form B2',
-        link: '/hub/secured/forms/form-b2',
       },
       {
         title: 'Point of Entry',

@@ -8,35 +8,35 @@
 
     <div class="col-md-12">
       <div class="form-group">
-        <label for="inputFirstName" class="label">{{ t.fc.caseName | translate }}</label>
+        <label for="inputFirstName" class="label">केसकोनाम</label>
         <input type="text" nbInput placeholder="नाम र ठेगाना">
         </div>
         </div>
 
         <div class="col-md-12">
           <div class="form-group">
-            <label for="inputFirstName" class="label">{{ t.fc.caseId | translate }}</label>
+            <label for="inputFirstName" class="label">केसआइडी÷क्ऱस्टरनम्बर(यदिऱागूभएमा)</label>
             <input type="text" nbInput placeholder="नाम र ठेगाना">
             </div>
             </div>
 
             <div class="col-md-12">
               <div class="form-group">
-                <label for="inputFirstName" class="label">{{ t.fc.quarantineName | translate }}</label>
+                <label for="inputFirstName" class="label">कन्टयाककोनाम</label>
                 <input type="text" nbInput placeholder="नाम र ठेगाना">
                 </div>
                 </div>
 
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputFirstName" class="label">{{ t.fc.quarantineIdNumber | translate }}</label>
+                    <label for="inputFirstName" class="label">कन्टयाककोआईडीनम्बर(C...):</label>
                     <input type="text" nbInput placeholder="नाम र ठेगाना">
                     </div>
                     </div>
 
                     <div class="col-md-12">
                       <div class="form-group">
-                    <label for="inputDate" class="label">{{ t.fc.followupDate | translate }} </label>
+                    <label for="inputDate" class="label">फऱो अप को ममतत(दिन/मदिना/साऱ) </label>
                     <input [nbDatepicker]="datepicker">
                     <nb-datepicker #datepicker></nb-datepicker> <br/>
                     </div>
@@ -44,7 +44,7 @@
 
                   <div class="form-group">
                     <div class="label" >
-                      {{ t.fc.symptoms | translate }}</div>
+                      ऱक्षण छैन</div>
                     <div class="col-sm-6">
                       <nb-radio-group id="inputCaseStatus" class="row">
                         <nb-radio>कननैछैन</nb-radio>
@@ -54,67 +54,62 @@
 
                     <div class="form-group">
                       <div class="label" >
-                        {{ t.fc.fever | translate }}</div>
+                        ज्वोरा(≥३८°C)</div>
                       <div class="col-sm-6">
                         <nb-radio-group id="inputCaseStatus" class="row">
-                          <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
-                          <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
-
+                          <nb-radio>छ</nb-radio>
+                          <nb-radio>छैन</nb-radio>
                           </nb-radio-group>
                         </div>
                       </div>
 
                       <div class="form-group">
                         <div class="label" >
-                          {{ t.fc.runnyNose | translate }}</div>
+                          नाक बगेकोि</div>
                         <div class="col-sm-6">
                           <nb-radio-group id="inputCaseStatus" class="row">
-                            <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
-                            <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
-
+                            <nb-radio>छ</nb-radio>
+                            <nb-radio>छैन</nb-radio>
                             </nb-radio-group>
                           </div>
                         </div>
 
                         <div class="form-group">
                           <div class="label" >
-                            {{ t.fc.cough | translate }}</div>
+                            कक</div>
                           <div class="col-sm-6">
                             <nb-radio-group id="inputCaseStatus" class="row">
-                              <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
-                              <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
-
+                              <nb-radio>छ</nb-radio>
+                              <nb-radio>छैन</nb-radio>
                               </nb-radio-group>
                             </div>
                           </div>
 
                           <div class="form-group">
                             <div class="label" >
-                              {{ t.fc.sorethroat | translate }}</div>
+                              घाटी िनिेको</div>
                             <div class="col-sm-6">
                               <nb-radio-group id="inputCaseStatus" class="row">
-                                <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
-                                <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
-
+                                <nb-radio>छ</nb-radio>
+                                <nb-radio>छैन</nb-radio>
                                 </nb-radio-group>
                               </div>
                             </div>
 
                             <div class="form-group">
                               <div class="label" >
-                                {{ t.fc.difficultyBreathing | translate }}</div>
+                                सास फेनु गािो भएको</div>
                               <div class="col-sm-6">
                                 <nb-radio-group id="inputCaseStatus" class="row">
-                                  <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
-                                  <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
-
+                                  <nb-radio>छ</nb-radio>
+                                  <nb-radio>छैन</nb-radio>
                                   </nb-radio-group>
                                 </div>
                               </div>
 
                               <div class="col-md-12">
                                 <div class="form-group">
-                                  <label for="inputFirstName" class="label">{{ t.fc.other | translate }}</label>
+                                  <label for="inputFirstName" class="label">अन्य ऱक्षण(उल्ऱेिगननु</label>
                                   <input type="text" nbInput placeholder="नाम र ठेगाना">
                                   </div>
                                   </div>
@@ -122,19 +117,19 @@
 
                                   <nb-accordion>
                                     <nb-accordion-item>
-                                     <nb-accordion-item-header>{{ t.fc.followup | translate }}</nb-accordion-item-header>
+                                     <nb-accordion-item-header>अन्न्तमफ्ऱोअपमाकन््याककोवचगुकरण–कन््याकफ्ऱोअपदटमकोप्रयोगकोऱागीमात्रै</nb-accordion-item-header>
                                      <nb-accordion-item-body>
 
                                       <div class="form-group">
                                         <div class="label" >
-                                          {{ t.fc.tick | translate }}</div>
+                                          कृपयाचिन्िऱगाउननिोस</div>
                                         <div class="col-sm-6">
                                           <nb-radio-group id="inputCaseStatus" class="row">
-                                            <nb-radio>{{ t.fc.neverIll | translate }}</nb-radio>
-                                            <nb-radio>{{ t.fc.secondary | translate }}</nb-radio>
-                                            <nb-radio>{{ t.fc.firstFollowup | translate }}</nb-radio>
-                                            <nb-radio>{{ t.fc.primary | translate }}</nb-radio>
-                                            <nb-radio>{{ t.fc.doubtful | translate }}</nb-radio>
+                                            <nb-radio>कदिल्यैबबरामीनभएको/केसिोइन</nb-radio>
+                                            <nb-radio>सेकेन्डरीकेसपनष्टीभएको</nb-radio>
+                                            <nb-radio>ऱस्टफ्ऱोअप</nb-radio>
+                                            <nb-radio>शॊकास्पिकेस</nb-radio>
+                                            <nb-radio>सम्भाववतकेस</nb-radio>
                                             </nb-radio-group>
                                           </div>
                                         </div>

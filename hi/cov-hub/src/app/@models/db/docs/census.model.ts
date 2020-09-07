@@ -17,7 +17,7 @@ export module Census2011 {
 
   export function isDistrictCensus(properties: Census2011.Districts | any):
   properties is Census2011.Districts {
-    return (properties as Census2011.Districts)?._id === 'district_stats_2011';
+    return (properties as Census2011.Districts)._id === 'district_stats_2011';
   }
 
 }

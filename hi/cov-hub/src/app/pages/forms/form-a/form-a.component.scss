@@ -7,6 +7,10 @@
   index: 0;
 }
 
+nb-accordion-item-header {
+  background-color: #8da5da;
+}
+
 nb-stepper {
   height: 500px;
   width: 75vw;
@@ -20,7 +24,7 @@ nb-accordion {
 .form-a-header {
   font-family: kantipur;
   font-weight: bolder;
-  font-size: xx-large;
+  font-size: large;
 }
 
 .label {
@@ -40,5 +44,4 @@ nb-checkbox:not(:only-child) {
 
 nb-card-header {
   text-align: center;
-  font-size: x-large;
 }

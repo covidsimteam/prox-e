@@ -47,6 +47,8 @@ import { ECommerceUserActivityComponent } from './user-activity/user-activity.co
 import { ECommerceVisitorsAnalyticsChartComponent } from './visitors-analytics/visitors-analytics-chart/visitors-analytics-chart.component';
 import { ECommerceVisitorsAnalyticsComponent } from './visitors-analytics/visitors-analytics.component';
 import { ECommerceVisitorsStatisticsComponent } from './visitors-analytics/visitors-statistics/visitors-statistics.component';
+import { DashboardModule } from '../../@comp/dashboard/dashboard.module';
+
 
 @NgModule({
   imports: [
@@ -62,7 +64,8 @@ import { ECommerceVisitorsStatisticsComponent } from './visitors-analytics/visit
     NbProgressBarModule,
     NgxEchartsModule,
     NgxChartsModule,
-    LeafletModule
+    LeafletModule,
+    DashboardModule
   ],
   declarations: [
     ECommerceComponent,
