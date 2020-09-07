@@ -39,7 +39,6 @@ export class AuthInterceptor implements HttpInterceptor {
               this.router.navigate(['auth/login']);
             }
             // TODO: handle 403 error ?
-            console.log('From interceptor', error);
             return throwError(error);
           }));
       }

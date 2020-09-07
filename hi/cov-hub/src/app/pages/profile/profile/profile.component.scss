@@ -1,4 +1,4 @@
-@import "../../../@theme/styles/themes";
+@import '../../../@theme/styles/themes';
 
 @include nb-install-component() {
   .container {
@@ -22,7 +22,7 @@
   width: 220px;
   &::before {
     background-color: color-basic-transparent-400;
-    content: "";
+    content: '';
     position: absolute;
     height: 100%;
     opacity: 1;
