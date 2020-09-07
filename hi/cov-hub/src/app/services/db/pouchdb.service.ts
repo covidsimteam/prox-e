@@ -137,8 +137,7 @@ export class PouchDBService {
     });
 
     if (!this.roleService.isAuthenticated) return this.getRemoteDBInstance(dbName);
-
-    from(remoteDB.logIn(this.roleService.username, this.roleService.password)).subscribe(_ => {
+    from(remoteDB.logIn(this.environment.dbPublicUser, this.environment.dbPublicPass)).subscribe(_ => {
       this.databases[dbName].remoteInstance = remoteDB;
     });
 
@@ -159,7 +158,7 @@ export class PouchDBService {
 
     const emitOnChange = (change: any) => dbMeta?.listener?.emit(change);
 
-    from(remoteDB.logIn(this.roleService.username, this.roleService.password))
+    from(remoteDB.logIn(this.environment.dbPublicUser, this.environment.dbPublicPass))
         .subscribe(_ => {
 
           this.databases[dbName].remoteInstance = remoteDB;

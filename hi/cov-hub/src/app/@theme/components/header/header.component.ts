@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbAuthToken } from '@nebular/auth';
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 import { Subject } from 'rxjs';
-import { map, takeUntil } from 'rxjs/operators';
+import { map, takeUntil, filter } from 'rxjs/operators';
 import { AuthService } from '../../../@auth/core/auth.service';
 import { LayoutService } from '../../../@core/utils';
 import { HubUser, HeaderBio } from '../../../@models/user.model';
@@ -18,6 +18,10 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit, OnDestroy {
 
   private destroy$: Subject<void> = new Subject<void>();
+
+  private static readonly PROFILE = 'Profile';
+  private static readonly LOGOUT = 'Log Out';
+
   userPictureOnly: boolean = false;
   user: HeaderBio;
 
@@ -57,21 +61,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
           this.user = token.getPayload();
         }
       });
-
-      this.menuService.onItemClick()
-        .pipe(takeUntil(this.destroy$))
-        .subscribe(({ item }) => {
-          if (item.title === 'Profile') {
-            this.router.navigateByUrl(item?.link || '/pages/profile');
-          }
-        });
   }
 
   getMenuItems() {
     const userLink = this.user ? '/pages/users/current/' : '';
     return [
-      { title: 'Profile', link: userLink, queryParams: { profile: true } },
-      { title: 'Log out', link: '/auth/logout' },
+      { title: HeaderComponent.PROFILE, link: userLink, queryParams: { profile: true } },
+      { title: HeaderComponent.LOGOUT },
     ];
   }
 
@@ -85,6 +81,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe((user: HubUser) => {
         this.user = user;
         this.userMenu = this.getMenuItems();
+      });
+
+    this.menuService.onItemClick()
+      .pipe(
+        takeUntil(this.destroy$),
+        filter(({ tag }) => tag === 'context-menu'),
+        map(({ item: { title } }) => title),
+      ).subscribe((title: string) => {
+        title === HeaderComponent.LOGOUT ?
+          this.logout() :
+          this.navigateToMenuPage(
+            title.toLowerCase().replace(/ /g, '_')
+          ); // pages are named profile and settings TODO create those pages
       });
 
     const { xl } = this.breakpointService.getBreakpointsMap();
@@ -104,6 +113,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.currentTheme = themeName;
         this.rippleService.toggle(themeName?.startsWith('material'));
       });
+  }
+
+  navigateToMenuPage(page: string) {
+    this.router.navigateByUrl(page);
   }
 
   ngOnDestroy() {

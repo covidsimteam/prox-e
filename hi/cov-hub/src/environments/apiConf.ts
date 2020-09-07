@@ -1,5 +1,5 @@
 export const appUris = {
-  docDBUser: 'lalitpurlabadmin@nep.work',
+  docDBUser: 'public@nep.work',
   docDBPassword: 'public',
   devDocDB: 'http://localhost:5984/',
   prodDocDB: 'https://covidb.cosys.work/',

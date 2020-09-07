@@ -37,6 +37,51 @@ export class AuthService extends NbAuthService {
     private strategy: NbPasswordAuthStrategy) {
     super(tokenService, strategy);
     this.strat = new NbPasswordAuthStrategy(http, route);
+    this.updateUser();
+
+  }
+
+  get isInPublicMode(): boolean { return this.isInPublicModSub.value; }
+  set isInPublicMode(v: boolean) { this.isInPublicModSub.next(v); }
+
+  get strategies(): any { return [this.strat]; }
+  set strategies(strats: any) { this.strat = strats[0]; }
+
+  get getStrategyOptions(): PasswordAuthStrategyOptions { return new PasswordAuthStrategyOptions(); }
+
+  get userObs(): BehaviorSubject<HubUser> {
+    return this.userSub;
+  }
+
+  get user(): string {
+    if (this.user_) return this.user_;
+    return localStorage?.getItem(CurrentUser.name) || '';
+  }
+
+  set user(user: string) {
+    this.user_ = user;
+    localStorage?.setItem('user', user);
+  }
+
+  get pass(): string {
+    if (this.user_) return this.pass_;
+    return localStorage?.getItem(CurrentUser.pass) || '';
+  }
+
+  set pass(pass: string) {
+    this.pass_ = pass;
+    localStorage?.setItem('pass', pass);
+  }
+
+
+  updateUser() {
+    if (!this.userObs?.getValue()) return;
+    const { username, password, roles } = this.userObs?.getValue();
+    this.user = username;
+    this.pass = password;
+    this.roleService.roles = roles;
+    this.roleService.username = username;
+    this.roleService.password = password;
   }
 
   /**
@@ -62,17 +107,6 @@ export class AuthService extends NbAuthService {
     return this.basicAuthRequest(username, password); // TODO change to actual sign-up later
   }
 
-  get isInPublicMode(): boolean { return this.isInPublicModSub.value; }
-  set isInPublicMode(v: boolean) { this.isInPublicModSub.next(v); }
-
-  get strategies(): any { return [this.strat]; }
-  set strategies(strats: any) { this.strat = strats[0]; }
-
-  get getStrategyOptions(): PasswordAuthStrategyOptions { return new PasswordAuthStrategyOptions(); }
-
-  private async roleArraySetter(roles: string[]) {
-    this.roleService.roles = roles;
-  }
 
   private refreshCurrentUserCredentials(
     isAuthenticated: boolean,
@@ -81,7 +115,7 @@ export class AuthService extends NbAuthService {
     roles: string[]) {
     if (isAuthenticated && !this.isInPublicMode) {
       this.setCredentials(user, pass, roles);
-      this.roleArraySetter(roles);
+      this.updateUser();
     } else {
       this.removeCredentials();
     }
@@ -168,7 +202,7 @@ export class AuthService extends NbAuthService {
     this.userSub.next(null);
     this.authenticatedSub.next(false);
     this.isInPublicModSub.next(true);
-    this.roleArraySetter(['']);
+    this.roleService.clear();
     localStorage.removeItem('user');
   }
 
@@ -187,26 +221,8 @@ export class AuthService extends NbAuthService {
     });
   }
 
-  get userObs(): Observable<HubUser> {
-    return this.userSub.asObservable();
-  }
 
-  get user(): string {
-    if (this.user_) return this.user_;
-    return localStorage?.getItem(CurrentUser.name) || '';
-  }
-
-  set user(user: string) {
-    this.user_ = user;
-    localStorage?.getItem(user);
-  }
-
-  get pass(): string {
-    if (this.user_) return this.pass_;
-    return localStorage?.getItem(CurrentUser.pass) || '';
-  }
-
-  private authenticateNow(success: boolean = true): Observable<boolean> {
+  authenticateNow(success: boolean = true): Observable<boolean> {
     this.authenticatedSub.next(success);
     return this.authenticatedSub.asObservable();
   }
