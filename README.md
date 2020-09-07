@@ -78,7 +78,7 @@ First thing you should do to use this repository is run the `sync.sh` script, if
 
 ## build.sh
 
-First thing you should do after running `./sync.sh` is run `./build.sh`. It contains the necessary step to get your system ready to build and serve this project.
+First thing you should do after running `./sync.sh` is run `./build.sh`. It contains the necessary steps to get your system ready to build and serve this project.
 
 To serve this project after running `./build.sh`, run `yarn start-cov-hub`.
 
