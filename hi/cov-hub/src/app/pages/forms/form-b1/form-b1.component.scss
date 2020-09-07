@@ -1,3 +1,12 @@
+@font-face {
+  font-family: kantipur;
+  src: url('../../../../assets/fonts/Kantipur_Reg.ttf');
+  style: normal;
+  weight: 400;
+  stretch: 100;
+  index: 0;
+}
+
 nb-accordion-item-header {
   background-color: #5f8df0;
 
@@ -11,6 +20,16 @@ nb-stepper {
 nb-accordion {
   padding: 10px;
 
+}
+.form-b-header {
+  font-family: kantipur;
+  font-weight: bolder;
+  font-size: large;
+}
+
+.label {
+  font-family: kantipur;
+  font-size: larger;
 }
 
 
