@@ -11,7 +11,7 @@ checkouter() {
 }
 
 syncer() {
-	branches=( develop master feature/wizard feature/scheduler )
+	branches=( develop feature/wizard feature/scheduler feature/i18n master)
 	for d in "${branches[@]}"
 	do
 		checkouter "$d"
@@ -22,4 +22,4 @@ pusher
 syncer
 
 wait
-echo "All branches are synced to develop ~~!"
+echo "All feature branches are synced to develop ~~!"
