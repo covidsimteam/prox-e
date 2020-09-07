@@ -9,6 +9,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "experimentalDecorators": true,
+    "resolveJsonModule": true,
   },
   "references": [
     {

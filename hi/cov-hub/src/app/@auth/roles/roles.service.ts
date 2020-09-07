@@ -15,6 +15,12 @@ export class RolesService {
 
   constructor(private roleAuths: RoleAuthsService) {}
 
+  clear() {
+    this.user = '';
+    this.pass = '';
+    this.roleArr = [];
+  }
+
   get username(): string {
     return this.user;
   }

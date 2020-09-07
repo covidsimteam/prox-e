@@ -1,14 +1,74 @@
-<h1>Title</h1>
-<p>Intro To Do</p>
-<h2>Subtitles</h2>
-<p>Content To Do</p>
+<h1>prox-e</h1>
+<p>Please read all the entries alphabetically.</p>
+<h2>Intro</h2>
+<p>The concept of anarchitectural components and component files is simple. You just need indexes and services to be able to use them.</p>
+<p>Visualization of data in itself is not an exact science and therefore a very creative space. Currently we have provided a 2D or 3D grid of card components with both the thumbnail and the full zoom versions of all the visualizations.</p>
+<p>These can be chosen by swiping up and down to move between the conceptual topics in the grid. You can also swipe right and left to move to the initial introductory parts or later in-depth parts of the same conceptual topics. Conceptual topics are units of visualizations with data and data semantics presented in a locally standardized format.</p>
+<p>Beyond up. right, left, down swipes, we also support selection and subscriptions using a tap or long hold and press respectively.
+A selection retrieves the latest data for a particular topic. A long hold (or deep press if 3D touch is supported) allows to see the selected component's last few hundreds of the latest updates instead  of just the most recent one.</p>
+<p>The core system does not include any other forms of UI interactions. However the core plugins work really well to fill up the void created by an ultra-light weight core system library. The File plugin creates a globally usable virtual file system.</p>
+<h1>prox-e</h1>
+<p>Simple REST APIs and dashboard to showcase CST's core functionalities &amp; simple cov-hub dashboard to demonstrate what the system and the APIs above can do.</p>
+<h2>tp</h2>
+<p>TP stands for Transport Protocols and Transport Protobufs and Top Priority. It has three important sub-projects.</p>
+<h3>channels</h3>
+<p>All pub-sub and stream channels are available under this single API and SDK.</p>
+<h3>nginx</h3>
+<p>All the nginx conf for all the projects will be made available here.</p>
+<h3>protocols</h3>
+<p>All the OpenAPI specs and spec drafts will be made available here.</p>
+<h2>hi</h2>
+<p>All sub-projects in the <code>hi</code> project group are of high priority. It has three distinct sub-projects.</p>
+<h3>couch-potato</h3>
+<p>This is currently just a collection of geojson blobs for CDN and redundant blob storage on edge networks.</p>
+<h3>cov-hub</h3>
+<p>This is the dashboard and the central activity hub for all things related to covid for everyone as a member of any given organization or as an individual.</p>
+<h3>prox-e</h3>
+<p>This is the additional Open API server for communicating with our system and acts as a proxy to our single source of truth - core db.</p>
+<h2>md</h2>
+<p>All sub-projects in the <code>md</code> project group are of medium priority. It has three distinct sub-projects.</p>
+<h3>indy</h3>
+<p>This is currently just a collection of geojson based id blobs for CDN and redundant blob storage on edge networks.</p>
+<h3>indy-pay</h3>
+<p>This is the dashboard and the central activity hub for all things related to payments for everyone as a member of any given organization or as an individual.</p>
+<h3>indy-vot</h3>
+<p>This is the additional Open API server for communicating with our system and acts as a proxy to our single source of consensus - core kdb.</p>
+<h2>lo</h2>
+<p>All sub-projects in the <code>lo</code> project group are of underground projects that serve as enablers for the other projects above. This group has three distinct sub-projects.</p>
+<h3>khetala</h3>
+<p>This is currently just a collection of geojson based id-metadata blobs for CDN and redundant blob storage on edge networks.</p>
+<h3>medigai</h3>
+<p>This is the dashboard and the central activity hub for all things related to medical ikigai for everyone as a member of any given organization or as an individual.</p>
+<h3>indycol</h3>
+<p>This is the additional Open API server for communicating with our system and acts as a proxy to our single source of collaboration - curedit.</p>
+<h2>sync.sh</h2>
+<p>First thing you should do to use this repository is run the <code>sync.sh</code> script, if you have not done so recently. The <code>./sync.sh</code> script utilizes the shell scripts in <code>sh</code> folder to update all the current branches with the latest commits from develop. We run this script before and after creating new commits. We have the luxury to do this because we have sensisble, segregated branching including specially segregated branches that show us any possible overlaps between two branches.</p>
+<h2>build.sh</h2>
+<p>First thing you should do after running <code>./sync.sh</code> is run <code>./build.sh</code>. It contains the necessary steps to get your system ready to build and serve this project.</p>
+<p>To serve this project after running <code>./build.sh</code>, run <code>yarn start-cov-hub</code>.</p>
+<h2>sync.sh with a graph theoretic context</h2>
+<p>You can provide your sh folder and metab.sh script in your own folder e.g. <code>prox-e/sh-feature-x/sh</code> instead of <code>prox-e/sh</code> and run <code>../sync.sh</code> from <code>prox-e/sh-feature/</code> directory. It will cd into your <code>prox-e/sh-feature/</code> directory's <code>sh</code> folder instead of the the <code>sh</code> folder in <code>prox-e</code> root folder. This can be useful for having branch specific team-wide sync logic. Please skip this setup if you have any confusions.</p>
+<h2>docs</h2>
+<p>Github pages driven by eleventy SSG.</p>
+<h2>Actions deploy guide</h2>
+<p>In order to trigger workflow action you should execute the following curl:</p>
+<p><code>curl -H &quot;Accept: application/vnd.github.everest-preview+json&quot; \</code><br>
+<code>-H &quot;Authorization: token &lt;ACCESS_TOKEN&gt;&quot; \</code><br>
+<code>--request POST \</code><br>
+<code>--data '{&quot;event_type&quot;: &quot;&lt;ACTION&gt;&quot;}' \</code><br>
+<code>https://api.github.com/repos/covidsimteam/prox-e/dispatches</code></p>
+<p>This curl expects two input parameters:</p>
+<ul>
+<li><code>ACCESS_TOKEN</code>: A personal access token. Creating a <a href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line">personal access token guide</a></li>
+<li><code>ACTION</code>: action to trigger ('deploy-docs', 'deploy-to-demo')</li>
+</ul>
 <p>What this is all about</p>
-<h2><a href="//covidsimteam.github.io/prox-e/anarchitecture" target="_blank">An architecture</a></h2>
-<h2><a href="//covidsimteam.github.io/prox-e/components" target="_blank">Components</a></h2>
-<h2><a href="//covidsimteam.github.io/prox-e/concepts" target="_blank">Concepts</a></h2>
-<h2><a href="//covidsimteam.github.io/prox-e/files" target="_blank">Files</a></h2>
-<h2><a href="//covidsimteam.github.io/prox-e/indexes" target="_blank">Indexes</a></h2>
-<h2><a href="//covidsimteam.github.io/prox-e/services" target="_blank">Services</a></h2>
-<h2><a href="//covidsimteam.github.io/prox-e/usage" target="_blank">Usage</a></h2>
-<h2><a href="//covidsimteam.github.io/prox-e/viz.data" target="_blank">Viz</a></h2>
-<h2><a href="//covidsimteam.github.io/prox-e/viz.data" target="_blank">Data</a></h2>
+<h2><a href="'anarchitecture/index.html'">An architecture</a></h2>
+<h2><a href="'components/index.html'">Components</a></h2>
+<h2><a href="'concepts/index.html'">Concepts</a></h2>
+<h2><a href="'files/index.html'">Files</a></h2>
+<h2><a href="'indexes/index.html'">Indexes</a></h2>
+<h2><a href="'services/index.html'">Services</a></h2>
+<h2><a href="'usage/index.html'">Usage</a></h2>
+<h2><a href="'viz.data/index.html'">Viz</a></h2>
+<h2><a href="'viz.data/index.html'">Data</a></h2>

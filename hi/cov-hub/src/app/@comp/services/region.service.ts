@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
-import { from, Observable, ObservableInput, noop } from 'rxjs';
+import { from, noop, Observable, ObservableInput } from 'rxjs';
 import { tap } from 'rxjs/operators';
-
-import { Area, FeatureCollection, WardProperties } from '../../@models/domain.model';
-
 import { Census2011 } from '../../@models/db/docs/census.model';
 import { HealthStats } from '../../@models/db/docs/health-stats.model';
+import { Area, FeatureCollection, WardProperties } from '../../@models/domain.model';
 import { SpatialService } from '../../services/db/spatial.service';
 
 @Injectable({
