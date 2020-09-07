@@ -85,3 +85,5 @@ To serve this project after running `./build.sh`, run `yarn start-cov-hub`.
 ## sync.sh with a graph theoretic context
 
 You can provide your sh folder and metab.sh script in your own folder e.g. `prox-e/sh-feature-x/sh` instead of `prox-e/sh` and run `../sync.sh` from `prox-e/sh-feature/` directory. It will cd into your `prox-e/sh-feature/` directory's `sh` folder instead of the the `sh` folder in `prox-e` root folder. This can be useful for having branch specific team-wide sync logic. Please skip this setup if you have any confusions.
+
+## A Note on Pipelines and Containers
