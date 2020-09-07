@@ -1,6 +1,7 @@
 #!/bin/bash
 
 pusher() {
+	git fetch
 	git pull
 	git push
 }
@@ -11,7 +12,7 @@ checkouter() {
 }
 
 syncer() {
-	branches=( develop master feature/wizard feature/scheduler )
+	branches=(develop master feature/wizard feature/scheduler feature/forms feature/i18n feat/global)
 	for d in "${branches[@]}"
 	do
 		checkouter "$d"
@@ -22,4 +23,4 @@ pusher
 syncer
 
 wait
-echo "All branches are synced to develop ~~!"
+echo "All branches are synced with develop ~~!"
