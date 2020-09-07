@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card class="inline-form-card">
+      <nb-card-header>RDT Bulk Editor</nb-card-header>
+      <nb-card-body>
+        <form class="form-inline">
+          <label for="csvFileUpload">{{ uploadInstruction }}</label>
+          <input
+            type="file"
+            accept=".csv"
+            nbInput
+            fullWidth
+            #fileImportInput
+            name="Preview Upload"
+            id="csvFileUpload"
+            placeholder="CSV File"
+            (change)="csvUploadListener($event)"
+          />
+          <button
+            matRipple
+            type="reset"
+            nbButton
+            class="col-md-2"
+            status="warning"
+            *ngIf="isFileLoaded"
+            (click)="resetHandler($event)"
+          >
+            Cancel Upload
+          </button>
+          <button
+            matRipple
+            type="submit"
+            nbButton
+            class="col-md-4"
+            status="primary"
+            (click)="uploadDownloadHandler($event)"
+          >
+          {{ isFileLoaded ? "Confirm CSV Upload" : "Download Current CSV" }}
+          </button>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<nb-card>
+  <nb-card-header>
+    RDT Tests
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table
+      [settings]="settingsAndColumns"
+      [source]="source"
+      (createConfirm)="onAddConfirm($event)"
+      (editConfirm)="onEditConfirm($event)"
+      (deleteConfirm)="onDeleteConfirm($event)"
+    >
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
