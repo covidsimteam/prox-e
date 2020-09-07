@@ -3,11 +3,12 @@ import { AsyncSubject, Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 import { AbstractBusService } from './abstract-bus.service';
+import { AbstractEvent } from './event.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LastOneOnlyService<T> extends AbstractBusService<T>  {
+export class LastOneOnlyService<T extends AbstractEvent> extends AbstractBusService<T>  {
 
   public sub = new AsyncSubject<T>();
 
@@ -22,7 +23,7 @@ export class LastOneOnlyService<T> extends AbstractBusService<T>  {
 
   on(event: T, actions: () => null): Subscription {
     return this.sub.pipe(
-      filter((e: T) => e === event)
+      filter((e: T) => e.type === event.type)
     ).subscribe(actions);
   }
 }

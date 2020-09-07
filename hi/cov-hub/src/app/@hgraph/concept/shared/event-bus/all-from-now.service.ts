@@ -1,12 +1,14 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
-import { AbstractBusService } from './abstract-bus.service';
 import { filter } from 'rxjs/operators';
+
+import { AbstractBusService } from './abstract-bus.service';
+import { AbstractEvent } from './event.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AllFromNowService<T> extends AbstractBusService<T> {
+export class AllFromNowService<T extends AbstractEvent> extends AbstractBusService<T> {
 
   sub = new Subject<T>();
 
@@ -21,7 +23,7 @@ export class AllFromNowService<T> extends AbstractBusService<T> {
 
   on(event: T, actions: () => null): Subscription {
     return this.sub.pipe(
-      filter((e: T) => e === event)
+      filter((e: T) => e.type === event.type)
     ).subscribe(actions);
   }
 }
