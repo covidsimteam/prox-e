@@ -4,9 +4,9 @@ import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AllFromNowService {
+export class AllFromNowService<T> {
 
-  public sub = new Subject();
+  public sub = new Subject<T>();
 
   constructor() { }
 }

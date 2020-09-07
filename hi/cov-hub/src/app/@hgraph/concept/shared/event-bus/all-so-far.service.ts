@@ -4,9 +4,9 @@ import { ReplaySubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AllSoFarService {
+export class AllSoFarService<T> {
 
-  public sub = new ReplaySubject
+  public sub = new ReplaySubject<T>();
 
   constructor() { }
 }

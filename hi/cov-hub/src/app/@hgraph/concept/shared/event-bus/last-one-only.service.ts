@@ -4,9 +4,9 @@ import { AsyncSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class LastOneOnlyService {
+export class LastOneOnlyService<T> {
 
-  public sub = new AsyncSubject();
+  public sub = new AsyncSubject<T>();
 
   constructor() { }
 }

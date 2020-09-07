@@ -10,9 +10,9 @@ import { LastOneOnlyService } from './last-one-only.service';
 export class EventBusService<E> {
 
   constructor(
-    public allFromNow: AllFromNowService,
-    public allSoFar: AllSoFarService,
-    public lastOneOnly: LastOneOnlyService,
+    public allFromNow: AllFromNowService<E>,
+    public allSoFar: AllSoFarService<E>,
+    public lastOneOnly: LastOneOnlyService<E>,
     public fromlastOne: LastOneAndAllAfterService<E>
     ) { }
 }
