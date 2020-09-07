@@ -74,4 +74,14 @@ This is the additional Open API server for communicating with our system and act
 
 ## sync.sh
 
-The `./sync.sh` script utilizes the sh scripts in `sh` folder to update all the current branches with the latest from develop. We run this script before and after creating new commits. We have the luxury to do this because we have sensisble, segregated branches including special segregated branches that show us overlaps between two branches.
+First thing you should do to use this repository is run the `sync.sh` script, if you have not done so recently. The `./sync.sh` script utilizes the shell scripts in `sh` folder to update all the current branches with the latest commits from develop. We run this script before and after creating new commits. We have the luxury to do this because we have sensisble, segregated branching including specially segregated branches that show us any possible overlaps between two branches.
+
+## build.sh
+
+First thing you should do after running `./sync.sh` is run `./build.sh`. It contains the necessary steps to get your system ready to build and serve this project.
+
+To serve this project after running `./build.sh`, run `yarn start-cov-hub`.
+
+## sync.sh with a graph theoretic context
+
+You can provide your sh folder and metab.sh script in your own folder e.g. `prox-e/sh-feature-x/sh` instead of `prox-e/sh` and run `../sync.sh` from `prox-e/sh-feature/` directory. It will cd into your `prox-e/sh-feature/` directory's `sh` folder instead of the the `sh` folder in `prox-e` root folder. This can be useful for having branch specific team-wide sync logic. Please skip this setup if you have any confusions.

@@ -228,9 +228,9 @@ export class MapComponent implements OnInit, OnDestroy {
     this.featureGroup = L.featureGroup();
     this.featureGroup.addLayer(this.markerClusterGroup);
 
-    this.districtsHealthStats.values.forEach((stats) => {
-      const foundDistrict = this.districtsGeoJson.features.find((feature) =>
-        stats.district.toUpperCase().startsWith(feature.properties.FIRST_DIST)
+    this.districtsHealthStats?.values?.forEach((stats) => {
+      const foundDistrict = this.districtsGeoJson?.features?.find((feature) =>
+        stats.district.toUpperCase().startsWith(feature?.properties.FIRST_DIST)
       ); // TODO change to DDGN comparison
 
       if (!foundDistrict) return;
