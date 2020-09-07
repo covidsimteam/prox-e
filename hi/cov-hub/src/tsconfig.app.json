@@ -2,24 +2,12 @@
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "baseUrl": "./",
-    "downlevelIteration": true,
-    "importHelpers": true,
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./"
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true,
-    "preserveWhitespaces": true
+    "strictInjectionParameters": true
   },
-  "typeRoots": [
-    "node_modules/@types"
-  ],
   "exclude": [
     "test.ts",
     "**/*.spec.ts",
