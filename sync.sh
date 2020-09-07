@@ -9,9 +9,6 @@ git pull
 echo "pushing current..."
 git push
 
-echo "merging master..."
-git merge master
-
 echo "going to sh..."
 cd ./sh
 
@@ -25,5 +22,5 @@ echo "pushing develop..."
 git push
 
 git checkout develop
-echo "...done"
+echo "checkout develop...done"
 
