@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4c3c61e18046c48fe1cc4f457ebf61d7a26ca2ad0b0e3b218a58e042b21797d7
-size 622
+{"new_edits":false,"docs":[
+{"_id":"district:kavre","_rev":"1-967a00dff5e02add41819138abb3284d"},
+{"_id":"district:lalitpur","_rev":"1-967a00dff5e02add41819138abb3284d"},
+{"_id":"kavre:lab:unames","_rev":"1-967a00dff5e02add41819138abb3284d"},
+{"_id":"kavre:patient:uuid","_rev":"1-967a00dff5e02add41819138abb3284d"},
+{"_id":"kavre:sample:uuids","_rev":"2-7051cbe5c8faecd085a3fa619e6e6337"},
+{"_id":"lalitpur:lab:unames","_rev":"1-967a00dff5e02add41819138abb3284d"},
+{"_id":"lalitpur:patient:uuid","_rev":"1-967a00dff5e02add41819138abb3284d"},
+{"_id":"lalitpur:sample:uuids","_rev":"2-7051cbe5c8faecd085a3fa619e6e6337"}
+]}

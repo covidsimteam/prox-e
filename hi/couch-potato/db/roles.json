@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a82e83644cd06df28c986a492919a9fd681fa484ba3fee7f862a1f00a9674ce2
-size 1760
+{"new_edits":false,"docs":[
+{"_id":"bal:analyst:location","_rev":"1-967a00dff5e02add41819138abb3284d"},
+{"_id":"bal:analyst:origin","_rev":"1-967a00dff5e02add41819138abb3284d"},
+{"_id":"bal:analyst:search","_rev":"1-967a00dff5e02add41819138abb3284d"},
+{"_id":"bal:analyst:visitor","_rev":"1-967a00dff5e02add41819138abb3284d"},
+{"_id":"bal:anon","_rev":"1-967a00dff5e02add41819138abb3284d"},
+{"_id":"bal:api:external","_rev":"1-967a00dff5e02add41819138abb3284d"},
+{"_id":"bal:api:internal","_rev":"1-967a00dff5e02add41819138abb3284d"},
+{"_id":"bal:sender:receiver","_rev":"1-967a00dff5e02add41819138abb3284d"},
+{"_id":"common:user","_rev":"2-25f560031432b96ae7a48deab62e5600","access":["home","self-a1","self-b1","self-b2","schedule"]},
+{"_id":"lalitpur:cict_contact_tracer","_rev":"4-64b04d19477a54b84002a15495507c84","access":["home","a1","b1","schedule"]},
+{"_id":"lalitpur:cict_investigator","_rev":"3-42b0407d13083ef397d370f30e485680","access":["home","a1"]},
+{"_id":"lalitpur:field_sample_collector","_rev":"3-96a333c5a5f670b722cf8d08a3fb5cc8","access":["home","r1"]},
+{"_id":"lalitpur:lab","_rev":"3-8aabf48d761a2f2537ca24fb8620b4dc","access":["home","r1","schedule"]},
+{"_id":"lalitpur:lab_admin","_rev":"4-839647d9b3ba24524b77af210bafa6a3","access":["home","r1","schedule"]},
+{"_id":"lalitpur:lab_reporter","_rev":"3-96a333c5a5f670b722cf8d08a3fb5cc8","access":["home","r1"]},
+{"_id":"lalitpur:lab_sample_collector","_rev":"3-96a333c5a5f670b722cf8d08a3fb5cc8","access":["home","r1"]},
+{"_id":"lalitpur:municipality_admin","_rev":"4-4c864074ca40b7ae01ba21f0eea09cd5","access":["home","r1","a1","b1","b2","schedule"]},
+{"_id":"lalitpur:municipality_officer","_rev":"4-4c864074ca40b7ae01ba21f0eea09cd5","access":["home","r1","a1","b1","b2","schedule"]}
+]}
