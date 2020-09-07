@@ -1,0 +1,56 @@
+<div class="row">
+
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label for="naam" class="label"> {{ t.fab.naam | translate }}</label>
+      <input id="naam" nbInput fullWidth type="text">
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label class="label"> {{ t.fa.reportDate1 | translate }}
+        <input nbInput fullWidth [nbDatepicker]="reportDatePicker">
+        <nb-datepicker #reportDatePicker></nb-datepicker>
+      </label>
+      <br />
+    </div>
+  </div>
+
+</div>
+<cov-form-hr-break></cov-form-hr-break>
+<div class="row">
+
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label class="label">{{ t.fa.inputCaseStatus | translate }}
+        <nb-radio-group nbInput fullWidth id="inputCaseStatus" class="row" (onChange)="changeCaseStatus($event)">
+          <nb-radio>{{ t.fab.ho | translate }}</nb-radio>
+          <nb-radio>{{ t.fab.hoina | translate }}</nb-radio>
+          <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+        </nb-radio-group>
+      </label>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label class="label">{{ t.fab.hoBhaneDate | translate }}
+        <input nbInput fullWidth [nbDatepicker]="inputHoBhaneDatePicker">
+        <nb-datepicker #inputHoBhaneDatePicker></nb-datepicker>
+      </label>
+      <br />
+    </div>
+  </div>
+
+</div>
+<br />
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-group">
+      <label for="nameOfPoEorQ" class="label">{{ t.fa.nameOfPoEorQ | translate }}
+        <input nbInput fullWidth id="nameOfPoEorQ" type="text">
+      </label>
+    </div>
+  </div>
+</div>

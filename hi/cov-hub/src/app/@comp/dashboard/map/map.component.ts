@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NbColorHelper, NbThemeService } from '@nebular/theme';
 import * as L from 'leaflet';
 import 'leaflet.markercluster';
@@ -8,12 +8,12 @@ import 'style-loader!leaflet/dist/leaflet.css';
 import { Census2011 } from '../../../@models/db/docs/census.model';
 import { HealthStats } from '../../../@models/db/docs/health-stats.model';
 import { RETTupleRev } from '../../../@models/db/table-headers.model';
-import { BarChartDataSet, FeatureCollection, GovDistrictProperties, GovProvinceProperties, RoadMajorProperties } from '../../../@models/domain.model';
+import { FeatureCollection, GovDistrictProperties, GovProvinceProperties, RoadMajorProperties } from '../../../@models/domain.model';
 import { ReturneeService } from '../../../services/db/returnee.service';
 import { MapUtilsService } from '../../services/map-utils.service';
 import { RegionService } from '../../services/region.service';
-
-
+import { MapSeroService } from '../map-sero.service';
+import { DISTRICTPCRDATASETS, PcrData } from './district-pcr-data.model';
 
 interface MapLayer {
   bucket: string;
@@ -47,21 +47,14 @@ export class MapComponent implements OnInit, OnDestroy {
   private districtPopulation: Census2011.Districts;
   private returneeStats: Array<RETTupleRev> | undefined;
 
+  displayOwnCharts = false;
+
   districtNameValPairsSero: [string, number][] = [];
   districtNamesSero: string[];
   districtNameValPairsRatio: [string, number][] = [];
   districtNamesRatio: string[];
 
-  districtPcrDataSets: BarChartDataSet[] = [{
-    label: '',
-    data: [],
-    backgroundColor: ''
-  }, {
-    label: '',
-    data: [],
-    backgroundColor: ''
-  }];
-
+  districtPcrData: PcrData = DISTRICTPCRDATASETS;
   private quadDataCounter: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   private featureGroup: L.FeatureGroup;
@@ -79,9 +72,11 @@ export class MapComponent implements OnInit, OnDestroy {
     zoom: 7,
     crs: L.CRS.EPSG3857,
     center: L.latLng({ lat: 27.700769, lng: 85.30014 }),
-    zoomControl: true,
+    zoomControl: false,
     preferCanvas: false,
   };
+
+  @ViewChild('map') mapContainer: any;
 
   private geoJsonLayerOptions = {
     onEachFeature: (_: any, layer: L.Layer) => {
@@ -106,16 +101,17 @@ export class MapComponent implements OnInit, OnDestroy {
     private mapUtilsService: MapUtilsService,
     private regionService: RegionService,
     private returneeService: ReturneeService,
-    private themeService: NbThemeService
+    private themeService: NbThemeService,
+    private mapSeroService: MapSeroService
   ) {
     this.themeSubscription = this.themeService.getJsTheme()
       .subscribe(config => {
-        this.districtPcrDataSets = [{
-          ...this.districtPcrDataSets[0],
+        this.districtPcrData = [{
+          ...this.districtPcrData[0],
           backgroundColor: NbColorHelper.hexToRgbA(config?.variables?.primaryLight, 0.8),
         },
         {
-          ...this.districtPcrDataSets[1],
+          ...this.districtPcrData[1],
           backgroundColor: NbColorHelper.hexToRgbA(config?.variables?.infoLight, 0.8)
         }];
       });
@@ -190,6 +186,30 @@ export class MapComponent implements OnInit, OnDestroy {
     });
   }
 
+  ngOnDestroy() {
+    this.map = null;
+    // this.map.remove(); TODO see if already cleaned up once viewchild is removed
+    this.themeSubscription.unsubscribe();
+  }
+
+  onMapClick(_: any) {
+    if (this.map.scrollWheelZoom.enabled()) {
+      this.map.scrollWheelZoom.disable();
+    } else {
+      this.map.scrollWheelZoom.enable();
+    }
+  }
+
+  onMapReady(currentMap: L.Map) {
+    this.map = currentMap;
+    this.mapUtilsService.fullScreenControl.addTo(this.map);
+    this.mapReady.next(true);
+    this.map.scrollWheelZoom.disable();
+    setTimeout(() => {
+      this.map.invalidateSize();
+    }, 0);
+  }
+
   findByNameFromReturneeStats(districtName: string): RETTupleRev | undefined {
     return this.returneeStats?.find((stat) =>
       districtName?.toLowerCase()?.startsWith(stat[2]?.toLowerCase())
@@ -249,10 +269,12 @@ export class MapComponent implements OnInit, OnDestroy {
     this.districtNameValPairsRatio.sort(sortFunc);
 
     this.districtNamesSero = this.districtNameValPairsSero.map(mapLabelFunc);
-    this.districtPcrDataSets[0].data = this.districtNameValPairsSero.map(mapDataFunc);
+    this.districtPcrData[0].data = this.districtNameValPairsSero.map(mapDataFunc);
 
     this.districtNamesRatio = this.districtNameValPairsRatio.map(mapLabelFunc);
-    this.districtPcrDataSets[1].data = this.districtNameValPairsRatio.map(mapDataFunc);
+    this.districtPcrData[1].data = this.districtNameValPairsRatio.map(mapDataFunc);
+
+    this.mapSeroService.data = this.districtPcrData;
   }
 
   appendSeroRankingChartData(districtName: string, proSero: number) {
@@ -405,18 +427,5 @@ export class MapComponent implements OnInit, OnDestroy {
     poiMarker.bindPopup(popup);
   }
 
-  ngOnDestroy() {
-    this.map.remove();
-    this.themeSubscription.unsubscribe();
-  }
 
-  onMapReady(currentMap: L.Map) {
-    this.map = currentMap;
-    this.mapUtilsService.fullScreenControl.addTo(this.map);
-    this.mapReady.next(true);
-
-    setTimeout(() => {
-      this.map.invalidateSize();
-    }, 0);
-  }
 }

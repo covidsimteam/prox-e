@@ -1,23 +1,18 @@
 <nb-card>
   <nb-card-header>{{ title | titlecase }} </nb-card-header>
   <nb-card-body>
-    <div leaflet
+    <div leaflet #map
       [leafletOptions]="options"
       (leafletMapReady)="onMapReady($event)"
+      (click)="onMapClick($event)"
       [leafletLayersControl]="layersControl">
     </div>
   </nb-card-body>
 </nb-card>
 
-<nb-card *ngIf="readyToRenderChart">
-  <nb-card-header>+ve Sero Prevalence Ranking</nb-card-header>
-  <nb-card-body>
-    <ngx-district-bar [dataSets]="[districtPcrDataSets[0]]" [labels]="districtNamesSero"></ngx-district-bar>
-  </nb-card-body>
-</nb-card>
-<nb-card *ngIf="readyToRenderChart">
-  <nb-card-header>+ve PCR Result Ratio Ranking</nb-card-header>
-  <nb-card-body>
-    <ngx-district-bar [dataSets]="[districtPcrDataSets[1]]" [labels]="districtNamesRatio"></ngx-district-bar>
-  </nb-card-body>
-</nb-card>
+<ng-container *ngIf="readyToRenderChart && displayOwnCharts">
+  <cov-sero-prevalence [districtPcrDataSets]="[districtPcrData[0]]" districtNamesSero="districtNamesSero"></cov-sero-prevalence>
+</ng-container>
+<ng-container *ngIf="readyToRenderChart && displayOwnCharts">
+  <cov-sero-prevalence [districtPcrDataSets]="[districtPcrData[1]]" districtNamesSero="districtNamesRatio"></cov-sero-prevalence>
+</ng-container>
