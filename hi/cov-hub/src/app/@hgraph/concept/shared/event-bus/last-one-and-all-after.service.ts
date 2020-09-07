@@ -1,7 +1,8 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { AbstractBusService } from './abstract-bus.service';
 import { filter } from 'rxjs/operators';
+
+import { AbstractBusService } from './abstract-bus.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,6 @@ import { filter } from 'rxjs/operators';
 export class LastOneAndAllAfterService<T> extends AbstractBusService<T>  {
 
   public sub = new BehaviorSubject<T>(null);
-  emitter = new EventEmitter<T>();
 
   constructor() {
     super();

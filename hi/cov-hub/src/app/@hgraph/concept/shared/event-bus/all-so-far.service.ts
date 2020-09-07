@@ -1,7 +1,8 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ReplaySubject, Subscription } from 'rxjs';
-import { AbstractBusService } from './abstract-bus.service';
 import { filter } from 'rxjs/operators';
+
+import { AbstractBusService } from './abstract-bus.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,6 @@ import { filter } from 'rxjs/operators';
 export class AllSoFarService<T> extends AbstractBusService<T>  {
 
   sub = new ReplaySubject<T>();
-  emitter = new EventEmitter<T>();
 
   constructor() {
     super();

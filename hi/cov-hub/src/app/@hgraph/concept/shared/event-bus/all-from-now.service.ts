@@ -9,7 +9,6 @@ import { filter } from 'rxjs/operators';
 export class AllFromNowService<T> extends AbstractBusService<T> {
 
   sub = new Subject<T>();
-  emitter = new EventEmitter<T>();
 
   constructor() {
     super();
@@ -26,3 +25,4 @@ export class AllFromNowService<T> extends AbstractBusService<T> {
     ).subscribe(actions);
   }
 }
+
