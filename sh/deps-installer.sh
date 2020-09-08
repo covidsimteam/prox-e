@@ -12,6 +12,13 @@ id="$ID"
 deb="debian"
 cen="centos"
 
+if [[ "$id" == "$cen" ]]; then
+  echo "Yummy Couch!"
+  $SUDO cat ./couch-bintray.repo >> /etc/yum.repos.d/bintray-apache-couchdb-rpm.repo
+  $SUDO yum -y install epel-release && $SUDO yum -y install couch
+fi
+
+
 
 if [[ "$id" == "$deb" ]]; then
 

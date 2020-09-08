@@ -1,11 +1,10 @@
 #!/bin/bash
+
 SUDO=''
 if [ "$EUID" -ne 0 ]; then
   SUDO='sudo'
 fi
 
-YUM_CMD=$(yum)
-APT_GET_CMD=$(apt-get)
 ALP_CMD=$(apk)
 
 source /etc/os-release
