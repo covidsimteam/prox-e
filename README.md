@@ -86,3 +86,31 @@ You can provide your sh folder and metab.sh script in your own folder e.g. `prox
 ## docs
 
 Github pages driven by eleventy SSG.
+
+## Repo Stats
+
+The following is our git-cloc.sh script generated repo status without including our old Ionic project.
+
+```Bash
+--------------------------------------------------------------------------------
+Language                      files          blank        comment           code
+--------------------------------------------------------------------------------
+JSON                             45             27              0          29769
+TypeScript                      985           4721            333          24394
+HTML                            153            561             11           4860
+Sass                             60            460             19           2648
+JavaScript                       25            410            576           1267
+Bourne Shell                     28            166            128           1204
+Markdown                         28            370              0            752
+YAML                             10             15             39            211
+SVG                               4              0              0            196
+Dockerfile                        4             16              4             47
+Bourne Again Shell                1             12              7             41
+INI                               1             11             70             21
+CSS                               4              0              0              4
+--------------------------------------------------------------------------------
+SUM:                           1348           6769           1187          65414
+--------------------------------------------------------------------------------
+```
+
+The following is our repo status after including Ionic:
