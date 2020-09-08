@@ -15,7 +15,7 @@ export NODE_PATH="$HOME/.npm/prefix/lib/node_modules"
 npm config set cache $(pwd)/.npm --global
 npm config set scripts-prepend-node-path true
 
-npm install -g npm@latest yarn@latest
+npm install -g npm@latest
 curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
 yarn run build

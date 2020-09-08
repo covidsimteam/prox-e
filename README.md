@@ -2,10 +2,6 @@
 
 Simple REST APIs and dashboard to showcase CST's core functionalities & simple cov-hub dashboard to demonstrate what the system and the APIs above can do.
 
-## docs
-
-Github pages driven by eleventy SSG.
-
 ## tp
 
 TP stands for Transport Protocols and Transport Protobufs and Top Priority. It has three important sub-projects.
@@ -86,4 +82,7 @@ To serve this project after running `./build.sh`, run `yarn start-cov-hub`.
 
 You can provide your sh folder and metab.sh script in your own folder e.g. `prox-e/sh-feature-x/sh` instead of `prox-e/sh` and run `../sync.sh` from `prox-e/sh-feature/` directory. It will cd into your `prox-e/sh-feature/` directory's `sh` folder instead of the the `sh` folder in `prox-e` root folder. This can be useful for having branch specific team-wide sync logic. Please skip this setup if you have any confusions.
 
-## A Note on Pipelines and Containers
+
+## docs
+
+Github pages driven by eleventy SSG.
