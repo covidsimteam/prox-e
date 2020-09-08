@@ -15,8 +15,6 @@ id="$ID"
 deb="debian"
 cen="centos"
 
-echo "hello cen $deb $id "
-
 if [[ "$id" == "$cen" ]]; then
    IS_RHEL=1
    echo "Yummy!"
