@@ -9,7 +9,7 @@
     "test-cov-hub": "cd ./hi/cov-hub && ng test",
     "start-cov-hub": "cd ./hi/cov-hub && npm start",
     "start-prox-e": "cd ./hi/prox-e && yarn start",
-    "build": "yarn build-prox-e && yarn build-cov-hub"
+    "build": "yarn build-cov-hub"
   },
   "repository": {
     "type": "git",

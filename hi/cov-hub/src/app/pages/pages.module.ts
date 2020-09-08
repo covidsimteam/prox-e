@@ -20,6 +20,7 @@ import { PaymentsModule } from './payments/payments.module';
 import { ProfileModule } from './profile/profile.module';
 import { SampleCollectionModule } from './sample/sample-collection.module';
 import { TablesModule } from './tables/tables.module';
+import { DashboardModule } from '../@comp/dashboard/dashboard.module';
 
 @NgModule({
   imports: [
@@ -44,6 +45,7 @@ import { TablesModule } from './tables/tables.module';
     NbLayoutModule,
     SampleCollectionModule,
     ProfileModule,
+    DashboardModule
   ],
   declarations: [PagesComponent],
 })

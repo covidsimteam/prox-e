@@ -12,24 +12,23 @@ import { UtilsModule } from './utils/utils.module';
 import { VisualizationModule } from './viz/visualization.module';
 import { WizardModule } from './wizard/wizard.module';
 
-const DECLARATIVES = [
+const COMPS = [
   CompComponent,
   CompPipe,
   CompDirective,
-
   SchedComponent,
   SchedPipe,
   SchedDirective
 ];
 
 @NgModule({
-  declarations: [...DECLARATIVES, TimePickerComponent, NepaliDatePickerComponent],
+  declarations: [...COMPS, TimePickerComponent, NepaliDatePickerComponent],
   imports: [
     CommonModule,
     WizardModule,
     VisualizationModule,
     UtilsModule
   ],
-  exports: [...DECLARATIVES]
+  exports: [...COMPS]
 })
 export class CompModule { }

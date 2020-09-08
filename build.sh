@@ -1,9 +1,10 @@
-#!/bin/sh
+#!/bin/bash
+
+bash ./sh/node-npm-couch-installer.sh
 
 echo node ubuntu setup start
 set -eux
-# curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-# apt install -y nodejs
+
 mkdir -p ~/.npm/prefix
 
 npm config set prefix ~/.npm/prefix
@@ -15,7 +16,10 @@ export NODE_PATH="$HOME/.npm/prefix/lib/node_modules"
 npm config set cache $(pwd)/.npm --global
 npm config set scripts-prepend-node-path true
 
-npm install -g npm@latest yarn@latest
+npm install -g npm@latest
+rm -rf "$HOME/.yarn"
+curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+source "$HOME/.bashrc"
 
 yarn run build
 
