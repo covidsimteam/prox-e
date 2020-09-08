@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+
+bash ./sh/node-npm-installer.sh
 
 echo node ubuntu setup start
 set -eux
