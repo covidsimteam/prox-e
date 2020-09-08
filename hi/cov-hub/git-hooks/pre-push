@@ -1,0 +1,60 @@
+#!/bin/bash
+
+remote="$1"
+url="$2"
+
+pass=true
+RED='\033[1;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+# Function to output result of tests
+output_result() {
+  ret_code=$1
+  message=$2
+  output=$3
+
+  if [ $ret_code != 0 ]; then
+    printf "${RED}${message} failed.${NC}\n"
+    echo "$output"
+    pass=false
+  else
+    printf "${GREEN}$message passed.${NC}\n"
+  fi
+}
+
+# Get number of uncommitted changes
+CHANGES=$(git diff --numstat | wc -l)
+CHANGES_CACHED=$(git diff --cached --numstat | wc -l)
+TOTAL_CHANGES=$(($CHANGES + $CHANGES_CACHED))
+
+# Stash all uncommitted changes before running tests
+git stash -k
+
+# Check if vagrant is running
+vagrant_status=$(vagrant status dev --machine-readable | grep state,running)
+
+echo "Running Linters:"
+if [ "$vagrant_status" = "" ]; then
+  tslint=$(npm run lint)
+else
+  tslint=$(vagrant ssh dev -- -t 'cd /vagrant;npm run lint')
+fi
+
+ret_code_tslint=$?
+output_result $ret_code_tslint "tslint" $tslint
+
+# If we stashed changes earlier, pop them back off the stack
+if [ $TOTAL_CHANGES -ne "0" ]
+then
+  echo "Popping" $TOTAL_CHANGES "changes off the stack..."
+  git stash pop -q
+fi
+
+# The 0 exit code will only be sent if pass=true
+# Any failure will set pass=false
+if $pass; then
+  exit 0
+fi
+
+exit 1

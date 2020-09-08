@@ -1,0 +1,36 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "baseUrl": "./",
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "preserveWhitespaces": true
+  },
+  "typeRoots": [
+    "node_modules/@types"
+  ],
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts",
+    "../node_modules/@nebular/**/*.spec.ts"
+  ],
+  "files": [
+    "./main.ts",
+    "./polyfills.ts",
+  ],
+  "include": [
+    "../node_modules/@nebular/**/*.ts",
+    "src/**/*.d.ts"
+  ]
+}

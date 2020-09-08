@@ -1,0 +1,50 @@
+<div *ngFor="let record of pcrRecords; let index">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label class="label"
+        >PCR Test Date
+        <input
+        nbInput
+        fullWidth
+        placeholder="Select PCR Test Date"
+        [nbDatepicker]="pcrDatePicker"
+        [id]="index"
+        />
+      </label>
+      <nb-datepicker #pcrDatePicker></nb-datepicker>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="form-group">
+      <label class="label"
+      >PCR Test Results
+      <div class="col-sm-8">
+        <nb-radio-group [id]="index" class="row">
+          <nb-radio value="Negative">Negative</nb-radio>
+          <nb-radio value="Positive">Positive</nb-radio>
+          <nb-radio value="Pending">Pending</nb-radio>
+        </nb-radio-group>
+      </div>
+      </label
+      >
+    </div>
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="form-group">
+      <button
+      matRipple
+      nbButton
+      outline
+      status="primary"
+      (click)="addPCRRecord($event)"
+      >
+      <nb-icon icon="file-add-outline"></nb-icon>Add PCR Test &nbsp;
+      &nbsp;
+    </button>
+  </div>
+</div>
+</div>
