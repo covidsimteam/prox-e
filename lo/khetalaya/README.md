@@ -1,1 +1,0 @@
-<!-- job-m postgres, couch potato, pay blockdb -->
