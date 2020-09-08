@@ -1,11 +1,10 @@
 #!/bin/bash
 
-bash ./sh/node-npm-installer.sh
+bash ./sh/node-npm-couch-installer.sh
 
 echo node ubuntu setup start
 set -eux
-# curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-# apt install -y nodejs
+
 mkdir -p ~/.npm/prefix
 
 npm config set prefix ~/.npm/prefix

@@ -1,12 +1,11 @@
 #!/bin/bash
+
 SUDO=''
 if [ "$EUID" -ne 0 ]; then
   SUDO='sudo'
 fi
 
-YUM_CMD=$(which yum)
-APT_GET_CMD=$(which apt-get)
-ALP_CMD=$(which apk)
+ALP_CMD=$(apk)
 
 source /etc/os-release
 
@@ -20,13 +19,12 @@ if [[ "$id" == "$cen" ]]; then
    echo "Yummy!"
    curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -
    $SUDO yum install -y nodejs
+   bash ./sh/deps-installer.sh
 fi
 
 if [[ "$id" == "$deb" ]]; then
    IS_UBUNTU=1
-   echo "Debs4Devs!"
-   curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-   $SUDO apt-get install -y nodejs
+   bash ./sh/deps-installer.sh
 fi
 
 if hash ALP_CMD 2>/dev/null; then
