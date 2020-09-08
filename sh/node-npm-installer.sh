@@ -11,8 +11,8 @@ ALP_CMD=$(which apk)
 source /etc/os-release
 
 echo "Your OS is $ID"
-id = $ID
-deb = "debian"
+id= $ID
+deb= "debian"
 
 if hash YUM_CMD 2>/dev/null; then
    IS_RHEL=1
