@@ -80,7 +80,7 @@
                 },
                 {
                   "type": "initial",
-                  "maximumWarning": "5mb"
+                  "maximumWarning": "6mb"
                 },
                 {
                   "type": "bundle",
