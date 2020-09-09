@@ -3,13 +3,13 @@
     <nb-card>
       <nb-card-header> {{ t.fa.title | translate }}</nb-card-header>
       <nb-card-body>
-        <nb-stepper orientation="horizontal">
-          <nb-step  class="just-breathe" label="{{ t.fah.step1 | translate }}">
+        <nb-stepper orientation="horizontal" [linear]="linearMode">
+          <nb-step [stepControl]="formaonetwo"  class="just-breathe" label="{{ t.fah.step1 | translate }}">
             <nb-accordion [multi]="true">
               <nb-accordion-item [expanded]="true">
                 <nb-accordion-item-header> {{ t.fah.heading0 | translate }} </nb-accordion-item-header>
                 <nb-accordion-item-body>
-                  <cov-form-a-step-o></cov-form-a-step-o>
+                  <cov-form-a-step-o [stepo]="formaonetwo" #formaonetwo></cov-form-a-step-o>
                 </nb-accordion-item-body>
               </nb-accordion-item>
             </nb-accordion>
@@ -55,13 +55,13 @@
 
           </nb-step>
           <cov-form-hr-break></cov-form-hr-break>
-          <nb-step label="{{ t.fah.step2 | translate }}">
+          <nb-step [stepControl]="formathree"  class="just-breathe" label="{{ t.fah.step1 | translate }}" label="{{ t.fah.step2 | translate }}">
 
             <nb-accordion>
               <nb-accordion-item>
                 <nb-accordion-item-header>{{ t.fah.heading3 | translate }}</nb-accordion-item-header>
                 <nb-accordion-item-body>
-                  <cov-form-a-step-three></cov-form-a-step-three>
+                  <cov-form-a-step-three [stepo]="formathree" #formathree></cov-form-a-step-three>
                 </nb-accordion-item-body>
               </nb-accordion-item>
             </nb-accordion>

@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnDestroy, OnInit, Input } from '@angular/core';
+import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { take } from 'rxjs/operators';
 import { TranslationServiceEn } from '../../../services/i18n/translation-gen.service';
@@ -13,6 +13,7 @@ export class FormAComponent implements OnInit, OnDestroy {
 
   aForm: FormGroup;
   caseStatus: string;
+  linearMode = true;
 
 
   // TODO put all the translatable labels in the en.json file for now

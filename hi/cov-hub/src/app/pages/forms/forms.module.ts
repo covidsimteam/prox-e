@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule as ngFormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule as ngFormsModule, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {
   NbAccordionModule, NbActionsModule,
   NbButtonModule,
@@ -84,6 +84,7 @@ const MaterialModules = [
     NbSelectModule,
     NbIconModule,
     ngFormsModule,
+    FormsModule,
     ReactiveFormsModule,
     NbStepperModule,
     NbLayoutModule,
