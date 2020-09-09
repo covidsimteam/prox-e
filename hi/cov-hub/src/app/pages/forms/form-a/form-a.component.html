@@ -4,10 +4,25 @@
       <nb-card-header> {{ t.fa.title | translate }}</nb-card-header>
       <nb-card-body>
         <nb-stepper orientation="horizontal">
-          <nb-step label="Step 1">
-            <cov-form-hr-break></cov-form-hr-break>
-            <cov-form-a-step-o></cov-form-a-step-o>
-            <cov-form-hr-break></cov-form-hr-break>
+          <nb-step label= "{{ t.fah.step1 | translate }}">
+
+            <nb-accordion>
+              <nb-accordion-item>
+                <nb-accordion-item-header>{{ t.fah.heading0 | translate }}</nb-accordion-item-header>
+                <nb-accordion-item-body>
+                  <cov-form-a-step-one></cov-form-a-step-one>
+                  <nb-accordion>
+                    <nb-accordion-item>
+                      <nb-accordion-item-header> {{ t.fah.heading1a | translate }} </nb-accordion-item-header>
+                      <nb-accordion-item-body>
+                        <cov-form-a-step-o></cov-form-a-step-o>
+                      </nb-accordion-item-body>
+                    </nb-accordion-item>
+                  </nb-accordion>
+                </nb-accordion-item-body>
+              </nb-accordion-item>
+            </nb-accordion>
+
             <nb-accordion>
               <nb-accordion-item>
                 <nb-accordion-item-header>{{ t.fah.heading1 | translate }}</nb-accordion-item-header>
@@ -30,11 +45,10 @@
                       </nb-accordion-item-body>
                     </nb-accordion-item>
                   </nb-accordion>
-                  <div class=""><br></div>
                 </nb-accordion-item-body>
               </nb-accordion-item>
             </nb-accordion>
-            <cov-form-hr-break></cov-form-hr-break>
+
             <nb-accordion>
               <nb-accordion-item>
                 <nb-accordion-item-header>{{ t.fah.heading2 | translate }}</nb-accordion-item-header>
@@ -44,12 +58,15 @@
               </nb-accordion-item>
             </nb-accordion>
             <cov-form-hr-break></cov-form-hr-break>
-            <button nbButton disabled nbStepperNext>prev</button>
-            <button nbButton matRipple nbStepperNext>next</button>
+            <nb-card class="prev-next">
+              <button nbButton disabled nbStepperNext>prev</button>
+              <button nbButton matRipple nbStepperNext>next</button>
+            </nb-card>
+
           </nb-step>
-          <ng-container *ngTemplateOutlet="hrDivider"></ng-container>
-          <nb-step label="Step 2">
-            <cov-form-hr-break></cov-form-hr-break>
+          <cov-form-hr-break></cov-form-hr-break>
+          <nb-step label= "{{ t.fah.step2 | translate }}">
+
             <nb-accordion>
               <nb-accordion-item>
                 <nb-accordion-item-header>{{ t.fah.heading3 | translate }}</nb-accordion-item-header>
@@ -58,7 +75,7 @@
                 </nb-accordion-item-body>
               </nb-accordion-item>
             </nb-accordion>
-            <cov-form-hr-break></cov-form-hr-break>
+
             <nb-accordion>
               <nb-accordion-item>
                 <nb-accordion-item-header> {{ t.fah.heading4 | translate }} <label
@@ -71,7 +88,7 @@
                 </nb-accordion-item-body>
               </nb-accordion-item>
             </nb-accordion>
-            <cov-form-hr-break></cov-form-hr-break>
+
             <nb-accordion>
               <nb-accordion-item>
                 <nb-accordion-item-header>{{ t.fah.heading5 | translate }}</nb-accordion-item-header>
@@ -156,7 +173,7 @@
                 </nb-accordion-item-body>
               </nb-accordion-item>
             </nb-accordion>
-            <cov-form-hr-break></cov-form-hr-break>
+
             <nb-accordion>
               <nb-accordion-item>
                 <nb-accordion-item-header>{{ t.fah.heading6 | translate }}
@@ -313,7 +330,7 @@
                 </nb-accordion-item-body>
               </nb-accordion-item>
             </nb-accordion>
-            <cov-form-hr-break></cov-form-hr-break>
+
             <nb-accordion>
               <nb-accordion-item>
                 <nb-accordion-item-header>{{ t.fah.heading7 | translate }}
@@ -716,7 +733,7 @@
                 </nb-accordion-item-body>
               </nb-accordion-item>
             </nb-accordion>
-            <cov-form-hr-break></cov-form-hr-break>
+
             <nb-accordion>
               <nb-accordion-item>
                 <nb-accordion-item-header>{{ t.fah.heading8 | translate }}</nb-accordion-item-header>
@@ -765,7 +782,7 @@
                 </nb-accordion-item-body>
               </nb-accordion-item>
             </nb-accordion>
-            <cov-form-hr-break></cov-form-hr-break>
+
             <nb-accordion>
               <nb-accordion-item>
                 <nb-accordion-item-header>{{ t.fah.heading9 | translate }}</nb-accordion-item-header>
@@ -816,8 +833,10 @@
               </nb-accordion-item>
             </nb-accordion>
             <cov-form-hr-break></cov-form-hr-break>
-            <button nbButton matRipple nbStepperPrevious>prev</button>
-            <button nbButton disabled nbStepperNext>next</button>
+            <nb-card class="prev-next">
+                <button nbButton matRipple nbStepperPrevious>Prev</button>
+                <button nbButton disabled nbStepperNext>Next</button>
+            </nb-card>
           </nb-step>
         </nb-stepper>
       </nb-card-body>
@@ -828,11 +847,3 @@
 
   </div>
 </div>
-
-<ng-template #hrDivider>
-  <div class="row">
-    <div class="col-sm-12">
-      <hr />
-    </div>
-  </div>
-</ng-template>
