@@ -1,5 +1,5 @@
 #!/bin/bash
-
+git push
 git checkout develop;
 
 echo "fetching current..."
