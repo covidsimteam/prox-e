@@ -4,9 +4,9 @@
       <nb-card-header> {{ t.fa.title | translate }}</nb-card-header>
       <nb-card-body>
         <nb-stepper orientation="horizontal">
-          <nb-step label="{{ t.fah.step1 | translate }}">
-            <nb-accordion>
-              <nb-accordion-item>
+          <nb-step  class="just-breathe" label="{{ t.fah.step1 | translate }}">
+            <nb-accordion [multi]="true">
+              <nb-accordion-item [expanded]="true">
                 <nb-accordion-item-header> {{ t.fah.heading0 | translate }} </nb-accordion-item-header>
                 <nb-accordion-item-body>
                   <cov-form-a-step-o></cov-form-a-step-o>
