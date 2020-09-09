@@ -9,8 +9,6 @@ import { NgForm } from '@angular/forms';
 })
 export class FormAStepThreeComponent implements OnInit {
 
-  @Input() stepo: NgForm;
-
   constructor(public t: TranslationServiceEn) { }
 
   ngOnInit(): void {
