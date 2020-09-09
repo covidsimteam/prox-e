@@ -12,5 +12,3 @@ git merge develop
 git checkout feature/forms
 git merge develop
 
-git checkout feat/global
-git merge develop

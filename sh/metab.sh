@@ -1,6 +1,5 @@
 #!/bin/bash
 
-git checkout develop
 git fetch
 git pull
 

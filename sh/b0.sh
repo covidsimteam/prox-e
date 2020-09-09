@@ -14,6 +14,3 @@ git merge feature/wizard
 
 echo "merge forms"
 git merge feature/forms
-
-echo "merge global"
-git merge feat/global
