@@ -1,9 +1,9 @@
 #!/bin/bash
-git push
-git checkout develop;
 
 echo "fetching current..."
 git fetch
+
+git checkout develop;
 
 echo "pulling current..."
 git pull
