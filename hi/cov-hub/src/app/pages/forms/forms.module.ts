@@ -43,6 +43,30 @@ import { FormAStepThreeComponent } from './form-a/form-a-step-three/form-a-step-
 import { FormAStepFourComponent } from './form-a/form-a-step-four/form-a-step-four.component';
 import { FormHrBreakComponent } from './form-hr-break/form-hr-break.component';
 
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+
+const MaterialModules = [
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  MatNativeDateModule,
+  MatDatepickerModule,
+  MatCheckboxModule,
+  MatSlideToggleModule,
+  MatRadioModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+];
+
 @NgModule({
   imports: [
     ThemeModule,
@@ -64,6 +88,7 @@ import { FormHrBreakComponent } from './form-hr-break/form-hr-break.component';
     NbStepperModule,
     NbLayoutModule,
     TranslateModule.forChild({ extend: true }),
+    ...MaterialModules
   ],
   declarations: [
     FormsComponent,

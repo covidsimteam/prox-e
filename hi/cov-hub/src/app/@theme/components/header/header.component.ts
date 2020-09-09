@@ -17,10 +17,10 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
-  private destroy$: Subject<void> = new Subject<void>();
-
   private static readonly PROFILE = 'Profile';
   private static readonly LOGOUT = 'Log Out';
+
+  private destroy$: Subject<void> = new Subject<void>();
 
   userPictureOnly: boolean = false;
   user: HeaderBio;
@@ -29,8 +29,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   themes = [
     {
-      value: 'default',
-      name: 'Default',
+      value: 'material-light',
+      name: 'Material Light',
       icon: 'bulb-outline',
     },
     {
@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     },
   ];
 
-  currentTheme = 'default'; // can be switched back to material-light
+  currentTheme = 'material-light'; // can be switched back to material-light
 
   userMenu = this.getMenuItems();
 
