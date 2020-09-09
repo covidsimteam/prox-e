@@ -115,10 +115,10 @@
     "someContactNumber": "सम्पर्क नंम्बरः",
     "formSubmittedDate": "फाराम पूरा गरेको मितीः (दिन/महिना/वर्ष) ",
     "serialNumber": "सं.नं ",
-    "serialNumberValid": "सं.नं भलड्ड",
-    "student":"भवद्याथी",
-    "healthCareWorker":"स्वास्थ्यकमी",
-    "name":"नामीः"
+    "serialNumberValid": "सं.नं भ्यालिड",
+    "student":"बिद्यार्थी",
+    "healthCareWorker":"स्वास्थ्यकर्मी",
+    "name":"नामः"
   },
 
     "fb": {
