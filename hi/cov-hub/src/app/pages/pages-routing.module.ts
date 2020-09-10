@@ -1,3 +1,4 @@
+import { DataEntryComponent } from './data-entry/data-entry.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../@auth/guards/auth.guard';
@@ -30,6 +31,10 @@ const routes: Routes = [{
     {
       path: 'stats',
       component: ECommerceComponent,
+    },
+    {
+      path: 'dataentry',
+      component: DataEntryComponent,
     },
     {
       path: 'secured/forms',
