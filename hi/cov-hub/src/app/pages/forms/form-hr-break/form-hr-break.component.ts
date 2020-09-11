@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <div class="row">
       <div class="col-sm-12">
-        <hr />
+        <hr/>
       </div>
     </div>
   `
