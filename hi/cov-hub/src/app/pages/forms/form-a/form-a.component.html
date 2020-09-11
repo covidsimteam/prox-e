@@ -49,8 +49,10 @@
             </nb-accordion>
             <cov-form-hr-break></cov-form-hr-break>
             <nb-card class="prev-next">
-              <button nbButton disabled nbStepperNext (click)="updateStep($event)">prev</button>
-              <button nbButton matRipple nbStepperNext>next</button>
+              <div class="btn-group">
+                <button class="social-distancing" nbButton disabled nbStepperNext (click)="updateStep($event)">prev</button>
+                <button class="social-distancing btn-outline-dark" nbButton matRipple nbStepperNext>next</button>
+              </div>
             </nb-card>
 
           </nb-step>
@@ -826,8 +828,10 @@
             </nb-accordion>
             <cov-form-hr-break></cov-form-hr-break>
             <nb-card class="prev-next">
-              <button nbButton matRipple nbStepperPrevious (click)="prevStep($event)">Prev</button>
-              <button nbButton disabled nbStepperNext>Next</button>
+              <div class="btn-group">
+                <button class="social-distancing" nbButton matRipple nbStepperPrevious (click)="prevStep($event)">Prev</button>
+                <button class="social-distancing" nbButton disabled nbStepperNext>Next</button>
+              </div>
             </nb-card>
           </nb-step>
         </nb-stepper>
