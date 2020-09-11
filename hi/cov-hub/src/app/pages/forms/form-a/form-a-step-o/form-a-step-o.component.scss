@@ -13,6 +13,22 @@ nb-card.form-cont {
   border: 1px solid transparent;
 }
 
+.hub-radio-group {
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.hub-radio-button {
+  color: #000;
+  margin: 5px;
+}
+
+.mat-radio-checked {
+  color: pink;
+}
+
 .form-a {
   display: block;
   margin-top: 1rem;

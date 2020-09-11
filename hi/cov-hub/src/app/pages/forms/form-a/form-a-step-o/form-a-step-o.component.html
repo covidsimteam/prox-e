@@ -41,12 +41,34 @@
     <div class="col-md-6 col-lg-6">
       <div class="form-a">
         <label>{{ t.fa.inputCaseStatus | translate }}</label>
-        <mat-radio-group color="primary" id="inputCaseStatus">
+        <mat-radio-group class="hub-radio-group" color="primary" id="inputCaseStatus">
           <!-- (select)="changeCaseStatus($event) -->
-          <mat-radio-button value="{{ t.fab.hoina | translate }}" [checked]="true">{{ t.fab.hoina | translate }}
+          <mat-radio-button
+            class="hub-radio-button"
+            id="hoina"
+            value="{{ t.fab.hoina | translate }}"
+            [checked]="hoHoinaThahaChaina.hoina"
+            (change)="onChange($event)"
+          >
+            {{ t.fab.hoina | translate }}
           </mat-radio-button>
-          <mat-radio-button value="{{ t.fab.ho | translate }}">{{ t.fab.ho | translate }}</mat-radio-button>
-          <mat-radio-button value="{{ t.fab.thahaChhaina | translate }}">{{ t.fab.thahaChhaina | translate }}
+          <mat-radio-button
+            class="hub-radio-button"
+            id="ho"
+            value="{{ t.fab.ho | translate }}"
+            [checked]="hoHoinaThahaChaina.ho"
+            (change)="onChange($event)"
+          >
+            {{ t.fab.ho | translate }}
+          </mat-radio-button>
+          <mat-radio-button
+            class="hub-radio-button"
+            id="thahaChhaina"
+            value="{{ t.fab.thahaChhaina | translate }}"
+            [checked]="hoHoinaThahaChaina.thahaChhaina"
+            (change)="onChange($event)"
+          >
+            {{ t.fab.thahaChhaina | translate }}
           </mat-radio-button>
         </mat-radio-group>
       </div>
