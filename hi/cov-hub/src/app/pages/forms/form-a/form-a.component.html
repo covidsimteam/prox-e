@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-md-12">
     <nb-card>
-      <nb-card-header> {{ t.fa.title | translate }}</nb-card-header>
-      <nb-card-body>
-        <nb-stepper orientation="horizontal" [linear]="linearMode">
-          <nb-step [stepControl]="formAOneTwo"  class="just-breathe" label="{{ t.fah.step1 | translate }}">
-            <nb-accordion [multi]="true">
+      <nb-card-header class="form-title"> {{ t.fa.title | translate }}</nb-card-header>
+      <nb-card-body class="no-pad">
+        <nb-stepper class="no-pad" orientation="horizontal" [linear]="linearMode">
+          <nb-step [stepControl]="formAOneTwo"  class="just-breathe no-pad" label="{{ t.fah.step1 | translate }}">
+            <nb-accordion [multi]="true" class="no-pad">
               <nb-accordion-item [expanded]="true">
                 <nb-accordion-item-header> {{ t.fah.heading0 | translate }} </nb-accordion-item-header>
                 <nb-accordion-item-body>
