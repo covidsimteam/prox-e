@@ -3,6 +3,8 @@
 echo "fetching current..."
 git fetch
 
+git checkout develop;
+
 echo "pulling current..."
 git pull
 

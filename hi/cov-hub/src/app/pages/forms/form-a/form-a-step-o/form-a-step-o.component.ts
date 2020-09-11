@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { TranslationServiceEn } from '../../../../services/i18n/translation-gen.service';
 
 @Component({

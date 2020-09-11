@@ -14,8 +14,6 @@ import { MapComponent } from './map/map.component';
 import { RoleBasedModules } from './role-based-modules/role-based.module';
 import { SeroPrevalenceComponent } from './sero-prevalence/sero-prevalence.component';
 
-
-
 const COMPS = [
   DashboardGridComponent,
   DashboardComponent,
@@ -38,7 +36,7 @@ const COMPS = [
     ChartModule,
     LeafletModule,
     LeafletFullscreenModule,
-    NbPopoverModule
+    NbPopoverModule,
   ],
   exports: [...COMPS]
 })
