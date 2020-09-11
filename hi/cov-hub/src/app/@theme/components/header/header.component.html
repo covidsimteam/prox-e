@@ -4,7 +4,7 @@
       class="sidebar-toggle">
       <nb-icon icon="menu-2-outline"></nb-icon>
     </a>
-    <a class="logo" href="#" (click)="navigateHome()">CovData<strong>Hub</strong></a>
+    <a class="logo" href="#" (click)="navigateHome()">Cov<strong>Hub</strong></a>
   </div>
 
 </div>
@@ -17,7 +17,7 @@
         type="rotate-layout" tag="rotate-layout"></nb-search>
     </nb-action>
     <nb-action class="control-item" matRipple [matRippleUnbounded]="true" [matRippleCentered]="true">
-      <button matRipple nbButton outline nbPopover="Toggle light/dark" nbPopoverPlacement="bottom"
+      <button matRipple nbButton outline
         (click)="changeTheme(currentTheme == 'dark' ? 'default' : 'dark')">
         <nb-icon [icon]="currentTheme == 'dark' ? 'bulb-outline' : 'moon-outline'"></nb-icon>
       </button>
