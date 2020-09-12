@@ -27,5 +27,10 @@ const CASE_DATA: ActiveCase[] = [
   {case: "Ram Thapa", assignedTo: "Mr. X", time: "2 Hr."},
   {case: "Ram Thapa", assignedTo: "Mr. X", time: "2 Hr."},
   {case: "Ram Thapa", assignedTo: "Mr. X", time: "2 Hr."},
+  {case: "Ram Thapa", assignedTo: "Mr. X", time: "2 Hr."},
+  {case: "Ram Thapa", assignedTo: "Mr. X", time: "2 Hr."},
+  {case: "Ram Thapa", assignedTo: "Mr. X", time: "2 Hr."},
+  {case: "Ram Thapa", assignedTo: "Mr. X", time: "2 Hr."},
+  {case: "Ram Thapa", assignedTo: "Mr. X", time: "2 Hr."},
   {case: "Ram Thapa", assignedTo: "Mr. X", time: "2 Hr."}
 ]

@@ -26,6 +26,7 @@ import { TaskstatsComponent } from './dataentry/taskstats/taskstats.component';
 import { ContacttracingComponent } from './dataentry/contacttracing/contacttracing.component';
 import { DataentryComponent } from './dataentry/dataentry.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   imports: [
@@ -52,7 +53,8 @@ import { MatTableModule } from '@angular/material/table';
     SampleCollectionModule,
     ProfileModule,
     DashboardModule,
-    MatTableModule
+    MatTableModule,
+    MatSortModule
   ],
   declarations: [PagesComponent, ActivetasksComponent, TaskstatsComponent, ContacttracingComponent, DataentryComponent],
 })
