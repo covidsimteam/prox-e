@@ -21,6 +21,10 @@ import { ProfileModule } from './profile/profile.module';
 import { SampleCollectionModule } from './sample/sample-collection.module';
 import { TablesModule } from './tables/tables.module';
 import { DashboardModule } from '../@comp/dashboard/dashboard.module';
+import { ActivetasksComponent } from './dataentry/activetasks/activetasks.component';
+import { TaskstatsComponent } from './dataentry/taskstats/taskstats.component';
+import { ContacttracingComponent } from './dataentry/contacttracing/contacttracing.component';
+import { DataentryComponent } from './dataentry/dataentry.component';
 
 @NgModule({
   imports: [
@@ -47,7 +51,7 @@ import { DashboardModule } from '../@comp/dashboard/dashboard.module';
     ProfileModule,
     DashboardModule
   ],
-  declarations: [PagesComponent],
+  declarations: [PagesComponent, ActivetasksComponent, TaskstatsComponent, ContacttracingComponent, DataentryComponent],
 })
 export class PagesModule {
 }

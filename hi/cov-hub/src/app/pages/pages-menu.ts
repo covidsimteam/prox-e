@@ -21,6 +21,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'calendar-outline',
     children: [
       {
+        title: 'Data Entry',
+        link: '/hub/secured/dataentry'
+      },
+      {
         title: 'Form A',
         link: '/hub/secured/forms/form-a',
       },
