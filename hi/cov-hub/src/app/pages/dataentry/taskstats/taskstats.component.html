@@ -1,6 +1,20 @@
-<nb-card class="medium" status="info">
-    <nb-card-header>{{ taskStatsHeader }} Tasks</nb-card-header>
-    <nb-card-body>
-
-    </nb-card-body>
-</nb-card>
+<nb-flip-card>
+    <nb-card-front>
+        <nb-card class="medium" status="info">
+            <nb-card-header>{{ taskStatsHeader }} Task Stats</nb-card-header>
+            <nb-card-body>
+                <h6><span class="badge badge-danger">Pending</span> {{ pending }}</h6>
+                <hr>
+                <h6><span class="badge badge-success">Complete</span> {{ complete }}</h6>
+            </nb-card-body>
+        </nb-card>
+    </nb-card-front>
+    <nb-card-back>
+        <nb-card class="medium" status="info">
+            <nb-card-header>{{ taskStatsHeader }} Task Stats</nb-card-header>
+            <nb-card-body>
+                <h3>maybe a pie-chart here?</h3>
+            </nb-card-body>
+        </nb-card>
+    </nb-card-back>
+</nb-flip-card>
