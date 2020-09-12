@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbLayoutModule, NbMenuModule } from '@nebular/theme';
+import { NbLayoutModule, NbMenuModule, NbCardModule } from '@nebular/theme';
 import { ThemeModule } from '../@theme/theme.module';
 import { AccountModule } from './account/account.module';
 import { PcrDemandModule } from './demand/pcr-demand.module';
@@ -47,6 +47,7 @@ import { DataentryComponent } from './dataentry/dataentry.component';
     MedAiModule,
     TablesModule,
     NbLayoutModule,
+    NbCardModule,
     SampleCollectionModule,
     ProfileModule,
     DashboardModule

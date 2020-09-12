@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./taskstats.component.scss']
 })
 export class TaskstatsComponent implements OnInit {
-
+  taskStatsHeader: string = 'Your'
   constructor() { }
 
   ngOnInit(): void {
