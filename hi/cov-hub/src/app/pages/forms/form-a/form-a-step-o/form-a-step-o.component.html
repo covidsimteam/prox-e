@@ -1,4 +1,4 @@
-<form class="no-pad">
+<form class="no-pad form-cont">
   <div class="row">
     <div class="col-md-6 col-lg-6">
       <mat-form-field appearance="fill" class="form-a">
@@ -41,36 +41,18 @@
     <div class="col-md-6 col-lg-6">
       <div class="form-a">
         <label>{{ t.fa.inputCaseStatus | translate }}</label>
-        <mat-radio-group class="hub-radio-group" color="primary" id="inputCaseStatus">
+        <nb-radio-group class="row" color="primary" id="inputCaseStatus">
           <!-- (select)="changeCaseStatus($event) -->
-          <mat-radio-button
-            class="hub-radio-button"
-            id="hoina"
-            value="{{ t.fab.hoina | translate }}"
-            [checked]="hoHoinaThahaChaina.hoina"
-            (change)="onChange($event)"
-          >
+          <nb-radio>
             {{ t.fab.hoina | translate }}
-          </mat-radio-button>
-          <mat-radio-button
-            class="hub-radio-button"
-            id="ho"
-            value="{{ t.fab.ho | translate }}"
-            [checked]="hoHoinaThahaChaina.ho"
-            (change)="onChange($event)"
-          >
+          </nb-radio>
+          <nb-radio>
             {{ t.fab.ho | translate }}
-          </mat-radio-button>
-          <mat-radio-button
-            class="hub-radio-button"
-            id="thahaChhaina"
-            value="{{ t.fab.thahaChhaina | translate }}"
-            [checked]="hoHoinaThahaChaina.thahaChhaina"
-            (change)="onChange($event)"
-          >
+          </nb-radio>
+          <nb-radio>
             {{ t.fab.thahaChhaina | translate }}
-          </mat-radio-button>
-        </mat-radio-group>
+          </nb-radio>
+        </nb-radio-group>
       </div>
     </div>
   </div>

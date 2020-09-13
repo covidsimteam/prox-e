@@ -1,4 +1,3 @@
-
 :host {
   display: block;
   padding: 0;
@@ -9,45 +8,39 @@
   margin: 0;
 }
 
+
+input {
+  border-bottom: 1px solid black;
+}
+
+
+.radiotitle {
+
+  margin-left: 10px;
+}
+
+
 nb-card.form-cont {
   border: 1px solid transparent;
-}
-
-.hub-radio-group {
-  color: #000;
-  display: flex;
-  flex-direction: column;
-  margin: 15px 0;
-}
-
-.hub-radio-button {
-  color: #000;
-  margin: 5px;
-}
-
-.mat-radio-checked {
-  color: pink;
 }
 
 .form-a {
   display: block;
   margin-top: 1rem;
 
+  label, mat-radio-button {
+    margin-right: 1rem;
+  }
 
+  input {
+    border-bottom: 1px solid black;
+  }
 
   textarea {
     min-height: 3rem;
   }
 }
 
-.mat-radio-button ~ .mat-radio-button {
-  margin-left: 16px;
-}
-
-
-input {
-  border-bottom: 1px solid black;
-}
 
 nb-card-body {
   overflow: visible;
@@ -69,15 +62,16 @@ nb-card-body {
   }
 }
 
-// .checkbox-radio {
-//   display: flex;
-// }
+.checkbox-radio {
+  display: flex;
+}
 
 nb-radio {
   padding-left: 10px;
   margin-left: 24px;
 
 }
+
 .radiotitle {
 
   margin-left: 10px;
