@@ -1,1 +1,31 @@
-<p>newcase works!</p>
+<nb-card>
+    <nb-card-body class="card-body">
+        <label class="label">{{ t.fa.reportDate1 | translate }}
+            <input [nbDatepicker]="reportDatePicker">
+        </label>
+        <nb-datepicker #reportDatePicker></nb-datepicker>
+        <hr>
+        <label class="label">{{ t.fa.testAgency | translate }}
+            <input nbInput type="text">
+        </label>
+        <hr>
+        <label class="label">{{ t.fb.caseName | translate }}
+            <input nbInput type="text">
+        </label><hr>
+        <label class="label">{{ t.fb.phoneNumber | translate }}
+            <input nbInput type="tel">
+        </label><hr>
+        <label class="label">{{ t.fb.province | translate }}
+            <input nbInput type="text">
+        </label><hr>
+        <label class="label">{{ t.fb.district | translate }}
+            <input nbInput type="text">
+        </label><hr>
+        <label class="label">{{ t.fb.vdc | translate }} / {{ t.fb.municipality | translate }}
+            <input nbInput type="text">
+        </label><hr>
+        <label class="label">{{ t.fb.wardNum | translate }}
+            <input nbInput type="number">
+        </label><hr>
+    </nb-card-body>
+</nb-card>

@@ -3,7 +3,10 @@ import {
   NbLayoutModule, 
   NbMenuModule, 
   NbCardModule,
-  NbWindowModule } from '@nebular/theme';
+  NbWindowModule,
+  NbDatepickerModule,
+  NbInputModule
+} from '@nebular/theme';
 import { ThemeModule } from '../@theme/theme.module';
 import { AccountModule } from './account/account.module';
 import { PcrDemandModule } from './demand/pcr-demand.module';
@@ -36,6 +39,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { NewcaseComponent } from './dataentry/admincontrol/newcase/newcase.component';
 import { NewuserComponent } from './dataentry/admincontrol/newuser/newuser.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -66,10 +70,13 @@ import { NewuserComponent } from './dataentry/admincontrol/newuser/newuser.compo
     MatSortModule,
     MatButtonModule,
     MatIconModule,
+    TranslateModule.forChild({extend: true}),
     NbWindowModule.forChild({
       closeOnBackdropClick: false,
       closeOnEsc: true
-    })
+    }),
+    NbDatepickerModule,
+    NbInputModule
   ],
   declarations: [PagesComponent, ActivetasksComponent, TaskstatsComponent, ContacttracingComponent, DataentryComponent, AdmincontrolComponent, NewcaseComponent, NewuserComponent],
 })

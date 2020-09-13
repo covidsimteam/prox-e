@@ -17,13 +17,15 @@ export class AdmincontrolComponent implements OnInit {
 
   showNewCaseWindow() {
     this.windowService.open(NewcaseComponent, {
-      title: 'New Case'
+      title: 'New Case',
+      windowClass: 'new-case-window'
     });
   }
 
   showNewUserWindow() {
     this.windowService.open(NewuserComponent, {
-      title: 'New User'
+      title: 'New User',
+      windowClass: 'new-user-window'
     });
   }
 }
