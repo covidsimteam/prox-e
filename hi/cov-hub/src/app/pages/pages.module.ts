@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
-import { NbLayoutModule, NbMenuModule, NbCardModule } from '@nebular/theme';
+import { 
+  NbLayoutModule, 
+  NbMenuModule, 
+  NbCardModule,
+  NbWindowModule } from '@nebular/theme';
 import { ThemeModule } from '../@theme/theme.module';
 import { AccountModule } from './account/account.module';
 import { PcrDemandModule } from './demand/pcr-demand.module';
@@ -30,6 +34,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { AdmincontrolComponent } from './dataentry/admincontrol/admincontrol.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { NewcaseComponent } from './dataentry/admincontrol/newcase/newcase.component';
+import { NewuserComponent } from './dataentry/admincontrol/newuser/newuser.component';
 
 @NgModule({
   imports: [
@@ -59,9 +65,13 @@ import { MatIconModule } from '@angular/material/icon';
     MatTableModule,
     MatSortModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    NbWindowModule.forChild({
+      closeOnBackdropClick: false,
+      closeOnEsc: true
+    })
   ],
-  declarations: [PagesComponent, ActivetasksComponent, TaskstatsComponent, ContacttracingComponent, DataentryComponent, AdmincontrolComponent],
+  declarations: [PagesComponent, ActivetasksComponent, TaskstatsComponent, ContacttracingComponent, DataentryComponent, AdmincontrolComponent, NewcaseComponent, NewuserComponent],
 })
 export class PagesModule {
 }

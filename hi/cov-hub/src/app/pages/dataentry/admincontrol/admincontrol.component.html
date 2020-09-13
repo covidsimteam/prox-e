@@ -1,12 +1,12 @@
 <nb-card class="large" status="danger">
     <nb-card-header>Admin Controls</nb-card-header>
     <nb-card-body>
-        <button mat-raised-button color="accent" aria-label="Create new case"
+        <button (click)="showNewCaseWindow()" mat-raised-button color="accent" aria-label="Create new case"
             style="margin-right: 1em;">
             <mat-icon>note_add</mat-icon> New case
         </button>
 
-        <button mat-raised-button color="accent" aria-label="Create new user">
+        <button mat-raised-button (click)="showNewUserWindow()" color="accent" aria-label="Create new user">
             <mat-icon>person_add</mat-icon> New user
         </button>
     </nb-card-body>
