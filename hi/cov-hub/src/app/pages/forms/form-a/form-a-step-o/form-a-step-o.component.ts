@@ -19,4 +19,5 @@ export class FormAStepOComponent implements OnInit {
   changeCaseStatus(event: any) {
     this.caseStatus = event as string;
   }
+
 }
