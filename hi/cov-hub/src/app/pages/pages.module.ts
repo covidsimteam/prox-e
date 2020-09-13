@@ -27,6 +27,9 @@ import { ContacttracingComponent } from './dataentry/contacttracing/contacttraci
 import { DataentryComponent } from './dataentry/dataentry.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { AdmincontrolComponent } from './dataentry/admincontrol/admincontrol.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -54,9 +57,11 @@ import { MatSortModule } from '@angular/material/sort';
     ProfileModule,
     DashboardModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatButtonModule,
+    MatIconModule
   ],
-  declarations: [PagesComponent, ActivetasksComponent, TaskstatsComponent, ContacttracingComponent, DataentryComponent],
+  declarations: [PagesComponent, ActivetasksComponent, TaskstatsComponent, ContacttracingComponent, DataentryComponent, AdmincontrolComponent],
 })
 export class PagesModule {
 }
