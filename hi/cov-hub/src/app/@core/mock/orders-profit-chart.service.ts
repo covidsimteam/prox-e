@@ -13,11 +13,11 @@ export class OrdersProfitChartService extends OrdersProfitChartData {
       value: 3654,
     },
     {
-      title: 'Last Month',
+      title: 'Month',
       value: 946,
     },
     {
-      title: 'Last Week',
+      title: 'Week',
       value: 654,
     },
     {

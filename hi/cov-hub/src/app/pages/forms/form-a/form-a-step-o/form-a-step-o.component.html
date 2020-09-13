@@ -1,60 +1,77 @@
-<form>
-  <nb-card class="form-cont">
-    <nb-card-body>
-      <div class="row">
+<form class="no-pad">
+  <div class="row">
+    <div class="col-md-6 col-lg-6">
+      <mat-form-field appearance="fill" class="form-a">
+        <mat-label>{{ t.fab.naam | translate }}</mat-label>
+        <input matInput autocomplete="off">
+        <!-- <mat-hint>E.g. Lalit:324234</mat-hint> -->
+      </mat-form-field>
+    </div>
 
-        <div class="col-md-6 col-lg-6">
-          <mat-form-field appearance="fill" class="form-a">
-            <mat-label>{{ t.fab.naam | translate }}</mat-label>
-            <input matInput autocomplete="off">
-            <!-- <mat-hint>E.g. Lalit:324234</mat-hint> -->
-          </mat-form-field>
-        </div>
+    <div class="col-md-6 col-lg-6">
+      <mat-form-field appearance="fill" class="form-a">
+        <mat-label> {{ t.fa.reportDate1 | translate }} </mat-label>
+        <input matInput fullWidth [nbDatepicker]="reportDatePicker">
+        <nb-datepicker #reportDatePicker></nb-datepicker>
+      </mat-form-field>
+    </div>
 
-        <div class="col-md-6 col-lg-6">
-          <mat-form-field appearance="fill" class="form-a">
-            <mat-label> {{ t.fa.reportDate1 | translate }} </mat-label>
-            <input matInput fullWidth [nbDatepicker]="reportDatePicker">
-            <nb-datepicker #reportDatePicker></nb-datepicker>
-          </mat-form-field>
-        </div>
+  </div>
 
+  <div class="row">
+
+    <div class="col-md-6 col-lg-6">
+      <mat-form-field appearance="fill" class="form-a">
+        <mat-label>{{ t.fa.nameOfPoEorQ | translate }}</mat-label>
+        <input matInput autocomplete="off">
+      </mat-form-field>
+    </div>
+
+    <div class="col-md-6 col-lg-6">
+      <mat-form-field appearance="fill" class="form-a">
+        <mat-label> {{ t.fab.hoBhaneDate | translate }} </mat-label>
+        <input matInput fullWidth [nbDatepicker]="inputHoBhaneDatePicker">
+        <nb-datepicker #inputHoBhaneDatePicker></nb-datepicker>
+      </mat-form-field>
+    </div>
+
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-md-6 col-lg-6">
+      <div class="form-a">
+        <label>{{ t.fa.inputCaseStatus | translate }}</label>
+        <mat-radio-group class="hub-radio-group" color="primary" id="inputCaseStatus">
+          <!-- (select)="changeCaseStatus($event) -->
+          <mat-radio-button
+            class="hub-radio-button"
+            id="hoina"
+            value="{{ t.fab.hoina | translate }}"
+            [checked]="hoHoinaThahaChaina.hoina"
+            (change)="onChange($event)"
+          >
+            {{ t.fab.hoina | translate }}
+          </mat-radio-button>
+          <mat-radio-button
+            class="hub-radio-button"
+            id="ho"
+            value="{{ t.fab.ho | translate }}"
+            [checked]="hoHoinaThahaChaina.ho"
+            (change)="onChange($event)"
+          >
+            {{ t.fab.ho | translate }}
+          </mat-radio-button>
+          <mat-radio-button
+            class="hub-radio-button"
+            id="thahaChhaina"
+            value="{{ t.fab.thahaChhaina | translate }}"
+            [checked]="hoHoinaThahaChaina.thahaChhaina"
+            (change)="onChange($event)"
+          >
+            {{ t.fab.thahaChhaina | translate }}
+          </mat-radio-button>
+        </mat-radio-group>
       </div>
-
-      <div class="row">
-
-        <div class="col-md-6 col-lg-6">
-          <mat-form-field appearance="fill" class="form-a">
-            <mat-label>{{ t.fa.nameOfPoEorQ | translate }}</mat-label>
-            <input matInput autocomplete="off">
-          </mat-form-field>
-        </div>
-
-        <div class="col-md-6 col-lg-6">
-          <mat-form-field appearance="fill" class="form-a">
-            <mat-label> {{ t.fab.hoBhaneDate | translate }} </mat-label>
-            <input matInput fullWidth [nbDatepicker]="inputHoBhaneDatePicker">
-            <nb-datepicker #inputHoBhaneDatePicker></nb-datepicker>
-          </mat-form-field>
-        </div>
-
-      </div>
-      <br />
-      <div class="row">
-        <div class="col-md-6 col-lg-6">
-          <div class="form-a">
-            <label>{{ t.fa.inputCaseStatus | translate }}</label>
-            <mat-radio-group color="primary" id="inputCaseStatus">
-              <!-- (select)="changeCaseStatus($event) -->
-              <mat-radio-button value="{{ t.fab.hoina | translate }}" [checked]="true">{{ t.fab.hoina | translate }}
-              </mat-radio-button>
-              <mat-radio-button value="{{ t.fab.ho | translate }}">{{ t.fab.ho | translate }}</mat-radio-button>
-              <mat-radio-button value="{{ t.fab.thahaChhaina | translate }}">{{ t.fab.thahaChhaina | translate }}
-              </mat-radio-button>
-            </mat-radio-group>
-          </div>
-        </div>
-      </div>
-    </nb-card-body>
-  </nb-card>
+    </div>
+  </div>
 </form>

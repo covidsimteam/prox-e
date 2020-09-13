@@ -23,4 +23,4 @@ pusher
 syncer
 
 wait
-echo "All feature branches are synced with develop ~~!"
+echo "All feature branches are synced with develop~~! Please update master after passing tests."
