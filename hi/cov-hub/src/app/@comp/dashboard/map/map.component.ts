@@ -2,7 +2,7 @@ import 'leaflet.markercluster';
 import 'style-loader!leaflet/dist/leaflet.css';
 
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { NbColorHelper, NbThemeService, NbNativeDateService } from '@nebular/theme';
+import { NbColorHelper, NbThemeService } from '@nebular/theme';
 import * as L from 'leaflet';
 import polylabel from 'polylabel';
 import { BehaviorSubject, from, merge, Subscription } from 'rxjs';
@@ -32,7 +32,7 @@ interface MapLayer {
   selector: 'cov-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
-  providers: [NbNativeDateService]
+  //  providers: [NbNativeDateService]
 })
 export class MapComponent implements OnInit, OnDestroy {
   // title = 'National Covid Map';
@@ -111,7 +111,7 @@ export class MapComponent implements OnInit, OnDestroy {
     private returneeService: ReturneeService,
     private themeService: NbThemeService,
     private mapSeroService: MapSeroService,
-    private dateService: NbNativeDateService
+    // private dateService: NbNativeDateService
   ) {
     this.themeSubscription = this.themeService.getJsTheme()
       .subscribe(config => {

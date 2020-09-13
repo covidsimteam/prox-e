@@ -18,8 +18,8 @@ export class AppConf {
 
   constructor() {
     this.uri = {
-      docDBUri: appUris.prodDocDB,
-      dashboardUri: `${appUris.prodDocDB}_session`,
+      docDBUri: `${appUris.devDocDB}db`,
+      dashboardUri: `${appUris.devDocDB}_session`,
     };
     this.db = { docDBUser: appUris.docDBUser, docDBPassword: appUris.docDBPassword };
   }

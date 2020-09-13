@@ -17,13 +17,14 @@ export class ChartPanelHeaderComponent implements OnDestroy {
   @Input() type: string = 'week';
 
   types: string[] = ['week', 'month', 'year'];
-  chartLegend: {iconColor: string; title: string}[];
+  chartLegend: { iconColor: string; title: string }[];
   breakpoint: NbMediaBreakpoint = { name: '', width: 0 };
   breakpoints: any;
   currentTheme: string;
 
-  constructor(private themeService: NbThemeService,
-              private breakpointService: NbMediaBreakpointsService) {
+  constructor(
+    private themeService: NbThemeService,
+    private breakpointService: NbMediaBreakpointsService) {
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe((theme: any) => {
@@ -33,19 +34,20 @@ export class ChartPanelHeaderComponent implements OnDestroy {
         this.setLegendItems(orderProfitLegend);
       });
 
-      this.breakpoints = this.breakpointService.getBreakpointsMap();
-      this.themeService.onMediaQueryChange()
-        .pipe(takeWhile(() => this.alive))
-        .subscribe(([_, newValue]) => {
-          this.breakpoint = newValue;
-        });
+    this.breakpoints = this.breakpointService.getBreakpointsMap();
+
+    this.themeService.onMediaQueryChange()
+      .pipe(takeWhile(() => this.alive))
+      .subscribe(([_, newValue]) => {
+        this.breakpoint = newValue;
+      });
   }
 
   setLegendItems(orderProfitLegend: any) {
     this.chartLegend = [
       {
         iconColor: orderProfitLegend.firstItem,
-        title: 'Severe',
+        title: 'Sick',
       },
       {
         iconColor: orderProfitLegend.secondItem,
