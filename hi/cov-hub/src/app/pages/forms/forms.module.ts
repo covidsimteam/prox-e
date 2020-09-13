@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { FormsModule as ngFormsModule, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {
@@ -88,6 +89,7 @@ const MaterialModules = [
     ReactiveFormsModule,
     NbStepperModule,
     NbLayoutModule,
+
     TranslateModule.forChild({ extend: true }),
     ...MaterialModules
   ],

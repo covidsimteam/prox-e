@@ -1,3 +1,4 @@
+import { MatRadioModule } from '@angular/material/radio';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -40,8 +41,9 @@ export class WebpackTranslateLoader implements TranslateLoader {
 @NgModule({
   declarations: [AppComponent, SelectionPipe, SelectionsDirective],
   imports: [
-    BrowserModule,
+    MatRadioModule,
     BrowserAnimationsModule,
+    BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     NbSidebarModule.forRoot(),

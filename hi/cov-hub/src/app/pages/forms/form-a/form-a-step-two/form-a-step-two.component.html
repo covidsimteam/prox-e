@@ -1,144 +1,155 @@
-<div class="col-md-12">
-  <div class="form-group">
-    <label for="" class="label">{{ t.fa.recentSymptoms | translate }}
-      <div class="col-sm-6">
-        <nb-radio-group id="inputCaseStatus" class="row">
-          <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
-          <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
-        </nb-radio-group>
+<nb-card class="form-cont">
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+          <label class="title">{{ t.fa.recentSymptoms | translate }}</label>
+          <nb-radio-group id="inputCaseStatus" class="row">
+            <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+            <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+         </nb-radio-group>
+        </div>
       </div>
-    </label>
+
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+          <label class="title">{{ t.fa.lastFourWeeksSymptoms | translate }}</label>
+            <nb-radio-group id="inputCaseStatus" class="row">
+              <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+              <nb-radio>{{ t.fa.ifNot21 | translate }}</nb-radio>
+
+            </nb-radio-group>
+          </div>
+      </div>
+      </div>
+
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <mat-form-field appearance="fill" class="form-a">
+          <mat-label >{{ t.fa.symptomaticCaseInvestigation | translate }} </mat-label>
+          <input matInput autocomplete="off">
+        </mat-form-field>
+      </div>
+ </div>
+
+ <div class="row">
+  <div class="col-md-6 col-lg-6">
+    <mat-form-field appearance="fill" class="form-a">
+      <mat-label >{{ t.fa.symptomsDate | translate }} </mat-label>
+      <input matInput autocomplete="off">
+    </mat-form-field>
   </div>
 </div>
 
-
-<div class="col-md-12">
-  <div class="form-group">
-    <label for="" class="label">२.२ यदि छैन भने, पछिल्लो ४ हप्तामा कोभिड -19(को लक्षण
-      देखिएको)</label>
-    <div class="col-sm-6">
-      <nb-radio-group id="inputCaseStatus" class="row">
-        <nb-radio>छ</nb-radio>
-        <nb-radio>छैन(तलका लक्षणहरू हेर्नुहोस्, यदि छैन भने,२.३ को उत्तर दिनु आवश्यक छैन)</nb-radio>
-
-      </nb-radio-group>
+        <div class="row">
+          <div class="col-md-12 col-lg-12">
+            <div class="form-group">
+              <label class="title">{{ t.fa.symptomsKnown | translate }}</label>
+                <nb-card>
+              <nb-card-body class="row">
+              <div class="col-md-2 col-lg-2">
+              <nb-checkbox matRipple status="basic"> History of fever / chills | ज्वरो </nb-checkbox>
+              <nb-checkbox matRipple status="basic"> General weakness | कमजोरी </nb-checkbox>
+              <nb-checkbox matRipple status="basic"> Cough | खोकी </nb-checkbox>
+              <nb-checkbox matRipple status="basic"> Sore Throat | घाँटी दुख्ने </nb-checkbox>
+              <nb-checkbox matRipple status="basic"> Runny nose | नाक बग्नु</nb-checkbox>
+              <nb-checkbox matRipple status="basic"> Shortness of breath | सास फेर्न गाह्रो
+              </nb-checkbox>
+            </div>
+              <div class="col-md-2 col-lg-2">
+              <nb-checkbox matRipple status="basic"> Diarrhea | पखाला</nb-checkbox>
+              <nb-checkbox matRipple status="basic"> Nausea/Vomiting | मतली / बान्ता</nb-checkbox>
+              <nb-checkbox matRipple status="basic"> Headache | टाउको दुखाइ</nb-checkbox>
+              <nb-checkbox matRipple status="basic"> Irritability/Confusion | चिडचिड / भ्रम
+              </nb-checkbox>
+              <nb-checkbox matRipple status="basic"> Loss of taste | स्वाद हराउनु </nb-checkbox>
+              <nb-checkbox matRipple status="basic"> Loss of smell | गन्ध हराउनु</nb-checkbox>
+            </div>
+              <div class="col-md-2 col-lg-2">
+              <nb-checkbox matRipple status="basic"> Pain(check all that apply) | लागू हुने सबैमा टिक
+                गर्नुहोस्
+              </nb-checkbox>
+              <nb-checkbox matRipple status="basic"> Muscular | मांसपेशी </nb-checkbox>
+              <nb-checkbox matRipple status="basic"> Chest | छाती </nb-checkbox>
+              <nb-checkbox matRipple status="basic"> Abdominal | पेट </nb-checkbox>
+              <nb-checkbox matRipple status="basic"> Joint | जोइन्ट </nb-checkbox>
+              <nb-checkbox matRipple status="basic"> Other, specify | अन्य, निर्दिष्ट गर्नुहोस्
+              </nb-checkbox>
+              </div>
+              </nb-card-body>
+            </nb-card>
+          </div>
+      </div>
     </div>
-  </div>
-</div>
 
-
-<div class="col-md-12">
-  <div class="form-group">
-    <span>
-      {{ t.fa.symptomaticCaseInvestigation | translate }}
-    </span>
-
-  </div>
-</div>
-
-<div class="col-md-12">
-  <div class="form-group">
-    <label for="inputDate" class="label">{{ t.fa.symptomsDate | translate }}
-      <input [nbDatepicker]="datepicker">
-      <nb-datepicker #datepicker></nb-datepicker>
-    </label>
-    <br />
-  </div>
-</div>
-
-
-<div class="col-md-12">
-  <div class="form-group">
-    <label class="label">{{ t.fa.symptomsKnown | translate }}
-      <div class="col-sm-12">
-        <nb-card>
-          <nb-card-body class="example-items-rows">
-            <nb-checkbox matRipple status="basic"> History of fever / chills | ज्वरो </nb-checkbox>
-            <nb-checkbox matRipple status="basic"> General weakness | कमजोरी </nb-checkbox>
-            <nb-checkbox matRipple status="basic"> Cough | खोकी </nb-checkbox>
-            <nb-checkbox matRipple status="basic"> Sore Throat | घाँटी दुख्ने </nb-checkbox>
-            <nb-checkbox matRipple status="basic"> Runny nose | नाक बग्नु</nb-checkbox>
-            <nb-checkbox matRipple status="basic"> Shortness of breath | सास फेर्न गाह्रो
-            </nb-checkbox>
-            <nb-checkbox matRipple status="basic"> Diarrhea | पखाला</nb-checkbox>
-            <nb-checkbox matRipple status="basic"> Nausea/Vomiting | मतली / बान्ता</nb-checkbox>
-            <nb-checkbox matRipple status="basic"> Headache | टाउको दुखाइ</nb-checkbox>
-            <nb-checkbox matRipple status="basic"> Irritability/Confusion | चिडचिड / भ्रम
-            </nb-checkbox>
-            <nb-checkbox matRipple status="basic"> Loss of taste | स्वाद हराउनु </nb-checkbox>
-            <nb-checkbox matRipple status="basic"> Loss of smell | गन्ध हराउनु</nb-checkbox>
-            <nb-checkbox matRipple status="basic"> Pain(check all that apply) | लागू हुने सबैमा टिक
-              गर्नुहोस्
-            </nb-checkbox>
-            <nb-checkbox matRipple status="basic"> Muscular | मांसपेशी </nb-checkbox>
-            <nb-checkbox matRipple status="basic"> Chest | छाती </nb-checkbox>
-            <nb-checkbox matRipple status="basic"> Abdominal | पेट </nb-checkbox>
-            <nb-checkbox matRipple status="basic"> Joint | जोइन्ट </nb-checkbox>
-            <nb-checkbox matRipple status="basic"> Other, specify | अन्य, निर्दिष्ट गर्नुहोस्
-            </nb-checkbox>
-          </nb-card-body>
-        </nb-card>
-
-      </div>
-    </label>
-  </div>
-</div>
-
-
-<div class="col-md-12">
-  <div class="form-group">
-    <label for="" class="label">{{ t.fa.symptoms | translate }}
-      <div class="col-sm-12">
-        <nb-card>
-          <nb-card-body class="example-items-rows">
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <div class="form-group">
+          <label class="title">{{ t.fa.symptoms | translate }}</label>
+            <nb-card>
+          <nb-card-body class="row">
+          <div class="col-md-2 col-lg-2">
             <nb-checkbox matRipple status="basic"> Pharyngeal exudate</nb-checkbox>
             <nb-checkbox matRipple status="basic"> Conjunctival injection (red eye) </nb-checkbox>
             <nb-checkbox matRipple status="basic"> Seizure </nb-checkbox>
-            <nb-checkbox matRipple status="basic"> Coma </nb-checkbox>
             <nb-checkbox matRipple status="basic"> Dyspnea / tachypnea (DB/Fast breathing)
             </nb-checkbox>
+
+          </div>
+
+          <div class="col-md-2 col-lg-2">
+
             <nb-checkbox matRipple status="basic"> Abnormal lung auscultation</nb-checkbox>
+            <nb-checkbox matRipple status="basic"> Coma </nb-checkbox>
             <nb-checkbox matRipple status="basic"> Abnormal lung x-ray/CT scan findings
             </nb-checkbox>
             <nb-checkbox matRipple status="basic"> None</nb-checkbox>
             <nb-checkbox matRipple status="basic"> Other, specify | अन्य, निर्दिष्ट गर्नुहोस्
             </nb-checkbox>
+          </div>
           </nb-card-body>
         </nb-card>
-
       </div>
-    </label>
   </div>
 </div>
 
-
-<div class="col-md-12">
-  <div class="form-group">
-    <label for="" class="label">{{ t.fa.healthDifficulties | translate }}
-      <div class="col-sm-12">
+<div class="row">
+  <div class="col-md-12 col-lg-12">
+    <div class="form-group">
+      <label class="title">{{ t.fa.healthDifficulties | translate }}</label>
         <nb-card>
-          <nb-card-body class="example-items-rows">
-            <nb-checkbox matRipple status="basic"> गभाषवस्था (िैमाभसक) </nb-checkbox>
-            <nb-checkbox matRipple status="basic"> सुत्के रीवस्था (६ िप्ता) </nb-checkbox>
-            <nb-checkbox matRipple status="basic"> मुिु सम्बन्धी रोग, रिचाप सभित</nb-checkbox>
-            <nb-checkbox matRipple status="basic"> मधुमेि </nb-checkbox>
-            <nb-checkbox matRipple status="basic"> कलेजोको रोग</nb-checkbox>
-            <nb-checkbox matRipple status="basic"> नसा सम्बन्धी रोग</nb-checkbox>
-            <nb-checkbox matRipple status="basic"> मृगौलाको रोगिरु </nb-checkbox>
-            <nb-checkbox matRipple status="basic"> ु पोर्ण</nb-checkbox>
-            <nb-checkbox matRipple status="basic"> अिोइम्युन रोगिरु </nb-checkbox>
-            <nb-checkbox matRipple status="basic"> इम्युनोडेभफभशयन्सी, एच.आईभी सभित</nb-checkbox>
-            <nb-checkbox matRipple status="basic"> Malignancy म्याभलगनेन्शी
-            </nb-checkbox>
-            <nb-checkbox matRipple status="basic">फोक्सोको दीघष रोग/दम/धमनी</nb-checkbox>
-            <nb-checkbox matRipple status="basic"> Other, specify अन्य, निर्दिष्ट गर्नुहोस्
-            </nb-checkbox>
-            <nb-checkbox matRipple status="basic"> कु नै पभन छैन </nb-checkbox>
+      <nb-card-body class="row">
+      <div class="col-md-2 col-lg-2">
+        <nb-checkbox matRipple status="basic"> गभाषवस्था (िैमाभसक) </nb-checkbox>
+        <nb-checkbox matRipple status="basic"> सुत्के रीवस्था (६ िप्ता) </nb-checkbox>
+        <nb-checkbox matRipple status="basic"> मधुमेि </nb-checkbox>
+        <nb-checkbox matRipple status="basic"> मुिु सम्बन्धी रोग, रिचाप सभित</nb-checkbox>
 
-          </nb-card-body>
-        </nb-card>
-
+        <nb-checkbox matRipple status="basic"> कलेजोको रोग</nb-checkbox>
       </div>
-    </label>
+      <div class="col-md-2 col-lg-2">
+
+        <nb-checkbox matRipple status="basic"> नसा सम्बन्धी रोग</nb-checkbox>
+        <nb-checkbox matRipple status="basic"> मृगौलाको रोगिरु </nb-checkbox>
+
+        <nb-checkbox matRipple status="basic"> अिोइम्युन रोगिरु </nb-checkbox>
+        <nb-checkbox matRipple status="basic"> इम्युनोडेभफभशयन्सी, एच.आईभी सभित</nb-checkbox>
+        <nb-checkbox matRipple status="basic"> ु पोर्ण</nb-checkbox>
+      </div>
+        <div class="col-md-2 col-lg-2">
+        <nb-checkbox matRipple status="basic"> Malignancy म्याभलगनेन्शी
+        </nb-checkbox>
+        <nb-checkbox matRipple status="basic">फोक्सोको दीघष रोग/दम/धमनी</nb-checkbox>
+        <nb-checkbox matRipple status="basic"> Other, specify अन्य, निर्दिष्ट गर्नुहोस्
+        </nb-checkbox>
+        <nb-checkbox matRipple status="basic"> कु नै पभन छैन </nb-checkbox>
+      </div>
+      </nb-card-body>
+    </nb-card>
   </div>
 </div>
+</div>
+
+
+
+

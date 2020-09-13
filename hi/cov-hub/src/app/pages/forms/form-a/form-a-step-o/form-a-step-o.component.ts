@@ -62,7 +62,7 @@ export class FormAStepOComponent implements OnInit {
       }
     };
 
-    const idMapper = (idx: 'ho' | 'hoina' | 'thahaChhaina' | string, checker: boolean ) => {
+  const idMapper = (idx: 'ho' | 'hoina' | 'thahaChhaina' | string, checker: boolean ) => {
         switch (idx) {
           case YNU.ho:
             falsify(YNU.ho, checker);

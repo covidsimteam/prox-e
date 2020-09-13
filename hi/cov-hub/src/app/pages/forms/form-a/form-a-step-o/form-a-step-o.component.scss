@@ -33,13 +33,15 @@ nb-card.form-cont {
   display: block;
   margin-top: 1rem;
 
-  label, mat-radio-button {
-    margin-right: 1rem;
-  }
+
 
   textarea {
     min-height: 3rem;
   }
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
 }
 
 
@@ -67,6 +69,16 @@ nb-card-body {
   }
 }
 
-.checkbox-radio {
-  display: flex;
+// .checkbox-radio {
+//   display: flex;
+// }
+
+nb-radio {
+  padding-left: 10px;
+  margin-left: 24px;
+
+}
+.radiotitle {
+
+  margin-left: 10px;
 }

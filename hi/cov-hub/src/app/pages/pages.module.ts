@@ -1,3 +1,5 @@
+
+import { MatRadioModule } from '@angular/material/radio';
 import { NgModule } from '@angular/core';
 import { NbLayoutModule, NbMenuModule, NbCardModule } from '@nebular/theme';
 import { ThemeModule } from '../@theme/theme.module';
@@ -25,6 +27,7 @@ import { DataEntryComponent } from './data-entry/data-entry.component';
 
 @NgModule({
   imports: [
+    MatRadioModule,
     PagesRoutingModule,
     NbCardModule,
     ThemeModule,
