@@ -28,6 +28,7 @@ import { authSetup, formSetup } from './app.conf';
 import { SelectionPipe } from './services/state/selection.pipe';
 import { SelectionsDirective } from './services/state/selections.directive';
 
+import { MaterialDesignFrameworkModule } from '@ajsf/material';
 
 export class WebpackTranslateLoader implements TranslateLoader {
   getTranslation(lang: 'en' | 'np') {
@@ -53,6 +54,7 @@ export class WebpackTranslateLoader implements TranslateLoader {
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     ReactiveFormsModule,
+    MaterialDesignFrameworkModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
