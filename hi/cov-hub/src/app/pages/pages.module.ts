@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { 
   NbLayoutModule, 
-  NbMenuModule, 
-  NbCardModule,
-  NbWindowModule,
+  NbMenuModule,
   NbDatepickerModule,
   NbInputModule
 } from '@nebular/theme';
@@ -28,17 +26,6 @@ import { ProfileModule } from './profile/profile.module';
 import { SampleCollectionModule } from './sample/sample-collection.module';
 import { TablesModule } from './tables/tables.module';
 import { DashboardModule } from '../@comp/dashboard/dashboard.module';
-import { ActivetasksComponent } from './dataentry/activetasks/activetasks.component';
-import { TaskstatsComponent } from './dataentry/taskstats/taskstats.component';
-import { ContacttracingComponent } from './dataentry/contacttracing/contacttracing.component';
-import { DataentryComponent } from './dataentry/dataentry.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatSortModule } from '@angular/material/sort';
-import { AdmincontrolComponent } from './dataentry/admincontrol/admincontrol.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { NewcaseComponent } from './dataentry/admincontrol/newcase/newcase.component';
-import { NewuserComponent } from './dataentry/admincontrol/newuser/newuser.component';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
@@ -62,23 +49,14 @@ import { TranslateModule } from '@ngx-translate/core';
     MedAiModule,
     TablesModule,
     NbLayoutModule,
-    NbCardModule,
     SampleCollectionModule,
     ProfileModule,
     DashboardModule,
-    MatTableModule,
-    MatSortModule,
-    MatButtonModule,
-    MatIconModule,
     TranslateModule.forChild({extend: true}),
-    NbWindowModule.forChild({
-      closeOnBackdropClick: false,
-      closeOnEsc: true
-    }),
     NbDatepickerModule,
     NbInputModule
   ],
-  declarations: [PagesComponent, ActivetasksComponent, TaskstatsComponent, ContacttracingComponent, DataentryComponent, AdmincontrolComponent, NewcaseComponent, NewuserComponent],
+  declarations: [PagesComponent],
 })
 export class PagesModule {
 }

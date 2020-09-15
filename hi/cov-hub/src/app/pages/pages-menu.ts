@@ -17,13 +17,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
     group: true,
   },
   {
+    title: 'Case Tracing',
+    link: '/hub/secured/casesandct'
+  },
+  {
     title: 'Forms',
     icon: 'calendar-outline',
     children: [
-      {
-        title: 'Data Entry',
-        link: '/hub/secured/dataentry'
-      },
       {
         title: 'Form A',
         link: '/hub/secured/forms/form-a',

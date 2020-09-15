@@ -1,7 +1,7 @@
-<nb-card class="medium" status="info" id="activeTaskCard">
+<nb-card class="medium" id="activeTaskCard">
     <nb-card-header>Active Tasks</nb-card-header>
     <nb-card-body>
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+        <table mat-table [dataSource]="activeTasksData" class="mat-elevation-z8" matSort>
             <!-- Case Column -->
             <ng-container matColumnDef="case">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Case</th>

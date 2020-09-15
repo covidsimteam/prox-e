@@ -6,7 +6,6 @@ import { NotFoundComponent } from './miscellaneous/not-found/not-found.component
 import { PagesComponent } from './pages.component';
 import { ProfileComponent } from './profile/profile/profile.component';
 import { DashboardComponent } from '../@comp/dashboard/dashboard/dashboard.component';
-import { DataentryComponent } from './dataentry/dataentry.component';
 
 const formsModule = () => import('./forms/forms.module')
   .then(m => m.HealthFormsModule);
@@ -19,6 +18,9 @@ const chartsModule = () => import('./charts/charts.module')
 
 const tablesModule = () => import('./tables/tables.module')
   .then(m => m.TablesModule);
+
+const caseTracingModule = () => import('../case-tracing/case-tracing.module')
+  .then(m => m.CaseTracingModule);
 
 const routes: Routes = [{
   path: '',
@@ -33,9 +35,9 @@ const routes: Routes = [{
       component: ECommerceComponent,
     },
     {
-      path: 'secured/dataentry',
+      path: 'secured/casesandct',
       canActivate: [AuthGuard],
-      component: DataentryComponent
+      loadChildren: caseTracingModule,
     },
     {
       path: 'secured/forms',

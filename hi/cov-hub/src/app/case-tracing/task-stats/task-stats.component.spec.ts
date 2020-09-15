@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContacttracingComponent } from './contacttracing.component';
+import { TaskStatsComponent } from './task-stats.component';
 
-describe('ContacttracingComponent', () => {
-  let component: ContacttracingComponent;
-  let fixture: ComponentFixture<ContacttracingComponent>;
+describe('TaskStatsComponent', () => {
+  let component: TaskStatsComponent;
+  let fixture: ComponentFixture<TaskStatsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContacttracingComponent ]
+      declarations: [ TaskStatsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContacttracingComponent);
+    fixture = TestBed.createComponent(TaskStatsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

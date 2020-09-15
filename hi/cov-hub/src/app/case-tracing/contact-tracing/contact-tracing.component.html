@@ -1,7 +1,7 @@
-<nb-card class="medium" status="info">
+<nb-card class="medium">
     <nb-card-header>Contact Tracing</nb-card-header>
     <nb-card-body>
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <table mat-table [dataSource]="contactTracingData" class="mat-elevation-z8">
             <!-- Contact Column -->
             <ng-container matColumnDef="contact">
                 <th mat-header-cell *matHeaderCellDef>Contact / Exposed</th>

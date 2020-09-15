@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdmincontrolComponent } from './admincontrol.component';
+import { ContactTracingComponent } from './contact-tracing.component';
 
-describe('AdmincontrolComponent', () => {
-  let component: AdmincontrolComponent;
-  let fixture: ComponentFixture<AdmincontrolComponent>;
+describe('ContactTracingComponent', () => {
+  let component: ContactTracingComponent;
+  let fixture: ComponentFixture<ContactTracingComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdmincontrolComponent ]
+      declarations: [ ContactTracingComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdmincontrolComponent);
+    fixture = TestBed.createComponent(ContactTracingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
