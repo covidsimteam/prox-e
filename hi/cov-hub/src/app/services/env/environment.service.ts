@@ -14,7 +14,7 @@ export class EnvironmentService {
   get dbPublicPass(): string { return this.appConf.db.docDBPassword; }
   get dbPublicUser(): string { return this.appConf.db.docDBUser; }
 
-  get authUri(): string { return `${this.appConf.uri.docDBUri}_session`; }
+  get authUri(): string { return this.appConf.uri.dashboardUri; }
   // auth/realms/dev/protocol/openid-connect/token
 
 }

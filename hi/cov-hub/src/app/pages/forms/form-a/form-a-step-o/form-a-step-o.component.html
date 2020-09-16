@@ -1,56 +1,59 @@
-<div class="row">
-
-  <div class="col-sm-6">
-    <div class="form-group">
-      <label for="naam" class="label"> {{ t.fab.naam | translate }}</label>
-      <input id="naam" nbInput fullWidth type="text">
+<form class="no-pad form-cont">
+  <div class="row">
+    <div class="col-md-6 col-lg-6">
+      <mat-form-field appearance="fill" class="form-a">
+        <mat-label>{{ t.fab.naam | translate }}</mat-label>
+        <input matInput autocomplete="off">
+        <!-- <mat-hint>E.g. Lalit:324234</mat-hint> -->
+      </mat-form-field>
     </div>
-  </div>
 
-  <div class="col-sm-6">
-    <div class="form-group">
-      <label class="label"> {{ t.fa.reportDate1 | translate }}
-        <input nbInput fullWidth [nbDatepicker]="reportDatePicker">
+    <div class="col-md-6 col-lg-6">
+      <mat-form-field appearance="fill" class="form-a">
+        <mat-label> {{ t.fa.reportDate1 | translate }} </mat-label>
+        <input matInput fullWidth [nbDatepicker]="reportDatePicker">
         <nb-datepicker #reportDatePicker></nb-datepicker>
-      </label>
-      <br />
+      </mat-form-field>
     </div>
+
   </div>
 
-</div>
-<cov-form-hr-break></cov-form-hr-break>
-<div class="row">
+  <div class="row">
 
-  <div class="col-sm-6">
-    <div class="form-group">
-      <label class="label">{{ t.fa.inputCaseStatus | translate }}
-        <nb-radio-group nbInput fullWidth id="inputCaseStatus" class="row" (onChange)="changeCaseStatus($event)">
-          <nb-radio>{{ t.fab.ho | translate }}</nb-radio>
-          <nb-radio>{{ t.fab.hoina | translate }}</nb-radio>
-          <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
-        </nb-radio-group>
-      </label>
+    <div class="col-md-6 col-lg-6">
+      <mat-form-field appearance="fill" class="form-a">
+        <mat-label>{{ t.fa.nameOfPoEorQ | translate }}</mat-label>
+        <input matInput autocomplete="off">
+      </mat-form-field>
     </div>
-  </div>
 
-  <div class="col-sm-6">
-    <div class="form-group">
-      <label class="label">{{ t.fab.hoBhaneDate | translate }}
-        <input nbInput fullWidth [nbDatepicker]="inputHoBhaneDatePicker">
+    <div class="col-md-6 col-lg-6">
+      <mat-form-field appearance="fill" class="form-a">
+        <mat-label> {{ t.fab.hoBhaneDate | translate }} </mat-label>
+        <input matInput fullWidth [nbDatepicker]="inputHoBhaneDatePicker">
         <nb-datepicker #inputHoBhaneDatePicker></nb-datepicker>
-      </label>
-      <br />
+      </mat-form-field>
     </div>
-  </div>
 
-</div>
-<br />
-<div class="row">
-  <div class="col-sm-12">
-    <div class="form-group">
-      <label for="nameOfPoEorQ" class="label">{{ t.fa.nameOfPoEorQ | translate }}
-        <input nbInput fullWidth id="nameOfPoEorQ" type="text">
-      </label>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-md-6 col-lg-6">
+      <div class="form-a">
+        <label>{{ t.fa.inputCaseStatus | translate }}</label>
+        <nb-radio-group class="row" color="primary" id="inputCaseStatus">
+          <!-- (select)="changeCaseStatus($event) -->
+          <nb-radio>
+            {{ t.fab.hoina | translate }}
+          </nb-radio>
+          <nb-radio>
+            {{ t.fab.ho | translate }}
+          </nb-radio>
+          <nb-radio>
+            {{ t.fab.thahaChhaina | translate }}
+          </nb-radio>
+        </nb-radio-group>
+      </div>
     </div>
   </div>
-</div>
+</form>

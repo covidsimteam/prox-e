@@ -1,60 +1,80 @@
-<div class="row">
-  <div class="col-md-12">
-    <div class="form-group row">
-      <label class="label">{{ t.fa.uniqueEpiId | translate }}
-        <input type="text" nbInput placeholder="">
-      </label>
+<nb-card class="form-cont">
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-4 col-lg-4">
+        <mat-form-field appearance="fill" class="form-a">
+          <mat-label>{{ t.fa.uniqueEpiId | translate }}</mat-label>
+          <input matInput autocomplete="off">
+          <!-- <mat-hint>E.g. Lalit:324234</mat-hint> -->
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-4 col-lg-4">
+        <mat-form-field appearance="fill" class="form-a">
+          <mat-label >{{ t.fab.naam | translate}} </mat-label>
+          <input matInput autocomplete="off">
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-4 col-lg-4">
+        <mat-form-field appearance="fill" class="form-a">
+          <mat-label>{{ t.fa.parentsOrSpouse | translate }}</mat-label>
+          <input matInput autocomplete="off">
+        </mat-form-field>
+      </div>
     </div>
-  </div>
 
-  <div class="col-md-12">
-    <div class="form-group row">
-      <label class="label">{{ t.fab.naam | translate}}
-        <input type="text" nbInput>
-      </label>
+
+    <div class="row">
+      <div class="col-md-4 col-lg-4">
+        <mat-form-field appearance="fill" class="form-a">
+          <mat-label>{{ t.fa.age | translate }} </mat-label>
+          <input matInput autocomplete="off">
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-4 col-lg-4">
+        <div class="form-a">
+          <label class="title">{{ t.fa.gender | translate }}</label>
+          <nb-radio-group id="inputCaseStatus" class="row">
+            <nb-radio>{{ t.fa.male | translate }}</nb-radio>
+            <nb-radio>{{ t.fa.female | translate }}</nb-radio>
+            <nb-radio>{{ t.fa.other | translate }}</nb-radio>
+
+          </nb-radio-group>
+
+        </div>
+      </div>
+
+
+      <div class="col-md-4 col-lg-4">
+        <mat-form-field appearance="fill" class="form-a">
+          <mat-label>{{ t.fa.country | translate}}</mat-label>
+          <input matInput autocomplete="off">
+        </mat-form-field>
+      </div>
     </div>
-  </div>
 
-  <div class="col-md-12">
-    <div class="form-group">
-      <label class="label">{{ t.fa.parentsOrSpouse | translate }}</label>
-      <input type="text" nbInput>
+
+      <div class="row">
+      <div class="col-md-4 col-lg-4">
+        <mat-form-field appearance="fill" class="form-a">
+          <mat-label> {{ t.fa.phoneNumber | translate}}</mat-label>
+          <input matInput autocomplete="off">
+        </mat-form-field>
+      </div>
+
+
+
+
+    <div class="col-md-4 col-lg-4">
+      <mat-form-field appearance="fill" class="form-a">
+        <mat-label>{{ t.fa.phoneOther | translate}}</mat-label>
+        <input matInput autocomplete="off">
+      </mat-form-field>
     </div>
-  </div>
-
-
-  <div class="col-md-12">
-    <div class="form-group">
-      <label class="label"> {{ t.fa.age | translate }}
-        <input [nbDatepicker]="agePicker">
-        <nb-datepicker #agePicker></nb-datepicker> <br />
-      </label>
     </div>
-  </div>
-
-  <div class="col-md-12">
-    <div class="form-group">
-      <label class="label"> {{ t.fa.country | translate}}
-        <input type="text" nbInput placeholder="">
-      </label>
-    </div>
-  </div>
-
-  <div class="col-md-12">
-    <div class="form-group">
-      <label class="label"> {{ t.fa.phoneNumber | translate}}
-        <input type="text" nbInput placeholder="">
-      </label>
-    </div>
-  </div>
 
 
-  <div class="col-md-12">
-    <div class="form-group">
-      <label class="label">
-        {{ t.fa.phoneOther | translate}}
-        <input type="text" nbInput placeholder="">
-      </label>
-    </div>
-  </div>
-</div>
+  </nb-card-body>
+</nb-card>

@@ -1,6 +1,8 @@
+
+import { MatRadioModule } from '@angular/material/radio';
 import { NgModule } from '@angular/core';
-import { 
-  NbLayoutModule, 
+import {
+  NbLayoutModule,
   NbMenuModule,
   NbDatepickerModule,
   NbInputModule
@@ -26,10 +28,12 @@ import { ProfileModule } from './profile/profile.module';
 import { SampleCollectionModule } from './sample/sample-collection.module';
 import { TablesModule } from './tables/tables.module';
 import { DashboardModule } from '../@comp/dashboard/dashboard.module';
+import { DataEntryComponent } from './data-entry/data-entry.component';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
+    MatRadioModule,
     PagesRoutingModule,
     ThemeModule,
     NbMenuModule,
@@ -56,7 +60,7 @@ import { TranslateModule } from '@ngx-translate/core';
     NbDatepickerModule,
     NbInputModule
   ],
-  declarations: [PagesComponent],
+  declarations: [PagesComponent, DataEntryComponent],
 })
 export class PagesModule {
 }

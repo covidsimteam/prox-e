@@ -1,5 +1,6 @@
+
 import { NgModule } from '@angular/core';
-import { FormsModule as ngFormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule as ngFormsModule, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {
   NbAccordionModule, NbActionsModule,
   NbButtonModule,
@@ -42,6 +43,33 @@ import { FormAStepTwoComponent } from './form-a/form-a-step-two/form-a-step-two.
 import { FormAStepThreeComponent } from './form-a/form-a-step-three/form-a-step-three.component';
 import { FormAStepFourComponent } from './form-a/form-a-step-four/form-a-step-four.component';
 import { FormHrBreakComponent } from './form-hr-break/form-hr-break.component';
+import { ExampleSchemaFormComponent } from './custom/example-schema-form/example-schema-form.component';
+import { MaterialDesignFrameworkModule } from '@ajsf/material';
+import { JsonSchemaFormModule } from '@ajsf/core';
+
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+
+const MaterialModules = [
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  MatNativeDateModule,
+  MatDatepickerModule,
+  MatCheckboxModule,
+  MatSlideToggleModule,
+  MatRadioModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+];
 
 @NgModule({
   imports: [
@@ -60,10 +88,15 @@ import { FormHrBreakComponent } from './form-hr-break/form-hr-break.component';
     NbSelectModule,
     NbIconModule,
     ngFormsModule,
+    FormsModule,
     ReactiveFormsModule,
     NbStepperModule,
     NbLayoutModule,
+
     TranslateModule.forChild({ extend: true }),
+    ...MaterialModules,
+    MaterialDesignFrameworkModule,
+    JsonSchemaFormModule
   ],
   declarations: [
     FormsComponent,
@@ -90,7 +123,8 @@ import { FormHrBreakComponent } from './form-hr-break/form-hr-break.component';
     FormAStepTwoComponent,
     FormAStepThreeComponent,
     FormAStepFourComponent,
-    FormHrBreakComponent
+    FormHrBreakComponent,
+    ExampleSchemaFormComponent
   ],
 })
 export class HealthFormsModule { }

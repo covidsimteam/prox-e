@@ -10,14 +10,19 @@
 
   .logo-container {
     display: flex;
-    align-items: center;
+    align-items: left;
     width: calc(#{nb-theme(sidebar-width)} - #{nb-theme(header-padding)});
+    padding: 0;
+  }
+
+  small {
+    font-size: large;
   }
 
   nb-action {
     height: auto;
     display: flex;
-    align-content: center;
+    align-content: left;
   }
 
   nb-user {
@@ -25,7 +30,7 @@
   }
 
   ::ng-deep nb-search button {
-    padding: 0!important;
+    padding: 0 !important;
   }
 
   .header-container {
@@ -35,18 +40,18 @@
 
 
     .sidebar-toggle {
-      @include nb-ltr(margin-right, 1.25rem);
-      @include nb-rtl(margin-left, 1.25rem);
+      @include nb-ltr(margin-right, 1.00rem);
+      @include nb-rtl(margin-left, 1.00rem);
       text-decoration: none;
       color: nb-theme(text-hint-color);
       nb-icon {
-        font-size: 1.75rem;
+        font-size: 1.25rem;
       }
     }
 
     .logo {
-      padding: 0 1.25rem;
-      font-size: 1.75rem;
+      padding: 0 0.25rem;
+      font-size: 1.50rem;
       @include nb-ltr(border-left, 1px solid nb-theme(divider-color));
       @include nb-rtl(border-right, 1px solid nb-theme(divider-color));
       white-space: nowrap;
@@ -61,6 +66,11 @@
     .user-action {
       border: none;
       padding: 0;
+    }
+
+    .logo {
+      padding: 0;
+      font-size: 1.25rem;
     }
   }
 

@@ -1,14 +1,21 @@
+import 'leaflet.markercluster';
+import 'style-loader!leaflet/dist/leaflet.css';
+
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NbColorHelper, NbThemeService } from '@nebular/theme';
 import * as L from 'leaflet';
-import 'leaflet.markercluster';
 import polylabel from 'polylabel';
 import { BehaviorSubject, from, merge, Subscription } from 'rxjs';
-import 'style-loader!leaflet/dist/leaflet.css';
+
 import { Census2011 } from '../../../@models/db/docs/census.model';
 import { HealthStats } from '../../../@models/db/docs/health-stats.model';
 import { RETTupleRev } from '../../../@models/db/table-headers.model';
-import { FeatureCollection, GovDistrictProperties, GovProvinceProperties, RoadMajorProperties } from '../../../@models/domain.model';
+import {
+  FeatureCollection,
+  GovDistrictProperties,
+  GovProvinceProperties,
+  RoadMajorProperties,
+} from '../../../@models/domain.model';
 import { ReturneeService } from '../../../services/db/returnee.service';
 import { MapUtilsService } from '../../services/map-utils.service';
 import { RegionService } from '../../services/region.service';
@@ -24,10 +31,11 @@ interface MapLayer {
 @Component({
   selector: 'cov-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss']
+  styleUrls: ['./map.component.scss'],
+  //  providers: [NbNativeDateService]
 })
 export class MapComponent implements OnInit, OnDestroy {
-  title = 'National Covid Map';
+  // title = 'National Covid Map';
 
   private readonly mapLayerDistrict = {
     bucket: 'gov_districts',
@@ -102,7 +110,8 @@ export class MapComponent implements OnInit, OnDestroy {
     private regionService: RegionService,
     private returneeService: ReturneeService,
     private themeService: NbThemeService,
-    private mapSeroService: MapSeroService
+    private mapSeroService: MapSeroService,
+    // private dateService: NbNativeDateService
   ) {
     this.themeSubscription = this.themeService.getJsTheme()
       .subscribe(config => {
@@ -129,12 +138,12 @@ export class MapComponent implements OnInit, OnDestroy {
       'color': '#043EB9',
       'weight': 5,
       'opacity': 0.65
-  });
+    });
     this.setLayerFromBucket<RoadMajorProperties>(this.mapLayerRoads, {
       'color': '#2E70E4',
       'weight': 3,
       'opacity': 0.65
-  });
+    });
 
   }
 
@@ -143,7 +152,7 @@ export class MapComponent implements OnInit, OnDestroy {
       .getAndCache<FeatureCollection<T>>(layer.bucket)
       .subscribe((featureCollection) => {
         this.layersControl.overlays[layer.label] = L.geoJSON(
-          featureCollection as any, {style: style}
+          featureCollection as any, { style: style }
         );
         if (layer.bucket === this.mapLayerDistrict.bucket) {
           this.districtsGeoJson = (featureCollection as unknown) as FeatureCollection<

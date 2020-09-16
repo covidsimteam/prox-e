@@ -7,6 +7,20 @@
   index: 0;
 }
 
+nb-card-header.form-title {
+  font-size: medium;
+}
+
+.no-pad {
+  padding: 0;
+  margin: 0;
+}
+
+.just-breathe {
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
 nb-stepper {
   height: 500px;
   width: 75vw;
@@ -15,6 +29,20 @@ nb-stepper {
 nb-accordion {
   padding: 10px;
 
+}
+
+nb-card.prev-next {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+button.social-distancing {
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 .form-a-header {

@@ -1,3 +1,4 @@
+import { MatRadioModule } from '@angular/material/radio';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -28,6 +29,7 @@ import { authSetup, formSetup } from './app.conf';
 import { SelectionPipe } from './services/state/selection.pipe';
 import { SelectionsDirective } from './services/state/selections.directive';
 
+import { MaterialDesignFrameworkModule } from '@ajsf/material';
 
 export class WebpackTranslateLoader implements TranslateLoader {
   getTranslation(lang: 'en' | 'np') {
@@ -40,8 +42,9 @@ export class WebpackTranslateLoader implements TranslateLoader {
 @NgModule({
   declarations: [AppComponent, SelectionPipe, SelectionsDirective],
   imports: [
-    BrowserModule,
+    MatRadioModule,
     BrowserAnimationsModule,
+    BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     NbSidebarModule.forRoot(),
@@ -53,6 +56,7 @@ export class WebpackTranslateLoader implements TranslateLoader {
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     ReactiveFormsModule,
+    MaterialDesignFrameworkModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

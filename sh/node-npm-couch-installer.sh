@@ -1,31 +1,8 @@
 #!/bin/bash
 
-SUDO=''
-if [ "$EUID" -ne 0 ]; then
-  SUDO='sudo'
-fi
-
 ALP_CMD=$(apk)
 
-source /etc/os-release
-
-echo "Your OS is $ID"
-id="$ID"
-deb="debian"
-cen="centos"
-
-if [[ "$id" == "$cen" ]]; then
-   IS_RHEL=1
-   echo "Yummy!"
-   curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -
-   $SUDO yum install -y nodejs
-   bash ./sh/deps-installer.sh
-fi
-
-if [[ "$id" == "$deb" ]]; then
-   IS_UBUNTU=1
-   bash ./sh/deps-installer.sh
-fi
+bash ./sh/deps-installer.sh
 
 if hash ALP_CMD 2>/dev/null; then
    IS_ALPINE=1

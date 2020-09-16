@@ -13,9 +13,18 @@ deb="debian"
 cen="centos"
 
 if [[ "$id" == "$cen" ]]; then
+
   echo "Yummy Couch!"
+
+  $SUDO yum install -y curl
+
+  curl -sL https://rpm.nodesource.com/setup_14.x | $SUDO bash -
+
+  $SUDO yum install -y nodejs
+
   $SUDO cat ./couch-bintray.repo >> /etc/yum.repos.d/bintray-apache-couchdb-rpm.repo
-  $SUDO yum -y install epel-release && $SUDO yum -y install couch
+  $SUDO yum install -y epel-release && $SUDO yum install -y couch
+
 fi
 
 
@@ -37,4 +46,10 @@ if [[ "$id" == "$deb" ]]; then
 
    $SUDO apt update
    $SUDO apt install -y couchdb
+
+   sudo apt remove cmdtest
+   sudo apt remove yarn
+   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+   sudo apt-get update && sudo apt-get install yarn
 fi
