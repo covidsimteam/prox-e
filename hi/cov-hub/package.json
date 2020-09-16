@@ -62,6 +62,8 @@
     "v-generate-yml": "vagrant ssh dev -- -t 'cd /vagrant;npm run generate-yml'"
   },
   "dependencies": {
+    "@ajsf/core": "^0.1.5",
+    "@ajsf/material": "^0.1.4",
     "@akveo/ng2-completer": "^9.0.1",
     "@angular-builders/jest": "^10.0.1",
     "@angular/animations": "^10.1.1",

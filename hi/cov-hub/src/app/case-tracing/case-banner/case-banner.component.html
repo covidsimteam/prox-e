@@ -1,0 +1,29 @@
+<nb-card>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-md-3" align="center">
+                <button type="button" class="btn btn-outline-danger">
+                    Pending tasks <span class="badge badge-danger">4</span>
+                </button>
+            </div>
+
+            <div class="col-md-3" align="center">
+                <button type="button" class="btn btn-outline-success">
+                    Complete tasks <span class="badge badge-success">6</span>
+                </button>
+            </div>
+
+            <div class="col-md-3" align="center">
+                <button type="button" class="btn btn-outline-info">
+                    All tasks <span class="badge badge-info">10</span>
+                </button>
+            </div>
+
+            <div class="col-md-3" align="right">
+                <button mat-mini-fab (click)="showNewCaseWindow()" aria-label="Add new case">
+                    <mat-icon>note_add</mat-icon>
+                </button>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>

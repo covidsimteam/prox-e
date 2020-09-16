@@ -43,6 +43,9 @@ import { FormAStepTwoComponent } from './form-a/form-a-step-two/form-a-step-two.
 import { FormAStepThreeComponent } from './form-a/form-a-step-three/form-a-step-three.component';
 import { FormAStepFourComponent } from './form-a/form-a-step-four/form-a-step-four.component';
 import { FormHrBreakComponent } from './form-hr-break/form-hr-break.component';
+import { ExampleSchemaFormComponent } from './custom/example-schema-form/example-schema-form.component';
+import { MaterialDesignFrameworkModule } from '@ajsf/material';
+import { JsonSchemaFormModule } from '@ajsf/core';
 
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -91,7 +94,9 @@ const MaterialModules = [
     NbLayoutModule,
 
     TranslateModule.forChild({ extend: true }),
-    ...MaterialModules
+    ...MaterialModules,
+    MaterialDesignFrameworkModule,
+    JsonSchemaFormModule
   ],
   declarations: [
     FormsComponent,
@@ -118,7 +123,8 @@ const MaterialModules = [
     FormAStepTwoComponent,
     FormAStepThreeComponent,
     FormAStepFourComponent,
-    FormHrBreakComponent
+    FormHrBreakComponent,
+    ExampleSchemaFormComponent
   ],
 })
 export class HealthFormsModule { }

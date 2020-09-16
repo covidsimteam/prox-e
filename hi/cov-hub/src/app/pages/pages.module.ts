@@ -1,7 +1,12 @@
 
 import { MatRadioModule } from '@angular/material/radio';
 import { NgModule } from '@angular/core';
-import { NbLayoutModule, NbMenuModule, NbCardModule } from '@nebular/theme';
+import {
+  NbLayoutModule,
+  NbMenuModule,
+  NbDatepickerModule,
+  NbInputModule
+} from '@nebular/theme';
 import { ThemeModule } from '../@theme/theme.module';
 import { AccountModule } from './account/account.module';
 import { PcrDemandModule } from './demand/pcr-demand.module';
@@ -24,12 +29,12 @@ import { SampleCollectionModule } from './sample/sample-collection.module';
 import { TablesModule } from './tables/tables.module';
 import { DashboardModule } from '../@comp/dashboard/dashboard.module';
 import { DataEntryComponent } from './data-entry/data-entry.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     MatRadioModule,
     PagesRoutingModule,
-    NbCardModule,
     ThemeModule,
     NbMenuModule,
     ECommerceModule,
@@ -50,7 +55,10 @@ import { DataEntryComponent } from './data-entry/data-entry.component';
     NbLayoutModule,
     SampleCollectionModule,
     ProfileModule,
-    DashboardModule
+    DashboardModule,
+    TranslateModule.forChild({extend: true}),
+    NbDatepickerModule,
+    NbInputModule
   ],
   declarations: [PagesComponent, DataEntryComponent],
 })
