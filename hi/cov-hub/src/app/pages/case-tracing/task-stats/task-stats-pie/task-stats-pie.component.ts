@@ -36,23 +36,20 @@ export class TaskStatsPieComponent implements AfterViewInit, OnDestroy {
         legend: {
           orient: 'vertical',
           left: 'left',
-          data: ['USA', 'Germany', 'France', 'Canada', 'Russia'],
+          data: ['Pending', 'Complete'],
           textStyle: {
             color: echarts.textColor,
           },
         },
         series: [
           {
-            name: 'Countries',
+            name: 'Tasks',
             type: 'pie',
-            radius: '80%',
+            radius: '70%',
             center: ['50%', '50%'],
             data: [
-              { value: 335, name: 'Germany' },
-              { value: 310, name: 'France' },
-              { value: 234, name: 'Canada' },
-              { value: 135, name: 'Russia' },
-              { value: 1548, name: 'USA' },
+              { value: 4, name: 'Pending' },
+              { value: 6, name: 'Complete' },
             ],
             itemStyle: {
               emphasis: {
