@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
-import { TranslationServiceEn } from '../../services/i18n/translation-gen.service';
+import { TranslationServiceEn } from '../../../services/i18n/translation-gen.service';
 
-import { ActiveTasksInfo } from '../../@core/data/active-tasks';
-import { ActiveTasksService } from '../../@core/mock/active-tasks.service'
-import { ActiveTasksCacheService } from '../../@core/data/active-tasks-cache';
+import { ActiveTasksInfo } from '../../../@core/data/active-tasks';
+import { ActiveTasksService } from '../../../@core/mock/active-tasks.service'
+import { ActiveTasksCacheService } from '../../../@core/data/active-tasks-cache';
 
 @Component({
   selector: 'cov-new-case',
@@ -27,7 +27,7 @@ export class NewCaseComponent implements OnInit {
     assignedTo: "",
     time: ""
   };
-  
+
   activeTaskCacheService: ActiveTasksCacheService;
 
   constructor(

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NbWindowService } from '@nebular/theme';
 import { NewCaseComponent } from '../new-case/new-case.component';
-import { ActiveTasksCacheService } from '../../@core/data/active-tasks-cache';
+import { ActiveTasksCacheService } from '../../../@core/data/active-tasks-cache';
 
 @Component({
   selector: 'cov-case-banner',
