@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NbWindowService } from '@nebular/theme';
 import { NewCaseComponent } from '../new-case/new-case.component';
+import { ActiveTasksCacheService } from '../../@core/data/active-tasks-cache';
 
 @Component({
   selector: 'cov-case-banner',
@@ -9,15 +10,18 @@ import { NewCaseComponent } from '../new-case/new-case.component';
 })
 export class CaseBannerComponent implements OnInit {
 
+  activeTasksCacheService = new ActiveTasksCacheService();
   constructor(private windowService: NbWindowService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   showNewCaseWindow() {
     this.windowService.open(NewCaseComponent, {
       title: 'New Case',
-      windowClass: 'new-case-window'
+      windowClass: 'new-case-window',
+      context: {
+        activeTaskCacheService: this.activeTasksCacheService
+      }
     });
   }
 

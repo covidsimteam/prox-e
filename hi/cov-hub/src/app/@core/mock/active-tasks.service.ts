@@ -30,4 +30,9 @@ export class ActiveTasksService extends ActiveTasksData {
     getActiveTasksData(): Observable<ActiveTasksInfo[]> {
         return observableOf(this.activeTasksInfoData);
     }
+
+    createActiveTasksData(newTask: ActiveTasksInfo): ActiveTasksInfo {
+        this.activeTasksInfoData.push(newTask);
+        return newTask;
+    }
 }
