@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { PouchDBService } from '../../../services/db/pouchdb.service';
 import { UserFacade } from '../../../facades/user.service';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +15,7 @@ export class ValidatorService {
   ) {}
 
   public checkUnique$(db: string, selectors: any, opts = {}): Observable<boolean> {
+    return null;
   }
 
   public isUnique$(
@@ -26,7 +29,7 @@ export class ValidatorService {
       errorType = 'duplicate'
     } = { exceptions: [], opts: {}, selectors: {} }
   ): Observable<ValidationErrors | null> {
-
+    return null;
   }
 
   checkUniqueResourceTitle$(ac: AbstractControl, id: string, privateFor: any = null) {
@@ -40,16 +43,19 @@ export class ValidatorService {
     return fieldInput.replace(/[-.*+?^${}()|[\]\\]/g, '\\$&');
   }
 
-  public checkPassword$(ac: AbstractControl): Observable<boolean> {}
+  public checkPassword$(ac: AbstractControl): Observable<boolean> {
+    return null;
+  }
 
   private roundTimestamp(timestamp: number) {
     return new Date(timestamp).setHours(0, 0, 0, 0);
   }
 
   public notDateInFuture$(ac: AbstractControl): Observable<ValidationErrors | null> {
-
+    return null;
   }
 
   public notDateInPast$(ac: AbstractControl): Observable<ValidationErrors | null> {
+    return null;
   }
 }
