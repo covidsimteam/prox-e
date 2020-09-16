@@ -52,7 +52,7 @@ export class NewCaseComponent implements OnInit {
   addNewTask(event) {
     this.saveToCache = false;
     this.activeTaskCacheService.resetCache();
-    this.activeTaskService.createActiveTasksData(this.newTask);
+    // this.activeTaskService.createActiveTasksData(this.newTask);
   }
 
 }

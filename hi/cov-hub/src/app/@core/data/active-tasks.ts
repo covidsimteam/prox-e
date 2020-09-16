@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 export interface ActiveTasksInfo {
     date?: Date;
@@ -14,6 +14,5 @@ export interface ActiveTasksInfo {
 }
 
 export abstract class ActiveTasksData {
-    abstract getActiveTasksData(): Observable<ActiveTasksInfo[]>;
-    abstract createActiveTasksData(ActiveTasksInfo): ActiveTasksInfo;
+    abstract getActiveTasksData(): BehaviorSubject<ActiveTasksInfo[]>;
 }

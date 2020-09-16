@@ -1,28 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActiveTasksInfo, ActiveTasksData } from '../../@core/data/active-tasks';
-import { takeWhile } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'cov-active-tasks',
   templateUrl: './active-tasks.component.html',
-  styleUrls: ['./active-tasks.component.scss']
+  styleUrls: ['./active-tasks.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ActiveTasksComponent implements OnInit {
   
-  private alive = true;
-  activeTasksData: ActiveTasksInfo[];
+  activeTasksData$: BehaviorSubject<ActiveTasksInfo[]>;
 
   displayedColumns = ['case', 'assignedTo', 'time'];
   
   constructor(private activeTasksService: ActiveTasksData) {
-    this.activeTasksService.getActiveTasksData()
-      .pipe(takeWhile(() => this.alive))
-      .subscribe((data) => {
-        this.activeTasksData = data;
-      });
+    this.activeTasksData$ = this.activeTasksService.getActiveTasksData();
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }
