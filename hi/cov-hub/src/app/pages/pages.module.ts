@@ -28,7 +28,7 @@ import { ProfileModule } from './profile/profile.module';
 import { SampleCollectionModule } from './sample/sample-collection.module';
 import { TablesModule } from './tables/tables.module';
 import { DashboardModule } from '../@comp/dashboard/dashboard.module';
-import { DataEntryComponent } from './data-entry/data-entry.component';
+
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
@@ -60,7 +60,7 @@ import { TranslateModule } from '@ngx-translate/core';
     NbDatepickerModule,
     NbInputModule
   ],
-  declarations: [PagesComponent, DataEntryComponent],
+  declarations: [PagesComponent],
 })
 export class PagesModule {
 }
