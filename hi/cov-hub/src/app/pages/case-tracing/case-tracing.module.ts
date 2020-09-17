@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { TranslateModule } from '@ngx-translate/core';
@@ -10,9 +11,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatBadgeModule } from '@angular/material/badge';
 
-import { 
-  NbCardModule, 
-  NbWindowModule, 
+import {
+  NbCardModule,
+  NbWindowModule,
   NbDatepickerModule,
   NbInputModule
 } from '@nebular/theme';
@@ -25,19 +26,22 @@ import { CaseBannerComponent } from './case-banner/case-banner.component';
 
 import { CaseTracingRoutingModule } from './case-tracing-routing.module';
 import { NewCaseComponent } from './new-case/new-case.component';
+import { TaskStatsPieComponent } from './task-stats/task-stats-pie/task-stats-pie.component';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
   declarations: [
-    ActiveTasksComponent, 
-    ContactTracingComponent, 
-    TaskStatsComponent, 
-    CaseTracingComponent, 
-    CaseBannerComponent, 
-    NewCaseComponent
+    ActiveTasksComponent,
+    ContactTracingComponent,
+    TaskStatsComponent,
+    CaseTracingComponent,
+    CaseBannerComponent,
+    NewCaseComponent, TaskStatsPieComponent
   ],
-  
+
   imports: [
     CommonModule,
+    FormsModule,
     TranslateModule.forChild({ extend: true }),
 
     NbCardModule,
@@ -55,7 +59,9 @@ import { NewCaseComponent } from './new-case/new-case.component';
     MatCardModule,
     MatBadgeModule,
 
-    CaseTracingRoutingModule
+    CaseTracingRoutingModule,
+
+    NgxEchartsModule
   ]
 })
 export class CaseTracingModule { }

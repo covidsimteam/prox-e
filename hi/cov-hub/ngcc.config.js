@@ -5,5 +5,16 @@ module.exports = {
         /amazing-time-picker\//,
       ]
     },
+    '@ajsf': {
+      ignorableDeepImportMatchers: [
+        /core\//,
+        /material\//,
+      ]
+    },
+    'lodash': {
+      ignorableDeepImportMatchers: [
+        /lodash\//,
+      ]
+    }
   },
 };

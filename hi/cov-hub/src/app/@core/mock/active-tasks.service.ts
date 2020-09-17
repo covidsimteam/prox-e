@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { of as observableOf, Observable } from 'rxjs';
+import {  BehaviorSubject } from 'rxjs';
 import { ActiveTasksInfo, ActiveTasksData } from '../data/active-tasks';
 
 @Injectable()
@@ -27,7 +27,7 @@ export class ActiveTasksService extends ActiveTasksData {
         }
     ];
 
-    getActiveTasksData(): Observable<ActiveTasksInfo[]> {
-        return observableOf(this.activeTasksInfoData);
+    getActiveTasksData(): BehaviorSubject<ActiveTasksInfo[]> {
+        return new BehaviorSubject(this.activeTasksInfoData);
     }
 }

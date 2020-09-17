@@ -14,11 +14,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Data Entry',
-    icon: 'activity-outline',
-    link: '/hub/dataentry',
-  },
-  {
-    title: 'Data Entry',
     group: true,
   },
   {

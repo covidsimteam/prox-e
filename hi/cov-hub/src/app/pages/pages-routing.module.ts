@@ -19,7 +19,7 @@ const chartsModule = () => import('./charts/charts.module')
 const tablesModule = () => import('./tables/tables.module')
   .then(m => m.TablesModule);
 
-const caseTracingModule = () => import('../case-tracing/case-tracing.module')
+const caseTracingModule = () => import('./case-tracing/case-tracing.module')
   .then(m => m.CaseTracingModule);
 
 const routes: Routes = [{
