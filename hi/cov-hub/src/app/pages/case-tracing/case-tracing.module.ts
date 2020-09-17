@@ -15,25 +15,27 @@ import {
   NbCardModule,
   NbWindowModule,
   NbDatepickerModule,
-  NbInputModule
+  NbInputModule, NbIconModule, NbActionsModule
 } from '@nebular/theme';
 
 import { CaseTracingComponent } from './case-tracing.component';
 import { ActiveTasksComponent } from './active-tasks/active-tasks.component';
 import { ContactTracingComponent } from './contact-tracing/contact-tracing.component';
-import { TaskStatsComponent } from './task-stats/task-stats.component';
+import { TaskStatsPieComponent } from './task-stats-pie/task-stats-pie.component';
 import { CaseBannerComponent } from './case-banner/case-banner.component';
 
 import { CaseTracingRoutingModule } from './case-tracing-routing.module';
 import { NewCaseComponent } from './new-case/new-case.component';
-import { TaskStatsPieComponent } from './task-stats/task-stats-pie/task-stats-pie.component';
+
 import { NgxEchartsModule } from 'ngx-echarts';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { NbButtonModule } from '@nebular/theme';
 
 @NgModule({
   declarations: [
     ActiveTasksComponent,
     ContactTracingComponent,
-    TaskStatsComponent,
     CaseTracingComponent,
     CaseBannerComponent,
     NewCaseComponent, TaskStatsPieComponent
@@ -58,10 +60,14 @@ import { NgxEchartsModule } from 'ngx-echarts';
     MatIconModule,
     MatCardModule,
     MatBadgeModule,
+    MatToolbarModule,
 
     CaseTracingRoutingModule,
 
-    NgxEchartsModule
+    NgxChartsModule,
+    NbIconModule,
+    NbButtonModule,
+    NbActionsModule
   ]
 })
 export class CaseTracingModule { }
