@@ -15,7 +15,7 @@ export class CaseBannerComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  showNewCaseWindow() {
+  showNewCaseWindow(): boolean {
     this.windowService.open(NewCaseComponent, {
       title: 'New Case',
       windowClass: 'new-case-window',
@@ -23,6 +23,12 @@ export class CaseBannerComponent implements OnInit {
         activeTaskCacheService: this.activeTasksCacheService
       }
     });
+
+    return false;   // stop event propagation for <a> tag
+  }
+
+  showSettingsWindow(): boolean {
+    return false;   // stop event propagation for <a> tag
   }
 
 }
