@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CovFormFfwdComponent } from './form-ffwd.component';
 
@@ -6,7 +6,7 @@ describe('FormFfwdComponent', () => {
   let component: CovFormFfwdComponent;
   let fixture: ComponentFixture<CovFormFfwdComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CovFormFfwdComponent ]
     })

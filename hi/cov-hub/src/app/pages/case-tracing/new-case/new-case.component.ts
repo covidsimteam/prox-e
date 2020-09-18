@@ -1,10 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 import { TranslationServiceEn } from '../../../services/i18n/translation-gen.service';
 
 import { ActiveTasksInfo } from '../../../@core/data/active-tasks';
-import { ActiveTasksService } from '../../../@core/mock/active-tasks.service'
+import { ActiveTasksService } from '../../../@core/mock/active-tasks.service';
 import { ActiveTasksCacheService } from '../../../@core/data/active-tasks-cache';
 
 @Component({
@@ -12,20 +12,20 @@ import { ActiveTasksCacheService } from '../../../@core/data/active-tasks-cache'
   templateUrl: './new-case.component.html',
   styleUrls: ['./new-case.component.scss']
 })
-export class NewCaseComponent implements OnInit {
+export class NewCaseComponent implements OnInit, OnDestroy {
 
   saveToCache = true;
   newTask: ActiveTasksInfo = {
     date: null,
-    lab: "",
-    case: "",
+    lab: '',
+    case: '',
     phone: null,
-    province: "",
-    district: "",
-    municipal: "",
+    province: '',
+    district: '',
+    municipal: '',
     ward: null,
-    assignedTo: "",
-    time: ""
+    assignedTo: '',
+    time: ''
   };
 
   activeTaskCacheService: ActiveTasksCacheService;

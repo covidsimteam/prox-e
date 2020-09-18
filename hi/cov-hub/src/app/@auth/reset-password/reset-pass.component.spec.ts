@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ResetPassComponent } from './reset-pass.component';
 
@@ -6,7 +6,7 @@ describe('ResetPassComponent', () => {
   let component: ResetPassComponent;
   let fixture: ComponentFixture<ResetPassComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ResetPassComponent ]
     })

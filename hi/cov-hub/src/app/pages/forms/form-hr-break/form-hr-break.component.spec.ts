@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FormHrBreakComponent } from './form-hr-break.component';
 
@@ -6,7 +6,7 @@ describe('FormHrBreakComponent', () => {
   let component: FormHrBreakComponent;
   let fixture: ComponentFixture<FormHrBreakComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ FormHrBreakComponent ]
     })

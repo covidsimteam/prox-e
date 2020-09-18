@@ -21,7 +21,7 @@ export class ContactTracingComponent implements OnInit {
     this.contactTracingService.getContactTracingData()
       .pipe(takeWhile(() => this.alive))
       .subscribe((data) => {
-        this.contactTracingData = data
+        this.contactTracingData = data;
       });
   }
 

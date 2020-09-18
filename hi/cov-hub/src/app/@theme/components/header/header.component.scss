@@ -40,8 +40,8 @@
 
 
     .sidebar-toggle {
-      @include nb-ltr(margin-right, 1.00rem);
-      @include nb-rtl(margin-left, 1.00rem);
+      @include nb-ltr(margin-right, 1 rem);
+      @include nb-rtl(margin-left, 1 rem);
       text-decoration: none;
       color: nb-theme(text-hint-color);
       nb-icon {
@@ -50,8 +50,8 @@
     }
 
     .logo {
-      padding: 0 0.25rem;
-      font-size: 1.50rem;
+      padding: 0 0.25 rem;
+      font-size: 1.5 rem;
       @include nb-ltr(border-left, 1px solid nb-theme(divider-color));
       @include nb-rtl(border-right, 1px solid nb-theme(divider-color));
       white-space: nowrap;

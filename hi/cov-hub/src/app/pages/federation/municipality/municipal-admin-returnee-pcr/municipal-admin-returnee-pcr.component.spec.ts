@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MunicipalAdminReturneePcrComponent } from './municipal-admin-returnee-pcr.component';
 
@@ -6,7 +6,7 @@ describe('MunicipalAdminReturneePcrComponent', () => {
   let component: MunicipalAdminReturneePcrComponent;
   let fixture: ComponentFixture<MunicipalAdminReturneePcrComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ MunicipalAdminReturneePcrComponent ]
     })

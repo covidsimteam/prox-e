@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MunicipalAdminReturneeVizComponent } from './municipal-admin-returnee-viz.component';
 
@@ -6,7 +6,7 @@ describe('MunicipalAdminReturneeVizComponent', () => {
   let component: MunicipalAdminReturneeVizComponent;
   let fixture: ComponentFixture<MunicipalAdminReturneeVizComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ MunicipalAdminReturneeVizComponent ]
     })

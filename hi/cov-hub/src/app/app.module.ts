@@ -1,7 +1,8 @@
-import { MatRadioModule } from '@angular/material/radio';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MaterialDesignFrameworkModule } from '@ajsf/material';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -18,8 +19,6 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { from } from 'rxjs';
 import { AppConf, appConf, environment } from '../environments/environment';
-import { AuthInterceptor } from './@auth/interceptor/auth.interceptor';
-import { ErrorInterceptor } from './@auth/interceptor/error.interceptor';
 import { DashboardModule } from './@comp/dashboard/dashboard.module';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
@@ -29,7 +28,6 @@ import { authSetup, formSetup } from './app.conf';
 import { SelectionPipe } from './services/state/selection.pipe';
 import { SelectionsDirective } from './services/state/selections.directive';
 
-import { MaterialDesignFrameworkModule } from '@ajsf/material';
 
 export class WebpackTranslateLoader implements TranslateLoader {
   getTranslation(lang: 'en' | 'np') {

@@ -8,15 +8,15 @@ export class ActiveTasksCacheService {
     private cacheActive: boolean;
     private emptyCache: ActiveTasksInfo = {
         date: null,
-        lab: "",
-        case: "",
+        lab: '',
+        case: '',
         phone: null,
-        province: "",
-        district: "",
-        municipal: "",
+        province: '',
+        district: '',
+        municipal: '',
         ward: null,
-        assignedTo: "",
-        time: ""
+        assignedTo: '',
+        time: ''
     };
 
     private testMsg: string;
@@ -42,7 +42,7 @@ export class ActiveTasksCacheService {
     getFromCache(): ActiveTasksInfo {
         this.tmpCacheStorage = this.activeTasksCache;
         this.resetCache();
-        
+
         return this.tmpCacheStorage;
     }
 
@@ -51,3 +51,4 @@ export class ActiveTasksCacheService {
         this.cacheActive = false;
     }
 }
+
