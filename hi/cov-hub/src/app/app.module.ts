@@ -29,6 +29,7 @@ import { SelectionPipe } from './services/state/selection.pipe';
 import { SelectionsDirective } from './services/state/selections.directive';
 
 
+
 export class WebpackTranslateLoader implements TranslateLoader {
   getTranslation(lang: 'en' | 'np') {
     return from(

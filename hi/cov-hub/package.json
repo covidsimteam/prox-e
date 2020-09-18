@@ -98,6 +98,7 @@
     "classlist.js": "1.1.20150312",
     "component-emitter": "^1.3.0",
     "core-js": "^3.6.5",
+    "countryjs": "^1.8.0",
     "cropperjs": "^1.5.8",
     "echarts": "^4.9.0",
     "eva-icons": "^1.1.3",

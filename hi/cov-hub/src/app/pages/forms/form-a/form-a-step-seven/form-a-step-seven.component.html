@@ -1,0 +1,444 @@
+<nb-card class="form-cont">
+  <nb-card-body>
+
+    <!-- <div class="row">
+
+
+
+    <div class="col-md-12 col-lg-12">
+      <mat-form-field appearance="fill" class="form-a">
+        <mat-label>{{ t.fa.symptomDetails | translate }}</mat-label>
+        <input matInput autocomplete="off">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-lg-4">
+    <label for="" class="label" style="color:black">{{ t.fa.gharDhuri | translate }} </label>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 col-lg-4">
+      <div class="form-a">
+        <label class="title"> के स बसेको घरमा अन्य कोिी बसेको छ?</label>
+        <nb-radio-group id="inputCaseStatus" class="row">
+          <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+          <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+          <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+      </nb-radio-group>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-lg-4">
+      <div class="form-a">
+        <label class="title"> घरमा के सलाई कसैले प्रत्यक्ष सेवा कसैले प्रदान गरेको छ? </label>
+        <nb-radio-group id="inputCaseStatus" class="row">
+          <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+          <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+          <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+      </nb-radio-group>
+      </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+  </nb-card-body>
+   </nb-card>
+
+
+
+ -->
+
+
+
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label for="" class="label" style="color:black">{{ t.fa.gharDhuri | translate }} </label>
+
+  </div>
+  <div class="form-group">
+    <div class="label">
+      के स बसेको घरमा अन्य कोिी बसेको छ? </div>
+    <div class="col-sm-6">
+      <nb-radio-group id="inputCaseStatus" class="row">
+        <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+
+      </nb-radio-group>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <div class="label">
+      घरमा के सलाई कसैले प्रत्यक्ष सेवा कसैले प्रदान गरेको छ? </div>
+    <div class="col-sm-6">
+      <nb-radio-group id="inputCaseStatus" class="row">
+        <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+
+      </nb-radio-group>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.ifYesInform | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label for="" class="label" style="color:black">{{ t.fa.orgName | translate }} </label>
+
+  </div>
+  <div class="form-group">
+    <div class="label">
+      के के सलाई स्वास्थ्यकमीले प्रत्यक्ष स्वास्थ्य सेवा भदएको छ? </div>
+    <div class="col-sm-6">
+      <nb-radio-group id="inputCaseStatus" class="row">
+        <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+
+      </nb-radio-group>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.ifYesInform2 | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label for="" class="label" style="color:black">{{ t.fa.transport | translate}} </label>
+
+  </div>
+  <div class="form-group">
+    <div class="label">
+      के के सले कु नै सावषजभनक यातायातको साधनमा यािा गरेको छ?</div>
+    <div class="col-sm-6">
+      <nb-radio-group id="inputCaseStatus" class="row">
+        <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+
+      </nb-radio-group>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <div class="label">
+      यभद छ भने,केमा यािा गरेको िोीः</div>
+    <div class="col-sm-6">
+      <nb-radio-group id="inputCaseStatus" class="row">
+        <nb-radio>प्लेन</nb-radio>
+        <nb-radio>याक्सी</nb-radio>
+        <nb-radio>बस/ माइक्रो</nb-radio>
+        <nb-radio>िक</nb-radio>
+        <nb-radio>अन्य</nb-radio>
+
+      </nb-radio-group>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label for="inputDate" class="label">{{ t.fa.travelDate | translate }} </label>
+    <input [nbDatepicker]="datepicker">
+    <nb-datepicker #datepicker></nb-datepicker> <br />
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.vehicleType | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.re | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.vehicleNumber | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.someNumber1 | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.someNumber2 | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.someDepartureLocation | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.someNumber3 | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.someNumber4 | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.someStartLocation | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.destination | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.someMedium | translate }}</label>
+  </div>
+</div>
+
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label for="" class="label" style="color:black">{{ t.fa.officeOrClassroom | translate }}</label>
+
+  </div>
+  <div class="form-group">
+    <div class="label">
+      के के स भवद्यालय/ कायाषलय गएको छ?</div>
+    <div class="col-sm-6">
+      <nb-radio-group id="inputCaseStatus" class="row">
+        <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+
+      </nb-radio-group>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.officeName | translate }}</label>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label"> {{ t.fa.address | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.phoneNumber | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.supervisor | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.contact | translate }}</label>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label for="" class="label" style="color:black">{{ t.fa.someClosedEnv | translate }}</label>
+
+  </div>
+  <div class="form-group">
+    <div class="label">
+      के के सले कसैसाँग अन्य बन्द वातावरणिरुमा (क्वारानिाइन, िोिल/
+      रेिुरेन्ट नभजकको सम्पकष मा कोिी आएका छ?</div>
+    <div class="col-sm-6">
+      <nb-radio-group id="inputCaseStatus" class="row">
+        <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+
+      </nb-radio-group>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.someContact1 | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label for="" class="label" style="color:black">{{ t.fa.someContact2 | translate }}</label>
+
+  </div>
+  <div class="form-group">
+    <div class="label">
+      {{ t.fa.someContact2 | translate }}</div>
+    <div class="col-sm-6">
+      <nb-radio-group id="inputCaseStatus" class="row">
+        <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+
+      </nb-radio-group>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.someContact3 | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label for="" class="label" style="color:black">{{ t.fa.someContact4 | translate }}</label>
+
+  </div>
+  <div class="form-group">
+    <div class="label">
+      के के स कु नै सामाभजक कायषक्रम/भोज/ हुलमुल/ धामीकसेवािरुमा समावेश हुन गएको छ ?</div>
+    <div class="col-sm-6">
+      <nb-radio-group id="inputCaseStatus" class="row">
+        <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+
+      </nb-radio-group>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">यभद छ भने, सामाभजक कायषक्रम/ संयोजकको नामिरु उल्लेि
+      गनुषिोस्</label>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.address | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.phone | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.someProgram | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.someContact6 | translate }}</label>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="label">{{ t.fa.someContact7 | translate }}</label>
+    <input type="text" nbInput placeholder="">
+  </div>
+</div>
+
+
+<div class="col-md-12">
+  <div class="form-group">
+    <div class="label">
+      भाग छ मा एक वा धेरै कन्टयाक्टिरु पत्ता लागेका छन् भक छैनन् ?</div>
+    <div class="col-sm-6">
+      <nb-radio-group id="inputCaseStatus" class="row">
+        <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+
+
+      </nb-radio-group>
+    </div>
+  </div>
+</div>

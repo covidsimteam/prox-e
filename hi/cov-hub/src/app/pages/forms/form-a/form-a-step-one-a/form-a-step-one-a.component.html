@@ -2,25 +2,58 @@
   <nb-card-body>
     <div class="row">
       <div class="col-md-4 col-lg-4">
-        <mat-form-field appearance="fill" class="form-a">
-          <mat-label>{{ t.fa.country | translate }}</mat-label>
-          <input matInput autocomplete="off">
-          <!-- <mat-hint>E.g. Lalit:324234</mat-hint> -->
-        </mat-form-field>
+          <mat-label>{{ t.fa.country | translate }} </mat-label>
+          <nb-select
+          matRipple
+          id="inputCountry"
+          fullWidth
+          placeholder="Select Country"
+          (selectedChange)="changeCountry($event)"
+        >
+          <nb-option
+            matRipple
+            *ngFor="let country of countries"
+            [value]="country"
+            >{{ country }}</nb-option
+          >
+        </nb-select>
+        </div>
+
+
+      <div class="col-md-4 col-lg-4">
+        <mat-label>{{ t.fa.province | translate }} </mat-label>
+        <nb-select
+        matRipple
+        id="inputCountry"
+        fullWidth
+        placeholder="Select Province"
+        (selectedChange)="provinceChanged($event)"
+      >
+        <nb-option
+          matRipple
+          *ngFor="let province of countryProvinces"
+          [value]="province"
+          >{{ province }}</nb-option
+        >
+      </nb-select>
       </div>
 
       <div class="col-md-4 col-lg-4">
-        <mat-form-field appearance="fill" class="form-a">
-          <mat-label >{{ t.fa.province | translate }} </mat-label>
-          <input matInput autocomplete="off">
-        </mat-form-field>
-      </div>
-
-      <div class="col-md-4 col-lg-4">
-        <mat-form-field appearance="fill" class="form-a">
-          <mat-label>{{ t.fa.district | translate }}</mat-label>
-          <input matInput autocomplete="off">
-        </mat-form-field>
+        <mat-label>{{ t.fa.district | translate }} </mat-label>
+        <nb-select
+        matRipple
+        id="inputCountry"
+        fullWidth
+        placeholder="Select District"
+        (selectedChange)="districtChanged($event)"
+      >
+        <nb-option
+          matRipple
+          *ngFor="let district of districts"
+          [value]="district"
+          >{{ district }}</nb-option
+        >
+      </nb-select>
       </div>
     </div>
 

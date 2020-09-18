@@ -1,4 +1,5 @@
 
+
 import { NgModule } from '@angular/core';
 import { FormsModule as ngFormsModule, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {
@@ -57,6 +58,12 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { FormAStepSixComponent } from './form-a/form-a-step-six/form-a-step-six.component';
+import { FormAStepSevenComponent } from './form-a/form-a-step-seven/form-a-step-seven.component';
+import { FormAStepEightTwoComponent } from './form-a/form-a-step-eight-two/form-a-step-eight-two.component';
+import { FormAStepNineComponent } from './form-a/form-a-step-nine/form-a-step-nine.component';
+import { FormAStepFiveComponent } from './form-a/form-a-step-five/form-a-step-five.component';
+
 
 const MaterialModules = [
   MatFormFieldModule,
@@ -124,7 +131,12 @@ const MaterialModules = [
     FormAStepThreeComponent,
     FormAStepFourComponent,
     FormHrBreakComponent,
-    ExampleSchemaFormComponent
+    ExampleSchemaFormComponent,
+    FormAStepFiveComponent,
+    FormAStepSixComponent,
+    FormAStepSevenComponent,
+    FormAStepEightTwoComponent,
+    FormAStepNineComponent,
   ],
 })
 export class HealthFormsModule { }
