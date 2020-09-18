@@ -48,10 +48,21 @@
 
 
       <div class="col-md-4 col-lg-4">
-        <mat-form-field appearance="fill" class="form-a">
-          <mat-label>{{ t.fa.country | translate}}</mat-label>
-          <input matInput autocomplete="off">
-        </mat-form-field>
+        <mat-label>{{ t.fa.country | translate }} </mat-label>
+        <nb-select
+        matRipple
+        id="inputCountry"
+        fullWidth
+        placeholder="Select Country"
+        (selectedChange)="changeCountry($event)"
+      >
+        <nb-option
+          matRipple
+          *ngFor="let country of countries"
+          [value]="country"
+          >{{ country }}</nb-option
+        >
+      </nb-select>
       </div>
     </div>
 
