@@ -140,7 +140,7 @@
   "jest": {
     "preset": "jest-preset-angular",
     "setupFilesAfterEnv": [
-      "<rootDir>/jest.config.js"
+      "<rootDir>/jest.config.ts"
     ]
   },
   "config": {

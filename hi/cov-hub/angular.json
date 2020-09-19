@@ -177,7 +177,7 @@
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
-            "configPath": "./jest.config.js",
+            "configPath": "./jest.config.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "polyfills": "src/polyfills.ts",
             "scripts": [
