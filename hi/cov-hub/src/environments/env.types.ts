@@ -1,5 +1,5 @@
 export interface UriConf {
-  dashboardUri?: string;
+  authUri?: string;
   docDBUri: string;
   proxyUri?: string;
 }
