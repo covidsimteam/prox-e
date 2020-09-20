@@ -19,99 +19,24 @@ export function makeDbTable(
   };
 }
 
-const DbTable_AST: ADL.ScopedDecl = {
-  'moduleName': 'covhub.model',
-  'decl': {
-    'annotations': [],
-    'type_': {
-      'kind': 'struct_',
-      'value': {
-        'typeParams': [],
-        'fields': [
-          {
-            'annotations': [],
-            'serializedName': 'tableName',
-            'default': {
-              'kind': 'nothing'
-            },
-            'name': 'tableName',
-            'typeExpr': {
-              'typeRef': {
-                'kind': 'primitive',
-                'value': 'String'
-              },
-              'parameters': []
-            }
-          },
-          {
-            'annotations': [],
-            'serializedName': 'primaryKey',
-            'default': {
-              'kind': 'nothing'
-            },
-            'name': 'primaryKey',
-            'typeExpr': {
-              'typeRef': {
-                'kind': 'primitive',
-                'value': 'Vector'
-              },
-              'parameters': [
-                {
-                  'typeRef': {
-                    'kind': 'primitive',
-                    'value': 'String'
-                  },
-                  'parameters': []
-                }
-              ]
-            }
-          }
-        ]
-      }
-    },
-    'name': 'DbTable',
-    'version': {
-      'kind': 'nothing'
-    }
-  }
-};
+const DbTable_AST : ADL.ScopedDecl =
+  {"moduleName":"covhub.model","decl":{"annotations":[],"type_":{"kind":"struct_","value":{"typeParams":[],"fields":[{"annotations":[],"serializedName":"tableName","default":{"kind":"nothing"},"name":"tableName","typeExpr":{"typeRef":{"kind":"primitive","value":"String"},"parameters":[]}},{"annotations":[],"serializedName":"primaryKey","default":{"kind":"nothing"},"name":"primaryKey","typeExpr":{"typeRef":{"kind":"primitive","value":"Vector"},"parameters":[{"typeRef":{"kind":"primitive","value":"String"},"parameters":[]}]}}]}},"name":"DbTable","version":{"kind":"nothing"}}};
 
-export const snDbTable: ADL.ScopedName = {moduleName: 'covhub.model', name: 'DbTable'};
+export const snDbTable: ADL.ScopedName = {moduleName:"covhub.model", name:"DbTable"};
 
 export function texprDbTable(): ADL.ATypeExpr<DbTable> {
-  return {value : {typeRef : {kind: 'reference', value : snDbTable}, parameters : []}};
+  return {value : {typeRef : {kind: "reference", value : snDbTable}, parameters : []}};
 }
 
 export type DbField = string;
 
-const DbField_AST: ADL.ScopedDecl = {
-  'moduleName': 'covhub.model',
-  'decl': {
-    'annotations': [],
-    'type_': {
-      'kind': 'type_',
-      'value': {
-        'typeParams': [],
-        'typeExpr': {
-          'typeRef': {
-            'kind': 'primitive',
-            'value': 'String'
-          },
-          'parameters': []
-        }
-      }
-    },
-    'name': 'DbField',
-    'version': {
-      'kind': 'nothing'
-    }
-  }
-};
+const DbField_AST : ADL.ScopedDecl =
+  {"moduleName":"covhub.model","decl":{"annotations":[],"type_":{"kind":"type_","value":{"typeParams":[],"typeExpr":{"typeRef":{"kind":"primitive","value":"String"},"parameters":[]}}},"name":"DbField","version":{"kind":"nothing"}}};
 
-export const snDbField: ADL.ScopedName = {moduleName: 'covhub.model', name: 'DbField'};
+export const snDbField: ADL.ScopedName = {moduleName:"covhub.model", name:"DbField"};
 
 export function texprDbField(): ADL.ATypeExpr<DbField> {
-  return {value : {typeRef : {kind: 'reference', value : snDbField}, parameters : []}};
+  return {value : {typeRef : {kind: "reference", value : snDbField}, parameters : []}};
 }
 
 export interface User {
@@ -131,12 +56,13 @@ export function makeUser(
   };
 }
 
-const User_AST: ADL.ScopedDecl = {'moduleName': 'covhub.model', 'decl': {'annotations': [], 'type_': {'kind': 'struct_', 'value': {'typeParams': [], 'fields': [{'annotations': [], 'serializedName': 'email', 'default': {'kind': 'nothing'}, 'name': 'email', 'typeExpr': {'typeRef': {'kind': 'primitive', 'value': 'String'}, 'parameters': []}}, {'annotations': [], 'serializedName': 'fullName', 'default': {'kind': 'nothing'}, 'name': 'fullName', 'typeExpr': {'typeRef': {'kind': 'primitive', 'value': 'String'}, 'parameters': []}}]}}, 'name': 'User', 'version': {'kind': 'nothing'}}};
+const User_AST : ADL.ScopedDecl =
+  {"moduleName":"covhub.model","decl":{"annotations":[],"type_":{"kind":"struct_","value":{"typeParams":[],"fields":[{"annotations":[],"serializedName":"email","default":{"kind":"nothing"},"name":"email","typeExpr":{"typeRef":{"kind":"primitive","value":"String"},"parameters":[]}},{"annotations":[],"serializedName":"fullName","default":{"kind":"nothing"},"name":"fullName","typeExpr":{"typeRef":{"kind":"primitive","value":"String"},"parameters":[]}}]}},"name":"User","version":{"kind":"nothing"}}};
 
-export const snUser: ADL.ScopedName = {moduleName: 'covhub.model', name: 'User'};
+export const snUser: ADL.ScopedName = {moduleName:"covhub.model", name:"User"};
 
 export function texprUser(): ADL.ATypeExpr<User> {
-  return {value : {typeRef : {kind: 'reference', value : snUser}, parameters : []}};
+  return {value : {typeRef : {kind: "reference", value : snUser}, parameters : []}};
 }
 
 export interface Address {
@@ -156,17 +82,18 @@ export function makeAddress(
   };
 }
 
-const Address_AST: ADL.ScopedDecl = {'moduleName': 'covhub.model', 'decl': {'annotations': [{'v1': {'moduleName': 'covhub.model', 'name': 'DbTable'}, 'v2': {'primaryKey': ['id'], 'tableName': 'covhub.address'}}], 'type_': {'kind': 'struct_', 'value': {'typeParams': [], 'fields': [{'annotations': [], 'serializedName': 'id', 'default': {'kind': 'nothing'}, 'name': 'id', 'typeExpr': {'typeRef': {'kind': 'primitive', 'value': 'Int32'}, 'parameters': []}}, {'annotations': [], 'serializedName': 'details', 'default': {'kind': 'nothing'}, 'name': 'details', 'typeExpr': {'typeRef': {'kind': 'primitive', 'value': 'Vector'}, 'parameters': [{'typeRef': {'kind': 'primitive', 'value': 'String'}, 'parameters': []}]}}]}}, 'name': 'Address', 'version': {'kind': 'nothing'}}};
+const Address_AST : ADL.ScopedDecl =
+  {"moduleName":"covhub.model","decl":{"annotations":[{"v1":{"moduleName":"covhub.model","name":"DbTable"},"v2":{"primaryKey":["id"],"tableName":"covhub.address"}}],"type_":{"kind":"struct_","value":{"typeParams":[],"fields":[{"annotations":[],"serializedName":"id","default":{"kind":"nothing"},"name":"id","typeExpr":{"typeRef":{"kind":"primitive","value":"Int32"},"parameters":[]}},{"annotations":[],"serializedName":"details","default":{"kind":"nothing"},"name":"details","typeExpr":{"typeRef":{"kind":"primitive","value":"Vector"},"parameters":[{"typeRef":{"kind":"primitive","value":"String"},"parameters":[]}]}}]}},"name":"Address","version":{"kind":"nothing"}}};
 
-export const snAddress: ADL.ScopedName = {moduleName: 'covhub.model', name: 'Address'};
+export const snAddress: ADL.ScopedName = {moduleName:"covhub.model", name:"Address"};
 
 export function texprAddress(): ADL.ATypeExpr<Address> {
-  return {value : {typeRef : {kind: 'reference', value : snAddress}, parameters : []}};
+  return {value : {typeRef : {kind: "reference", value : snAddress}, parameters : []}};
 }
 
 export const _AST_MAP: { [key: string]: ADL.ScopedDecl } = {
-  'covhub.model.DbTable' : DbTable_AST,
-  'covhub.model.DbField' : DbField_AST,
-  'covhub.model.User' : User_AST,
-  'covhub.model.Address' : Address_AST
+  "covhub.model.DbTable" : DbTable_AST,
+  "covhub.model.DbField" : DbField_AST,
+  "covhub.model.User" : User_AST,
+  "covhub.model.Address" : Address_AST
 };
