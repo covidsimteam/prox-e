@@ -25,18 +25,18 @@ public class Step2 {
   private boolean aFormInitiated;
   private boolean aFormFilled;
   private boolean yellowUpdateStarted;
-  private Step2Stats step2Stats;
+  private StepStats stepStats;
   private boolean yellowUpdateFinished;
 
   /* Constructors */
 
-  public Step2(String caseName, boolean caseSelected, boolean aFormInitiated, boolean aFormFilled, boolean yellowUpdateStarted, Step2Stats step2Stats, boolean yellowUpdateFinished) {
+  public Step2(String caseName, boolean caseSelected, boolean aFormInitiated, boolean aFormFilled, boolean yellowUpdateStarted, StepStats stepStats, boolean yellowUpdateFinished) {
     this.caseName = Objects.requireNonNull(caseName);
     this.caseSelected = caseSelected;
     this.aFormInitiated = aFormInitiated;
     this.aFormFilled = aFormFilled;
     this.yellowUpdateStarted = yellowUpdateStarted;
-    this.step2Stats = Objects.requireNonNull(step2Stats);
+    this.stepStats = Objects.requireNonNull(stepStats);
     this.yellowUpdateFinished = yellowUpdateFinished;
   }
 
@@ -46,7 +46,7 @@ public class Step2 {
     this.aFormInitiated = false;
     this.aFormFilled = false;
     this.yellowUpdateStarted = false;
-    this.step2Stats = new Step2Stats();
+    this.stepStats = new StepStats();
     this.yellowUpdateFinished = false;
   }
 
@@ -56,7 +56,7 @@ public class Step2 {
     this.aFormInitiated = other.aFormInitiated;
     this.aFormFilled = other.aFormFilled;
     this.yellowUpdateStarted = other.yellowUpdateStarted;
-    this.step2Stats = Step2Stats.FACTORY.create(other.step2Stats);
+    this.stepStats = StepStats.FACTORY.create(other.stepStats);
     this.yellowUpdateFinished = other.yellowUpdateFinished;
   }
 
@@ -102,12 +102,12 @@ public class Step2 {
     this.yellowUpdateStarted = yellowUpdateStarted;
   }
 
-  public Step2Stats getStep2Stats() {
-    return step2Stats;
+  public StepStats getStepStats() {
+    return stepStats;
   }
 
-  public void setStep2Stats(Step2Stats step2Stats) {
-    this.step2Stats = Objects.requireNonNull(step2Stats);
+  public void setStepStats(StepStats stepStats) {
+    this.stepStats = Objects.requireNonNull(stepStats);
   }
 
   public boolean getYellowUpdateFinished() {
@@ -132,7 +132,7 @@ public class Step2 {
       aFormInitiated == other.aFormInitiated &&
       aFormFilled == other.aFormFilled &&
       yellowUpdateStarted == other.yellowUpdateStarted &&
-      step2Stats.equals(other.step2Stats) &&
+      stepStats.equals(other.stepStats) &&
       yellowUpdateFinished == other.yellowUpdateFinished;
   }
 
@@ -144,7 +144,7 @@ public class Step2 {
     _result = _result * 37 + (aFormInitiated ? 0 : 1);
     _result = _result * 37 + (aFormFilled ? 0 : 1);
     _result = _result * 37 + (yellowUpdateStarted ? 0 : 1);
-    _result = _result * 37 + step2Stats.hashCode();
+    _result = _result * 37 + stepStats.hashCode();
     _result = _result * 37 + (yellowUpdateFinished ? 0 : 1);
     return _result;
   }
@@ -157,7 +157,7 @@ public class Step2 {
     private Boolean aFormInitiated;
     private Boolean aFormFilled;
     private Boolean yellowUpdateStarted;
-    private Step2Stats step2Stats;
+    private StepStats stepStats;
     private Boolean yellowUpdateFinished;
 
     public Builder() {
@@ -166,7 +166,7 @@ public class Step2 {
       this.aFormInitiated = null;
       this.aFormFilled = null;
       this.yellowUpdateStarted = null;
-      this.step2Stats = null;
+      this.stepStats = null;
       this.yellowUpdateFinished = null;
     }
 
@@ -195,8 +195,8 @@ public class Step2 {
       return this;
     }
 
-    public Builder setStep2Stats(Step2Stats step2Stats) {
-      this.step2Stats = Objects.requireNonNull(step2Stats);
+    public Builder setStepStats(StepStats stepStats) {
+      this.stepStats = Objects.requireNonNull(stepStats);
       return this;
     }
 
@@ -211,9 +211,9 @@ public class Step2 {
       Builders.checkFieldInitialized("Step2", "aFormInitiated", aFormInitiated);
       Builders.checkFieldInitialized("Step2", "aFormFilled", aFormFilled);
       Builders.checkFieldInitialized("Step2", "yellowUpdateStarted", yellowUpdateStarted);
-      Builders.checkFieldInitialized("Step2", "step2Stats", step2Stats);
+      Builders.checkFieldInitialized("Step2", "stepStats", stepStats);
       Builders.checkFieldInitialized("Step2", "yellowUpdateFinished", yellowUpdateFinished);
-      return new Step2(caseName, caseSelected, aFormInitiated, aFormFilled, yellowUpdateStarted, step2Stats, yellowUpdateFinished);
+      return new Step2(caseName, caseSelected, aFormInitiated, aFormFilled, yellowUpdateStarted, stepStats, yellowUpdateFinished);
     }
   }
 
@@ -250,7 +250,7 @@ public class Step2 {
     final Lazy<JsonBinding<Boolean>> aFormInitiated = new Lazy<>(() -> JsonBindings.BOOLEAN);
     final Lazy<JsonBinding<Boolean>> aFormFilled = new Lazy<>(() -> JsonBindings.BOOLEAN);
     final Lazy<JsonBinding<Boolean>> yellowUpdateStarted = new Lazy<>(() -> JsonBindings.BOOLEAN);
-    final Lazy<JsonBinding<Step2Stats>> step2Stats = new Lazy<>(() -> Step2Stats.jsonBinding());
+    final Lazy<JsonBinding<StepStats>> stepStats = new Lazy<>(() -> StepStats.jsonBinding());
     final Lazy<JsonBinding<Boolean>> yellowUpdateFinished = new Lazy<>(() -> JsonBindings.BOOLEAN);
     final Factory<Step2> _factory = FACTORY;
 
@@ -268,7 +268,7 @@ public class Step2 {
         _result.add("aFormInitiated", aFormInitiated.get().toJson(_value.aFormInitiated));
         _result.add("aFormFilled", aFormFilled.get().toJson(_value.aFormFilled));
         _result.add("yellowUpdateStarted", yellowUpdateStarted.get().toJson(_value.yellowUpdateStarted));
-        _result.add("step2Stats", step2Stats.get().toJson(_value.step2Stats));
+        _result.add("stepStats", stepStats.get().toJson(_value.stepStats));
         _result.add("yellowUpdateFinished", yellowUpdateFinished.get().toJson(_value.yellowUpdateFinished));
         return _result;
       }
@@ -282,7 +282,7 @@ public class Step2 {
           JsonBindings.fieldFromJson(_obj, "aFormInitiated", aFormInitiated.get()),
           JsonBindings.fieldFromJson(_obj, "aFormFilled", aFormFilled.get()),
           JsonBindings.fieldFromJson(_obj, "yellowUpdateStarted", yellowUpdateStarted.get()),
-          JsonBindings.fieldFromJson(_obj, "step2Stats", step2Stats.get()),
+          JsonBindings.fieldFromJson(_obj, "stepStats", stepStats.get()),
           JsonBindings.fieldFromJson(_obj, "yellowUpdateFinished", yellowUpdateFinished.get())
         );
       }

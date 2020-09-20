@@ -28,12 +28,12 @@ public class Step3 {
   private ArrayList<String> b1FormsInitiated;
   private ArrayList<String> b1FormsFilled;
   private boolean yellowUpdateStarted;
-  private Step2Stats step2Stats;
+  private StepStats stepStats;
   private boolean yellowUpdateFinished;
 
   /* Constructors */
 
-  public Step3(String contactTracer, short numberOfB1Forms, short numberOfContacts, String caseName, boolean caseSelected, ArrayList<String> b1FormsInitiated, ArrayList<String> b1FormsFilled, boolean yellowUpdateStarted, Step2Stats step2Stats, boolean yellowUpdateFinished) {
+  public Step3(String contactTracer, short numberOfB1Forms, short numberOfContacts, String caseName, boolean caseSelected, ArrayList<String> b1FormsInitiated, ArrayList<String> b1FormsFilled, boolean yellowUpdateStarted, StepStats stepStats, boolean yellowUpdateFinished) {
     this.contactTracer = Objects.requireNonNull(contactTracer);
     this.numberOfB1Forms = numberOfB1Forms;
     this.numberOfContacts = numberOfContacts;
@@ -42,7 +42,7 @@ public class Step3 {
     this.b1FormsInitiated = Objects.requireNonNull(b1FormsInitiated);
     this.b1FormsFilled = Objects.requireNonNull(b1FormsFilled);
     this.yellowUpdateStarted = yellowUpdateStarted;
-    this.step2Stats = Objects.requireNonNull(step2Stats);
+    this.stepStats = Objects.requireNonNull(stepStats);
     this.yellowUpdateFinished = yellowUpdateFinished;
   }
 
@@ -55,7 +55,7 @@ public class Step3 {
     this.b1FormsInitiated = new ArrayList<String>();
     this.b1FormsFilled = new ArrayList<String>();
     this.yellowUpdateStarted = false;
-    this.step2Stats = new Step2Stats();
+    this.stepStats = new StepStats();
     this.yellowUpdateFinished = false;
   }
 
@@ -68,7 +68,7 @@ public class Step3 {
     this.b1FormsInitiated = Factories.arrayList(Factories.STRING).create(other.b1FormsInitiated);
     this.b1FormsFilled = Factories.arrayList(Factories.STRING).create(other.b1FormsFilled);
     this.yellowUpdateStarted = other.yellowUpdateStarted;
-    this.step2Stats = Step2Stats.FACTORY.create(other.step2Stats);
+    this.stepStats = StepStats.FACTORY.create(other.stepStats);
     this.yellowUpdateFinished = other.yellowUpdateFinished;
   }
 
@@ -138,12 +138,12 @@ public class Step3 {
     this.yellowUpdateStarted = yellowUpdateStarted;
   }
 
-  public Step2Stats getStep2Stats() {
-    return step2Stats;
+  public StepStats getStepStats() {
+    return stepStats;
   }
 
-  public void setStep2Stats(Step2Stats step2Stats) {
-    this.step2Stats = Objects.requireNonNull(step2Stats);
+  public void setStepStats(StepStats stepStats) {
+    this.stepStats = Objects.requireNonNull(stepStats);
   }
 
   public boolean getYellowUpdateFinished() {
@@ -171,7 +171,7 @@ public class Step3 {
       b1FormsInitiated.equals(other.b1FormsInitiated) &&
       b1FormsFilled.equals(other.b1FormsFilled) &&
       yellowUpdateStarted == other.yellowUpdateStarted &&
-      step2Stats.equals(other.step2Stats) &&
+      stepStats.equals(other.stepStats) &&
       yellowUpdateFinished == other.yellowUpdateFinished;
   }
 
@@ -186,7 +186,7 @@ public class Step3 {
     _result = _result * 37 + b1FormsInitiated.hashCode();
     _result = _result * 37 + b1FormsFilled.hashCode();
     _result = _result * 37 + (yellowUpdateStarted ? 0 : 1);
-    _result = _result * 37 + step2Stats.hashCode();
+    _result = _result * 37 + stepStats.hashCode();
     _result = _result * 37 + (yellowUpdateFinished ? 0 : 1);
     return _result;
   }
@@ -202,7 +202,7 @@ public class Step3 {
     private ArrayList<String> b1FormsInitiated;
     private ArrayList<String> b1FormsFilled;
     private Boolean yellowUpdateStarted;
-    private Step2Stats step2Stats;
+    private StepStats stepStats;
     private Boolean yellowUpdateFinished;
 
     public Builder() {
@@ -214,7 +214,7 @@ public class Step3 {
       this.b1FormsInitiated = null;
       this.b1FormsFilled = null;
       this.yellowUpdateStarted = null;
-      this.step2Stats = null;
+      this.stepStats = null;
       this.yellowUpdateFinished = null;
     }
 
@@ -258,8 +258,8 @@ public class Step3 {
       return this;
     }
 
-    public Builder setStep2Stats(Step2Stats step2Stats) {
-      this.step2Stats = Objects.requireNonNull(step2Stats);
+    public Builder setStepStats(StepStats stepStats) {
+      this.stepStats = Objects.requireNonNull(stepStats);
       return this;
     }
 
@@ -277,9 +277,9 @@ public class Step3 {
       Builders.checkFieldInitialized("Step3", "b1FormsInitiated", b1FormsInitiated);
       Builders.checkFieldInitialized("Step3", "b1FormsFilled", b1FormsFilled);
       Builders.checkFieldInitialized("Step3", "yellowUpdateStarted", yellowUpdateStarted);
-      Builders.checkFieldInitialized("Step3", "step2Stats", step2Stats);
+      Builders.checkFieldInitialized("Step3", "stepStats", stepStats);
       Builders.checkFieldInitialized("Step3", "yellowUpdateFinished", yellowUpdateFinished);
-      return new Step3(contactTracer, numberOfB1Forms, numberOfContacts, caseName, caseSelected, b1FormsInitiated, b1FormsFilled, yellowUpdateStarted, step2Stats, yellowUpdateFinished);
+      return new Step3(contactTracer, numberOfB1Forms, numberOfContacts, caseName, caseSelected, b1FormsInitiated, b1FormsFilled, yellowUpdateStarted, stepStats, yellowUpdateFinished);
     }
   }
 
@@ -319,7 +319,7 @@ public class Step3 {
     final Lazy<JsonBinding<ArrayList<String>>> b1FormsInitiated = new Lazy<>(() -> JsonBindings.arrayList(JsonBindings.STRING));
     final Lazy<JsonBinding<ArrayList<String>>> b1FormsFilled = new Lazy<>(() -> JsonBindings.arrayList(JsonBindings.STRING));
     final Lazy<JsonBinding<Boolean>> yellowUpdateStarted = new Lazy<>(() -> JsonBindings.BOOLEAN);
-    final Lazy<JsonBinding<Step2Stats>> step2Stats = new Lazy<>(() -> Step2Stats.jsonBinding());
+    final Lazy<JsonBinding<StepStats>> stepStats = new Lazy<>(() -> StepStats.jsonBinding());
     final Lazy<JsonBinding<Boolean>> yellowUpdateFinished = new Lazy<>(() -> JsonBindings.BOOLEAN);
     final Factory<Step3> _factory = FACTORY;
 
@@ -340,7 +340,7 @@ public class Step3 {
         _result.add("b1FormsInitiated", b1FormsInitiated.get().toJson(_value.b1FormsInitiated));
         _result.add("b1FormsFilled", b1FormsFilled.get().toJson(_value.b1FormsFilled));
         _result.add("yellowUpdateStarted", yellowUpdateStarted.get().toJson(_value.yellowUpdateStarted));
-        _result.add("step2Stats", step2Stats.get().toJson(_value.step2Stats));
+        _result.add("stepStats", stepStats.get().toJson(_value.stepStats));
         _result.add("yellowUpdateFinished", yellowUpdateFinished.get().toJson(_value.yellowUpdateFinished));
         return _result;
       }
@@ -357,7 +357,7 @@ public class Step3 {
           JsonBindings.fieldFromJson(_obj, "b1FormsInitiated", b1FormsInitiated.get()),
           JsonBindings.fieldFromJson(_obj, "b1FormsFilled", b1FormsFilled.get()),
           JsonBindings.fieldFromJson(_obj, "yellowUpdateStarted", yellowUpdateStarted.get()),
-          JsonBindings.fieldFromJson(_obj, "step2Stats", step2Stats.get()),
+          JsonBindings.fieldFromJson(_obj, "stepStats", stepStats.get()),
           JsonBindings.fieldFromJson(_obj, "yellowUpdateFinished", yellowUpdateFinished.get())
         );
       }
