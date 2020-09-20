@@ -24,14 +24,24 @@ public class Person {
   private String lastName;
   private short age;
   private Gender gender;
+  private String citizenshipNumber;
+  private String passportNumber;
+  private String licenceNumber;
+  private String employer;
+  private String employerProvidedId;
 
   /* Constructors */
 
-  public Person(String firstName, String lastName, short age, Gender gender) {
+  public Person(String firstName, String lastName, short age, Gender gender, String citizenshipNumber, String passportNumber, String licenceNumber, String employer, String employerProvidedId) {
     this.firstName = Objects.requireNonNull(firstName);
     this.lastName = Objects.requireNonNull(lastName);
     this.age = age;
     this.gender = Objects.requireNonNull(gender);
+    this.citizenshipNumber = Objects.requireNonNull(citizenshipNumber);
+    this.passportNumber = Objects.requireNonNull(passportNumber);
+    this.licenceNumber = Objects.requireNonNull(licenceNumber);
+    this.employer = Objects.requireNonNull(employer);
+    this.employerProvidedId = Objects.requireNonNull(employerProvidedId);
   }
 
   public Person() {
@@ -39,6 +49,11 @@ public class Person {
     this.lastName = "";
     this.age = (short)0;
     this.gender = new Gender();
+    this.citizenshipNumber = "";
+    this.passportNumber = "";
+    this.licenceNumber = "";
+    this.employer = "";
+    this.employerProvidedId = "";
   }
 
   public Person(Person other) {
@@ -46,6 +61,11 @@ public class Person {
     this.lastName = other.lastName;
     this.age = other.age;
     this.gender = Gender.FACTORY.create(other.gender);
+    this.citizenshipNumber = other.citizenshipNumber;
+    this.passportNumber = other.passportNumber;
+    this.licenceNumber = other.licenceNumber;
+    this.employer = other.employer;
+    this.employerProvidedId = other.employerProvidedId;
   }
 
   /* Accessors and mutators */
@@ -82,6 +102,46 @@ public class Person {
     this.gender = Objects.requireNonNull(gender);
   }
 
+  public String getCitizenshipNumber() {
+    return citizenshipNumber;
+  }
+
+  public void setCitizenshipNumber(String citizenshipNumber) {
+    this.citizenshipNumber = Objects.requireNonNull(citizenshipNumber);
+  }
+
+  public String getPassportNumber() {
+    return passportNumber;
+  }
+
+  public void setPassportNumber(String passportNumber) {
+    this.passportNumber = Objects.requireNonNull(passportNumber);
+  }
+
+  public String getLicenceNumber() {
+    return licenceNumber;
+  }
+
+  public void setLicenceNumber(String licenceNumber) {
+    this.licenceNumber = Objects.requireNonNull(licenceNumber);
+  }
+
+  public String getEmployer() {
+    return employer;
+  }
+
+  public void setEmployer(String employer) {
+    this.employer = Objects.requireNonNull(employer);
+  }
+
+  public String getEmployerProvidedId() {
+    return employerProvidedId;
+  }
+
+  public void setEmployerProvidedId(String employerProvidedId) {
+    this.employerProvidedId = Objects.requireNonNull(employerProvidedId);
+  }
+
   /* Object level helpers */
 
   @Override
@@ -94,7 +154,12 @@ public class Person {
       firstName.equals(other.firstName) &&
       lastName.equals(other.lastName) &&
       age == other.age &&
-      gender.equals(other.gender);
+      gender.equals(other.gender) &&
+      citizenshipNumber.equals(other.citizenshipNumber) &&
+      passportNumber.equals(other.passportNumber) &&
+      licenceNumber.equals(other.licenceNumber) &&
+      employer.equals(other.employer) &&
+      employerProvidedId.equals(other.employerProvidedId);
   }
 
   @Override
@@ -104,6 +169,11 @@ public class Person {
     _result = _result * 37 + lastName.hashCode();
     _result = _result * 37 + (int) age;
     _result = _result * 37 + gender.hashCode();
+    _result = _result * 37 + citizenshipNumber.hashCode();
+    _result = _result * 37 + passportNumber.hashCode();
+    _result = _result * 37 + licenceNumber.hashCode();
+    _result = _result * 37 + employer.hashCode();
+    _result = _result * 37 + employerProvidedId.hashCode();
     return _result;
   }
 
@@ -114,12 +184,22 @@ public class Person {
     private String lastName;
     private Short age;
     private Gender gender;
+    private String citizenshipNumber;
+    private String passportNumber;
+    private String licenceNumber;
+    private String employer;
+    private String employerProvidedId;
 
     public Builder() {
       this.firstName = null;
       this.lastName = null;
       this.age = null;
       this.gender = null;
+      this.citizenshipNumber = null;
+      this.passportNumber = null;
+      this.licenceNumber = null;
+      this.employer = null;
+      this.employerProvidedId = null;
     }
 
     public Builder setFirstName(String firstName) {
@@ -142,12 +222,42 @@ public class Person {
       return this;
     }
 
+    public Builder setCitizenshipNumber(String citizenshipNumber) {
+      this.citizenshipNumber = Objects.requireNonNull(citizenshipNumber);
+      return this;
+    }
+
+    public Builder setPassportNumber(String passportNumber) {
+      this.passportNumber = Objects.requireNonNull(passportNumber);
+      return this;
+    }
+
+    public Builder setLicenceNumber(String licenceNumber) {
+      this.licenceNumber = Objects.requireNonNull(licenceNumber);
+      return this;
+    }
+
+    public Builder setEmployer(String employer) {
+      this.employer = Objects.requireNonNull(employer);
+      return this;
+    }
+
+    public Builder setEmployerProvidedId(String employerProvidedId) {
+      this.employerProvidedId = Objects.requireNonNull(employerProvidedId);
+      return this;
+    }
+
     public Person create() {
       Builders.checkFieldInitialized("Person", "firstName", firstName);
       Builders.checkFieldInitialized("Person", "lastName", lastName);
       Builders.checkFieldInitialized("Person", "age", age);
       Builders.checkFieldInitialized("Person", "gender", gender);
-      return new Person(firstName, lastName, age, gender);
+      Builders.checkFieldInitialized("Person", "citizenshipNumber", citizenshipNumber);
+      Builders.checkFieldInitialized("Person", "passportNumber", passportNumber);
+      Builders.checkFieldInitialized("Person", "licenceNumber", licenceNumber);
+      Builders.checkFieldInitialized("Person", "employer", employer);
+      Builders.checkFieldInitialized("Person", "employerProvidedId", employerProvidedId);
+      return new Person(firstName, lastName, age, gender, citizenshipNumber, passportNumber, licenceNumber, employer, employerProvidedId);
     }
   }
 
@@ -183,6 +293,11 @@ public class Person {
     final Lazy<JsonBinding<String>> lastName = new Lazy<>(() -> JsonBindings.STRING);
     final Lazy<JsonBinding<Short>> age = new Lazy<>(() -> JsonBindings.INT16);
     final Lazy<JsonBinding<Gender>> gender = new Lazy<>(() -> Gender.jsonBinding());
+    final Lazy<JsonBinding<String>> citizenshipNumber = new Lazy<>(() -> JsonBindings.STRING);
+    final Lazy<JsonBinding<String>> passportNumber = new Lazy<>(() -> JsonBindings.STRING);
+    final Lazy<JsonBinding<String>> licenceNumber = new Lazy<>(() -> JsonBindings.STRING);
+    final Lazy<JsonBinding<String>> employer = new Lazy<>(() -> JsonBindings.STRING);
+    final Lazy<JsonBinding<String>> employerProvidedId = new Lazy<>(() -> JsonBindings.STRING);
     final Factory<Person> _factory = FACTORY;
 
     return new JsonBinding<Person>() {
@@ -198,6 +313,11 @@ public class Person {
         _result.add("lastName", lastName.get().toJson(_value.lastName));
         _result.add("age", age.get().toJson(_value.age));
         _result.add("gender", gender.get().toJson(_value.gender));
+        _result.add("citizenshipNumber", citizenshipNumber.get().toJson(_value.citizenshipNumber));
+        _result.add("passportNumber", passportNumber.get().toJson(_value.passportNumber));
+        _result.add("licenceNumber", licenceNumber.get().toJson(_value.licenceNumber));
+        _result.add("employer", employer.get().toJson(_value.employer));
+        _result.add("employerProvidedId", employerProvidedId.get().toJson(_value.employerProvidedId));
         return _result;
       }
 
@@ -208,7 +328,12 @@ public class Person {
           JsonBindings.fieldFromJson(_obj, "firstName", firstName.get()),
           JsonBindings.fieldFromJson(_obj, "lastName", lastName.get()),
           JsonBindings.fieldFromJson(_obj, "age", age.get()),
-          JsonBindings.fieldFromJson(_obj, "gender", gender.get())
+          JsonBindings.fieldFromJson(_obj, "gender", gender.get()),
+          JsonBindings.fieldFromJson(_obj, "citizenshipNumber", citizenshipNumber.get()),
+          JsonBindings.fieldFromJson(_obj, "passportNumber", passportNumber.get()),
+          JsonBindings.fieldFromJson(_obj, "licenceNumber", licenceNumber.get()),
+          JsonBindings.fieldFromJson(_obj, "employer", employer.get()),
+          JsonBindings.fieldFromJson(_obj, "employerProvidedId", employerProvidedId.get())
         );
       }
     };

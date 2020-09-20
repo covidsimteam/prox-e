@@ -55,11 +55,16 @@ data Person = Person
     , person_lastName :: T.Text
     , person_age :: Data.Int.Int16
     , person_gender :: Gender
+    , person_citizenshipNumber :: T.Text
+    , person_passportNumber :: T.Text
+    , person_licenceNumber :: T.Text
+    , person_employer :: T.Text
+    , person_employerProvidedId :: T.Text
     }
     deriving (Prelude.Eq,Prelude.Ord,Prelude.Show)
 
-mkPerson :: T.Text -> T.Text -> Data.Int.Int16 -> Gender -> Person
-mkPerson firstName lastName age gender = Person firstName lastName age gender
+mkPerson :: T.Text -> T.Text -> Data.Int.Int16 -> Gender -> T.Text -> T.Text -> T.Text -> T.Text -> T.Text -> Person
+mkPerson firstName lastName age gender citizenshipNumber passportNumber licenceNumber employer employerProvidedId = Person firstName lastName age gender citizenshipNumber passportNumber licenceNumber employer employerProvidedId
 
 instance AdlValue Person where
     atype _ = "covhub.person.Person"
@@ -69,6 +74,11 @@ instance AdlValue Person where
         , genField "lastName" person_lastName
         , genField "age" person_age
         , genField "gender" person_gender
+        , genField "citizenshipNumber" person_citizenshipNumber
+        , genField "passportNumber" person_passportNumber
+        , genField "licenceNumber" person_licenceNumber
+        , genField "employer" person_employer
+        , genField "employerProvidedId" person_employerProvidedId
         ]
     
     jsonParser = Person
@@ -76,6 +86,11 @@ instance AdlValue Person where
         <*> parseField "lastName"
         <*> parseField "age"
         <*> parseField "gender"
+        <*> parseField "citizenshipNumber"
+        <*> parseField "passportNumber"
+        <*> parseField "licenceNumber"
+        <*> parseField "employer"
+        <*> parseField "employerProvidedId"
 
 type Persons = [Person]
 

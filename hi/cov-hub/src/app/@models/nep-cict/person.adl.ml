@@ -7,10 +7,17 @@ module covhub.person {
 
   struct Person
   {
-      String firstName;
-      String lastName;
-      Int16 age;
-      Gender gender;
+    String firstName;
+    String lastName;
+    Int16 age;
+    Gender gender;
+
+    String citizenshipNumber;
+    String passportNumber;
+    String licenceNumber;
+
+    String employer;
+    String employerProvidedId;
   };
 
   type Persons = Vector<Person>;

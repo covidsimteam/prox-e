@@ -1,4 +1,4 @@
-module covhub.twod
+module covdb.twod
 {
   struct Position
   {

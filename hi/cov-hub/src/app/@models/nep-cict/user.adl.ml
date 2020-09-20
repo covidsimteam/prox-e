@@ -1,19 +1,26 @@
 module covhub.user
 {
 
-struct User
-{
+  struct Coordinates
+  {
+      Double xLat;
+      Double yLng;
+      Double zAlt;
+      Double time;
+  };
 
-   String email;
+  struct Address
+  {
+    Int32 id;
+    Vector<String> details;
+  };
 
-   String fullName;
-};
-
-struct Address
-{
-   Int32 id;
-   Vector<String> details;
-};
-
+  struct User
+  {
+    String email;
+    String fullName;
+    StringMap<Coordinates> locations;
+    StringMap<Address> addresses;
+  };
 
 };

@@ -1,4 +1,4 @@
-module covhub.model
+module covdb.model
 {
 
 struct DbTable
