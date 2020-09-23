@@ -6,12 +6,12 @@ import { PositivesComponent } from './positives/positives.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'cases',
     component: PositivesComponent,
   }
   ,
   {
-    path: 'tracing',
+    path: 'traces',
     component: CaseTracingComponent,
   }
 ];

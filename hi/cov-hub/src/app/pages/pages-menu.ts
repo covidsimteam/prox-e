@@ -21,8 +21,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'calendar-outline',
     children: [
       {
-        title: 'Case Tracing',
+        title: 'Cases',
         link: '/hub/cases'
+      },
+      {
+        title: 'Traces',
+        link: '/hub/traces'
       },
       {
         title: 'Form A',

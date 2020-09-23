@@ -40,6 +40,11 @@ const routes: Routes = [{
       loadChildren: caseTracingModule,
     },
     {
+      path: 'traces',
+      canActivate: [AuthGuard],
+      loadChildren: caseTracingModule,
+    },
+    {
       path: 'forms',
       canActivate: [AuthGuard],
       loadChildren: formsModule,
