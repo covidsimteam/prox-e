@@ -5,7 +5,7 @@ import { ActiveTasksInfo } from '../case.model';
 @Injectable({
   providedIn: 'root'
 })
-export class ActiveTasksService extends ActiveTasksData {
+export class ActiveTasksService {
     private activeTasksInfoData: ActiveTasksInfo[] = [
         {
             case: 'Ram Thapa',
