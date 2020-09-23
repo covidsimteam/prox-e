@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ContactTracingInfo } from '../../../@core/data/contact-tracing';
-import { takeWhile } from 'rxjs/operators';
-import { ContactTracingService } from '../contact-tracing.service';
-
+import { ContactTracingService } from './contact-tracing.service';
 @Component({
   selector: 'cov-contact-tracing',
   templateUrl: './contact-tracing.component.html',

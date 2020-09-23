@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import {  BehaviorSubject } from 'rxjs';
 import { ActiveTasksInfo, ActiveTasksData } from '../data/active-tasks';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ActiveTasksService extends ActiveTasksData {
     private activeTasksInfoData: ActiveTasksInfo[] = [
         {

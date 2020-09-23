@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 
 export interface ContactTracingInfo {
   contact: string;

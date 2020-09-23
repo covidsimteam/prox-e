@@ -7,13 +7,14 @@ import { tap } from 'rxjs/operators';
 import { BasicAuth } from '../../@models/auth-response.model';
 import { CurrentUser } from '../../@models/domain.model';
 import { HubUser, isHubUser } from '../../@models/user.model';
+import { HOME } from '../../app.conf';
 import { EnvironmentService } from '../../services/env/environment.service';
 import { IdPrefixService } from '../../services/utils/id-prefix.service';
 import { AuthToken } from '../access/token.model';
 import { RolesService } from '../roles/roles.service';
 import { AuthResult } from './auth-result.model';
 import { PasswordAuthStrategyOptions } from './password-auth-strategy-options';
-import { HOME } from '../../app.conf';
+
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +22,7 @@ import { HOME } from '../../app.conf';
 export class AuthService extends NbAuthService {
   private user_: string;
   private pass_: string;
-  protected strategies: NbPasswordAuthStrategy;
+  strategies: NbPasswordAuthStrategy;
 
   private userSub: BehaviorSubject<HubUser> = new BehaviorSubject<HubUser>(JSON.parse(localStorage.getItem('user')));
   private authenticatedSub: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -33,11 +34,11 @@ export class AuthService extends NbAuthService {
     private router: Router,
     private route: ActivatedRoute,
     private roleService: RolesService,
-    private idPrefixService: IdPrefixService,
+
     protected tokenService: NbTokenService,
     private strategy: NbPasswordAuthStrategy) {
     super(tokenService, strategy);
-    this.strategies = new NbPasswordAuthStrategy(http, route);
+    this.strategies = new NbPasswordAuthStrategy(this.http, this.route);
     this.updateUser();
 
   }
@@ -262,5 +263,4 @@ export class AuthService extends NbAuthService {
   }
 
 }
-
 

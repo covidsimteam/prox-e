@@ -1,14 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NbAuthToken } from '@nebular/auth';
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
-import { Subject } from 'rxjs';
-import { map, takeUntil, filter } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
+import { filter, map, takeUntil } from 'rxjs/operators';
 import { AuthService } from '../../../@auth/core/auth.service';
 import { LayoutService } from '../../../@core/utils';
-import { HubUser, HeaderBio } from '../../../@models/user.model';
-
 import { RippleService } from '../../../@core/utils/ripple.service';
-import { Router } from '@angular/router';
+import { HeaderBio, HubUser } from '../../../@models/user.model';
+
 
 @Component({
   selector: 'ngx-header',
@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private static readonly LOGOUT = 'Log Out';
 
   private destroy$: Subject<void> = new Subject<void>();
-
+  public readonly materialTheme$: Observable<boolean>;
   userPictureOnly: boolean = false;
   user: HeaderBio;
 
@@ -55,6 +55,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private router: Router
   ) {
 
+    this.materialTheme$ = this.themeService.onThemeChange()
+    .pipe(map(theme => {
+      const themeName: string = theme?.name || '';
+      return themeName.startsWith('material');
+    }));
+
     this.authService.onTokenChange()
       .subscribe((token: NbAuthToken) => {
         if (token.isValid()) {
@@ -72,7 +78,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.currentTheme = this.themeService.currentTheme;
+    this.currentTheme = 'material-light';
 
     this.authService.userObs
       .pipe(
@@ -89,11 +95,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
         filter(({ tag }) => tag === 'context-menu'),
         map(({ item: { title } }) => title),
       ).subscribe((title: string) => {
-        title === HeaderComponent.LOGOUT ?
-          this.logout() :
+        if (title === HeaderComponent.LOGOUT) {
+          this.logout();
+        } else {
           this.navigateToMenuPage(
             title.toLowerCase().replace(/ /g, '_')
-          ); // pages are named profile and settings TODO create those pages
+          ); // TODO create pages named profile and settings
+        }
       });
 
     const { xl } = this.breakpointService.getBreakpointsMap();
@@ -116,6 +124,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   navigateToMenuPage(page: string) {
+    this.sidebarService.compact('menu-sidebar');
     this.router.navigateByUrl(page);
   }
 

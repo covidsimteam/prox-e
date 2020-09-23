@@ -1,7 +1,7 @@
 import { NbAuthToken } from '@nebular/auth';
 
 export class AuthToken extends NbAuthToken {
-  protected payload: any;
+  payload: any;
   readonly strategy = 'email';
 
   constructor() {

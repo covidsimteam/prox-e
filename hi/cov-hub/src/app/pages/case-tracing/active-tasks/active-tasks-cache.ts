@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { NewCaseFormeta, makeNewCaseFormModel } from '../../pages/case-tracing/new-case/new-case.formeta';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ActiveTasksCacheService {
     private activeTasksCache: NewCaseFormeta;
     private tmpCacheStorage: NewCaseFormeta;
@@ -39,3 +41,4 @@ export class ActiveTasksCacheService {
         this.cacheActive = false;
     }
 }
+

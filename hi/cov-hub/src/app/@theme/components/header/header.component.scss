@@ -12,11 +12,7 @@
     display: flex;
     align-items: left;
     width: calc(#{nb-theme(sidebar-width)} - #{nb-theme(header-padding)});
-    padding: 0;
-  }
-
-  small {
-    font-size: large;
+    padding: 10px;
   }
 
   nb-action {
@@ -37,7 +33,6 @@
     display: flex;
     align-items: center;
     width: auto;
-
 
     .sidebar-toggle {
       @include nb-ltr(margin-right, 1 rem);
@@ -79,4 +74,11 @@
       display: none;
     }
   }
+}
+
+
+span.title {
+  padding-left: 10px;
+  margin-left: 5px;
+  vertical-align: text-top;
 }

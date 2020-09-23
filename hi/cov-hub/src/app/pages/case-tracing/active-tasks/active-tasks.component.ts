@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-
-import { ActiveTasksService } from '../active-tasks.service';
+import { ActiveTasksService } from './active-tasks.service';
 
 @Component({
   selector: 'cov-active-tasks',

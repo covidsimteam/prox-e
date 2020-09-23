@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { of as observableOf, Observable } from 'rxjs';
-import { ContactTracingInfo, ContactTracingData } from '../data/contact-tracing';
+import { Observable, of as observableOf } from 'rxjs';
+import { ContactTracingInfo } from '../../../@core/data/contact-tracing';
 
-@Injectable()
-export class ContactTracingService extends ContactTracingData {
+@Injectable({
+  providedIn: 'root'
+})
+export class ContactTracingService {
     private contactTracingInfoData: ContactTracingInfo[] = [
         {
             contact: 'Ram Thapa', assignedTo: 'Mrs. Y', case: 'Ram Thapa', followup: 'Mr. Z',
