@@ -2,15 +2,15 @@ export const SUDURPASCHIM = {
   number: 1,
   name: 'Sudurpaschim',
   districts: [
-  'Kanchanpur',
-  'Kailali',
-  'Darchula',
-  'Doti',
-  'Dadeldhura',
-  'Bajhang',
-  'Bajura',
-  'Baitadi',
-  'Achham',
+    'Kanchanpur',
+    'Kailali',
+    'Darchula',
+    'Doti',
+    'Dadeldhura',
+    'Bajhang',
+    'Bajura',
+    'Baitadi',
+    'Achham',
   ],
 };
 
@@ -18,16 +18,16 @@ export const KARNALI = {
   number: 2,
   name: 'Karnali',
   districts: [
-  'Rukum W',
-  'Salyan',
-  'Mugu',
-  'Kalikot',
-  'Jumla',
-  'Jajarkot',
-  'Humla',
-  'Dolpa',
-  'Dailekh',
-  'Surkhet',
+    'Rukum W',
+    'Salyan',
+    'Mugu',
+    'Kalikot',
+    'Jumla',
+    'Jajarkot',
+    'Humla',
+    'Dolpa',
+    'Dailekh',
+    'Surkhet',
   ],
 };
 
@@ -124,11 +124,6 @@ export const PROVINCE_1 = {
   ],
 };
 
-export interface Province {
-  number: number;
-  name: string;
-  districts: string[];
-}
 
 export const PROVINCES = [
   PROVINCE_1,

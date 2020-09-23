@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { IdoComponent } from './ido.component';
 
@@ -6,7 +6,7 @@ describe('IdoComponent', () => {
   let component: IdoComponent;
   let fixture: ComponentFixture<IdoComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ IdoComponent ]
     })

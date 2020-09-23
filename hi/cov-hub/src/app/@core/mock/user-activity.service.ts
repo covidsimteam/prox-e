@@ -6,15 +6,6 @@ import { UserActive, UserActivityData } from '../data/user-activity';
 @Injectable()
 export class UserActivityService extends UserActivityData {
 
-  private getRandom = (roundTo: number) => Math.round(Math.random() * roundTo);
-  private generateUserActivityRandomData(date: any) {
-    return {
-      date,
-      pagesVisitCount: this.getRandom(1000),
-      deltaUp: this.getRandom(1) % 2 === 0,
-      newVisits: this.getRandom(100),
-    };
-  }
 
   data: any = {};
 
@@ -24,6 +15,16 @@ export class UserActivityService extends UserActivityData {
       week: this.getDataWeek(),
       month: this.getDataMonth(),
       year: this.getDataYear(),
+    };
+  }
+
+  private getRandom = (roundTo: number) => Math.round(Math.random() * roundTo);
+  private generateUserActivityRandomData(date: any) {
+    return {
+      date,
+      pagesVisitCount: this.getRandom(1000),
+      deltaUp: this.getRandom(1) % 2 === 0,
+      newVisits: this.getRandom(100),
     };
   }
 

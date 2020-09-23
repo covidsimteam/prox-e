@@ -31,7 +31,8 @@ interface MapLayer {
 @Component({
   selector: 'cov-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss']
+  styleUrls: ['./map.component.scss'],
+  //  providers: [NbNativeDateService]
 })
 export class MapComponent implements OnInit, OnDestroy {
   // title = 'National Covid Map';

@@ -1,77 +1,61 @@
-<form class="no-pad">
-  <div class="row">
-    <div class="col-md-6 col-lg-6">
-      <mat-form-field appearance="fill" class="form-a">
-        <mat-label>{{ t.fab.naam | translate }}</mat-label>
-        <input matInput autocomplete="off">
-        <!-- <mat-hint>E.g. Lalit:324234</mat-hint> -->
-      </mat-form-field>
-    </div>
+<form>
+  <nb-card class="form-cont">
+    <nb-card-body>
+      <div class="row">
 
-    <div class="col-md-6 col-lg-6">
-      <mat-form-field appearance="fill" class="form-a">
-        <mat-label> {{ t.fa.reportDate1 | translate }} </mat-label>
-        <input matInput fullWidth [nbDatepicker]="reportDatePicker">
-        <nb-datepicker #reportDatePicker></nb-datepicker>
-      </mat-form-field>
-    </div>
+        <div class="col-md-4 col-lg-4">
+          <mat-form-field appearance="fill" class="form-a">
+            <mat-label>{{ t.fab.naam | translate }}</mat-label>
+            <input matInput autocomplete="off">
+            <!-- <mat-hint>E.g. Lalit:324234</mat-hint> -->
+          </mat-form-field>
+        </div>
 
-  </div>
+        <div class="col-md-4 col-lg-4">
+          <mat-form-field appearance="fill" class="form-a">
+            <mat-label> {{ t.fa.reportDate1 | translate }}  </mat-label>
+            <input matInput placeholder="दिन/महिना/वर्ष">
+          </mat-form-field>
+        </div>
 
-  <div class="row">
+        <div class="col-md-4 col-lg-4">
+          <mat-form-field appearance="fill" class="form-a">
+            <mat-label>{{ t.fa.nameOfPoEorQ | translate }}</mat-label>
+            <input matInput autocomplete="off">
+          </mat-form-field>
+        </div>
 
-    <div class="col-md-6 col-lg-6">
-      <mat-form-field appearance="fill" class="form-a">
-        <mat-label>{{ t.fa.nameOfPoEorQ | translate }}</mat-label>
-        <input matInput autocomplete="off">
-      </mat-form-field>
-    </div>
-
-    <div class="col-md-6 col-lg-6">
-      <mat-form-field appearance="fill" class="form-a">
-        <mat-label> {{ t.fab.hoBhaneDate | translate }} </mat-label>
-        <input matInput fullWidth [nbDatepicker]="inputHoBhaneDatePicker">
-        <nb-datepicker #inputHoBhaneDatePicker></nb-datepicker>
-      </mat-form-field>
-    </div>
-
-  </div>
-  <br />
-  <div class="row">
-    <div class="col-md-6 col-lg-6">
-      <div class="form-a">
-        <label>{{ t.fa.inputCaseStatus | translate }}</label>
-        <mat-radio-group class="hub-radio-group" color="primary" id="inputCaseStatus">
-          <!-- (select)="changeCaseStatus($event) -->
-          <mat-radio-button
-            class="hub-radio-button"
-            id="hoina"
-            value="{{ t.fab.hoina | translate }}"
-            [checked]="hoHoinaThahaChaina.hoina"
-            (change)="onChange($event)"
-          >
-            {{ t.fab.hoina | translate }}
-          </mat-radio-button>
-          <mat-radio-button
-            class="hub-radio-button"
-            id="ho"
-            value="{{ t.fab.ho | translate }}"
-            [checked]="hoHoinaThahaChaina.ho"
-            (change)="onChange($event)"
-          >
-            {{ t.fab.ho | translate }}
-          </mat-radio-button>
-          <mat-radio-button
-            class="hub-radio-button"
-            id="thahaChhaina"
-            value="{{ t.fab.thahaChhaina | translate }}"
-            [checked]="hoHoinaThahaChaina.thahaChhaina"
-            (change)="onChange($event)"
-          >
-            {{ t.fab.thahaChhaina | translate }}
-          </mat-radio-button>
-        </mat-radio-group>
       </div>
-    </div>
-  </div>
+
+      <div class="row">
+
+
+
+        <div class="col-md-4 col-lg-4">
+          <mat-form-field appearance="fill" class="form-a">
+            <mat-label> {{ t.fab.hoBhaneDate | translate }} </mat-label>
+            <input matInput placeholder="दिन/महिना/वर्ष">
+          </mat-form-field>
+        </div>
+
+
+
+        <div class="col-md-4 col-lg-4">
+          <div class="form-a">
+            <label class="title">{{ t.fa.inputCaseStatus | translate }}</label>
+            <nb-radio-group id="inputCaseStatus" class="row">
+              <nb-radio>{{ t.fab.hoina | translate }}</nb-radio>
+              <nb-radio>{{ t.fab.ho | translate }}</nb-radio>
+              <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+
+            </nb-radio-group>
+
+          </div>
+        </div>
+      </div>
+
+
+
+    </nb-card-body>
+  </nb-card>
 </form>

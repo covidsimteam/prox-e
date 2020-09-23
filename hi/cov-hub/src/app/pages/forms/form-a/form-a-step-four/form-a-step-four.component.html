@@ -1,65 +1,92 @@
-<div class="col-md-12">
-  <div class="form-group">
-    <label for="" class="label">पेशा (भमल्नेमा ठीक भचन्ह लगाउनु िोला) </label>
-    <div class="col-sm-6">
-      <nb-radio-group id="inputCaseStatus" class="row">
-        <nb-radio>भवद्याथी</nb-radio>
-        <nb-radio>स्वास्थ्यकमी</nb-radio>
-        <nb-radio>स्वास्थ्य प्रयोगशाला कायषकताष</nb-radio>
-        <nb-radio>जनावरसंग काम गने</nb-radio>
-        <nb-radio>सेक्युररिी</nb-radio>
-        <nb-radio>िोिेल/ रेिुरेन्ट/ बारिरु</nb-radio>
-        <nb-radio>फोिर व्यवस्थापनको काम गने</nb-radio>
-        <nb-radio>अन्य (िुलाउनुिोस्)</nb-radio>
+<nb-card class="form-cont">
+  <nb-card-body>
+      <div class="row">
+          <div class="col-md-12 col-lg-12">
+            <div class="form-group">
+              <label class="title">{{ t.fa.occupation | translate }}</label>
+                <nb-card>
+              <nb-card-body class="row">
+              <div class="col-md-2 col-lg-2">
+              <nb-checkbox matRipple status="basic">{{ t.fa.student | translate}} </nb-checkbox>
+             <nb-checkbox matRipple status="basic">{{ t.fa.healthLabWorkers | translate}} </nb-checkbox>
+              <nb-checkbox matRipple status="basic"> {{ t.fa.healthCareWorker | translate}}</nb-checkbox>
+              <nb-checkbox matRipple status="basic">{{ t.fa.animalHelpWorkers | translate}}</nb-checkbox>
+              </div>
+              <div class="col-md-2 col-lg-2">
+                <nb-checkbox matRipple status="basic">{{ t.fa.hotelResturant | translate}}</nb-checkbox>
+               <nb-checkbox matRipple status="basic"> {{ t.fa.security | translate}}</nb-checkbox>
+                <nb-checkbox matRipple status="basic">{{ t.fa.garbageCollection | translate}}</nb-checkbox>
+                <nb-checkbox matRipple status="basic"> {{ t.fa.others | translate}}</nb-checkbox>
 
-      </nb-radio-group>
+            </div>
+              </nb-card-body>
+            </nb-card>
+          </div>
+      </div>
+      </div>
+
+  <div class="row">
+    <div class="col-md-8 col-lg-8">
+      <div class="form-a">
+        <label class="title">{{ t.fa.last14DaysTravel | translate }}</label>
+        <nb-radio-group id="inputCaseStatus" class="row">
+          <nb-radio>{{ t.fab.bhayo | translate }}</nb-radio>
+          <nb-radio>{{ t.fab.bhayena | translate }}</nb-radio>
+          <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+
+        </nb-radio-group>
+
+      </div>
     </div>
   </div>
-</div>
-
-<div class="col-md-12">
-  <div class="form-group">
-    <label for="" class="label">के भबरामीले लक्ष्ण देक्लिनु भन्दा १४ भदन अगाडी वा लक्ष्ण नदेक्लिएको के
-      सिरुमा नमुना संकलनका गररको भमतीबाि ६ िप्ता अगाडी कतै यािा गरेको भथयो ]</label>
-    <div class="col-sm-6">
-      <nb-radio-group id="inputCaseStatus" class="row">
-        <nb-radio>भथयो</nb-radio>
-        <nb-radio>भथएन</nb-radio>
-        <nb-radio> थािा छै न यभद छ भने, ठााँउिरु उल्लेि गनुषिोस्</nb-radio>
-
-      </nb-radio-group>
+    <div class="row">
+    <div class="col-md-4 col-lg-4">
+      <mat-form-field appearance="fill" class="form-a">
+        <mat-label>{{ t.fa.country | translate}}</mat-label>
+        <input matInput autocomplete="off">
+      </mat-form-field>
     </div>
-  </div>
-</div>
 
 
-<div class="col-md-12">
-  <div class="form-group">
-    <label class="label">देश </label>
-    <input type="text" nbInput placeholder="">
+  <div class="col-md-4 col-lg-4">
+    <mat-form-field appearance="fill" class="form-a">
+      <mat-label>{{ t.fa.city | translate}}</mat-label>
+      <input matInput autocomplete="off">
+    </mat-form-field>
   </div>
-</div>
 
-<div class="col-md-12">
-  <div class="form-group">
-    <label class="label">शिर
-    </label>
-    <input type="text" nbInput placeholder="">
-  </div>
-</div>
+    </div>
 
-<div class="col-md-12">
-  <div class="form-group">
-    <label for="inputDate" class="label">सो स्थान गमन भएको भमती (भदन/ मभिना/वर्ष) </label>
-    <input [nbDatepicker]="datepicker">
-    <nb-datepicker #datepicker></nb-datepicker> <br />
-  </div>
-</div>
+    <div class="row">
+      <div class="col-md-4 col-lg-4">
+        <mat-form-field appearance="fill" class="form-a">
+          <mat-label>{{ t.fa.visitDate | translate}}</mat-label>
+          <input matInput autocomplete="off">
+        </mat-form-field>
+      </div>
 
-<div class="col-md-12">
-  <div class="form-group">
-    <label for="inputDate" class="label">नेपाल आगमनको भमती (भदन/मभिना/वर्ष) </label>
-    <input [nbDatepicker]="datepicker">
-    <nb-datepicker #datepicker></nb-datepicker> <br />
-  </div>
-</div>
+
+    <div class="col-md-4 col-lg-4">
+      <mat-form-field appearance="fill" class="form-a">
+        <mat-label>{{ t.fa.returnDate | translate}}</mat-label>
+        <input matInput autocomplete="off">
+      </mat-form-field>
+    </div>
+
+      </div>
+
+      </nb-card-body>
+    </nb-card>
+
+
+
+
+
+
+
+
+
+
+
+
+

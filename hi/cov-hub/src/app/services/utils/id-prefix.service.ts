@@ -8,6 +8,16 @@ export class IdPrefixService {
   private idArr: string[] = [];
   constructor() { }
 
+  static toColonHyphen(id: string): string {
+    return id.replace('_', ':').toString();
+  }
+
+  static toHyphenOnly(id: string): string {
+    return id.replace(':', '_').toString();
+  }
+
+
+
   set id(id: string) {
     this.idArr.push(id);
   }
@@ -18,14 +28,6 @@ export class IdPrefixService {
 
   getIds(): string[] {
     return this.idArr;
-  }
-
-  static toColonHyphen(id: string): string {
-    return id.replace('_', ':').toString();
-  }
-
-  static toHyphenOnly(id: string): string {
-    return id.replace(':', '_').toString();
   }
 
   resolveIdPrefixes(ids: string[]): string[] {

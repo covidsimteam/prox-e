@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LazinessConfigComponent } from './laziness-config.component';
 
@@ -6,7 +6,7 @@ describe('LazinessConfigComponent', () => {
   let component: LazinessConfigComponent;
   let fixture: ComponentFixture<LazinessConfigComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ LazinessConfigComponent ]
     })

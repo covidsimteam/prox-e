@@ -41,8 +41,7 @@ export class FormAStepOComponent implements OnInit {
 
 
   onChange(event: any) {
-  console.log('event :', event);
-  const falsify = (ynu: YNU, check: boolean) => {
+    const falsify = (ynu: YNU, check: boolean) => {
       switch (ynu) {
         case YNU.ho:
           this.hoHoinaThahaChaina.ho = checked;
@@ -62,20 +61,20 @@ export class FormAStepOComponent implements OnInit {
       }
     };
 
-    const idMapper = (idx: 'ho' | 'hoina' | 'thahaChhaina' | string, checker: boolean ) => {
-        switch (idx) {
-          case YNU.ho:
-            falsify(YNU.ho, checker);
-            break;
-          case YNU.hoina:
-            falsify(YNU.hoina, checker);
-            break;
-          case YNU.thahaChhaina:
-          default:
-            falsify(YNU.thahaChhaina, checker);
-            break;
-        }
-      };
+    const idMapper = (idx: 'ho' | 'hoina' | 'thahaChhaina' | string, checker: boolean) => {
+      switch (idx) {
+        case YNU.ho:
+          falsify(YNU.ho, checker);
+          break;
+        case YNU.hoina:
+          falsify(YNU.hoina, checker);
+          break;
+        case YNU.thahaChhaina:
+        default:
+          falsify(YNU.thahaChhaina, checker);
+          break;
+      }
+    };
     const { checked, id } = event.source;
     idMapper(id, checked);
   }

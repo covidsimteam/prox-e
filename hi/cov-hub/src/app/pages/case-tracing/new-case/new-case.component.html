@@ -1,0 +1,38 @@
+<nb-card>
+    <nb-card-body class="card-body">
+        <label class="label">{{ t.fa.reportDate1 | translate }}
+            <input [nbDatepicker]="reportDatePicker" [(ngModel)]="newTask.date">
+        </label>
+        <nb-datepicker #reportDatePicker></nb-datepicker>
+        <hr>
+        <label class="label">{{ t.fa.testAgency | translate }}
+            <input nbInput type="text" [(ngModel)]="newTask.lab">
+        </label>
+        <hr>
+        <label class="label">{{ t.fb.caseName | translate }}
+            <input nbInput type="text" [(ngModel)]="newTask.case">
+        </label><hr>
+        <label class="label">{{ t.fb.phoneNumber | translate }}
+            <input nbInput type="tel" [(ngModel)]="newTask.phone">
+        </label><hr>
+        <label class="label">{{ t.fb.province | translate }}
+            <input nbInput type="text" [(ngModel)]="newTask.province">
+        </label><hr>
+        <label class="label">{{ t.fb.district | translate }}
+            <input nbInput type="text" [(ngModel)]="newTask.district">
+        </label><hr>
+        <label class="label">{{ t.fb.vdc | translate }} / {{ t.fb.municipality | translate }}
+            <input nbInput type="text" [(ngModel)]="newTask.municipal">
+        </label><hr>
+        <label class="label">{{ t.fb.wardNum | translate }}
+            <input nbInput type="number" [(ngModel)]="newTask.ward">
+        </label><hr>
+        <div class="row">
+            <button 
+                class="btn btn-primary" 
+                style="width: 40%"
+                (click)="addNewTask($event)"
+            >Save</button>
+        </div>
+    </nb-card-body>
+</nb-card>

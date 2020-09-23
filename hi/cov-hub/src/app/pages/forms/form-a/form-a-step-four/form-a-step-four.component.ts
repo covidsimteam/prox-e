@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslationServiceEn } from '../../../../services/i18n/translation-gen.service';
 
 @Component({
   selector: 'cov-form-a-step-four',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormAStepFourComponent implements OnInit {
 
-  constructor() { }
+  caseStatus: string;
+
+  constructor(public t: TranslationServiceEn) { }
 
   ngOnInit(): void {
   }
+
+  changeCaseStatus(event: any) {
+    this.caseStatus = event as string;
+  }
+
 
 }

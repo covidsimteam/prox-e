@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { VizSchedComponent } from './viz-sched.component';
 
@@ -6,7 +6,7 @@ describe('VizSchedComponent', () => {
   let component: VizSchedComponent;
   let fixture: ComponentFixture<VizSchedComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ VizSchedComponent ]
     })

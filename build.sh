@@ -5,23 +5,10 @@ bash ./sh/node-npm-couch-installer.sh
 echo node ubuntu setup start
 set -eux
 
-mkdir -p ~/.npm/prefix
+bash ./sh/npm-refresh-conf.sh
 
-npm config set prefix ~/.npm/prefix
-chown -R $USER:`id -g -n $USER` ~/.npm/prefix
-
-export PATH="$PATH:$HOME/.npm/prefix/bin"
-export NODE_PATH="$HOME/.npm/prefix/lib/node_modules"
-
-npm config set cache $(pwd)/.npm --global
-npm config set scripts-prepend-node-path true
-
-npm install -g npm@latest
 rm -rf "$HOME/.yarn"
-curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
-source "$HOME/.bashrc"
-
-yarn run build
+yarn build
 
 echo node ubuntu setup finish
 

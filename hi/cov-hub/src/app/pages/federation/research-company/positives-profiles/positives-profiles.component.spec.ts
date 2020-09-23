@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PositivesProfilesComponent } from './positives-profiles.component';
 
@@ -6,7 +6,7 @@ describe('PositivesProfilesComponent', () => {
   let component: PositivesProfilesComponent;
   let fixture: ComponentFixture<PositivesProfilesComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ PositivesProfilesComponent ]
     })
