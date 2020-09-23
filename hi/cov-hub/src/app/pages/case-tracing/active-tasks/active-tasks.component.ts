@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ActiveTasksInfo, ActiveTasksData } from '../../../@core/data/active-tasks';
-import { BehaviorSubject } from 'rxjs';
+
+import { ActiveTasksService } from '../active-tasks.service';
 
 @Component({
   selector: 'cov-active-tasks',
@@ -10,13 +10,9 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ActiveTasksComponent implements OnInit {
 
-  activeTasksData$: BehaviorSubject<ActiveTasksInfo[]>;
-
   displayedColumns = ['case', 'assignedTo', 'time'];
 
-  constructor(private activeTasksService: ActiveTasksData) {
-    this.activeTasksData$ = this.activeTasksService.getActiveTasksData();
-  }
+  constructor(public activeTasksService: ActiveTasksService) {}
 
   ngOnInit(): void { }
 

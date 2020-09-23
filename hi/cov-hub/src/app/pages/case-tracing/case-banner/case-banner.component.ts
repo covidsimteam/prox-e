@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NbWindowService } from '@nebular/theme';
-import { NewCaseComponent } from '../new-case/new-case.component';
+import { MatDialog } from '@angular/material/dialog';
 import { ActiveTasksCacheService } from '../../../@core/data/active-tasks-cache';
+import { NewCaseComponent } from '../new-case/new-case.component';
+import { TranslationServiceEn } from '../../../services/i18n/translation-gen.service';
+import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'cov-case-banner',
@@ -11,19 +14,27 @@ import { ActiveTasksCacheService } from '../../../@core/data/active-tasks-cache'
 export class CaseBannerComponent implements OnInit {
 
   activeTasksCacheService = new ActiveTasksCacheService();
-  constructor(private windowService: NbWindowService) { }
+  constructor(
+    public dialog: MatDialog,
+    private t: TranslationServiceEn,
+    private translationService: TranslateService
+  ) { }
 
   ngOnInit(): void { }
 
   showNewCaseWindow(): boolean {
-    this.windowService.open(NewCaseComponent, {
-      title: 'New Case',
-      windowClass: 'new-case-window',
-      context: {
-        activeTaskCacheService: this.activeTasksCacheService
+    const dialogRef = this.dialog.open(NewCaseComponent,
+      {
+        width: '60vw',
+        data: {
+          title: this.translationService.get(this.t.fb.addNewCase),
+          newId: '12321'
+        }
       }
+    );
+    dialogRef.afterClosed().subscribe(result => {
+      // console.log(`Dialog result: ${result}`);
     });
-
     return false;   // stop event propagation for <a> tag
   }
 

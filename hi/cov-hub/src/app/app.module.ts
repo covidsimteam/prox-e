@@ -25,8 +25,6 @@ import { ThemeModule } from './@theme/theme.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { authSetup, formSetup } from './app.conf';
-import { SelectionPipe } from './services/state/selection.pipe';
-import { SelectionsDirective } from './services/state/selections.directive';
 
 
 
@@ -39,7 +37,7 @@ export class WebpackTranslateLoader implements TranslateLoader {
   }
 }
 @NgModule({
-  declarations: [AppComponent, SelectionPipe, SelectionsDirective],
+  declarations: [AppComponent],
   imports: [
     MatRadioModule,
     BrowserAnimationsModule,

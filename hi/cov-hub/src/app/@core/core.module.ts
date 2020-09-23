@@ -30,8 +30,7 @@ import { CountryOrderData } from './data/country-order';
 import { StatsProgressBarData } from './data/stats-progress-bar';
 import { VisitorsAnalyticsData } from './data/visitors-analytics';
 import { SecurityCamerasData } from './data/security-cameras';
-import { ActiveTasksData } from './data/active-tasks';
-import { ContactTracingData } from './data/contact-tracing';
+
 
 import { UserService } from './mock/users.service';
 import { ElectricityService } from './mock/electricity.service';
@@ -52,8 +51,7 @@ import { CountryOrderService } from './mock/country-order.service';
 import { StatsProgressBarService } from './mock/stats-progress-bar.service';
 import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
-import { ActiveTasksService } from './mock/active-tasks.service';
-import { ContactTracingService } from './mock/contact-tracing.service';
+
 import { MockDataModule } from './mock/mock-data.module';
 
 
@@ -79,8 +77,6 @@ const DATA_SERVICES = [
   { provide: StatsProgressBarData, useClass: StatsProgressBarService },
   { provide: VisitorsAnalyticsData, useClass: VisitorsAnalyticsService },
   { provide: SecurityCamerasData, useClass: SecurityCamerasService },
-  { provide: ActiveTasksData, useClass: ActiveTasksService},
-  { provide: ContactTracingData, useClass: ContactTracingService},
   { provide: MAT_RIPPLE_GLOBAL_OPTIONS, useExisting: RippleService},
 ];
 

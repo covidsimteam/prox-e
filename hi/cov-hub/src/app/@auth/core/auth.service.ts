@@ -13,6 +13,7 @@ import { AuthToken } from '../access/token.model';
 import { RolesService } from '../roles/roles.service';
 import { AuthResult } from './auth-result.model';
 import { PasswordAuthStrategyOptions } from './password-auth-strategy-options';
+import { HOME } from '../../app.conf';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +21,7 @@ import { PasswordAuthStrategyOptions } from './password-auth-strategy-options';
 export class AuthService extends NbAuthService {
   private user_: string;
   private pass_: string;
-  private strat: NbPasswordAuthStrategy;
+  protected strategies: NbPasswordAuthStrategy;
 
   private userSub: BehaviorSubject<HubUser> = new BehaviorSubject<HubUser>(JSON.parse(localStorage.getItem('user')));
   private authenticatedSub: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -36,16 +37,13 @@ export class AuthService extends NbAuthService {
     protected tokenService: NbTokenService,
     private strategy: NbPasswordAuthStrategy) {
     super(tokenService, strategy);
-    this.strat = new NbPasswordAuthStrategy(http, route);
+    this.strategies = new NbPasswordAuthStrategy(http, route);
     this.updateUser();
 
   }
 
   get isInPublicMode(): boolean { return this.isInPublicModSub.value; }
   set isInPublicMode(v: boolean) { this.isInPublicModSub.next(v); }
-
-  get strategies(): any { return [this.strat]; }
-  set strategies(strats: any) { this.strat = strats[0]; }
 
   get getStrategyOptions(): PasswordAuthStrategyOptions { return new PasswordAuthStrategyOptions(); }
 
@@ -176,7 +174,7 @@ export class AuthService extends NbAuthService {
 
   logout(strategy: string = 'email'): Observable<NbAuthResult> {
     this.removeCredentials();
-    this.router.navigate(['/hub/home']);
+    this.router.navigate([HOME]);
     this.publicLogin();
     return from([new NbAuthResult(
       true,

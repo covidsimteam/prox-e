@@ -1,25 +1,15 @@
 import { Injectable } from '@angular/core';
-import { ActiveTasksInfo } from '../data/active-tasks';
+import { NewCaseFormeta, makeNewCaseFormModel } from '../../pages/case-tracing/new-case/new-case.formeta';
 
-@Injectable()
+
+@Injectable({
+  providedIn: 'root'
+})
 export class ActiveTasksCacheService {
-    private activeTasksCache: ActiveTasksInfo;
-    private tmpCacheStorage: ActiveTasksInfo;
+    private activeTasksCache: NewCaseFormeta;
+    private tmpCacheStorage: NewCaseFormeta;
     private cacheActive: boolean;
-    private emptyCache: ActiveTasksInfo = {
-        date: null,
-        lab: '',
-        case: '',
-        phone: null,
-        province: '',
-        district: '',
-        municipal: '',
-        ward: null,
-        assignedTo: '',
-        time: ''
-    };
-
-    private testMsg: string;
+    private emptyCache: NewCaseFormeta = makeNewCaseFormModel();
 
     constructor() {
         this.activeTasksCache = this.emptyCache;
@@ -34,12 +24,12 @@ export class ActiveTasksCacheService {
 
     isCacheActive(): boolean { return this.cacheActive; }
 
-    writeToCache(activeTask: ActiveTasksInfo): void {
+    writeToCache(activeTask: NewCaseFormeta): void {
         this.activeTasksCache = activeTask;
         this.cacheActive = true;
     }
 
-    getFromCache(): ActiveTasksInfo {
+    getFromCache(): NewCaseFormeta {
         this.tmpCacheStorage = this.activeTasksCache;
         this.resetCache();
 
@@ -51,4 +41,3 @@ export class ActiveTasksCacheService {
         this.cacheActive = false;
     }
 }
-

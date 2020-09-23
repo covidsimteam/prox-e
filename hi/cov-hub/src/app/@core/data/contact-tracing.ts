@@ -11,7 +11,3 @@ export interface ContactTracingInfo {
   followupDate4: string;
   followupDate5: string;
 }
-
-export abstract class ContactTracingData {
-    abstract getContactTracingData(): Observable<ContactTracingInfo[]>;
-}

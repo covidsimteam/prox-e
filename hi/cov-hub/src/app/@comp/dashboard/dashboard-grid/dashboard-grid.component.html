@@ -1,11 +1,11 @@
-<div class="card-row" *ngIf="mapSero.data?.length">
+<div class="card-row" *ngIf="mapSero.data?.length" >
   <div class="card-col">
     <nb-card size="medium">
-      <cov-sero-prevalence [districtPcrDataSets]="[mapSero.data[0]]" [seroOrRatio]="mapSero.type[0]"></cov-sero-prevalence>
+      <cov-sero-prevalence [districtPcrDataSets]="[mapSero?.data[0]]" [seroOrRatio]="mapSero?.type[0]"></cov-sero-prevalence>
     </nb-card>
   </div>
   <div class="card-col">
     <nb-card size="medium">
-      <cov-sero-prevalence [districtPcrDataSets]="[mapSero.data[1]]" [seroOrRatio]="mapSero.type[1]"></cov-sero-prevalence>
+      <cov-sero-prevalence [districtPcrDataSets]="[mapSero?.data[1]]" [seroOrRatio]="mapSero?.type[1]"></cov-sero-prevalence>
     </nb-card>
 </div>

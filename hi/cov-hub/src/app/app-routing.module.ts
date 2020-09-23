@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+import { HOME } from './app.conf';
 
 export const routes: Routes = [
   {
@@ -12,7 +13,7 @@ export const routes: Routes = [
     loadChildren: () => import('./@auth/auth.module')
       .then(m => m.AuthModule),
   },
-  { path: '', redirectTo: 'hub/home', pathMatch: 'full' },
+  { path: '', redirectTo: HOME, pathMatch: 'full' },
   { path: '**', redirectTo: 'auth/sign-in' },
 ];
 

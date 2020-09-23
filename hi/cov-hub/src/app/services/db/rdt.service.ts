@@ -49,7 +49,7 @@ export class RdtService implements DBService {
   async getAllDistricts(): Promise<Array<RDTTupleRev> | undefined> {
     try {
       const response = await this.getAll();
-      return response?.rows?.map(row => [...row?.doc?.fields, row?.doc?._rev] as RDTTupleRev);
+      return response?.rows?.map(row => [...row?.doc?.fields, row?.doc?._rev] as unknown as RDTTupleRev);
     } catch (error) {
       throw Error('District-wise RDT test data could not be fetched');
     }

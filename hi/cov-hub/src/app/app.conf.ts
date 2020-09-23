@@ -1,5 +1,7 @@
 import { NbAuthSimpleToken } from '@nebular/auth';
 
+export const HOME = '/hub/home';
+
 export const authSetup = {
   name: 'email',
   token: {

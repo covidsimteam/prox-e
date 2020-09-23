@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CanLoad, Route, Router, UrlSegment } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ActivatedRouteSnapshot, CanLoad, Router, RouterStateSnapshot } from '@angular/router';
+import { HOME } from '../../../../../hi/cov-hub/src/app/app.conf';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -10,12 +10,19 @@ export class AuthGuard implements CanLoad {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  canLoad(
-    route: Route,
-    segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
-    if (!this.authService.userIsAuthenticated) {
-      this.router.navigateByUrl('/auth');
+  canActivate(
+    _: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): boolean {
+
+    if (this.authService.isAuthenticated || !this.authService.isInPublicMode) {
+      return true;
     }
-    return this.authService.userIsAuthenticated;
+    this.router.navigate(['auth/login'], {
+      queryParams: {
+        returnUrl: state?.url || HOME,
+      },
+    });
+    return false;
   }
 }

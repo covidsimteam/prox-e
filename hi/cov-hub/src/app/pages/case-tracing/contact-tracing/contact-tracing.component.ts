@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ContactTracingInfo, ContactTracingData } from '../../../@core/data/contact-tracing';
+import { ContactTracingInfo } from '../../../@core/data/contact-tracing';
 import { takeWhile } from 'rxjs/operators';
+import { ContactTracingService } from '../contact-tracing.service';
 
 @Component({
   selector: 'cov-contact-tracing',
@@ -9,21 +10,12 @@ import { takeWhile } from 'rxjs/operators';
 })
 export class ContactTracingComponent implements OnInit {
 
-  private alive = true;
-  contactTracingData: ContactTracingInfo[];
-
   displayedColumns = [
     'contact', 'assignedTo', 'case', 'followup', 'followupDate1',
     'followupDate2', 'followupDate3', 'followupDate4', 'followupDate5'
   ];
 
-  constructor(private contactTracingService: ContactTracingData) {
-    this.contactTracingService.getContactTracingData()
-      .pipe(takeWhile(() => this.alive))
-      .subscribe((data) => {
-        this.contactTracingData = data;
-      });
-  }
+  constructor(public contactTracingService: ContactTracingService) {}
 
   ngOnInit(): void {
   }

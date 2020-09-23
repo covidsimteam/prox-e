@@ -1,37 +1,36 @@
 <nb-card>
   <nb-card-body>
     <nb-tabset (changeTab)="tabChanged($event)">
-      <nb-tab tabTitle="New Cases" tabIcon="plus-circle-outline" badgeText="0" badgePosition="top right"
-        badgeStatus="success" nbPopoverTrigger="hint" nbPopoverPlacement="left"
-        tabId="new-cases" [active]="checkCurrent('new-cases')">
+      <nb-tab
+        tabTitle="New Cases"
+        tabIcon="plus-circle-outline"
+        badgeText="0"
+        badgePosition="top right"
+        badgeStatus="success"
+        tabId="new-cases"
+        [active]="checkCurrent('new-cases')"
+      >
       </nb-tab>
 
-      <nb-tab tabTitle="Active Cases" tabIcon="calendar-outline"
-        nbPopoverTrigger="hint" nbPopoverPlacement="left" tabId="active-cases" [active]="checkCurrent('active-cases')">
+      <nb-tab tabTitle="Active Cases" tabIcon="calendar-outline" tabId="active-cases" [active]="checkCurrent('active-cases')">
       </nb-tab>
 
-      <nb-tab tabTitle="Recovered" tabIcon="bookmark-outline" tabId="recovered"
-        [active]="checkCurrent('recovered')">
+      <nb-tab tabTitle="Recovered" tabIcon="bookmark-outline"  tabId="recovered" [active]="checkCurrent('recovered')">
       </nb-tab>
 
-      <nb-tab tabTitle="Quarantined" tabIcon="home-outline"
-        tabId="quarantined" [active]="checkCurrent('quarantined')">
+      <nb-tab tabTitle="Quarantined" tabIcon="home-outline" tabId="quarantined" [active]="checkCurrent('quarantined')">
       </nb-tab>
 
-      <nb-tab tabTitle="Swabs" tabIcon="thermometer-plus-outline" tabId="swabs"
-        [active]="checkCurrent('swabs')">
+      <nb-tab tabTitle="Swabs" tabIcon="thermometer-plus-outline"  tabId="swabs" [active]="checkCurrent('swabs')">
       </nb-tab>
 
-      <nb-tab tabTitle="Tests" tabIcon="checkmark-square-outline" tabId="tests"
-        [active]="checkCurrent('tests')">
+      <nb-tab tabTitle="Tests" tabIcon="checkmark-square-outline"  tabId="tests" [active]="checkCurrent('tests')">
       </nb-tab>
 
-      <nb-tab tabTitle="Returnees" tabIcon="people-outline" badgeText="12" badgeStatus="warning"
-       tabId="returnees" [active]="checkCurrent('returnees')">
+      <nb-tab tabTitle="Returnees" tabIcon="people-outline" badgeText="12" badgeStatus="warning" tabId="returnees" [active]="checkCurrent('returnees')">
       </nb-tab>
 
-      <nb-tab tabTitle="Deaths" tabIcon="person-delete-outline" badgeText="99+" badgeStatus="danger"
-       tabId="deaths" [active]="checkCurrent('deaths')">
+      <nb-tab tabTitle="Deaths" tabIcon="person-delete-outline" badgeText="99+" badgeStatus="danger" tabId="deaths" [active]="checkCurrent('deaths')">
       </nb-tab>
 
     </nb-tabset>
@@ -40,41 +39,3 @@
   </nb-card-body>
   <!-- <nb-card-footer>Source: Bipad</nb-card-footer> -->
 </nb-card>
-
-
-
-<ng-template #templatePopupRefCases>
-  <p>List of <strong>New Cases Today</strong>.</p>
-</ng-template>
-
-<ng-template #templatePopupRefActive>
-  <p>List of <strong>Active Cases Today</strong>.</p>
-</ng-template>
-
-<ng-template #templatePopupRefRecovered>
-  <p>List of <strong>Recovered Till Today</strong>.</p>
-</ng-template>
-
-<ng-template #templatePopupRefQuarantined>
-  <p>List of <strong>Quarantined Till Today</strong>.</p>
-</ng-template>
-
-<ng-template #templatePopupRefIsolated>
-  <p>List of <strong>Isolated Till Today</strong>.</p>
-</ng-template>
-
-<ng-template #templatePopupRefSwabs>
-  <p>List of <strong>Swabs Till Today</strong>.</p>
-</ng-template>
-
-<ng-template #templatePopupRefPcRdt>
-  <p>List of <strong>PCR & RDT Tests Till Today</strong>.</p>
-</ng-template>
-
-<ng-template #templatePopupRefReturnees>
-  <p>List of <strong>Returnees Till Today</strong>.</p>
-</ng-template>
-
-<ng-template #templatePopupRefDeaths>
-  <p>List of <strong>Deaths Till Today</strong>.</p>
-</ng-template>

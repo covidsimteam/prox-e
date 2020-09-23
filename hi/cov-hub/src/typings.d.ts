@@ -4,6 +4,3 @@ interface NodeModule {
   id: string;
 }
 
-// declare var tinymce: any;
-
-// declare module '@hoodie/client';

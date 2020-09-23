@@ -1,19 +1,15 @@
 import { NbAuthToken } from '@nebular/auth';
 
 export class AuthToken extends NbAuthToken {
-  protected paylow: any;
+  protected payload: any;
   readonly strategy = 'email';
 
   constructor() {
     super();
   }
 
-  set payload(pay: any) {
-    this.paylow = pay;
-  }
-
   getValue(): string {
-    return this.paylow?.toString();
+    return this.payload?.toString();
   }
 
   isValid(): boolean {

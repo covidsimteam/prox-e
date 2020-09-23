@@ -4,6 +4,7 @@ import { NbLoginComponent } from '@nebular/auth';
 import { BasicAuth } from '../../@models/auth-response.model';
 import { AuthService } from '../core/auth.service';
 import { FormGroup } from '@angular/forms';
+import { HOME } from '../../app.conf';
 
 @Component({
   selector: 'ngx-login',
@@ -19,7 +20,7 @@ export class LoginComponent extends NbLoginComponent implements OnInit {
   redirectDelay: number;
   showMessages = { error: null, success: null };
   submitted = false;
-  private returnUrl: string = '/hub/home';
+  private returnUrl: string = HOME;
 
   constructor(
     private authService: AuthService,
@@ -32,7 +33,7 @@ export class LoginComponent extends NbLoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/hub/home';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || HOME;
     if (
       this.authService.isAuthenticated ||
       this.authService.isAdmin() ||

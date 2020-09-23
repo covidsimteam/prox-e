@@ -20,7 +20,8 @@ export enum Databases {
   rdt_tests = 'rdt_tests',
   audit = 'usage_audit',
   matrix = 'matrix',
-  roles = 'roles'
+  roles = 'roles',
+  cict = 'cict'
 }
 
 export interface ExistingDoc {

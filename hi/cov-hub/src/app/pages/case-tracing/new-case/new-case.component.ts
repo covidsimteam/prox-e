@@ -1,11 +1,18 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
+import { ReplaySubject } from 'rxjs';
 
+import { PROVINCES } from '../../../@core/data/province-districts.geo';
 import { TranslationServiceEn } from '../../../services/i18n/translation-gen.service';
+import { DialogData } from '../case.model';
 
-import { ActiveTasksInfo } from '../../../@core/data/active-tasks';
-import { ActiveTasksService } from '../../../@core/mock/active-tasks.service';
-import { ActiveTasksCacheService } from '../../../@core/data/active-tasks-cache';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { makeNewCaseFormModel, NewCaseFormeta, makeNewCaseFormGroup } from './new-case.formeta';
+
+
+
+const OnDestroySubject = Symbol('OnDestroySubject');
 
 @Component({
   selector: 'cov-new-case',
@@ -14,45 +21,56 @@ import { ActiveTasksCacheService } from '../../../@core/data/active-tasks-cache'
 })
 export class NewCaseComponent implements OnInit, OnDestroy {
 
-  saveToCache = true;
-  newTask: ActiveTasksInfo = {
-    date: null,
-    lab: '',
-    case: '',
-    phone: null,
-    province: '',
-    district: '',
-    municipal: '',
-    ward: null,
-    assignedTo: '',
-    time: ''
-  };
 
-  activeTaskCacheService: ActiveTasksCacheService;
+  provinces: string[];
+  destinationOpts: string[] | undefined;
+  addressOpts: string[] | undefined;
+  finalDestProvince: string = '';
+  districts = { destinationOpts: null, addressOpts: null };
+
+  saveToCache = true;
+  newTask: NewCaseFormeta = makeNewCaseFormModel();
+
+  private [OnDestroySubject] = new ReplaySubject<true>(1);
+
+  showOtherOccupation = false;
+
+  newCaseFormGroup: FormGroup;
 
   constructor(
     public t: TranslationServiceEn,
     private translator: TranslateService,
-    private activeTaskService: ActiveTasksService) {
-      translator.use('en');
-    }
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    private fb: FormBuilder
+  ) {
+      this.translator.use('en');
+  }
 
-  ngOnInit(): void {
-    if (this.activeTaskCacheService.isCacheActive()) {
-      this.newTask = this.activeTaskCacheService.getFromCache();
-    }
+  ngOnInit() {
+    this.provinces = PROVINCES?.map(province => province.name);
+    this.createNewCaseForm();
   }
 
   ngOnDestroy(): void {
-    if (this.saveToCache) {
-      this.activeTaskCacheService.writeToCache(this.newTask);
-    }
+    this[OnDestroySubject].next(true);
+    this[OnDestroySubject].complete();
   }
 
-  addNewTask(event) {
+  get onDestroy$() {
+    return this[OnDestroySubject].asObservable();
+  }
+
+  addNewTask(_: any) {
     this.saveToCache = false;
-    this.activeTaskCacheService.resetCache();
-    // this.activeTaskService.createActiveTasksData(this.newTask);
+  }
+
+  changeDestProvince(event: string) {
+    this.finalDestProvince = event;
+    this.districts.destinationOpts = PROVINCES?.find(province => province.name === this.finalDestProvince)?.districts;
+  }
+
+  createNewCaseForm() {
+    this.newCaseFormGroup = makeNewCaseFormGroup();
   }
 
 }
