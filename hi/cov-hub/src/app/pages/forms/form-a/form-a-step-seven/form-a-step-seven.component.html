@@ -69,7 +69,7 @@
     <div class="label">
       के स बसेको घरमा अन्य कोिी बसेको छ? </div>
     <div class="col-sm-6">
-      <nb-radio-group id="inputCaseStatus" class="row">
+      <nb-radio-group id="inputCaseStatus" name="anyone-else-home" class="row">
         <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
         <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
         <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
@@ -84,7 +84,7 @@
     <div class="label">
       घरमा के सलाई कसैले प्रत्यक्ष सेवा कसैले प्रदान गरेको छ? </div>
     <div class="col-sm-6">
-      <nb-radio-group id="inputCaseStatus" class="row">
+      <nb-radio-group id="inputCaseStatus" name="any-familymember-involved" class="row">
         <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
         <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
         <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
@@ -113,7 +113,7 @@
     <div class="label">
       के के सलाई स्वास्थ्यकमीले प्रत्यक्ष स्वास्थ्य सेवा भदएको छ? </div>
     <div class="col-sm-6">
-      <nb-radio-group id="inputCaseStatus" class="row">
+      <nb-radio-group id="inputCaseStatus" name="any-professional-involved" class="row">
         <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
         <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
         <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
@@ -141,7 +141,7 @@
     <div class="label">
       के के सले कु नै सावषजभनक यातायातको साधनमा यािा गरेको छ?</div>
     <div class="col-sm-6">
-      <nb-radio-group id="inputCaseStatus" class="row">
+      <nb-radio-group id="inputCaseStatus" name="case-in-public-transport" class="row">
         <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
         <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
         <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
@@ -156,7 +156,7 @@
     <div class="label">
       यभद छ भने,केमा यािा गरेको िोीः</div>
     <div class="col-sm-6">
-      <nb-radio-group id="inputCaseStatus" class="row">
+      <nb-radio-group id="inputCaseStatus" name="which-public-transport" class="row">
         <nb-radio>प्लेन</nb-radio>
         <nb-radio>याक्सी</nb-radio>
         <nb-radio>बस/ माइक्रो</nb-radio>
@@ -265,7 +265,7 @@
     <div class="label">
       के के स भवद्यालय/ कायाषलय गएको छ?</div>
     <div class="col-sm-6">
-      <nb-radio-group id="inputCaseStatus" class="row">
+      <nb-radio-group id="inputCaseStatus" name="visit-school-or-work" class="row">
         <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
         <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
         <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
@@ -318,7 +318,7 @@
       के के सले कसैसाँग अन्य बन्द वातावरणिरुमा (क्वारानिाइन, िोिल/
       रेिुरेन्ट नभजकको सम्पकष मा कोिी आएका छ?</div>
     <div class="col-sm-6">
-      <nb-radio-group id="inputCaseStatus" class="row">
+      <nb-radio-group id="inputCaseStatus" name="in-close-proximity-enclosed-space" class="row">
         <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
         <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
         <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
@@ -347,7 +347,7 @@
     <div class="label">
       {{ t.fa.someContact2 | translate }}</div>
     <div class="col-sm-6">
-      <nb-radio-group id="inputCaseStatus" class="row">
+      <nb-radio-group id="inputCaseStatus" name="social-contact" class="row">
         <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
         <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
         <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
@@ -376,7 +376,7 @@
     <div class="label">
       के के स कु नै सामाभजक कायषक्रम/भोज/ हुलमुल/ धामीकसेवािरुमा समावेश हुन गएको छ ?</div>
     <div class="col-sm-6">
-      <nb-radio-group id="inputCaseStatus" class="row">
+      <nb-radio-group id="inputCaseStatus" name="case-in-party" class="row">
         <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
         <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
         <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
@@ -433,7 +433,7 @@
     <div class="label">
       भाग छ मा एक वा धेरै कन्टयाक्टिरु पत्ता लागेका छन् भक छैनन् ?</div>
     <div class="col-sm-6">
-      <nb-radio-group id="inputCaseStatus" class="row">
+      <nb-radio-group id="inputCaseStatus" name="one-or-more-contact" class="row">
         <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
         <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
 

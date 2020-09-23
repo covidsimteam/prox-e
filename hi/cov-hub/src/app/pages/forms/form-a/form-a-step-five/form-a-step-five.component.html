@@ -5,7 +5,7 @@
   <div class="col-md-4 col-lg-4">
     <div class="form-a">
       <label class="title">{{ t.fa.isolationHospital | translate }}</label>
-      <nb-radio-group id="inputCaseStatus" class="row">
+      <nb-radio-group id="inputCaseStatus" name="hospitalized" class="row">
         <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
         <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
     </nb-radio-group>
@@ -33,7 +33,7 @@
   <div class="col-md-4 col-lg-4">
     <div class="form-a">
       <label class="title">{{ t.fa.hospitalLocation | translate }}</label>
-      <nb-radio-group id="inputCaseStatus" class="row">
+      <nb-radio-group id="inputCaseStatus" name="isolated-location" class="row">
         <nb-radio>{{ t.fa.home | translate }}</nb-radio>
         <nb-radio>{{ t.fa.organization | translate }}</nb-radio>
     </nb-radio-group>
@@ -61,7 +61,7 @@
   <div class="col-md-4 col-lg-4">
     <div class="form-a">
       <label class="title">{{ t.fa.ventilation | translate }}</label>
-      <nb-radio-group id="inputCaseStatus" class="row">
+      <nb-radio-group id="inputCaseStatus" name="ventilator" class="row">
         <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
         <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
         <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
