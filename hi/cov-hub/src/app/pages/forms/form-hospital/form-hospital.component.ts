@@ -27,7 +27,7 @@ export class FormHospitalComponent implements OnInit {
   provinces: string[];
   destinationOpts: string[] | undefined;
   addressOpts: string[] | undefined;
-  districts = { destinationOpts: this.destinationOpts, addressOpts: this.addressOpts};
+  districts = { destinationOpts: null, addressOpts: null };
 
   permanentAddrProvince: string = '';
   finalDestProvince: string = '';

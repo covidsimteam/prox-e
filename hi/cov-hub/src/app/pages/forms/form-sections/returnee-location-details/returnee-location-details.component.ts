@@ -16,10 +16,10 @@ export class ReturneeLocationDetailsComponent implements OnInit {
   provinces: string[];
   destinationOpts: string[] | undefined;
   addressOpts: string[] | undefined;
-  districts = { destinationOpts: this.destinationOpts, addressOpts: this.addressOpts};
 
   permanentAddrProvince: string = '';
   finalDestProvince: string = '';
+  districts = { destinationOpts: null, addressOpts: null};
 
   constructor() { }
 

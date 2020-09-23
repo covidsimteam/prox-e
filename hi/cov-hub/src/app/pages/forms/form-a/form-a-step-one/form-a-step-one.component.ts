@@ -17,7 +17,7 @@ export class FormAStepOneComponent implements OnInit {
     this.countries = COUNTRIES;
   }
 
-changeCountry(event){
+changeCountry(_: any) {
 
 }
 

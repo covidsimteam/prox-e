@@ -35,17 +35,17 @@ const routes: Routes = [{
       component: ECommerceComponent,
     },
     {
-      path: 'secured/casesandct',
+      path: 'cases',
       canActivate: [AuthGuard],
       loadChildren: caseTracingModule,
     },
     {
-      path: 'secured/forms',
+      path: 'forms',
       canActivate: [AuthGuard],
       loadChildren: formsModule,
     },
     {
-      path: 'secured/maps',
+      path: 'maps',
       canActivate: [AuthGuard],
       loadChildren: mapsModule,
     },
@@ -54,12 +54,12 @@ const routes: Routes = [{
       loadChildren: chartsModule,
     },
     {
-      path: 'secured/tables',
+      path: 'tables',
       canActivate: [AuthGuard],
       loadChildren: tablesModule,
     },
     {
-      path: 'secured/profile',
+      path: 'profile',
       canActivate: [AuthGuard],
       component: ProfileComponent
     },

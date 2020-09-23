@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { COUNTRIES , NEARBY_COUNTRIES } from '../../../../@core/data/countries.geo';
+import { COUNTRIES } from '../../../../@core/data/countries.geo';
+import { PROVINCES } from '../../../../@core/data/province-districts.geo';
 import { TranslationServiceEn } from '../../../../services/i18n/translation-gen.service';
-import { PROVINCES} from '../../../../@core/data/province-districts.geo';
 @Component({
   selector: 'cov-form-a-step-one-a',
   templateUrl: './form-a-step-one-a.component.html',
@@ -21,33 +21,28 @@ export class FormAStepOneAComponent implements OnInit {
   }
 
 
-  changeCountry(event){
-
+  changeCountry(event: any) {
+    // TODO check and remove
   }
 
 
-  provinceChanged(event){
+  provinceChanged(event: any) {
 
-    var prov = PROVINCES.filter(obj => {
+    const prov = PROVINCES.filter(obj => {
       return obj.name === event;
     });
-
-    console.log(JSON.stringify(prov));
 
     this.districts = prov[0].districts;
   }
 
 
-  districtChanged(event){
-
+  districtChanged(event: any) {
+    // TODO check and remove
   }
 
 
-  loadProvincesForCountry(countryName:string){
-
-    //this.countryProvinces = country.states('US');
-    //input country -> country ko province haru
-
+  loadProvincesForCountry(countryName: string) {
+    // TODO check and remove
   }
 
 }
