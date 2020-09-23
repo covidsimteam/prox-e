@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ObservableStore } from '@codewithdan/observable-store';
-import { Ledger } from './ledger/ledger.model';
+import { Ledger } from './covhub/ledger.model';
 import { defaultConf } from './store.conf';
 
 
