@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { COUNTRIES, NEARBY_COUNTRIES } from '../../../@core/data/countries.geo';
 import { PROVINCES } from '../../../@core/data/province-districts.geo';
+import { Formeta } from '../formeta.class';
 
 class TestRecord {
   date: Date;
@@ -19,7 +20,7 @@ class SymptomRecord {
   styleUrls: ['./form-hospital.component.scss'],
   templateUrl: './form-hospital.component.html',
 })
-export class FormHospitalComponent implements OnInit {
+export class FormHospitalComponent extends Formeta implements OnInit {
 
   countries: string[];
   nearbyCountries: string[];
@@ -76,4 +77,21 @@ export class FormHospitalComponent implements OnInit {
   addRDTRecord(_: boolean) {
     this.rdtRecords = [ ...this.rdtRecords, new TestRecord()];
   }
+
+  formInit(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  onFormChanges(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  saveChanges(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  loadChanges(): void {
+    throw new Error('Method not implemented.');
+  }
+
 }

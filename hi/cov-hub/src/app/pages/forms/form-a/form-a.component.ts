@@ -5,13 +5,14 @@ import { take } from 'rxjs/operators';
 
 import { TranslationServiceEn } from '../../../services/i18n/translation-gen.service';
 import { StepState } from '../form.model';
+import { Formeta } from '../formeta.class';
 
 @Component({
   selector: 'ngx-form-a',
   templateUrl: './form-a.component.html',
   styleUrls: ['./form-a.component.scss']
 })
-export class FormAComponent implements OnInit, OnDestroy {
+export class FormAComponent extends Formeta implements OnInit, OnDestroy {
 
   aForm: FormGroup;
   caseStatus: string;
@@ -24,7 +25,8 @@ export class FormAComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private translator: TranslateService,
     public t: TranslationServiceEn
-    ) {
+  ) {
+    super();
     translator.use('en');
     translator.get(t.fab.thahaChhaina)
       .pipe(take(1))
@@ -66,6 +68,22 @@ export class FormAComponent implements OnInit, OnDestroy {
     this.caseStatus = event as string;
   }
 
-  formValueChanged(formValue: any) {}
+  formValueChanged(_: any) { }
+
+  formInit(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  onFormChanges(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  saveChanges(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  loadChanges(): void {
+    throw new Error('Method not implemented.');
+  }
 
 }
