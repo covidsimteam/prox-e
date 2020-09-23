@@ -80,6 +80,7 @@
     "@angular/router": "^10.1.2",
     "@angular/service-worker": "^10.1.2",
     "@asymmetrik/ngx-leaflet": "^8.1.0",
+    "@codewithdan/observable-store": "^2.2.11",
     "@fullcalendar/angular": "^5.3.1",
     "@fullcalendar/core": "^5.3.1",
     "@fullcalendar/daygrid": "^5.3.2",
