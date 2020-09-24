@@ -21,6 +21,7 @@ export enum Databases {
   audit = 'usage_audit',
   matrix = 'matrix',
   roles = 'roles',
+  history = 'history',
   cict = 'cict'
 }
 

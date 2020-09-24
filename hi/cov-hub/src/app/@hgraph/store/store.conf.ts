@@ -4,4 +4,4 @@ export const logStateChanges = true;
 export const defaultConf = {
   trackStateHistory,
   logStateChanges,
-}
+};
