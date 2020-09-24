@@ -18,7 +18,7 @@ All application history changes and a log of all historically significant works 
 
 ## Historical Work
 
-A log of all historically significant works are available via push for all subscibers through the `history-work.service`. Historically significat works are defined as those marked as essential works in our specification.
+A log of all historically significant works are available via push for all subscibers through the `history-work.service`. Historically significant works are defined as those marked as essential works in our specification.
 
 
 ## Herder
@@ -28,7 +28,7 @@ A herder is akin to a `ZooKeeper` because it redirects streams to different rele
 
 ## Database
 
-The history service uses the `database.service` to persist history updates. This history service's persist method is used by the Ledger to send the history persist command.
+The history service uses the `database.service` to persist history updates. This history service's `persist` method is used by the Ledger to send the history persist request.
 
 ## Transaction
 
