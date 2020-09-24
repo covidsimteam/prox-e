@@ -1,6 +1,6 @@
 import { Province } from '../../../@core/data/country-provinces';
-import { NepaliDate, MatchA, District, Municipality, Ward, Tole } from '../../../@models/cict/forms/forms.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { NepaliDate, MatchA, Ward, Tole, District, Municipality } from '../../../@hgraph/store/covhub/forms.model';
 
 export interface NewCaseFormeta {
   reportedDate: Date;
