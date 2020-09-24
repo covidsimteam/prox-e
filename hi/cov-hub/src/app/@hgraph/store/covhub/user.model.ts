@@ -1,31 +1,9 @@
-export interface Coordinates {
-  xLat: number;
-  yLng: number;
-  zAlt: number;
-  time: number;
-}
-
-export function makeCoordinates(
-  input: {
-    xLat: number,
-    yLng: number,
-    zAlt: number,
-    time: number,
-  }
-): Coordinates {
-  return {
-    xLat: input.xLat,
-    yLng: input.yLng,
-    zAlt: input.zAlt,
-    time: input.time,
-  };
-}
-
-
 export interface Address {
   id: number;
   details: string[];
 }
+
+export type AddressPatch = Partial<Address>;
 
 export function makeAddress(
   input: {
@@ -46,6 +24,8 @@ export interface User {
   locations: {[key: string]: Coordinates};
   addresses: {[key: string]: Address};
 }
+
+export type UserPatch = Partial<User>;
 
 export function makeUser(
   input: {

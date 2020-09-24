@@ -1,25 +1,4 @@
-export interface Coordinates {
-  xLat: number;
-  yLng: number;
-  zAlt: number;
-  time: number;
-}
-
-export function makeCoordinates(
-  input: {
-    xLat: number,
-    yLng: number,
-    zAlt: number,
-    time: number,
-  }
-): Coordinates {
-  return {
-    xLat: input.xLat,
-    yLng: input.yLng,
-    zAlt: input.zAlt,
-    time: input.time,
-  };
-}
+import { Coordinates } from './coordinates.model';
 
 export interface CaseState {
   aFormFilled: boolean;
@@ -31,6 +10,8 @@ export interface CaseState {
   sourceOfInfection: string;
   placeOfInfection: Coordinates;
 }
+
+export type CaseStatePatch = Partial<CaseState>;
 
 export function makeCaseState(
   input: {
@@ -69,6 +50,8 @@ export interface Information {
   caseInvestigator: string;
   caseState: CaseState;
 }
+
+export type InformationPatch = Partial<Information>;
 
 export function makeInformation(
   input: {

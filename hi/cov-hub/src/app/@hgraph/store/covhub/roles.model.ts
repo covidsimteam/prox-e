@@ -4,6 +4,8 @@ export interface Admin {
   key: string;
 }
 
+export type AdminPatch = Partial<Admin>;
+
 export function makeAdmin(
   input: {
     domain: string,
@@ -24,6 +26,8 @@ export interface CaseInvestigator {
   aFormsStarted: string[];
   aFormsFinished: string[];
 }
+
+export type CaseInvestigatorPatch = Partial<CaseInvestigator>;
 
 export function makeCaseInvestigator(
   input: {
@@ -46,6 +50,8 @@ export interface ContactTracer {
   b1Forms: string[];
 }
 
+export type ContactTracerPatch = Partial<ContactTracer>;
+
 export function makeContactTracer(
   input: {
     id: string,
@@ -62,6 +68,8 @@ export interface ContactFollowup {
   id: string;
   b2Forms: string[];
 }
+
+export type ContactFollowupPatch = Partial<ContactFollowup>;
 
 export function makeContactFollowup(
   input: {
@@ -80,6 +88,8 @@ export interface Coordinator {
   cases: string[];
   investigators: CaseInvestigator[];
 }
+
+export type CoordinatorPatch = Partial<Coordinator>;
 
 export function makeCoordinator(
   input: {

@@ -1,4 +1,8 @@
-
+export interface Form {
+  name: string;
+  roles: string[];
+  flow: string;
+}
 export interface NepaliDate {
   date: Date;
   mixEngNep: boolean;

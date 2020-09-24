@@ -9,6 +9,8 @@ export interface Step1 {
   twoDaysReached: boolean;
 }
 
+export type Step1Patch = Partial<Step1>;
+
 export function makeStep1(
   input: {
     coordinatorInitiated: boolean,
@@ -39,6 +41,8 @@ export interface StepStats {
   numberOfContacts: number;
 }
 
+export type StepStatsPatch = Partial<StepStats>;
+
 export function makeStepStats(
   input: {
     sourcesOfInfection: string[],
@@ -62,6 +66,8 @@ export interface Step2 {
   stepStats: StepStats;
   yellowUpdateFinished: boolean;
 }
+
+export type Step2Patch = Partial<Step2>;
 
 export function makeStep2(
   input: {
@@ -97,6 +103,8 @@ export interface Step3 {
   stepStats: StepStats;
   yellowUpdateFinished: boolean;
 }
+
+export type Step3Patch = Partial<Step3>;
 
 export function makeStep3(
   input: {
@@ -140,6 +148,8 @@ export interface Step4 {
   yellowUpdateFinished: boolean;
 }
 
+export type Step4Patch = Partial<Step4>;
+
 export function makeStep4(
   input: {
     contactFollower: string,
@@ -179,6 +189,8 @@ export interface Step5 {
   sentToLab: boolean;
 }
 
+export type Step5Patch = Partial<Step5>;
+
 export function makeStep5(
   input: {
     labPersonnel: string,
@@ -205,6 +217,8 @@ export interface Step6 {
   contacts: string[];
   allNotified: boolean;
 }
+
+export type Step6Patch = Partial<Step6>;
 
 export function makeStep6(
   input: {

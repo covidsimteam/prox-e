@@ -4,6 +4,8 @@ export interface Gender {
   biological: string;
 }
 
+export type GenderPatch = Partial<Gender>;
+
 export function makeGender(
   input: {
     individual: string,
@@ -27,6 +29,8 @@ export interface Person {
   employer: string;
   employerProvidedId: string;
 }
+
+export type PersonPatch = Partial<Person>;
 
 export function makePerson(
   input: {
@@ -56,7 +60,6 @@ export function makePerson(
 
 
 export type Persons = Person[];
-
 
 export type UserId = string;
 

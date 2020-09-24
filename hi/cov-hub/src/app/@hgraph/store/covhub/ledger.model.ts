@@ -7,3 +7,5 @@ export interface Ledger {
   eventPayloadGrid: unknown[];
   id: string;
 }
+
+export type LedgePatch = Partial<Ledger>;
