@@ -104,3 +104,16 @@ export function makeCoordinator(
     investigators: input.investigators,
   };
 }
+
+export type Role = Admin
+  | ContactTracer
+  | CaseInvestigator
+  | ContactFollowup
+  | Coordinator;
+
+
+export type RolePatch = AdminPatch
+  | ContactTracerPatch
+  | CaseInvestigatorPatch
+  | ContactFollowupPatch
+  | CoordinatorPatch;

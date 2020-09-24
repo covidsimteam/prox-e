@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { AuthService } from '../../@auth/core/auth.service';
-
-import { SideEffect, Auth, Form } from '../impure/effect.model';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { LedgerService } from './ledger.service';
+import { ObservableStore } from '@codewithdan/observable-store';
+import { BehaviorSubject } from 'rxjs';
+import { AuthService } from '../../../@auth/core/auth.service';
+import { Step } from '../covhub/steps.model';
+import { LedgerService } from '../ledger/ledger.service';
+import { Auth, File, Form, SideEffect } from '../state/impure/effect.model';
+import { defaultConf } from '../store.conf';
 
 
 @Injectable({
@@ -56,11 +58,13 @@ export class FileHistory {
 @Injectable({
   providedIn: 'root'
 })
-export class HistoryWorkService {
+export class HistoryWorkService extends ObservableStore<Step> {
 
   constructor(
     protected authService: AuthService,
     protected auth: AuthHistory,
     protected form: FormHistory,
-    protected file: FileHistory) { }
+    protected file: FileHistory) {
+      super(defaultConf);
+    }
 }

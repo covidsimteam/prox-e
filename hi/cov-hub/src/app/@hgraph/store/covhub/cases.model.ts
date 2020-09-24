@@ -37,7 +37,7 @@ export function makeCaseState(
   };
 }
 
-export interface Information {
+export interface CaseInformation {
   caseCoordinates: Coordinates;
   reportingInstitution: string;
   nameOfCase: string;
@@ -51,7 +51,7 @@ export interface Information {
   caseState: CaseState;
 }
 
-export type InformationPatch = Partial<Information>;
+export type InformationPatch = Partial<CaseInformation>;
 
 export function makeInformation(
   input: {
@@ -67,7 +67,7 @@ export function makeInformation(
     caseInvestigator: string,
     caseState: CaseState,
   }
-): Information {
+): CaseInformation {
   return {
     caseCoordinates: input.caseCoordinates,
     reportingInstitution: input.reportingInstitution,

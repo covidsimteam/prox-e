@@ -235,3 +235,6 @@ export function makeStep6(
     allNotified: input.allNotified,
   };
 }
+
+export type Step = Step1 | Step2 | Step3 | Step4 | Step5 | Step6;
+export type StepPatch = Step1Patch | Step2Patch | Step3Patch | Step4Patch | Step5Patch | Step6Patch;

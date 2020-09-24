@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HistoryWorkService } from './history-work.service';
-import { SideEffect, Hist } from '../impure/effect.model';
+
 import { BehaviorSubject } from 'rxjs';
-import { DatabaseService } from './database.service';
-import { Databases } from '../../@models/domain.model';
+import { SideEffect, Hist } from '../state/impure/effect.model';
+import { DatabaseService } from '../database/database.service';
+import { Databases } from '../../../@models/domain.model';
 
 @Injectable({
   providedIn: 'root'
