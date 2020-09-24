@@ -4,7 +4,7 @@ This repo uses Dan Wahlin's minimal in size, maximal in awesomeness `ObservableS
 
 ## Invariants
 
-All settings and preferences, and configs, that must remain invariant for the given user session for all sessions, are available via push for all subscibers through the `invariants.service`.
+All settings and preferences, and configs, that must remain invariant for the given user session or all sessions, are available via push for all subscibers through the `invariants.service`.
 
 
 ## Ledger
