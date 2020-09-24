@@ -18,7 +18,9 @@ All application history changes and a log of all historically significant works 
 
 ## Historical Work
 
-A log of all historically significant works are available via push for all subscibers through the `history-work.service`. Historically significant works are defined as those marked as essential works in our specification.
+A log of all historically significant works are available via push for all subscibers through the `history-work.service`. 
+
+Historically significant works are defined as those marked as essential works in our specification.
 
 
 ## Herder
@@ -28,11 +30,17 @@ A herder is akin to a `ZooKeeper` because it redirects streams to different rele
 
 ## Database
 
-The history service uses the `database.service` to persist history updates. This history service's `persist` method is used by the Ledger to send the history persist request.
+The history service uses the `database.service` to persist history updates. 
+
+This history service's `persist` method is used by the Ledger to send the history persist request.
 
 ## Transaction
 
-Any exchange with any third party remote service is defined as a transaction. `SideEffect<T>` free transactions can be rolled back whereas `Pure<T>` transactions can always be rolled back. All transactions can be monitored by the `transaction.service` if the transaction service and/or annotation is used for a given transaction for a DB or event queue.
+Any exchange with any third party remote service is defined as a transaction. 
+
+`SideEffect<T>` free transactions can be rolled back whereas `Pure<T>` transactions can always be rolled back. 
+
+All transactions can be monitored by the `transaction.service` if the transaction service and/or annotation is used for a given DB or event queue transaction.
 
 _________________________________________________
 
@@ -56,7 +64,7 @@ Context dependent required encryption provider.
 
 ### Overlay
 
-Any additional context that can overlaid onto an exist component or known state can be accessed from this service.
+Any additional context that can be overlaid onto an exist component or known state can be accessed from this service.
 
 ### Sim
 
@@ -68,4 +76,6 @@ All controls and setups for a test simulation can be accessed from this service.
 
 ### Work
 
-All actions done by the CovHub services itself is defined as work whereas all actions from the users are defined as work inputs. All works and work inputs for those works are available for read via `work.service`.
+All actions done by the CovHub services itself is defined as work whereas all actions from the users are defined as work inputs. 
+
+All works and work inputs for those works are available for read via `work.service`.
