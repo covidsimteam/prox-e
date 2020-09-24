@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ObservableStore } from '@codewithdan/observable-store';
-import { Ledger } from './covhub/ledger.model';
-import { defaultConf } from './store.conf';
-import { HistoryService } from './history.service';
-import { SideEffect, Hist } from '../impure/effect.model';
-
+import { Ledger } from '../covhub/ledger.model';
+import { HistoryService } from '../history/history.service';
+import { Hist, SideEffect } from '../state/impure/effect.model';
+import { defaultConf } from '../store.conf';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +16,9 @@ export class LedgerService extends ObservableStore<Ledger> {
     super(defaultConf);
   }
 
-  updateHistory(delta: SideEffect<Hist>) { this.history.update(delta); }
+  update(delta: SideEffect<Hist>) { this.history.update(delta); }
 
-  prePersistHistory(distilled: SideEffect<Hist>) { this.history.process(distilled); }
+  prePersist(distilled: SideEffect<Hist>) { this.history.process(distilled); }
 
-  persistHistory(payload: SideEffect<Hist>) { this.history.persist(payload); }
+  persist(payload: SideEffect<Hist>) { this.history.persist(payload); }
 }
