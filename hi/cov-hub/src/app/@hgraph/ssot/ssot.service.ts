@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { HgraphService } from '../hgraph.service';
-import { HGraph, Graph } from '../model/hgraph.model';
+import { Observable } from 'rxjs';
+import { StateService } from '../../@core/utils';
+import { Graph, HGraph } from '../model/hgraph.model';
+import { LedgerService } from '../store/ledger/ledger.service';
 
 export type TruthStream = Observable<HGraph | Graph>;
 @Injectable({
@@ -10,18 +11,7 @@ export type TruthStream = Observable<HGraph | Graph>;
 export class SsotService {
 
   constructor(
-    private hgraphs: HgraphService
+    protected state: StateService,
+    protected store: LedgerService
     ) { }
-
-    get graph(): Graph {
-        return this.hgraphs.graph;
-    }
-
-    get hgraph(): HGraph {
-      return this.hgraphs.hgraph;
-    }
-
-    get truth(): TruthStream {
-      return of(this.hgraphs.graph, this.hgraphs.hgraph);
-    }
 }

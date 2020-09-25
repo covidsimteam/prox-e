@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { BinaryEdge, Edge } from './model/edge.model';
 import { Graph, HGraph } from './model/hgraph.model';
 import { Node } from './model/node.model';
+import { SsotService, TruthStream } from './ssot/ssot.service';
+import { of } from 'rxjs';
 
 
 @Injectable({
@@ -12,7 +14,10 @@ export class HgraphService {
   private edgeArr: BinaryEdge[];
   private hedgeArr: Edge[];
 
-  constructor(private idStr: string) { }
+  constructor(
+    private idStr: string,
+    protected ssot: SsotService
+    ) { }
 
   /**
    * Gets node if it exists in graph, else returns
@@ -107,4 +112,7 @@ export class HgraphService {
     return hgraph;
   }
 
+  get truth(): TruthStream {
+    return of(this.graph, this.hgraph);
+  }
 }
