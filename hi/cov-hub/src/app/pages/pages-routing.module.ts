@@ -22,49 +22,59 @@ const tablesModule = () => import('./tables/tables.module')
 const caseTracingModule = () => import('./case-tracing/case-tracing.module')
   .then(m => m.CaseTracingModule);
 
+export const ROUTE_HOME = 'home';
+export const ROUTE_STATS = 'stats';
+export const ROUTE_CASES = 'cases';
+export const ROUTE_TRACES = 'traces';
+export const ROUTE_FORMS = 'forms';
+export const ROUTE_MAPS = 'maps';
+export const ROUTE_CHARTS = 'charts';
+export const ROUTE_TABLES = 'tables';
+export const ROUTE_PROFILE = 'profile';
+
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
     {
-      path: 'home',
+      path: ROUTE_HOME,
       component: DashboardComponent,
     },
     {
-      path: 'stats',
+      path: ROUTE_STATS,
       component: ECommerceComponent,
     },
     {
-      path: 'cases',
+      path: ROUTE_CASES,
       canActivate: [AuthGuard],
       loadChildren: caseTracingModule,
     },
     {
-      path: 'traces',
+      path: ROUTE_TRACES,
       canActivate: [AuthGuard],
       loadChildren: caseTracingModule,
     },
     {
-      path: 'forms',
+      path: ROUTE_FORMS,
       canActivate: [AuthGuard],
       loadChildren: formsModule,
     },
     {
-      path: 'maps',
+      path: ROUTE_MAPS,
       canActivate: [AuthGuard],
       loadChildren: mapsModule,
     },
     {
-      path: 'charts',
+      path: ROUTE_CHARTS,
       loadChildren: chartsModule,
     },
     {
-      path: 'tables',
+      path: ROUTE_TABLES,
       canActivate: [AuthGuard],
       loadChildren: tablesModule,
     },
     {
-      path: 'profile',
+      path: ROUTE_PROFILE,
       canActivate: [AuthGuard],
       component: ProfileComponent
     },
