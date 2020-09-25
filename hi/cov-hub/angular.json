@@ -325,38 +325,38 @@
         }
       }
     },
-    "file-sys": {
+    "fold-sys": {
       "projectType": "library",
-      "root": "projects/file-sys",
-      "sourceRoot": "projects/file-sys/src",
+      "root": "projects/fold-sys",
+      "sourceRoot": "projects/fold-sys/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/file-sys/tsconfig.lib.json",
-            "project": "projects/file-sys/ng-package.json"
+            "tsConfig": "projects/fold-sys/tsconfig.lib.json",
+            "project": "projects/fold-sys/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/file-sys/tsconfig.lib.prod.json"
+              "tsConfig": "projects/fold-sys/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/file-sys/src/test.ts",
-            "tsConfig": "projects/file-sys/tsconfig.spec.json",
-            "karmaConfig": "projects/file-sys/karma.conf.js"
+            "main": "projects/fold-sys/src/test.ts",
+            "tsConfig": "projects/fold-sys/tsconfig.spec.json",
+            "karmaConfig": "projects/fold-sys/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/file-sys/tsconfig.lib.json",
-              "projects/file-sys/tsconfig.spec.json"
+              "projects/fold-sys/tsconfig.lib.json",
+              "projects/fold-sys/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

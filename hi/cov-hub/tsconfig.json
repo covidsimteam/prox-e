@@ -15,6 +15,10 @@
       "file-sys": [
         "dist/file-sys/file-sys",
         "dist/file-sys"
+      ],
+      "fold-sys": [
+        "dist/fold-sys/fold-sys",
+        "dist/fold-sys"
       ]
     }
   },
