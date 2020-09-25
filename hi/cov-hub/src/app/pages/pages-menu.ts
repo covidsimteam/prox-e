@@ -100,7 +100,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'Aggregates',
+    title: 'Files',
     icon: 'bar-chart-2-outline',
     children: [
       {
