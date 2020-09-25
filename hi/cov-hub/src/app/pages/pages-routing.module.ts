@@ -44,11 +44,6 @@ const routes: Routes = [{
       loadChildren: CaseTracingModule,
     },
     {
-      path: ROUTE_TRACES,
-      canActivate: [AuthGuard],
-      loadChildren: CaseTracingModule,
-    },
-    {
       path: ROUTE_FORMS,
       canActivate: [AuthGuard],
       loadChildren: HealthFormsModule,

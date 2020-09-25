@@ -54,10 +54,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: `${CASES}`
       },
       {
-        title: 'Traces',
-        link: `${TRACES}`
-      },
-      {
         title: 'Form A',
         link: `${FORM_A}`,
       },
