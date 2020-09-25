@@ -1,18 +1,27 @@
+
+import { Component, Injectable } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { CovFormComponent } from '../form/cov-form/cov-form.component';
 
 const isStringEdgeCase = (string: string) => {
   return string.trim() === '' || string.trim() !== string;
 };
 
+
+@Injectable({
+  providedIn: CovFormComponent
+})
 export class CustomValidators {
+
+  templateUrl: string;
 
   // these validators are for cases when the browser does not support
   // input type=date,time and color and the browser falls back to type=text
   static integerValidator(ac: AbstractControl): ValidationErrors {
     const error = { invalidInt: true };
-    const isValidInt = (number) => Number.isInteger(number) ? null : error;
+    const isValidInt = (num: number) => Number.isInteger(num) ? null : error;
     // Handle edge cases like Number(' ') => 0 and Number('  10 ') => 10
     return typeof ac.value !== 'string' ?
       isValidInt(ac.value) :
@@ -52,7 +61,7 @@ export class CustomValidators {
   }
 
   // Allows us to supply a different errorType for specific patterns
-  static pattern(pattern, errorType = 'pattern') {
+  static pattern(pattern: string | RegExp, errorType = 'pattern') {
     return (ac: AbstractControl): ValidationErrors => {
       return Validators.pattern(pattern)(ac) ? { [errorType]: true } : null;
     };
@@ -232,6 +241,55 @@ export class CustomValidators {
       return { 'notFileMatch': true };
     }
     return null;
+  }
+
+  patternValidator(): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } => {
+      if (!control.value) {
+        return null;
+      }
+      const regex = new RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$');
+      const valid = regex.test(control.value);
+      return valid ? null : { invalidPassword: true };
+    };
+  }
+
+  MatchPassword(password: string, confirmPassword: string) {
+    return (formGroup: FormGroup) => {
+      const passwordControl = formGroup.controls[password];
+      const confirmPasswordControl = formGroup.controls[confirmPassword];
+
+      if (!passwordControl || !confirmPasswordControl) {
+        return null;
+      }
+
+      if (confirmPasswordControl.errors && !confirmPasswordControl.errors.passwordMismatch) {
+        return null;
+      }
+
+      if (passwordControl.value !== confirmPasswordControl.value) {
+        confirmPasswordControl.setErrors({ passwordMismatch: true });
+      } else {
+        confirmPasswordControl.setErrors(null);
+      }
+    };
+  }
+
+  userNameValidator(userControl: AbstractControl) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        if (this.validateUserName(userControl.value)) {
+          resolve({ userNameNotAvailable: true });
+        } else {
+          resolve(null);
+        }
+      }, 1000);
+    });
+  }
+
+  validateUserName(userName: string) {
+    const UserList = ['ankit', 'admin', 'user', 'superuser'];
+    return (UserList.indexOf(userName) > -1);
   }
 
 }
