@@ -1,1 +1,9 @@
-<p>mat-radio works!</p>
+<mat-card>
+  <div class="container" tabindex="0" (keydown)="onKeyDown($event)">
+    <mat-radio-group class="radio-group" [(ngModel)]="favouriteFruit">
+      <mat-radio-button class="radio-button" *ngFor="let fruit of fruits" [value]="fruit">
+        {{ fruit }}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+</mat-card>

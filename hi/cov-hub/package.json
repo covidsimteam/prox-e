@@ -64,6 +64,7 @@
   "dependencies": {
     "@ag-grid-community/all-modules": "^24.0.0",
     "@ag-grid-community/core": "^24.0.0",
+    "@ag-grid-community/angular": "^24.0.0",
     "@ag-grid-community/csv-export": "^24.0.0",
     "@ajsf/core": "^0.1.5",
     "@ajsf/material": "^0.1.4",
