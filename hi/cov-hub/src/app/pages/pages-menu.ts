@@ -1,16 +1,45 @@
 import { NbMenuItem } from '@nebular/theme';
+import {
+  CASES,
+  TRACES,
+  CHARTS_STATS,
+  FORM_A,
+  FORM_B1,
+  FORM_B2,
+  FORM_X,
+  GRAPHS_CONCEPTS,
+  GRAPHS_COUCHES,
+  GRAPHS_POTATOES,
+  GRAPHS_SYS_CONCEPTS,
+  HOME,
+  HOSPITAL,
+  ISOLATION,
+  KATHMANDU,
+  NEPAL,
+  MUNICIPALITY,
+  PCR_LAB,
+  POI,
+  PREVENTIVES,
+  REACTIVES,
+  QUARANTINE,
+  RDT_LAB,
+  STATS,
+  TABLE_PCR,
+  TABLE_RDT,
+  TABLE_RET,
+} from './pages.conf';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Core Panels',
     icon: 'home-outline',
-    link: '/hub/home',
+    link: `${HOME}`,
     home: true,
   },
   {
     title: 'Core Stats',
     icon: 'activity-outline',
-    link: '/hub/stats',
+    link: `${STATS}`,
   },
   {
     title: 'Forms',
@@ -22,55 +51,51 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Cases',
-        link: '/hub/cases'
-      },
-      {
-        title: 'Traces',
-        link: '/hub/traces'
+        link: `${CASES}`
       },
       {
         title: 'Form A',
-        link: '/hub/forms/form-a',
+        link: `${FORM_A}`,
       },
       {
         title: 'Form B1',
-        link: '/hub/forms/form-b1',
+        link: `${FORM_B1}`,
       },
       {
         title: 'Form B2',
-        link: '/hub/forms/form-b2',
+        link: `${FORM_B2}`,
       },
-      // {
-      //   title: 'Form X',
-      //   link: '/hub/forms/form-x',
-      // },
+      {
+        title: 'Form X',
+        link: `${FORM_X}`,
+      },
       {
         title: 'Point of Entry',
-        link: '/hub/forms/point-of-entry',
+        link: `${POI}`,
       },
       {
         title: 'Quarantine Facility',
-        link: '/hub/forms/quarantine-facility',
+        link: `${QUARANTINE}`,
       },
       {
         title: 'RDT Lab',
-        link: '/hub/forms/rdt-lab',
+        link: `${RDT_LAB}`,
       },
       {
         title: 'PCR Lab',
-        link: '/hub/forms/pcr-lab',
+        link: `${PCR_LAB}`,
       },
       {
         title: 'Isolation',
-        link: '/hub/forms/isolation',
+        link: `${ISOLATION}`,
       },
       {
         title: 'Hospital',
-        link: '/hub/forms/hospital',
+        link: `${HOSPITAL}`,
       },
       {
         title: 'Municipality',
-        link: '/hub/forms/municipality',
+        link: `${MUNICIPALITY}`,
       },
     ],
   },
@@ -80,15 +105,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'PCR Tests',
-        link: '/hub/tables/pcr',
+        link: `${TABLE_PCR}`,
       },
       {
         title: 'RDT Tests',
-        link: '/hub/tables/rdt',
+        link: `${TABLE_RDT}`,
       },
       {
         title: 'Returnees',
-        link: '/hub/tables/returnee',
+        link: `${TABLE_RET}`,
       },
     ],
   },
@@ -101,64 +126,63 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'map-outline',
     children: [
       {
-        title: 'Kathmandu Valley',
-        link: '/hub/maps/area/kathmandu_valley',
+        title: 'Kathmandu',
+        link: `${KATHMANDU}`,
       },
       {
         title: 'Nepal',
-        link: '/hub/maps/nepal',
+        link: `${NEPAL}`,
       },
     ],
   },
   {
     title: 'COVID-19 Stats',
-    icon: 'pie-chart-outline',
-    link: '/hub/charts/echarts',
-  },
-  {
-    title: 'COVID-19 Charts',
     icon: 'activity-outline',
     children: [
       {
+        title: 'COVID-19 Charts',
+        link: `${CHARTS_STATS}`,
+      },
+      {
         title: 'Preventive Measures',
-        link: '/hub/charts/chartjs',
+        link: `${PREVENTIVES}`,
       },
       {
         title: 'Medical Stats',
-        link: '/hub/charts/d3',
+        link: `${REACTIVES}`,
       },
     ],
   },
-  // {
-  //   title: 'Meta Graphs',
-  //   group: true,
-  // },
-  // {
-  //   title: 'Dashboard',
-  //   icon: 'activity-outline',
-  //   children: [
-  //     {
-  //       title: 'Concepts',
-  //       link: '/hub/graphs/concepts',
-  //     },
-  //     {
-  //       title: 'Potatoes',
-  //       link: '/hub/graphs/servers',
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: 'System',
-  //   icon: 'activity-outline',
-  //   children: [
-  //     {
-  //       title: 'Concepts',
-  //       link: '/hub/graphs/concepts',
-  //     },
-  //     {
-  //       title: 'Couches',
-  //       link: '/hub/graphs/servers',
-  //     },
-  //   ],
-  // },
+  {
+    title: 'Meta Graphs',
+    group: true,
+  },
+  {
+    title: 'Dev Dashboard',
+    icon: 'activity-outline',
+    children: [
+      {
+        title: 'Concepts',
+        link: `${GRAPHS_CONCEPTS}`,
+      },
+      {
+        title: 'Potatoes',
+        link: `${GRAPHS_POTATOES}`,
+      },
+    ],
+  },
+  {
+    title: 'System Dashboard',
+    icon: 'activity-outline',
+    children: [
+      {
+        title: 'Concepts',
+        link: `${GRAPHS_SYS_CONCEPTS}`,
+      },
+      {
+        title: 'Couches',
+        link: `${GRAPHS_COUCHES}`,
+      },
+    ],
+  },
 ];

@@ -1,70 +1,69 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {
+  RouterModule,
+  Routes
+} from '@angular/router';
 import { AuthGuard } from '../@auth/guards/auth.guard';
 import { DashboardComponent } from '../@comp/dashboard/dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { PagesComponent } from './pages.component';
 import { ProfileComponent } from './profile/profile/profile.component';
+import { ROUTE_PROFILE,
+   ROUTE_TABLES,
+   HealthFormsModule,
+   CaseTracingModule,
+   ROUTE_HOME,
+   ROUTE_STATS,
+   ROUTE_CASES,
+   ROUTE_TRACES,
+   ROUTE_FORMS,
+   MapsModule,
+   ROUTE_MAPS,
+   ROUTE_CHARTS,
+   ChartsModule,
+   TablesModule
+  } from './pages.conf';
 
-const formsModule = () => import('./forms/forms.module')
-  .then(m => m.HealthFormsModule);
-
-const mapsModule = () => import('./maps/maps.module')
-  .then(m => m.MapsModule);
-
-const chartsModule = () => import('./charts/charts.module')
-  .then(m => m.ChartsModule);
-
-const tablesModule = () => import('./tables/tables.module')
-  .then(m => m.TablesModule);
-
-const caseTracingModule = () => import('./case-tracing/case-tracing.module')
-  .then(m => m.CaseTracingModule);
 
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
     {
-      path: 'home',
+      path: ROUTE_HOME,
       component: DashboardComponent,
     },
     {
-      path: 'stats',
+      path: ROUTE_STATS,
       component: ECommerceComponent,
     },
     {
-      path: 'cases',
+      path: ROUTE_CASES,
       canActivate: [AuthGuard],
-      loadChildren: caseTracingModule,
+      loadChildren: CaseTracingModule,
     },
     {
-      path: 'traces',
+      path: ROUTE_FORMS,
       canActivate: [AuthGuard],
-      loadChildren: caseTracingModule,
+      loadChildren: HealthFormsModule,
     },
     {
-      path: 'forms',
+      path: ROUTE_MAPS,
       canActivate: [AuthGuard],
-      loadChildren: formsModule,
+      loadChildren: MapsModule,
     },
     {
-      path: 'maps',
+      path: ROUTE_CHARTS,
+      loadChildren: ChartsModule,
+    },
+    {
+      path: ROUTE_TABLES,
       canActivate: [AuthGuard],
-      loadChildren: mapsModule,
+      loadChildren: TablesModule,
     },
     {
-      path: 'charts',
-      loadChildren: chartsModule,
-    },
-    {
-      path: 'tables',
-      canActivate: [AuthGuard],
-      loadChildren: tablesModule,
-    },
-    {
-      path: 'profile',
+      path: ROUTE_PROFILE,
       canActivate: [AuthGuard],
       component: ProfileComponent
     },
