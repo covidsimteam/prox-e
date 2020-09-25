@@ -22,6 +22,9 @@
 @import './overrides';
 @import './material/material-overrides';
 
+@import '~ag-grid-community/dist/styles/ag-grid.css';
+@import '~ag-grid-community/dist/styles/ag-theme-material.css';
+
 // install the framework and custom global styles
 @include nb-install() {
 

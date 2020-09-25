@@ -62,6 +62,10 @@
     "v-generate-yml": "vagrant ssh dev -- -t 'cd /vagrant;npm run generate-yml'"
   },
   "dependencies": {
+    "@ag-grid-community/all-modules": "^24.0.0",
+    "@ag-grid-community/core": "^24.0.0",
+    "@ag-grid-community/angular": "^24.0.0",
+    "@ag-grid-community/csv-export": "^24.0.0",
     "@ajsf/core": "^0.1.5",
     "@ajsf/material": "^0.1.4",
     "@akveo/ng2-completer": "^9.0.1",
@@ -92,6 +96,8 @@
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "@swimlane/ngx-charts": "^16.0.0",
+    "ag-grid-angular": "^24.0.0",
+    "ag-grid-community": "^24.0.0",
     "amazing-time-picker": "^1.8.0",
     "angular2-chartjs": "0.5.1",
     "bootstrap": "4.5.2",

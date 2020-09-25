@@ -14,3 +14,4 @@ hi/prox-e/package-lock.json
 hi/cov-hub/src/environments/apiConf.ts
 hi/couch-potato/db/ns_*
 *.log
+hi/couch-potato/db/*.json-*
