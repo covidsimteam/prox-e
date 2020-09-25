@@ -16,7 +16,7 @@ import {
   GovProvinceProperties,
   RoadMajorProperties,
 } from '../../../@models/domain.model';
-import { ReturneeService } from '../../../services/db/returnee.service';
+import { ReturneeService } from '../../../pages/tables/returnee/returnee.service';
 import { MapUtilsService } from '../../services/map-utils.service';
 import { RegionService } from '../../services/region.service';
 import { MapSeroService } from '../map-sero.service';

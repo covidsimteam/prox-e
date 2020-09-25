@@ -3,7 +3,7 @@ import { Component, Injectable } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { CovFormComponent } from '../form/cov-form/cov-form.component';
+import { CovFormComponent } from '../../../../../src/app/pages/forms/form/cov-form/cov-form.component';
 
 const isStringEdgeCase = (string: string) => {
   return string.trim() === '' || string.trim() !== string;

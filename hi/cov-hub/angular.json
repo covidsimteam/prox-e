@@ -244,6 +244,126 @@
           }
         }
       }
+    },
+    "formeta": {
+      "projectType": "library",
+      "root": "projects/formeta",
+      "sourceRoot": "projects/formeta/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/formeta/tsconfig.lib.json",
+            "project": "projects/formeta/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/formeta/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/formeta/src/test.ts",
+            "tsConfig": "projects/formeta/tsconfig.spec.json",
+            "karmaConfig": "projects/formeta/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/formeta/tsconfig.lib.json",
+              "projects/formeta/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "cov-form": {
+      "projectType": "library",
+      "root": "projects/cov-form",
+      "sourceRoot": "projects/cov-form/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/cov-form/tsconfig.lib.json",
+            "project": "projects/cov-form/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cov-form/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cov-form/src/test.ts",
+            "tsConfig": "projects/cov-form/tsconfig.spec.json",
+            "karmaConfig": "projects/cov-form/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cov-form/tsconfig.lib.json",
+              "projects/cov-form/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "fold-sys": {
+      "projectType": "library",
+      "root": "projects/fold-sys",
+      "sourceRoot": "projects/fold-sys/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/fold-sys/tsconfig.lib.json",
+            "project": "projects/fold-sys/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/fold-sys/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/fold-sys/src/test.ts",
+            "tsConfig": "projects/fold-sys/tsconfig.spec.json",
+            "karmaConfig": "projects/fold-sys/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/fold-sys/tsconfig.lib.json",
+              "projects/fold-sys/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "covhub",

@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { RdtService } from './rdt.service';
+import { RdtService } from '../pcr/rdt.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AppConf, appConf } from '../../../environments/environment';
 

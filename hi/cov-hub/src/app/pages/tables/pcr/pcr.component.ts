@@ -3,13 +3,13 @@ import { LocalDataSource } from 'ng2-smart-table';
 import { NgxCsvParser, NgxCSVParserError } from 'ngx-csv-parser';
 import { settings } from '../../../@models/tabular/settings.values';
 
-import { PcrService } from '../../../services/db/pcr.service';
+import { PcrService } from './pcr.service';
 import {
   CSV_UPLOAD_INSTR,
   CSV_UPLOAD_INSTR_ERR,
   CSV_UPLOAD_CONFIRM,
 } from '../../../@core/data/messages';
-import { PcrTableService } from '../../../@comp/pcr/pcr-table.service';
+import { PcrTableService } from './pcr-table.service';
 
 @Component({
   selector: 'ngx-pcr',

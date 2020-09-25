@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { PouchDBService } from '../../services/db/pouchdb.service';
-import { Databases, ExistingDoc } from '../../@models/domain.model';
+import { Databases, ExistingDoc } from '../../../@models/domain.model';
+import { PouchDBService } from '../../../services/db/pouchdb.service';
 
 @Injectable({
   providedIn: 'root'

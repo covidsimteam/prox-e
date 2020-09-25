@@ -16,7 +16,7 @@ import {
   GovProvinceProperties,
   RoadMajorProperties
 } from '../../../@models/domain.model';
-import { ReturneeService } from '../../../services/db/returnee.service';
+import { ReturneeService } from '../../tables/returnee/returnee.service';
 
 
 
