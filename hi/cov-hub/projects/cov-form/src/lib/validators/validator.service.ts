@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { PouchDBService } from '../../../services/db/pouchdb.service';
-import { UserFacade } from '../../../facades/user.service';
+import { PouchDBService } from '../../../../../src/app/services/db/pouchdb.service';
+import { UserFacade } from '../../../../../src/app/facades/user.service';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { Observable } from 'rxjs';
 

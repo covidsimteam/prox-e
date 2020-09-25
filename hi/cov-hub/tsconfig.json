@@ -11,6 +11,10 @@
       "cov-form": [
         "dist/cov-form/cov-form",
         "dist/cov-form"
+      ],
+      "file-sys": [
+        "dist/file-sys/file-sys",
+        "dist/file-sys"
       ]
     }
   },

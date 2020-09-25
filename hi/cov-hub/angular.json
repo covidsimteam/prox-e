@@ -324,6 +324,46 @@
           }
         }
       }
+    },
+    "file-sys": {
+      "projectType": "library",
+      "root": "projects/file-sys",
+      "sourceRoot": "projects/file-sys/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/file-sys/tsconfig.lib.json",
+            "project": "projects/file-sys/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/file-sys/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/file-sys/src/test.ts",
+            "tsConfig": "projects/file-sys/tsconfig.spec.json",
+            "karmaConfig": "projects/file-sys/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/file-sys/tsconfig.lib.json",
+              "projects/file-sys/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "covhub",
