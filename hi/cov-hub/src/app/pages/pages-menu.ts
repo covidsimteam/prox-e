@@ -40,10 +40,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Form B2',
         link: '/hub/forms/form-b2',
       },
-      // {
-      //   title: 'Form X',
-      //   link: '/hub/forms/form-x',
-      // },
+      {
+        title: 'Form X',
+        link: '/hub/forms/form-x',
+      },
       {
         title: 'Point of Entry',
         link: '/hub/forms/point-of-entry',
@@ -129,36 +129,36 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
-  // {
-  //   title: 'Meta Graphs',
-  //   group: true,
-  // },
-  // {
-  //   title: 'Dashboard',
-  //   icon: 'activity-outline',
-  //   children: [
-  //     {
-  //       title: 'Concepts',
-  //       link: '/hub/graphs/concepts',
-  //     },
-  //     {
-  //       title: 'Potatoes',
-  //       link: '/hub/graphs/servers',
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: 'System',
-  //   icon: 'activity-outline',
-  //   children: [
-  //     {
-  //       title: 'Concepts',
-  //       link: '/hub/graphs/concepts',
-  //     },
-  //     {
-  //       title: 'Couches',
-  //       link: '/hub/graphs/servers',
-  //     },
-  //   ],
-  // },
+  {
+    title: 'Meta Graphs',
+    group: true,
+  },
+  {
+    title: 'Dev Dashboard',
+    icon: 'activity-outline',
+    children: [
+      {
+        title: 'Concepts',
+        link: '/hub/graphs/concepts',
+      },
+      {
+        title: 'Potatoes',
+        link: '/hub/graphs/servers',
+      },
+    ],
+  },
+  {
+    title: 'System Dashboard',
+    icon: 'activity-outline',
+    children: [
+      {
+        title: 'Concepts',
+        link: '/hub/graphs/concepts',
+      },
+      {
+        title: 'Couches',
+        link: '/hub/graphs/servers',
+      },
+    ],
+  },
 ];
