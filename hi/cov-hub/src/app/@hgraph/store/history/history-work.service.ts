@@ -3,7 +3,7 @@ import { ObservableStore } from '@codewithdan/observable-store';
 import { BehaviorSubject } from 'rxjs';
 import { AuthService } from '../../../@auth/core/auth.service';
 import { Step } from '../covhub/steps.model';
-import { LedgerService } from '../ledger/ledger.service';
+
 import { Auth, File, Form, SideEffect } from '../state/impure/effect.model';
 import { defaultConf } from '../store.conf';
 
@@ -14,10 +14,6 @@ import { defaultConf } from '../store.conf';
 export class AuthHistory {
 
   protected state = new BehaviorSubject<Auth>(null);
-
-  constructor(
-    protected ledger: LedgerService
-  ) {}
 
   onLogin(e: SideEffect<Auth>) {
     e.action();

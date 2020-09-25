@@ -1,7 +1,8 @@
 import { EventEmitter } from '@angular/core';
 import { RdtService } from '../pages/tables/rdt/rdt.service';
-import { PcrService } from '../services/db/pcr.service';
-import { ReturneeService } from '../services/db/returnee.service';
+
+import { ReturneeService } from '../pages/tables/returnee/returnee.service';
+import { PcrService } from '../pages/tables/pcr/pcr.service';
 
 export interface DBList {
   [dbId: string]: {

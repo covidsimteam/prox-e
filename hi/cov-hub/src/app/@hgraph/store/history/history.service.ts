@@ -6,7 +6,7 @@ import { SideEffect, CovDocument } from '../state/impure/effect.model';
 import { DatabaseService } from '../database/database.service';
 import { Databases } from '../../../@models/domain.model';
 
-export type HistoryStream = [SideEffect<CovDocument>, payload: unknown];
+export type HistoryStream = [SideEffect<CovDocument>, unknown];
 @Injectable({
   providedIn: 'root'
 })

@@ -1,13 +1,11 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { Doc } from '../../@models/domain.model';
-import { Databases, ExistingDoc } from '../../@models/domain.model';
-import { DBService } from './db.service.interface';
-import { PouchDBService } from './pouchdb.service';
-import { AllDocs } from '../../@models/db/all-docs.model';
-import { BulkAddResponse } from '../../@models/db/response.model';
-import { PCRTupleRev } from '../../@models/db/table-headers.model';
-import { PSchema } from '../../@models/db/schema/pschema.model';
-
+import { AllDocs } from '../../../@models/db/all-docs.model';
+import { BulkAddResponse } from '../../../@models/db/response.model';
+import { PCRTupleRev } from '../../../@models/db/table-headers.model';
+import { Databases, Doc, ExistingDoc } from '../../../@models/domain.model';
+import { DBService } from '../../../services/db/db.service.interface';
+import { PouchDBService } from '../../../services/db/pouchdb.service';
+import { PSchema } from '../../../@models/db/schema/pschema.model';
 
 @Injectable({
   providedIn: 'root',
@@ -50,7 +48,8 @@ export class PcrService implements DBService {
   async getAllDistricts(): Promise<Array<PCRTupleRev> | undefined> {
     try {
       const response = await this.getAll();
-      return response?.rows?.map(row => [...row?.doc?.fields, row?.doc?._rev] as PCRTupleRev);
+      return response?.rows?.map(row =>
+        [...row?.doc?.fields, row?.doc?._rev] as unknown as PCRTupleRev);
     } catch (error) {
       throw Error('District-wise PCR test data could not be fetched');
     }

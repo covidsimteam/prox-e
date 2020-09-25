@@ -9,7 +9,8 @@ import {
   CSV_UPLOAD_INSTR_ERR,
   CSV_UPLOAD_CONFIRM,
 } from '../../../@core/data/messages';
-import { RdtTableService } from '../../../@comp/rdt/rdt-table.service';
+
+import { RdtTableService } from './rdt-table.service';
 
 @Component({
   selector: 'ngx-rdt',
