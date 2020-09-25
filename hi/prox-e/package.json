@@ -42,7 +42,7 @@
     "express-session": "1.17.1",
     "fs": "0.0.1-security",
     "hammerjs": "2.0.8",
-    "lodash": "4.17.20",
+    "lodash": "^4.17.20",
     "mem": "6.1.1",
     "minimist": "1.2.5",
     "nano": "8.2.2",
