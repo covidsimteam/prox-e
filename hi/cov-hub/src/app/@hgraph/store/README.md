@@ -38,7 +38,7 @@ This history service's `persist` method is used by the Ledger to send the histor
 
 Any exchange with any third party remote service is defined as a transaction. 
 
-`SideEffect<T>` free transactions can be rolled back whereas `Pure<T>` transactions can always be rolled back. 
+`SideEffect<T>` free transactions can often be rolled back whereas `Pure<T>` transactions can always be rolled back. 
 
 All transactions can be monitored by the `transaction.service` if the transaction service and/or annotation is used for a given DB or event queue transaction.
 
