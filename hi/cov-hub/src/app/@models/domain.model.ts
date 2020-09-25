@@ -1,5 +1,5 @@
 import { EventEmitter } from '@angular/core';
-import { RdtService } from '../services/db/rdt.service';
+import { RdtService } from '../pages/tables/rdt/rdt.service';
 import { PcrService } from '../services/db/pcr.service';
 import { ReturneeService } from '../services/db/returnee.service';
 

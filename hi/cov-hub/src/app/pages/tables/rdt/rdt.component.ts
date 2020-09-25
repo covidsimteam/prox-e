@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { settings } from '../../../@models/tabular/settings.values';
 
-import { RdtService } from '../../../services/db/rdt.service';
+import { RdtService } from './rdt.service';
 import { NgxCSVParserError, NgxCsvParser } from 'ngx-csv-parser';
 import {
   CSV_UPLOAD_INSTR,
