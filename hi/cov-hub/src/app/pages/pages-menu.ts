@@ -1,52 +1,33 @@
 import { NbMenuItem } from '@nebular/theme';
-
 import {
-  ROUTE_HOME,
-  ROUTE_STATS,
-  ROUTE_CASES,
-  ROUTE_TRACES,
-  ROUTE_FORMS,
-  ROUTE_TABLES
- } from './pages-routing.module';
-
-export const ROUTE_HUB = '/hub/';
-export const route = (context: string) => `${ROUTE_HUB}${context}`;
-const HOME = route(ROUTE_HOME);
-const STATS = route(ROUTE_STATS);
-
-const CASES = route(ROUTE_CASES);
-const TRACES = route(ROUTE_TRACES);
-const FORM_A = route(`${ROUTE_FORMS}/form-a`);
-const FORM_B1 = route(`${ROUTE_FORMS}/form-b1`);
-const FORM_B2 = route(`${ROUTE_FORMS}/form-b2`);
-
-const FORM_X = route(`${ROUTE_FORMS}/form-x`);
-
-const POI = route(`${ROUTE_FORMS}/point-of-entry`);
-const QUARANTINE = route(`${ROUTE_FORMS}/quarantine`);
-const RDT_LAB = route(`${ROUTE_FORMS}/rdt-lab`);
-const PCR_LAB = route(`${ROUTE_FORMS}/pcr-lab`);
-
-const ISOLATION = route(`${ROUTE_FORMS}/isolation`);
-const HOSPITAL = route(`${ROUTE_FORMS}/hospital`);
-const MUNICIPALITY = route(`${ROUTE_FORMS}/municipality`);
-
-
-const TABLE_PCR =  route(`${ROUTE_TABLES}/pcr`);
-const TABLE_RDT =  route(`${ROUTE_TABLES}/rdt`);
-const TABLE_RET =  route(`${ROUTE_TABLES}/returnee`);
-
-const KATHMANDU =  route('maps/kathmandu');
-const NEPAL =  route('maps/nepal');
-
-const CHARTS_STATS =  route('charts/stats');
-const PREVENTIVES =  route('charts/preventives');
-const REACTIVES =  route('charts/reactives');
-
-const GRAPHS_CONCEPTS =  route('graphs/concepts');
-const GRAPHS_POTATOES =  route('graphs/potatoes');
-const GRAPHS_SYS_CONCEPTS =  route('graphs/sys-concepts');
-const GRAPHS_COUCHES =  route('graphs/couches');
+  CASES,
+  TRACES,
+  CHARTS_STATS,
+  FORM_A,
+  FORM_B1,
+  FORM_B2,
+  FORM_X,
+  GRAPHS_CONCEPTS,
+  GRAPHS_COUCHES,
+  GRAPHS_POTATOES,
+  GRAPHS_SYS_CONCEPTS,
+  HOME,
+  HOSPITAL,
+  ISOLATION,
+  KATHMANDU,
+  NEPAL,
+  MUNICIPALITY,
+  PCR_LAB,
+  POI,
+  PREVENTIVES,
+  REACTIVES,
+  QUARANTINE,
+  RDT_LAB,
+  STATS,
+  TABLE_PCR,
+  TABLE_RDT,
+  TABLE_RET,
+} from './pages.conf';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {

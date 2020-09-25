@@ -1,36 +1,30 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {
+  RouterModule,
+  Routes
+} from '@angular/router';
 import { AuthGuard } from '../@auth/guards/auth.guard';
 import { DashboardComponent } from '../@comp/dashboard/dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { PagesComponent } from './pages.component';
 import { ProfileComponent } from './profile/profile/profile.component';
+import { ROUTE_PROFILE,
+   ROUTE_TABLES,
+   HealthFormsModule,
+   CaseTracingModule,
+   ROUTE_HOME,
+   ROUTE_STATS,
+   ROUTE_CASES,
+   ROUTE_TRACES,
+   ROUTE_FORMS,
+   MapsModule,
+   ROUTE_MAPS,
+   ROUTE_CHARTS,
+   ChartsModule,
+   TablesModule
+  } from './pages.conf';
 
-const formsModule = () => import('./forms/forms.module')
-  .then(m => m.HealthFormsModule);
-
-const mapsModule = () => import('./maps/maps.module')
-  .then(m => m.MapsModule);
-
-const chartsModule = () => import('./charts/charts.module')
-  .then(m => m.ChartsModule);
-
-const tablesModule = () => import('./tables/tables.module')
-  .then(m => m.TablesModule);
-
-const caseTracingModule = () => import('./case-tracing/case-tracing.module')
-  .then(m => m.CaseTracingModule);
-
-export const ROUTE_HOME = 'home';
-export const ROUTE_STATS = 'stats';
-export const ROUTE_CASES = 'cases';
-export const ROUTE_TRACES = 'traces';
-export const ROUTE_FORMS = 'forms';
-export const ROUTE_MAPS = 'maps';
-export const ROUTE_CHARTS = 'charts';
-export const ROUTE_TABLES = 'tables';
-export const ROUTE_PROFILE = 'profile';
 
 const routes: Routes = [{
   path: '',
@@ -47,31 +41,31 @@ const routes: Routes = [{
     {
       path: ROUTE_CASES,
       canActivate: [AuthGuard],
-      loadChildren: caseTracingModule,
+      loadChildren: CaseTracingModule,
     },
     {
       path: ROUTE_TRACES,
       canActivate: [AuthGuard],
-      loadChildren: caseTracingModule,
+      loadChildren: CaseTracingModule,
     },
     {
       path: ROUTE_FORMS,
       canActivate: [AuthGuard],
-      loadChildren: formsModule,
+      loadChildren: HealthFormsModule,
     },
     {
       path: ROUTE_MAPS,
       canActivate: [AuthGuard],
-      loadChildren: mapsModule,
+      loadChildren: MapsModule,
     },
     {
       path: ROUTE_CHARTS,
-      loadChildren: chartsModule,
+      loadChildren: ChartsModule,
     },
     {
       path: ROUTE_TABLES,
       canActivate: [AuthGuard],
-      loadChildren: tablesModule,
+      loadChildren: TablesModule,
     },
     {
       path: ROUTE_PROFILE,
