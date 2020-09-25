@@ -21,8 +21,12 @@ export enum Form {
   complete
 }
 
+
 export interface Hist {
   topic: string;
   actions: Array<() => null>;
   effects: Array<SideEffect<unknown>>;
 }
+
+// Document Type
+export type CovDocument = File | Form | Auth | Hist;

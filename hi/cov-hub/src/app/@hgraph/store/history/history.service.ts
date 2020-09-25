@@ -2,34 +2,40 @@ import { Injectable } from '@angular/core';
 import { HistoryWorkService } from './history-work.service';
 
 import { BehaviorSubject } from 'rxjs';
-import { SideEffect, Hist } from '../state/impure/effect.model';
+import { SideEffect, CovDocument } from '../state/impure/effect.model';
 import { DatabaseService } from '../database/database.service';
 import { Databases } from '../../../@models/domain.model';
 
+export type HistoryStream = [SideEffect<CovDocument>, payload: unknown];
 @Injectable({
   providedIn: 'root'
 })
 export class HistoryService {
 
-  protected deltas = new BehaviorSubject<SideEffect<Hist>>(null);
+  protected deltas = new BehaviorSubject<HistoryStream>(null);
 
-  protected saveable = new BehaviorSubject<SideEffect<Hist>>(null);
+  protected saveable = new BehaviorSubject<HistoryStream>(null);
 
   constructor(
     protected work: HistoryWorkService,
     private db: DatabaseService
   ) { }
 
-  update(delta: SideEffect<Hist>) { this.deltas.next(delta); }
+  update<T extends CovDocument>(delta: SideEffect<T>, payload: unknown) {
+    this.deltas.next([delta, payload]);
+  }
 
-  process(delta: SideEffect<Hist>) { delta.action(); this.update(delta); }
+  process<T extends CovDocument>(delta: SideEffect<T>, payload: unknown) {
+    delta.action();
+    this.update(delta, payload);
+  }
 
-  persist(delta: SideEffect<Hist>) {
-    this.saveable.next(delta);
-    this.process(delta);
+  persist<T extends CovDocument>(delta: SideEffect<T>, payload: unknown) {
+    this.saveable.next([delta, payload]);
+    this.process(delta, payload);
     const now = (new Date()).getTime();
     this.db.addAll([{
-      _id: `${delta?.type?.topic}_${now}`,
+      _id: `${delta?.type['topic']}_${now}`,
       ...delta
     }], Databases.history);
   }
