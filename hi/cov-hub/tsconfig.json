@@ -19,6 +19,10 @@
       "fold-sys": [
         "dist/fold-sys/fold-sys",
         "dist/fold-sys"
+      ],
+      "cov-table": [
+        "dist/cov-table/cov-table",
+        "dist/cov-table"
       ]
     }
   },
