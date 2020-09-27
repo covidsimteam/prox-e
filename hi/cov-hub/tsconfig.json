@@ -23,6 +23,10 @@
       "cov-table": [
         "dist/cov-table/cov-table",
         "dist/cov-table"
+      ],
+      "cov-schedule": [
+        "dist/cov-schedule/cov-schedule",
+        "dist/cov-schedule"
       ]
     }
   },
