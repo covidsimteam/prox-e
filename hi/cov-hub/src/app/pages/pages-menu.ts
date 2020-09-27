@@ -48,8 +48,22 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: `${STATS}`,
   },
   {
-    title: 'Forms',
-    group: true,
+    title: 'Files',
+    icon: 'map-outline',
+    children: [
+      {
+        title: 'PCR Tests',
+        link: `${TABLE_PCR}`,
+      },
+      {
+        title: 'RDT Tests',
+        link: `${TABLE_RDT}`,
+      },
+      {
+        title: 'Returnees',
+        link: `${TABLE_RET}`,
+      },
+    ],
   },
   {
     title: 'Forms',
@@ -102,24 +116,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Municipality',
         link: `${MUNICIPALITY}`,
-      },
-    ],
-  },
-  {
-    title: 'Files',
-    icon: 'bar-chart-2-outline',
-    children: [
-      {
-        title: 'PCR Tests',
-        link: `${TABLE_PCR}`,
-      },
-      {
-        title: 'RDT Tests',
-        link: `${TABLE_RDT}`,
-      },
-      {
-        title: 'Returnees',
-        link: `${TABLE_RET}`,
       },
     ],
   },

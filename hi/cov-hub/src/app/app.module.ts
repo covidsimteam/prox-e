@@ -46,11 +46,9 @@ export class WebpackTranslateLoader implements TranslateLoader {
   imports: [
     MatRadioModule,
     BrowserAnimationsModule,
-    BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     NbSidebarModule.forRoot(),
-    NbMenuModule.forRoot(),
     NbDatepickerModule.forRoot(),
     NbDialogModule.forRoot(),
     NbWindowModule.forRoot(),
@@ -78,6 +76,14 @@ export class WebpackTranslateLoader implements TranslateLoader {
       strategies: [
         NbPasswordAuthStrategy.setup(authSetup)],
       forms: formSetup,
+    }),
+    NbMenuModule.forRoot(),
+    NbDialogModule.forRoot({
+      autoFocus: true,
+      closeOnBackdropClick: true,
+      closeOnEsc: true,
+      hasBackdrop: true,
+      hasScroll: false
     }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],

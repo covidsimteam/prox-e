@@ -41,6 +41,8 @@ import { DARK_THEME } from './styles/theme.dark';
 import { DEFAULT_THEME } from './styles/theme.default';
 import { MATERIAL_LIGHT_THEME } from './styles/material/theme.material-light';
 import { MATERIAL_DARK_THEME } from './styles/material/theme.material-dark';
+import { MenuItemsComponent } from './components/header/menu-items/menu-items.component';
+import { NbCardModule } from '@nebular/theme';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -56,6 +58,7 @@ const NB_MODULES = [
   NbEvaIconsModule,
   NbToggleModule,
   NbPopoverModule,
+  NbCardModule
 ];
 const COMPONENTS = [
   HeaderComponent,
@@ -75,9 +78,14 @@ const PIPES = [
 ];
 
 @NgModule({
-  imports: [CommonModule, MatRippleModule, ...NB_MODULES],
+  imports: [
+    CommonModule,
+    MatRippleModule,
+    NbContextMenuModule,
+    ...NB_MODULES
+  ],
   exports: [CommonModule, MatRippleModule, ...PIPES, ...COMPONENTS],
-  declarations: [...COMPONENTS, ...PIPES],
+  declarations: [...COMPONENTS, ...PIPES, MenuItemsComponent],
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders<ThemeModule> {

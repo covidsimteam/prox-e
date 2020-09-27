@@ -1,12 +1,13 @@
 
-import { MatRadioModule } from '@angular/material/radio';
 import { NgModule } from '@angular/core';
+import { MatRadioModule } from '@angular/material/radio';
 import {
-  NbLayoutModule,
-  NbMenuModule,
   NbDatepickerModule,
-  NbInputModule
+  NbInputModule, NbLayoutModule,
+  NbMenuModule
 } from '@nebular/theme';
+import { TranslateModule } from '@ngx-translate/core';
+import { DashboardModule } from '../@comp/dashboard/dashboard.module';
 import { ThemeModule } from '../@theme/theme.module';
 import { AccountModule } from './account/account.module';
 import { PcrDemandModule } from './demand/pcr-demand.module';
@@ -27,9 +28,7 @@ import { PaymentsModule } from './payments/payments.module';
 import { ProfileModule } from './profile/profile.module';
 import { SampleCollectionModule } from './sample/sample-collection.module';
 import { TablesModule } from './tables/tables.module';
-import { DashboardModule } from '../@comp/dashboard/dashboard.module';
 
-import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [

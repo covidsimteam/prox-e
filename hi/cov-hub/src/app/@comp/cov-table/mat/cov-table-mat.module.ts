@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatTableCheckboxComponent } from './mat-checkbox/mat-checkbox.component';
@@ -22,4 +22,10 @@ const COMPS = [
   ],
   exports: [ ...COMPS]
 })
-export class CovTableMatModule { }
+export class CovTableMatModule {
+  static forRoot(): ModuleWithProviders<CovTableMatModule> {
+    return {
+     ngModule: CovTableMatModule
+   };
+ }
+}

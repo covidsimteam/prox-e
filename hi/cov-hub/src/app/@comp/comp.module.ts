@@ -24,10 +24,10 @@ const COMPS = [
 ];
 
 const MODS = [
-  CovFormMatModule,
+  CovFormMatModule.forRoot(),
   CovFormNebModule,
 
-  CovTableMatModule,
+  CovTableMatModule.forRoot(),
   CovTableNebModule
 ];
 
@@ -41,6 +41,12 @@ const MODS = [
 
     ...MODS
   ],
-  exports: [...COMPS, ...MODS]
+  exports: [
+    ...COMPS,
+    CovFormMatModule,
+    CovFormNebModule,
+    CovTableMatModule,
+    CovTableNebModule
+  ]
 })
 export class CompModule { }

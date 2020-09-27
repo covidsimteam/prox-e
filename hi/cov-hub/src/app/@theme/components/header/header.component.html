@@ -31,8 +31,13 @@
         <nb-icon [icon]="currentTheme == 'dark' ? 'bulb-outline' : 'moon-outline'"></nb-icon>
       </button>
     </nb-action>
-    <nb-action class="user-action" *ngIf="isPrivilegedUser">
-      <button nbButton [nbContextMenu]="getMenuItems()"><nb-icon icon="person"> </nb-icon></button>
-    </nb-action>
   </nb-actions>
+  <nb-user
+    name="Zira Dai"
+    title="Lab Sample Collector"
+    [nbContextMenu]="items"
+    nbContextMenuTrigger="noop"
+    (click)="openClose($event)"
+  >
+  </nb-user>
 </div>

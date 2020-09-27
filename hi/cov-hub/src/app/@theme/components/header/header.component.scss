@@ -55,9 +55,9 @@
   }
 
   @include media-breakpoint-down(sm) {
-    // .control-item {
-    //   display: none;
-    // }
+    .control-item {
+      display: none;
+    }
     .user-action {
       border: none;
       padding: 0;
@@ -81,4 +81,8 @@ span.title {
   padding-left: 10px;
   margin-left: 5px;
   vertical-align: text-top;
+}
+
+:host nb-layout-header ::ng-deep nav {
+  justify-content: flex-end;
 }

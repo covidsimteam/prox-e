@@ -1,13 +1,23 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Inject, ViewChild, ContentChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NbAuthToken } from '@nebular/auth';
-import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
+import {
+  NbContextMenuDirective,
+  NbDialogService,
+  NbMediaBreakpointsService,
+  NbMenuService,
+  NbPopoverDirective,
+  NbSidebarService,
+  NbThemeService,
+  NB_WINDOW
+} from '@nebular/theme';
 import { Observable, Subject } from 'rxjs';
 import { filter, map, takeUntil } from 'rxjs/operators';
 import { AuthService } from '../../../@auth/core/auth.service';
 import { LayoutService } from '../../../@core/utils';
 import { RippleService } from '../../../@core/utils/ripple.service';
 import { HeaderBio, HubUser } from '../../../@models/user.model';
+import { MenuItemsComponent } from './menu-items/menu-items.component';
 
 
 @Component({
@@ -44,15 +54,24 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   userMenu = this.getMenuItems();
 
+
+
+  @ViewChild(NbContextMenuDirective) contextMenu: NbContextMenuDirective;
+
+  @ContentChild('menu') menu: MenuItemsComponent;
+
+  isContextMenuShown = false;
+
   constructor(
     private sidebarService: NbSidebarService,
-    private menuService: NbMenuService,
     private themeService: NbThemeService,
     private layoutService: LayoutService,
     private authService: AuthService,
     private breakpointService: NbMediaBreakpointsService,
+    private dialogService: NbDialogService,
     private rippleService: RippleService,
-    private router: Router
+    private router: Router,
+    @Inject(NB_WINDOW) private window: any
   ) {
 
     this.materialTheme$ = this.themeService.onThemeChange()
@@ -61,12 +80,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
       return themeName.startsWith('material');
     }));
 
-    this.authService.onTokenChange()
-      .subscribe((token: NbAuthToken) => {
-        if (token.isValid()) {
-          this.user = token.getPayload();
-        }
-      });
+  }
+
+  protected openDialog(hasBackdrop: boolean) {
+    this.dialogService.open(MenuItemsComponent, { hasBackdrop });
+  }
+
+  get items() {
+    return this.getMenuItems();
+  }
+
+  openClose(_: any) {
+    this.isContextMenuShown = !this.isContextMenuShown;
+    this.isContextMenuShown ? this.contextMenu.show() : this.contextMenu.hide();
   }
 
   getMenuItems() {
@@ -76,6 +102,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       { title: HeaderComponent.LOGOUT },
     ];
   }
+
 
   ngOnInit() {
     this.currentTheme = 'material-light';
@@ -87,21 +114,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe((user: HubUser) => {
         this.user = user;
         this.userMenu = this.getMenuItems();
-      });
-
-    this.menuService.onItemClick()
-      .pipe(
-        takeUntil(this.destroy$),
-        filter(({ tag }) => tag === 'context-menu'),
-        map(({ item: { title } }) => title),
-      ).subscribe((title: string) => {
-        if (title === HeaderComponent.LOGOUT) {
-          this.logout();
-        } else {
-          this.navigateToMenuPage(
-            title.toLowerCase().replace(/ /g, '_')
-          ); // TODO create pages named profile and settings
-        }
       });
 
     const { xl } = this.breakpointService.getBreakpointsMap();
@@ -157,7 +169,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   navigateHome() {
-    this.menuService.navigateHome();
     return false;
   }
 }
