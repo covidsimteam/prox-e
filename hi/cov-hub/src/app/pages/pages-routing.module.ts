@@ -9,6 +9,7 @@ import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { PagesComponent } from './pages.component';
 import { ProfileComponent } from './profile/profile/profile.component';
+import { SchedComponent } from '../@comp/sched/sched.component';
 import { ROUTE_PROFILE,
    ROUTE_TABLES,
    HealthFormsModule,
@@ -16,7 +17,7 @@ import { ROUTE_PROFILE,
    ROUTE_HOME,
    ROUTE_STATS,
    ROUTE_CASES,
-   ROUTE_TRACES,
+   ROUTE_SCHED,
    ROUTE_FORMS,
    MapsModule,
    ROUTE_MAPS,
@@ -42,6 +43,10 @@ const routes: Routes = [{
       path: ROUTE_CASES,
       canActivate: [AuthGuard],
       loadChildren: CaseTracingModule,
+    },
+    {
+      path: ROUTE_SCHED,
+      component: SchedComponent
     },
     {
       path: ROUTE_FORMS,

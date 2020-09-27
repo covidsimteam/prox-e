@@ -20,6 +20,7 @@ import {
   PREVENTIVES,
   QUARANTINE,
   RDT_LAB, REACTIVES,
+  SCHED,
   STATS,
   TABLE_PCR,
   TABLE_RDT,
@@ -45,7 +46,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Schedules',
     icon: 'clock-outline',
-    link: `${STATS}`,
+    link: `${SCHED}`,
   },
   {
     title: 'Files',

@@ -16,7 +16,7 @@ export const CaseTracingModule = () => import('./case-tracing/case-tracing.modul
 export const ROUTE_HOME = 'home';
 export const ROUTE_STATS = 'stats';
 export const ROUTE_CASES = 'cases';
-export const ROUTE_TRACES = 'traces';
+export const ROUTE_SCHED = 'schedule';
 export const ROUTE_FORMS = 'forms';
 export const ROUTE_MAPS = 'maps';
 export const ROUTE_CHARTS = 'charts';
@@ -31,7 +31,7 @@ export const HOME = route(ROUTE_HOME);
 export const STATS = route(ROUTE_STATS);
 
 export const CASES = route(ROUTE_CASES);
-export const TRACES = route(ROUTE_TRACES);
+export const SCHED = route(ROUTE_SCHED);
 export const FORM_A = route(`${ROUTE_FORMS}/form-a`);
 export const FORM_B1 = route(`${ROUTE_FORMS}/form-b1`);
 export const FORM_B2 = route(`${ROUTE_FORMS}/form-b2`);

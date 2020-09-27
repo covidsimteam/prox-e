@@ -1,24 +1,30 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCalendarComponent } from './mat-calendar/mat-calendar.component';
 import { SchedComponent } from './sched.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
-const COMPS = [
-  MatCalendarComponent,
-  SchedComponent
-];
+import { NbCardModule, NbButtonModule } from '@nebular/theme';
 
 @NgModule({
   declarations: [
-    ...COMPS
+    SchedComponent,
+    MatCalendarComponent
   ],
   imports: [
     CommonModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    NbCardModule,
+    NbButtonModule
   ],
   exports: [
-    ...COMPS
+    SchedComponent,
+    MatCalendarComponent
   ]
 })
-export class CovSchedModule { }
+export class CovSchedModule {
+  static forRoot(): ModuleWithProviders<CovSchedModule> {
+    return {
+     ngModule: CovSchedModule
+   };
+ }
+}
