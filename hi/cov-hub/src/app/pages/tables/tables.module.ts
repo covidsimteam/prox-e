@@ -22,7 +22,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormCheckboxComponent } from '../../@comp/cov-form/mat/mat-checkbox/mat-checkbox.component';
 import { MatFormInputComponent } from '../../@comp/cov-form/mat/mat-input/mat-input.component';
@@ -49,12 +48,9 @@ import { MatTableSelectComponent } from '../../@comp/cov-table/mat/mat-select/ma
     TablesRoutingModule,
     Ng2SmartTableModule,
     NgxCsvParserModule,
-
-    BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-
     MatCheckboxModule,
     MatFormFieldModule,
     MatInputModule,

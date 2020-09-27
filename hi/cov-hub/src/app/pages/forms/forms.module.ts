@@ -1,5 +1,15 @@
 import { NgModule } from '@angular/core';
-import { FormsModule as ngFormsModule, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FormsModule, FormsModule as ngFormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {
   NbAccordionModule, NbActionsModule,
   NbButtonModule,
@@ -15,11 +25,25 @@ import {
   NbUserModule
 } from '@nebular/theme';
 import { TranslateModule } from '@ngx-translate/core';
+import { CovFormComponent } from '../../../../projects/cov-form/src/lib/cov-form.component';
 import { ThemeModule } from '../../@theme/theme.module';
+import { FormAStepEightTwoComponent } from './form-a/form-a-step-eight-two/form-a-step-eight-two.component';
+import { FormAStepFiveComponent } from './form-a/form-a-step-five/form-a-step-five.component';
+import { FormAStepFourComponent } from './form-a/form-a-step-four/form-a-step-four.component';
+import { FormAStepNineComponent } from './form-a/form-a-step-nine/form-a-step-nine.component';
+import { FormAStepOComponent } from './form-a/form-a-step-o/form-a-step-o.component';
+import { FormAStepOneAComponent } from './form-a/form-a-step-one-a/form-a-step-one-a.component';
+import { FormAStepOneBComponent } from './form-a/form-a-step-one-b/form-a-step-one-b.component';
+import { FormAStepOneComponent } from './form-a/form-a-step-one/form-a-step-one.component';
+import { FormAStepSevenComponent } from './form-a/form-a-step-seven/form-a-step-seven.component';
+import { FormAStepSixComponent } from './form-a/form-a-step-six/form-a-step-six.component';
+import { FormAStepThreeComponent } from './form-a/form-a-step-three/form-a-step-three.component';
+import { FormAStepTwoComponent } from './form-a/form-a-step-two/form-a-step-two.component';
 import { FormAComponent } from './form-a/form-a.component';
 import { FormB1Component } from './form-b1/form-b1.component';
 import { FormB2Component } from './form-b2/form-b2.component';
 import { FormHospitalComponent } from './form-hospital/form-hospital.component';
+import { FormHrBreakComponent } from './form-hr-break/form-hr-break.component';
 import { FormIsolationComponent } from './form-isolation/form-isolation.component';
 import { FormMunicipalityComponent } from './form-municipality/form-municipality.component';
 import { FormPCRComponent } from './form-pcr-lab/form-pcr.component';
@@ -34,34 +58,7 @@ import { ReturneeLocationDetailsComponent } from './form-sections/returnee-locat
 import { SymptomRecordComponent } from './form-sections/symptom-record/symptom-record.component';
 import { FormsRoutingModule } from './forms-routing.module';
 import { FormsComponent } from './forms.component';
-import { FormAStepOComponent } from './form-a/form-a-step-o/form-a-step-o.component';
-import { FormAStepOneComponent } from './form-a/form-a-step-one/form-a-step-one.component';
-import { FormAStepOneAComponent } from './form-a/form-a-step-one-a/form-a-step-one-a.component';
-import { FormAStepOneBComponent } from './form-a/form-a-step-one-b/form-a-step-one-b.component';
-import { FormAStepTwoComponent } from './form-a/form-a-step-two/form-a-step-two.component';
-import { FormAStepThreeComponent } from './form-a/form-a-step-three/form-a-step-three.component';
-import { FormAStepFourComponent } from './form-a/form-a-step-four/form-a-step-four.component';
-import { FormHrBreakComponent } from './form-hr-break/form-hr-break.component';
 
-import { MaterialDesignFrameworkModule } from '@ajsf/material';
-import { JsonSchemaFormModule } from '@ajsf/core';
-
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatButtonModule } from '@angular/material/button';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { FormAStepSixComponent } from './form-a/form-a-step-six/form-a-step-six.component';
-import { FormAStepSevenComponent } from './form-a/form-a-step-seven/form-a-step-seven.component';
-import { FormAStepEightTwoComponent } from './form-a/form-a-step-eight-two/form-a-step-eight-two.component';
-import { FormAStepNineComponent } from './form-a/form-a-step-nine/form-a-step-nine.component';
-import { FormAStepFiveComponent } from './form-a/form-a-step-five/form-a-step-five.component';
-import { CovFormComponent } from '../../../../projects/cov-form/src/lib/cov-form.component';
 
 const MaterialModules = [
   MatFormFieldModule,
@@ -100,8 +97,6 @@ const MaterialModules = [
 
     TranslateModule.forChild({ extend: true }),
     ...MaterialModules,
-    MaterialDesignFrameworkModule,
-    JsonSchemaFormModule
   ],
   declarations: [
     FormsComponent,

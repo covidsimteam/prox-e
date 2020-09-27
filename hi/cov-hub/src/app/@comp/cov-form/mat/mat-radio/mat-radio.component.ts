@@ -13,42 +13,26 @@ export class MatFormRadioComponent implements ICellEditorAngularComp, AfterViewI
   private selectedIndex: number;
 
   fruits: string[];
-  favouriteFruit: string;
 
   @ViewChildren(MatRadioButton) public fruitRadios: any;
 
   agInit(params: any): void {
-      this.params = params;
+    this.params = params;
 
-      this.favouriteFruit = this.params.value;
-      this.fruits = this.params.fruits;
+    this.fruits = this.params.fruits;
 
-      this.selectedIndex = this.fruits.findIndex(item => {
-          return item === this.params.value;
-      });
+    this.selectedIndex = this.fruits.findIndex(item => {
+      return item === this.params.value;
+    });
   }
 
   // dont use afterGuiAttached for post gui events - hook into ngAfterViewInit instead for this
   ngAfterViewInit() {
-      this.selectFavouriteFruitBasedOnSelectedIndex();
-  }
 
-  private selectFavouriteFruitBasedOnSelectedIndex() {
-      this.favouriteFruit = this.fruits[this.selectedIndex];
-
-      // focus on next tick
-      const fruitRadio = this.fruitRadios.find(radio => radio.value === this.favouriteFruit);
-      window.setTimeout(() => {
-          fruitRadio._inputElement.nativeElement.focus();
-      }, 0);
-  }
-
-  getValue() {
-      return this.favouriteFruit;
   }
 
   isPopup(): boolean {
-      return true;
+    return true;
   }
 
   /*
@@ -56,23 +40,47 @@ export class MatFormRadioComponent implements ICellEditorAngularComp, AfterViewI
    * buttons with up & down keys (instead of finishing editing)
    */
   onKeyDown(event: any): void {
-      const key = event.which || event.keyCode;
-      if (key === 38 || key === 40) {
-          this.preventDefaultAndPropagation(event);
+    const key = event.which || event.keyCode;
+    if (key === 38 || key === 40) {
+      this.preventDefaultAndPropagation(event);
 
-          if (key === 38) {
-              // up
-              this.selectedIndex = this.selectedIndex === 0 ? this.fruits.length - 1 : this.selectedIndex - 1;
-          } else if (key === 40) {
-              // down
-              this.selectedIndex = this.selectedIndex === this.fruits.length - 1 ? 0 : this.selectedIndex + 1;
-          }
-          this.selectFavouriteFruitBasedOnSelectedIndex();
+      if (key === 38) {
+        // up
+        this.selectedIndex = this.selectedIndex === 0 ? this.fruits.length - 1 : this.selectedIndex - 1;
+      } else if (key === 40) {
+        // down
+        this.selectedIndex = this.selectedIndex === this.fruits.length - 1 ? 0 : this.selectedIndex + 1;
       }
+    }
   }
 
+  getValue() {
+    return 'valoo';
+  }
+  // getPopupPosition?(): string {
+  //   throw new Error('Method not implemented.');
+  // }
+  // isCancelBeforeStart?(): boolean {
+  //   throw new Error('Method not implemented.');
+  // }
+  // isCancelAfterEnd?(): boolean {
+  //   throw new Error('Method not implemented.');
+  // }
+  // focusIn?(): void {
+  //   throw new Error('Method not implemented.');
+  // }
+  // focusOut?(): void {
+  //   throw new Error('Method not implemented.');
+  // }
+  // getFrameworkComponentInstance?() {
+  //   throw new Error('Method not implemented.');
+  // }
+  // afterGuiAttached?(params?: IAfterGuiAttachedParams): void {
+  //   throw new Error('Method not implemented.');
+  // }
+
   private preventDefaultAndPropagation(event) {
-      event.preventDefault();
-      event.stopPropagation();
+    event.preventDefault();
+    event.stopPropagation();
   }
 }

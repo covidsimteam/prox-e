@@ -1,4 +1,3 @@
-import { MaterialDesignFrameworkModule } from '@ajsf/material';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -25,6 +24,12 @@ import { ThemeModule } from './@theme/theme.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { authSetup, formSetup } from './app.conf';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { AgGridModule } from 'ag-grid-angular';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 
@@ -53,7 +58,12 @@ export class WebpackTranslateLoader implements TranslateLoader {
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     ReactiveFormsModule,
-    MaterialDesignFrameworkModule,
+    MatCardModule,
+    MatRadioModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
