@@ -3,7 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 import { TranslationServiceEn } from '../../../services/i18n/translation-gen.service';
-import { Formeta } from '../formeta.class';
+import { Formeta } from '../../../@comp/cov-form/formeta.class';
 
 @Component({
   selector: 'ngx-form-b1',

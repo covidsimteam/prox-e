@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Formeta } from '../formeta.class';
+import { Formeta } from '../../../@comp/cov-form/formeta.class';
+
+
 
 @Component({
   selector: 'ngx-scheduler',

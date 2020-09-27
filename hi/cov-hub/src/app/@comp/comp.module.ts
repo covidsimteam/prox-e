@@ -13,6 +13,7 @@ import { CovFormMatModule } from './cov-form/mat/cov-form-mat.module';
 import { CovFormNebModule } from './cov-form/neb/cov-form-neb.module';
 import { CovTableMatModule } from './cov-table/mat/cov-table-mat.module';
 import { CovTableNebModule } from './cov-table/neb/cov-table-neb.module';
+import { MatCalendarComponent } from './sched/mat-calendar/mat-calendar.component';
 
 const COMPS = [
   SchedComponent,
@@ -31,7 +32,7 @@ const MODS = [
 ];
 
 @NgModule({
-  declarations: [...COMPS],
+  declarations: [...COMPS, MatCalendarComponent],
   imports: [
     CommonModule,
     WizardModule,

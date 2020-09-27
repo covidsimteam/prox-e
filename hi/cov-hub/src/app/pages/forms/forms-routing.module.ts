@@ -11,8 +11,6 @@ import { FormRDTComponent } from './form-rdt-lab/form-rdt.component';
 import { FormsComponent } from './forms.component';
 import { FormB1Component } from './form-b1/form-b1.component';
 import { FormB2Component } from './form-b2/form-b2.component';
-import { ExampleSchemaFormComponent } from './custom/example-schema-form/example-schema-form.component';
-
 
 const routes: Routes = [
   {
@@ -25,23 +23,15 @@ const routes: Routes = [
       },
       {
         path: 'form-a',
-        // canActivate: [AdminGuard],
         component: FormAComponent,
       },
       {
         path: 'form-b1',
-        // canActivate: [AdminGuard],
         component: FormB1Component,
       },
       {
         path: 'form-b2',
-        // canActivate: [AdminGuard],
         component: FormB2Component,
-      },
-      {
-        path: 'form-x',
-        // canActivate: [AdminGuard],
-        component: ExampleSchemaFormComponent,
       },
       {
         path: 'quarantine-facility',

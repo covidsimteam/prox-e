@@ -10,11 +10,7 @@ import {
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { NgxCsvParserModule } from 'ngx-csv-parser';
 import { ThemeModule } from '../../@theme/theme.module';
-import { MatCheckboxComponent } from './mat/mat-checkbox/mat-checkbox.component';
-import { MatEditorComponent } from './mat/mat-editor/mat-editor.component';
-import { MatInputComponent } from './mat/mat-input/mat-input.component';
-import { MatRadioComponent } from './mat/mat-radio/mat-radio.component';
-import { MatSelectComponent } from './mat/mat-select/mat-select.component';
+
 import { routedComponents, TablesRoutingModule } from './tables-routing.module';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -28,6 +24,15 @@ import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormCheckboxComponent } from '../../@comp/cov-form/mat/mat-checkbox/mat-checkbox.component';
+import { MatFormInputComponent } from '../../@comp/cov-form/mat/mat-input/mat-input.component';
+import { MatFormRadioComponent } from '../../@comp/cov-form/mat/mat-radio/mat-radio.component';
+import { MatFormSelectComponent } from '../../@comp/cov-form/mat/mat-select/mat-select.component';
+import { MatTableCheckboxComponent } from '../../@comp/cov-table/mat/mat-checkbox/mat-checkbox.component';
+import { MatTableEditorComponent } from '../../@comp/cov-table/mat/mat-editor/mat-editor.component';
+import { MatTableInputComponent } from '../../@comp/cov-table/mat/mat-input/mat-input.component';
+import { MatTableRadioComponent } from '../../@comp/cov-table/mat/mat-radio/mat-radio.component';
+import { MatTableSelectComponent } from '../../@comp/cov-table/mat/mat-select/mat-select.component';
 
 @NgModule({
   imports: [
@@ -62,20 +67,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
     AgGridModule.withComponents(
       [
-        MatCheckboxComponent,
-        MatInputComponent,
-        MatRadioComponent,
-        MatSelectComponent
+        MatFormCheckboxComponent,
+        MatFormInputComponent,
+        MatFormRadioComponent,
+        MatFormSelectComponent
       ]
     ),
   ],
   declarations: [
     ...routedComponents,
-    MatCheckboxComponent,
-    MatEditorComponent,
-    MatInputComponent,
-    MatRadioComponent,
-    MatSelectComponent,
+    MatTableCheckboxComponent,
+    MatTableEditorComponent,
+    MatTableInputComponent,
+    MatTableRadioComponent,
+    MatTableSelectComponent,
   ],
 })
 export class TablesModule { }

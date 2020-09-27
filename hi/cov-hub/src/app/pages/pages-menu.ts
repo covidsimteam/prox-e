@@ -1,7 +1,6 @@
 import { NbMenuItem } from '@nebular/theme';
 import {
   CASES,
-  TRACES,
   CHARTS_STATS,
   FORM_A,
   FORM_B1,
@@ -15,18 +14,16 @@ import {
   HOSPITAL,
   ISOLATION,
   KATHMANDU,
-  NEPAL,
-  MUNICIPALITY,
+  MUNICIPALITY, NEPAL,
   PCR_LAB,
   POI,
   PREVENTIVES,
-  REACTIVES,
   QUARANTINE,
-  RDT_LAB,
+  RDT_LAB, REACTIVES,
   STATS,
   TABLE_PCR,
   TABLE_RDT,
-  TABLE_RET,
+  TABLE_RET
 } from './pages.conf';
 
 export const MENU_ITEMS: NbMenuItem[] = [
@@ -39,6 +36,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Core Stats',
     icon: 'activity-outline',
+    link: `${STATS}`,
+  },
+  {
+    title: 'Tables',
+    group: true,
+  },
+  {
+    title: 'Schedules',
+    icon: 'clock-outline',
     link: `${STATS}`,
   },
   {
@@ -136,7 +142,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'COVID-19 Stats',
+    title: 'Reports',
     icon: 'activity-outline',
     children: [
       {
@@ -154,7 +160,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'Meta Graphs',
+    title: 'Workflows',
     group: true,
   },
   {
@@ -170,6 +176,24 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: `${GRAPHS_POTATOES}`,
       },
     ],
+  },
+  {
+    title: 'Resources',
+    group: true
+  },
+  {
+    title: 'Team',
+    icon: 'people-outline',
+    children: [
+      {
+        title: 'Funds',
+        link: ''
+      },
+      {
+        title: 'Materials',
+        link: ''
+      },
+    ]
   },
   {
     title: 'System Dashboard',

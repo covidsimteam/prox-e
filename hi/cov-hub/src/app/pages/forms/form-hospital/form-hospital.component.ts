@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { COUNTRIES, NEARBY_COUNTRIES } from '../../../@core/data/countries.geo';
 import { PROVINCES } from '../../../@core/data/province-districts.geo';
-import { Formeta } from '../formeta.class';
+import { Formeta } from '../../../@comp/cov-form/formeta.class';
 
 class TestRecord {
   date: Date;
