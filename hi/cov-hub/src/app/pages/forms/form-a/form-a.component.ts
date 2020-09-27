@@ -4,8 +4,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { take } from 'rxjs/operators';
 
 import { TranslationServiceEn } from '../../../services/i18n/translation-gen.service';
-import { StepState } from '../form.model';
-import { Formeta } from '../formeta.class';
+import { StepState } from '../../../@comp/cov-form/form.model';
+import { Formeta } from '../../../@comp/cov-form/formeta.class';
+
 
 @Component({
   selector: 'ngx-form-a',

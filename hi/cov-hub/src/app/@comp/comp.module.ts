@@ -11,6 +11,10 @@ import { TimePickerComponent } from './utils/time-picker/time-picker.component';
 import { UtilsModule } from './utils/utils.module';
 import { VisualizationModule } from './viz/visualization.module';
 import { WizardModule } from './wizard/wizard.module';
+import { CovFormMatModule } from './cov-form/mat/cov-form-mat.module';
+import { CovFormNebModule } from './cov-form/neb/cov-form-neb.module';
+import { CovTableMatModule } from './cov-table/mat/cov-table-mat.module';
+import { CovTableNebModule } from './cov-table/neb/cov-table-neb.module';
 
 const COMPS = [
   CompComponent,
@@ -18,17 +22,29 @@ const COMPS = [
   CompDirective,
   SchedComponent,
   SchedPipe,
-  SchedDirective
+  SchedDirective,
+  TimePickerComponent,
+  NepaliDatePickerComponent
+];
+
+const MODS = [
+  CovFormMatModule,
+  CovFormNebModule,
+
+  CovTableMatModule,
+  CovTableNebModule
 ];
 
 @NgModule({
-  declarations: [...COMPS, TimePickerComponent, NepaliDatePickerComponent],
+  declarations: [...COMPS],
   imports: [
     CommonModule,
     WizardModule,
     VisualizationModule,
-    UtilsModule
+    UtilsModule,
+
+    ...MODS
   ],
-  exports: [...COMPS]
+  exports: [...COMPS, ...MODS]
 })
 export class CompModule { }
