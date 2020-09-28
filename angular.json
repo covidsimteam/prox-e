@@ -346,6 +346,127 @@
         }
       },
       "schematics": {}
+    },
+    "cov-news": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "cov-news",
+      "sourceRoot": "cov-news/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/cov-news",
+            "index": "cov-news/src/index.html",
+            "main": "cov-news/src/main.ts",
+            "polyfills": "cov-news/src/polyfills.ts",
+            "tsConfig": "cov-news/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "cov-news/src/favicon.ico",
+              "cov-news/src/assets"
+            ],
+            "styles": [
+              "cov-news/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "cov-news/src/environments/environment.ts",
+                  "with": "cov-news/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "cov-news:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "cov-news:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "cov-news:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "cov-news/src/test.ts",
+            "polyfills": "cov-news/src/polyfills.ts",
+            "tsConfig": "cov-news/tsconfig.spec.json",
+            "karmaConfig": "cov-news/karma.conf.js",
+            "assets": [
+              "cov-news/src/favicon.ico",
+              "cov-news/src/assets"
+            ],
+            "styles": [
+              "cov-news/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "cov-news/tsconfig.app.json",
+              "cov-news/tsconfig.spec.json",
+              "cov-news/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "cov-news/e2e/protractor.conf.js",
+            "devServerTarget": "cov-news:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "cov-news:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "cli": {
