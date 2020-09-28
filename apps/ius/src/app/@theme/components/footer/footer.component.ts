@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { version } from '../../../../../package.json';
+import { version } from '../../../../../../../package.json';
 
 @Component({
   selector: 'ngx-footer',
