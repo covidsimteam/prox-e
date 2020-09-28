@@ -16,9 +16,9 @@ import { SchedComponent } from './schedule/sched.component';
   ],
   imports: [
     CommonModule,
-    MatDatepickerModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDatepickerModule,
     NbCardModule,
     NbButtonModule,
     MatDatepickerModule,
@@ -26,7 +26,13 @@ import { SchedComponent } from './schedule/sched.component';
     MatButtonModule, SatDatepickerModule, SatNativeDateModule
   ],
   exports: [
-    SchedComponent
+    SchedComponent,
+    MatDatepickerModule,
+    NbCardModule,
+    NbButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule, MatFormFieldModule, MatInputModule,
+    MatButtonModule, SatDatepickerModule, SatNativeDateModule
   ]
 })
 export class CovSchedModule {

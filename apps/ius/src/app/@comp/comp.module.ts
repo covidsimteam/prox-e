@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { SchedComponent } from './sched/sched.component';
 import { SchedDirective } from './sched/sched.directive';
 import { SchedPipe } from './sched/sched.pipe';
 import { NepaliDatePickerComponent } from './utils/nepali-date-picker/nepali-date-picker.component';
@@ -13,10 +12,9 @@ import { CovFormMatModule } from './cov-form/mat/cov-form-mat.module';
 import { CovFormNebModule } from './cov-form/neb/cov-form-neb.module';
 import { CovTableMatModule } from './cov-table/mat/cov-table-mat.module';
 import { CovTableNebModule } from './cov-table/neb/cov-table-neb.module';
-import { MatCalendarComponent } from './sched/mat-calendar/mat-calendar.component';
+import { CovSchedModule } from './sched/cov-sched.module';
 
 const COMPS = [
-  SchedComponent,
   SchedPipe,
   SchedDirective,
   TimePickerComponent,
@@ -32,7 +30,7 @@ const MODS = [
 ];
 
 @NgModule({
-  declarations: [...COMPS, MatCalendarComponent],
+  declarations: [...COMPS],
   imports: [
     CommonModule,
     WizardModule,
@@ -45,8 +43,11 @@ const MODS = [
     ...COMPS,
     CovFormMatModule,
     CovFormNebModule,
+
     CovTableMatModule,
-    CovTableNebModule
+    CovTableNebModule,
+
+    CovSchedModule
   ]
 })
 export class CompModule { }
