@@ -39,6 +39,7 @@
     "@angular/platform-browser-dynamic": "^10.0.0",
     "@angular/router": "^10.0.0",
     "rxjs": "~6.5.5",
+    "tslib": "^2.0.0",
     "zone.js": "^0.10.2",
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
@@ -46,10 +47,12 @@
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
+    "@angular-devkit/build-ng-packagr": "~0.1000.8",
     "@angular/cli": "~10.0.0",
     "@nrwl/workspace": "10.2.1",
     "@types/node": "~8.9.4",
     "dotenv": "6.2.0",
+    "ng-packagr": "^10.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~6.0.0",
     "eslint": "6.8.0",

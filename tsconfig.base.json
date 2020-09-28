@@ -16,7 +16,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@aurel/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@aurel/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@nepwork/cov": ["libs/cov-form/src/index.ts"],
+      "@nepwork/cov-sched": ["libs/cov-sched/src/index.ts"],
+      "@nepwork/cov-table": ["libs/cov-table/src/index.ts"],
+      "@nepwork/cov-fs": ["libs/cov-fs/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

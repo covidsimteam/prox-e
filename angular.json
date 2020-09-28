@@ -194,6 +194,158 @@
           }
         }
       }
+    },
+    "cov-form": {
+      "projectType": "library",
+      "root": "libs/cov-form",
+      "sourceRoot": "libs/cov-form/src",
+      "prefix": "aurel",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/cov-form/tsconfig.lib.json",
+            "project": "libs/cov-form/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/cov-form/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cov-form/tsconfig.lib.json",
+              "libs/cov-form/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cov-form/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cov-form/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "cov-sched": {
+      "projectType": "library",
+      "root": "libs/cov-sched",
+      "sourceRoot": "libs/cov-sched/src",
+      "prefix": "aurel",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/cov-sched/tsconfig.lib.json",
+            "project": "libs/cov-sched/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/cov-sched/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cov-sched/tsconfig.lib.json",
+              "libs/cov-sched/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cov-sched/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cov-sched/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "cov-table": {
+      "projectType": "library",
+      "root": "libs/cov-table",
+      "sourceRoot": "libs/cov-table/src",
+      "prefix": "aurel",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/cov-table/tsconfig.lib.json",
+            "project": "libs/cov-table/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/cov-table/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cov-table/tsconfig.lib.json",
+              "libs/cov-table/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cov-table/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cov-table/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "cov-fs": {
+      "projectType": "library",
+      "root": "libs/cov-fs",
+      "sourceRoot": "libs/cov-fs/src",
+      "prefix": "aurel",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/cov-fs/tsconfig.lib.json",
+            "project": "libs/cov-fs/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/cov-fs/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cov-fs/tsconfig.lib.json",
+              "libs/cov-fs/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cov-fs/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cov-fs/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {
@@ -239,7 +391,8 @@
       "e2eTestRunner": "cypress"
     },
     "@nrwl/angular:library": {
-      "unitTestRunner": "jest"
+      "unitTestRunner": "jest",
+      "strict": true
     }
   },
   "defaultProject": "ius"

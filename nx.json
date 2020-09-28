@@ -18,12 +18,7 @@
       "runner": "@nrwl/nx-cloud",
       "options": {
         "accessToken": "NTdhODAxZGUtMjM3ZS00ODgyLTgyNDMtYTBhNTIwODI0MWVkfHJlYWQtd3JpdGU=",
-        "cacheableOperations": [
-          "build",
-          "test",
-          "lint",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "test", "lint", "e2e"],
         "canTrackAnalytics": false,
         "showUsageWarnings": true
       }
@@ -35,15 +30,25 @@
     },
     "ius-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "ius"
-      ]
+      "implicitDependencies": ["ius"]
     },
     "api": {
       "tags": []
     },
     "api-interfaces": {
       "tags": []
+    },
+    "cov-form": {
+      "tags": ["form"]
+    },
+    "cov-sched": {
+      "tags": ["form"]
+    },
+    "cov-table": {
+      "tags": ["form"]
+    },
+    "cov-fs": {
+      "tags": ["form"]
     }
   }
 }
