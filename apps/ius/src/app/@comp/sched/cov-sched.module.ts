@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCalendarComponent } from './mat-calendar/mat-calendar.component';
-import { SchedComponent } from './sched.component';
+import { SchedComponent } from './schedule/sched.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { NbCardModule, NbButtonModule } from '@nebular/theme';
 

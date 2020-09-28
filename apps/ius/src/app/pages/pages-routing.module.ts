@@ -9,7 +9,7 @@ import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { PagesComponent } from './pages.component';
 import { ProfileComponent } from './profile/profile/profile.component';
-import { SchedComponent } from '../@comp/sched/sched.component';
+import { SchedComponent } from '../@comp/sched/schedule/sched.component';
 import { ROUTE_PROFILE,
    ROUTE_TABLES,
    HealthFormsModule,

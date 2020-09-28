@@ -1,13 +1,17 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
-import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { NbAuthModule, NbPasswordAuthStrategy } from '@nebular/auth';
 import {
-  NbDatepickerModule,
+  NbCardModule, NbDatepickerModule,
   NbDialogModule,
   NbMenuModule,
   NbSidebarModule,
@@ -24,12 +28,6 @@ import { ThemeModule } from './@theme/theme.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { authSetup, formSetup } from './app.conf';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { AgGridModule } from 'ag-grid-angular';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 
@@ -62,6 +60,7 @@ export class WebpackTranslateLoader implements TranslateLoader {
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
+    NbCardModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
