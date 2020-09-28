@@ -28,6 +28,7 @@ import { ThemeModule } from './@theme/theme.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { authSetup, formSetup } from './app.conf';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -42,6 +43,7 @@ export class WebpackTranslateLoader implements TranslateLoader {
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    CommonModule,
     MatRadioModule,
     BrowserAnimationsModule,
     HttpClientModule,

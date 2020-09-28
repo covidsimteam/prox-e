@@ -1,14 +1,20 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
-
-import Time from 'moment';
+import { Component, OnInit, Output, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatCalendar } from '@angular/material/datepicker';
+import Time from 'moment';
+
 
 @Component({
-  selector: 'ngx-sched',
+  selector: 'cov-sched',
   templateUrl: './sched.component.html',
   styleUrls: ['./sched.component.scss']
 })
 export class SchedComponent implements OnInit {
+
+
+  form: FormGroup;
+
+  inlineRange: any;
 
   @Output()
   selectedDate = Time();
@@ -16,7 +22,15 @@ export class SchedComponent implements OnInit {
   @ViewChild('calendar')
   calendar: MatCalendar<Time.Moment>;
 
-  constructor() { }
+  constructor(fb: FormBuilder) {
+    this.form = fb.group({
+      date: [{begin: new Date(2018, 7, 5), end: new Date(2018, 7, 25)}]
+    });
+  }
+
+  inlineRangeChange($event: any) {
+    this.inlineRange = $event;
+  }
 
   ngOnInit(): void {
   }

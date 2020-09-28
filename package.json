@@ -129,7 +129,8 @@
     "typeface-exo": "0.0.61",
     "uuid": "8.3.0",
     "web-animations-js": "^2.3.2",
-    "zone.js": "^0.10.2"
+    "zone.js": "^0.10.2",
+    "saturn-datepicker": "8.0.1"
   },
   "devDependencies": {
     "@angular-devkit/build-ng-packagr": "~0.1000.8",

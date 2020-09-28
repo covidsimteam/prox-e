@@ -1,16 +1,30 @@
-<nb-card accent="primary">
-    <nb-card-body>
-      <div class="calendar-wrapper">
-        <button nbButton (click)="prevDay()">Prev</button>
-        <button nbButton (click)="today()">Today</button>
-        <button nbButton (click)="nextDay()">Next</button>
+<div class="col-sm-12">
+  <div class="row">
+    <div>
+        <div>
+          <div class="calendar-wrapper">
+            <button nbButton (click)="prevDay()">Prev</button>
+            <button nbButton (click)="today()">Today</button>
+            <button nbButton (click)="nextDay()">Next</button>
+          </div>
+        </div>
+    </div>
 
-        <cov-mat-calendar
-          #calendar
-          (monthSelected)="monthSelected($event)"
-          (selected)="selectedDate"
-          (selectedChange)="dateChanged()">
-        </cov-mat-calendar>
+    <section class="col-sm-5 offset-sm-1">
+      <h2>Inline Usage</h2>
+      <div>
+          The <span class="code">sat-calendar</span> component with its <span class="code">dateRangesChange</span> output binding can be used as an inline range date picker.
       </div>
-    </nb-card-body>
-</nb-card>
+      <span class="code" *ngIf="inlineRange">
+        {{ inlineRange.begin | date }}
+        {{ inlineRange.end | date }}
+      </span>
+      <div class="inlineCalendarContainer">
+        <sat-calendar [rangeMode]="true"
+                      (dateRangesChange)="inlineRangeChange($event)"
+                      [selected]="selectedDate">
+        </sat-calendar>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,24 +1,32 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCalendarComponent } from './mat-calendar/mat-calendar.component';
-import { SchedComponent } from './schedule/sched.component';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { NbCardModule, NbButtonModule } from '@nebular/theme';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { NbButtonModule, NbCardModule } from '@nebular/theme';
+import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
+import { SchedComponent } from './schedule/sched.component';
 
 @NgModule({
   declarations: [
-    SchedComponent,
-    MatCalendarComponent
+    SchedComponent
   ],
   imports: [
     CommonModule,
     MatDatepickerModule,
+    FormsModule,
+    ReactiveFormsModule,
     NbCardModule,
-    NbButtonModule
+    NbButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule, MatFormFieldModule, MatInputModule,
+    MatButtonModule, SatDatepickerModule, SatNativeDateModule
   ],
   exports: [
-    SchedComponent,
-    MatCalendarComponent
+    SchedComponent
   ]
 })
 export class CovSchedModule {
