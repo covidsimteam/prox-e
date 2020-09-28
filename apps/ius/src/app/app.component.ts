@@ -1,13 +1,35 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Message } from '@aurel/api-interfaces';
-
+/**
+ * @license
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from './@auth/core/auth.service';
+import { AnalyticsService } from './@core/utils/analytics.service';
+import { SeoService } from './@core/utils/seo.service';
 @Component({
-  selector: 'aurel-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'ngx-app',
+  template: '<router-outlet></router-outlet>',
 })
-export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+export class AppComponent implements OnInit {
+
+  constructor(
+    private analytics: AnalyticsService,
+    private seoService: SeoService,
+    private authService: AuthService,
+    private translator: TranslateService
+    ) {
+      this.translator.setDefaultLang('en');
+      this.translator.addLangs(['np']);
+    }
+
+  ngOnInit(): void {
+    this.analytics.trackPageViews();
+    this.seoService.trackCanonicalChanges();
+    this.authService.publicLogin(); // login as a public user, read only & only for public buckets
+  }
+
+  useLanguage(lang: string) {
+    this.translator.use(lang);
+  }
 }

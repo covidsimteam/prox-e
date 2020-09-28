@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-xxl-7">
+    <cov-hub-charts matRipple (click)="on = !on" [ngClass]="{'off': !on}"></cov-hub-charts>
+  </div>
+
+  <div class="col-xxl-5">
+    <ngx-traffic-reveal-card matRipple (click)="on = !on" [ngClass]="{'off': !on}"></ngx-traffic-reveal-card>
+    <div class="row">
+      <div class="col-md-6">
+        <ngx-test-card testName="RDT" matRipple (click)="on = !on" [ngClass]="{'off': !on}"></ngx-test-card>
+      </div>
+      <div class="col-md-6" matRipple (click)="on = !on" [ngClass]="{'off': !on}">
+        <ngx-test-card testName="PCR"></ngx-test-card>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<div class="row">
+  <div class="col-xxl-9">
+    <cov-hub-visitors-analytics></cov-hub-visitors-analytics>
+  </div>
+
+  <div class="col-xxl-3">
+    <ngx-user-activity></ngx-user-activity>
+  </div>
+</div>

@@ -1,0 +1,155 @@
+<nb-card class="form-cont">
+  <nb-card-body>
+
+    <div class="row">
+
+      <div class="col-md-8 col-lg-8">
+        <mat-form-field appearance="fill" class="form-a">
+          <mat-label>{{ t.fa.last14daysSymptom | translate }}</mat-label>
+          <input matInput autocomplete="off">
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-4 col-lg-4">
+        <div class="form-a">
+          <label class="title">{{ t.fa.travelledToInfected | translate }}</label>
+          <nb-radio-group id="inputCaseStatus" name="travelled-to-infected" class="row">
+            <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+            <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+            <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+          </nb-radio-group>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-4">
+        <div class="form-a">
+          <label class="title">{{ t.fa.ifYes | translate }}</label>
+          <nb-radio-group id="inputCaseStatus" name="travelled-to-inf-abroad" class="row">
+            <nb-radio>{{ t.fa.insideCountry | translate }}</nb-radio>
+            <nb-radio>{{ t.fa.outsideCountry | translate }}</nb-radio>
+          </nb-radio-group>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-4">
+        <mat-form-field appearance="fill" class="form-a">
+          <mat-label>{{ t.fa.name | translate }}</mat-label>
+          <input matInput autocomplete="off">
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-4 col-lg-4">
+        <mat-form-field appearance="fill" class="form-a">
+          <mat-label> {{ t.fa.relative | translate }} </mat-label>
+          <input matInput placeholder="दिन/महिना/वर्ष">
+        </mat-form-field>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+
+      <div class="col-md-4 col-lg-4">
+        <mat-form-field appearance="fill" class="form-a">
+          <mat-label>{{ t.fa.hospitalization | translate }}</mat-label>
+          <input matInput autocomplete="off">
+        </mat-form-field>
+      </div>
+
+
+
+
+
+      <div class="col-md-4 col-lg-4">
+        <mat-form-field appearance="fill" class="form-a">
+          <mat-label> {{ t.fa.visitedPlaceCountry | translate }} </mat-label>
+          <input matInput placeholder="दिन/महिना/वर्ष">
+        </mat-form-field>
+      </div>
+
+    </div>
+
+
+    <div class="row">
+
+      <div class="col-md-4 col-lg-4">
+        <div class="form-a">
+          <label class="title">{{ t.fa.festivities | translate }}</label>
+          <nb-radio-group id="inputCaseStatus" name="parttook-on-festivities" class="row">
+            <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+            <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+            <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+          </nb-radio-group>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-4">
+        <mat-form-field appearance="fill" class="form-a">
+          <mat-label>{{ t.fa.ifYesWhen | translate }}</mat-label>
+          <input matInput autocomplete="off">
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-4 col-lg-4">
+        <div class="form-a">
+          <label class="title">{{ t.fa.beenInContact | translate }}</label>
+          <nb-radio-group id="inputCaseStatus" name="in-contact" class="row">
+            <nb-radio>{{ t.fab.ho | translate }}</nb-radio>
+            <nb-radio>{{ t.fab.hoina | translate }}</nb-radio>
+            <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+          </nb-radio-group>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+
+      <div class="col-md-4 col-lg-4">
+        <mat-form-field appearance="fill" class="form-a">
+          <mat-label>{{ t.fa.personName | translate }}</mat-label>
+          <input matInput autocomplete="off">
+        </mat-form-field>
+      </div>
+
+
+
+
+
+      <div class="col-md-4 col-lg-4">
+        <div class="form-a">
+          <label class="title">{{ t.fa.recoveryOrgHospitalAdmitted | translate }}</label>
+          <nb-radio-group id="inputCaseStatus" name="recoveryOrgHospitalAdmitted" class="row">
+            <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+            <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+            <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+          </nb-radio-group>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row">
+
+
+
+      <div class="col-md-4 col-lg-4">
+        <mat-form-field appearance="fill" class="form-a">
+          <mat-label>{{ t.fa.personName | translate }}</mat-label>
+          <input matInput autocomplete="off">
+
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-4 col-lg-4">
+        <mat-form-field appearance="fill" class="form-a">
+          <mat-label> {{ t.fa.origin | translate }} </mat-label>
+          <input matInput placeholder="दिन/महिना/वर्ष">
+        </mat-form-field>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,136 @@
+<nb-card size="giant">
+  <nb-card-header>
+    <div class="row">
+      <nav id="head">
+        <ul class="nav">
+          <li>
+            <a (click)="showNewCaseWindow()" class="iconav">
+              <nb-icon icon="plus"></nb-icon>
+            </a>
+          </li>
+          <!-- <li>
+                <a href="#" (click)="showSettingsWindow()" class="iconav float-right">
+                  <nb-icon icon="settings"></nb-icon>
+                </a>
+              </li> -->
+        </ul>
+      </nav>
+      <span class="title">Positive Cases</span>
+    </div>
+
+  </nb-card-header>
+  <nb-card-body>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort matSortActive="created" matSortDisableClear
+        matSortDirection="desc">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="expando">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let element">
+            <ng-container *ngIf="element.expanded">
+              <div class="row">
+                <div class="col-sm-6">
+                  <button
+                    nbButton
+                    status="primary"
+                    appearance="outline"
+                    size="small"
+                    [nbPopover]="templateRefSave"
+                    nbPopoverPlacement="right"
+                    nbPopoverTrigger="hint"
+                    nbPopoverAdjustment="counterclockwise"
+                  >
+                    <nb-icon icon="save-outline" (click)="element.expanded = !element.expanded">
+                    </nb-icon>
+                  </button>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-sm-6">
+                  <button
+                    nbButton
+                    status="warning"
+                    appearance="outline"
+                    size="small"
+                    [nbPopover]="templateRefDelete"
+                    nbPopoverPlacement="right"
+                    nbPopoverTrigger="hint"
+                    nbPopoverAdjustment="counterclockwise"
+                  >
+                    <nb-icon icon="trash-2-outline">
+                    </nb-icon>
+                  </button>
+                </div>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="!element.expanded">
+              <button nbButton appearance="outline" size="small">
+                <nb-icon icon="edit-2-outline" (click)="element.expanded = !element.expanded">
+                </nb-icon>
+              </button>
+            </ng-container>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="case">
+          <th mat-header-cell *matHeaderCellDef> Case Name</th>
+          <td mat-cell *matCellDef="let element">
+            <mat-expansion-panel [(expanded)]="element.expanded" hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Zira Bhai
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <cov-case-overview></cov-case-overview>
+            </mat-expansion-panel>
+          </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef> Phone </th>
+          <td mat-cell *matCellDef="let element" (click)="element.expanded = !element.expanded"> {{element.weight}}
+          </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef> Address </th>
+          <td mat-cell *matCellDef="let element" (click)="element.expanded = !element.expanded"> {{element.weight}}
+          </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="institution">
+          <th mat-header-cell *matHeaderCellDef> Institution </th>
+          <td mat-cell *matCellDef="let element" (click)="element.expanded = !element.expanded"> {{ element.name }}
+          </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="investigator">
+          <th mat-header-cell *matHeaderCellDef> Investigator </th>
+          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr class="top-text" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 20, 30, 40, 50]" showFirstLastButtons></mat-paginator>
+    </div>
+  </nb-card-body>
+</nb-card>
+<cov-case-tracing></cov-case-tracing>
+
+<ng-template #templateRefSave>
+  <span>Save & Close</span>
+</ng-template>
+
+<ng-template #templateRefDelete>
+  <span>Delete & Close</span>
+</ng-template>
+
+

@@ -1,0 +1,74 @@
+<nb-card class="form-cont">
+  <nb-card-body>
+<div class="row">
+
+  <div class="col-md-4 col-lg-4">
+    <div class="form-a">
+      <label class="title">{{ t.fa.isolationHospital | translate }}</label>
+      <nb-radio-group id="inputCaseStatus" name="hospitalized" class="row">
+        <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+    </nb-radio-group>
+    </div>
+  </div>
+
+  <div class="col-md-4 col-lg-4">
+    <mat-form-field appearance="fill" class="form-a">
+      <mat-label>{{ t.fa.hospitalDate | translate }}</mat-label>
+      <input matInput autocomplete="off">
+      <!-- <mat-hint>E.g. Lalit:324234</mat-hint> -->
+    </mat-form-field>
+  </div>
+
+  <div class="col-md-4 col-lg-4">
+    <mat-form-field appearance="fill" class="form-a">
+      <mat-label> {{ t.fa.hospitalName | translate }} </mat-label>
+      <input matInput placeholder="दिन/महिना/वर्ष">
+    </mat-form-field>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-md-4 col-lg-4">
+    <div class="form-a">
+      <label class="title">{{ t.fa.hospitalLocation | translate }}</label>
+      <nb-radio-group id="inputCaseStatus" name="isolated-location" class="row">
+        <nb-radio>{{ t.fa.home | translate }}</nb-radio>
+        <nb-radio>{{ t.fa.organization | translate }}</nb-radio>
+    </nb-radio-group>
+    </div>
+  </div>
+
+  <div class="col-md-4 col-lg-4">
+    <mat-form-field appearance="fill" class="form-a">
+      <mat-label>{{ t.fa.nameAndLocation | translate }}</mat-label>
+      <input matInput autocomplete="off">
+      <!-- <mat-hint>E.g. Lalit:324234</mat-hint> -->
+    </mat-form-field>
+  </div>
+
+  <div class="col-md-4 col-lg-4">
+    <mat-form-field appearance="fill" class="form-a">
+      <mat-label> {{ t.fa.isolationDate | translate }} </mat-label>
+      <input matInput placeholder="दिन/महिना/वर्ष">
+    </mat-form-field>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-md-4 col-lg-4">
+    <div class="form-a">
+      <label class="title">{{ t.fa.ventilation | translate }}</label>
+      <nb-radio-group id="inputCaseStatus" name="ventilator" class="row">
+        <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+        <nb-radio>{{ t.fab.thahaChhaina | translate }}</nb-radio>
+    </nb-radio-group>
+    </div>
+  </div>
+  </div>
+
+</nb-card-body>
+</nb-card>

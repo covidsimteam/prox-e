@@ -1,0 +1,157 @@
+<nb-layout center>
+  <nb-layout-header>Annex 3: Form B2 –Contact Follow-up Form/Symptoms Diary(कन्टयाक्टफऱोअपफारम/ऱक्षणडायरी)</nb-layout-header>
+
+  <nb-layout-column>
+    <nb-card>
+      <nb-card-body>
+
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="inputFirstName" class="label">{{ t.fc.caseName | translate }}</label>
+        <input type="text" nbInput placeholder="नाम र ठेगाना">
+        </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="inputFirstName" class="label">{{ t.fc.caseId | translate }}</label>
+            <input type="text" nbInput placeholder="नाम र ठेगाना">
+            </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="inputFirstName" class="label">{{ t.fc.quarantineName | translate }}</label>
+                <input type="text" nbInput placeholder="नाम र ठेगाना">
+                </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputFirstName" class="label">{{ t.fc.quarantineIdNumber | translate }}</label>
+                    <input type="text" nbInput placeholder="नाम र ठेगाना">
+                    </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="form-group">
+                    <label for="inputDate" class="label">{{ t.fc.followupDate | translate }} </label>
+                    <input [nbDatepicker]="datepicker">
+                    <nb-datepicker #datepicker></nb-datepicker> <br/>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="label" >
+                      {{ t.fc.symptoms | translate }}</div>
+                    <div class="col-sm-6">
+                      <nb-radio-group id="inputCaseStatus" class="row">
+                        <nb-radio>कननैछैन</nb-radio>
+                        </nb-radio-group>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="label" >
+                        {{ t.fc.fever | translate }}</div>
+                      <div class="col-sm-6">
+                        <nb-radio-group id="inputCaseStatus" class="row">
+                          <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+                          <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+
+                          </nb-radio-group>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="label" >
+                          {{ t.fc.runnyNose | translate }}</div>
+                        <div class="col-sm-6">
+                          <nb-radio-group id="inputCaseStatus" class="row">
+                            <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+                            <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+
+                            </nb-radio-group>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="label" >
+                            {{ t.fc.cough | translate }}</div>
+                          <div class="col-sm-6">
+                            <nb-radio-group id="inputCaseStatus" class="row">
+                              <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+                              <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+
+                              </nb-radio-group>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <div class="label" >
+                              {{ t.fc.sorethroat | translate }}</div>
+                            <div class="col-sm-6">
+                              <nb-radio-group id="inputCaseStatus" class="row">
+                                <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+                                <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+
+                                </nb-radio-group>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <div class="label" >
+                                {{ t.fc.difficultyBreathing | translate }}</div>
+                              <div class="col-sm-6">
+                                <nb-radio-group id="inputCaseStatus" class="row">
+                                  <nb-radio>{{ t.fab.chha | translate }}</nb-radio>
+                                  <nb-radio>{{ t.fab.chhaina | translate }}</nb-radio>
+
+                                  </nb-radio-group>
+                                </div>
+                              </div>
+
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label for="inputFirstName" class="label">{{ t.fc.other | translate }}</label>
+                                  <input type="text" nbInput placeholder="नाम र ठेगाना">
+                                  </div>
+                                  </div>
+
+
+                                  <nb-accordion>
+                                    <nb-accordion-item>
+                                     <nb-accordion-item-header>{{ t.fc.followup | translate }}</nb-accordion-item-header>
+                                     <nb-accordion-item-body>
+
+                                      <div class="form-group">
+                                        <div class="label" >
+                                          {{ t.fc.tick | translate }}</div>
+                                        <div class="col-sm-6">
+                                          <nb-radio-group id="inputCaseStatus" class="row">
+                                            <nb-radio>{{ t.fc.neverIll | translate }}</nb-radio>
+                                            <nb-radio>{{ t.fc.secondary | translate }}</nb-radio>
+                                            <nb-radio>{{ t.fc.firstFollowup | translate }}</nb-radio>
+                                            <nb-radio>{{ t.fc.primary | translate }}</nb-radio>
+                                            <nb-radio>{{ t.fc.doubtful | translate }}</nb-radio>
+                                            </nb-radio-group>
+                                          </div>
+                                        </div>
+
+                                     </nb-accordion-item-body>
+                                    </nb-accordion-item>
+                                   </nb-accordion>
+
+
+
+
+
+
+
+</nb-card-body>
+</nb-card>
+</nb-layout-column>
+
+  <nb-layout-footer>Form B2: Contact follow-up reporting form –for close contactsof confirmed cases(Day 14–21</nb-layout-footer>
+</nb-layout>

@@ -1,0 +1,17 @@
+.container {
+  width: 350px;
+}
+
+.radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.radio-button {
+  margin: 5px;
+}
+
+::ng-deep
+.mat-radio-container .mat-ripple-element {
+  opacity: 0.2;
+}
