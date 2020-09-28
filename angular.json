@@ -17,16 +17,115 @@
             "polyfills": "apps/ius/src/polyfills.ts",
             "tsConfig": "apps/ius/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/ius/src/favicon.ico", "apps/ius/src/assets"],
-            "styles": ["apps/ius/src/styles.css"],
-            "scripts": []
+            "assets": [
+              "apps/ius/src/favicon.ico",
+              "apps/ius/src/assets",
+              "apps/ius/src/favicon.png",
+              "apps/ius/src/web.config",
+              {
+                "glob": "**/*",
+                "input": "node_modules/leaflet/dist/images",
+                "output": "/assets/img/markers"
+              }
+            ],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/typeface-exo/index.css",
+              "node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
+              "node_modules/ionicons/scss/ionicons.scss",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "node_modules/socicon/css/socicon.css",
+              "node_modules/nebular-icons/scss/nebular-icons.scss",
+              "node_modules/pace-js/templates/pace-theme-flash.tmpl.css",
+              "node_modules/leaflet/dist/leaflet.css",
+              "node_modules/leaflet.fullscreen/Control.FullScreen.css",
+              "node_modules/leaflet.markercluster/dist/MarkerCluster.css",
+              "node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
+              "apps/ius/src/app/@theme/styles/styles.scss",
+              "apps/ius/src/app/@theme/styles/calendar.scss"
+            ],
+            "scripts": [
+              "node_modules/pace-js/pace.min.js",
+              "node_modules/echarts/dist/echarts.min.js",
+              "node_modules/echarts/dist/extension/bmap.min.js",
+              "node_modules/chart.js/dist/Chart.min.js",
+              "node_modules/leaflet/dist/leaflet.js",
+              "node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "lie",
+              "uuid",
+              "url-join",
+              "url-parse",
+              "immediate",
+              "lodash",
+              "polylabel",
+              "style-loader!leaflet/dist/leaflet.css",
+              "zrender/lib/vml/vml",
+              "zrender/lib/svg/svg",
+              "angular2-chartjs",
+              "echarts"
+            ]
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "allScript",
+                  "maximumWarning": "8mb"
+                },
+                {
+                  "type": "initial",
+                  "maximumWarning": "6mb"
+                },
+                {
+                  "type": "bundle",
+                  "maximumWarning": "900kb"
+                },
+                {
+                  "type": "all",
+                  "maximumWarning": "27mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "25kb"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": true,
+              "extractCss": true,
+              "namedChunks": true,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
               "fileReplacements": [
                 {
                   "replace": "apps/ius/src/environments/environment.ts",
                   "with": "apps/ius/src/environments/environment.prod.ts"
+                }
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
+            },
+            "staging": {
+              "budgets": [
+                {
+                  "type": "allScript",
+                  "maximumWarning": "7mb"
+                },
+                {
+                  "type": "initial",
+                  "maximumWarning": "3mb"
+                },
+                {
+                  "type": "bundle",
+                  "maximumWarning": "900kb"
+                },
+                {
+                  "type": "all",
+                  "maximumWarning": "25mb"
                 }
               ],
               "optimization": true,
@@ -34,19 +133,14 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [
+              "fileReplacements": [
                 {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "replace": "apps/ius/src/environments/environment.ts",
+                  "with": "apps/ius/src/environments/environment.staging.ts"
                 }
               ]
             }
@@ -55,12 +149,16 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "port": 2003,
             "browserTarget": "ius:build",
             "proxyConfig": "apps/ius/proxy.conf.json"
           },
           "configurations": {
             "production": {
               "browserTarget": "ius:build:production"
+            },
+            "staging": {
+              "browserTarget": "covhub:build:staging"
             }
           }
         },
@@ -70,6 +168,42 @@
             "browserTarget": "ius:build"
           }
         },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/ius/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "src/tsconfig.spec.json",
+            "polyfills": "src/polyfills.ts",
+            "scripts": [
+              "node_modules/pace-js/pace.min.js",
+              "node_modules/echarts/dist/echarts.min.js",
+              "node_modules/echarts/dist/extension/bmap.min.js",
+              "node_modules/chart.js/dist/Chart.min.js"
+            ],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/typeface-exo/index.css",
+              "node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
+              "node_modules/ionicons/scss/ionicons.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss",
+              "node_modules/socicon/css/socicon.css",
+              "node_modules/nebular-icons/scss/nebular-icons.scss",
+              "node_modules/pace-js/templates/pace-theme-flash.tmpl.css",
+              "apps/ius/src/app/@theme/styles/styles.scss"
+            ],
+            "assets": [
+              "apps/ius/src/assets",
+              "apps/ius/src/favicon.ico",
+              "apps/ius/src/favicon.png",
+              {
+                "glob": "**/*",
+                "input": "node_modules/leaflet/dist/images",
+                "output": "/assets/img/markers"
+              }
+            ]
+          }
+        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
@@ -77,14 +211,11 @@
               "apps/ius/tsconfig.app.json",
               "apps/ius/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/ius/**/*"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "apps/ius/jest.config.js",
-            "passWithNoTests": true
+            "typeCheck": true,
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ius/**/*"
+            ]
           }
         }
       }
@@ -110,8 +241,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/ius-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/ius-e2e/**/*"]
+            "tsConfig": [
+              "apps/ius-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ius-e2e/**/*"
+            ]
           }
         }
       }
@@ -129,7 +265,9 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": [
+              "apps/api/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -158,7 +296,10 @@
               "apps/api/tsconfig.app.json",
               "apps/api/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/api/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/api/**/*"
+            ]
           }
         },
         "test": {
@@ -183,7 +324,10 @@
               "libs/api-interfaces/tsconfig.lib.json",
               "libs/api-interfaces/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/api-interfaces/**/*"
+            ]
           }
         },
         "test": {
@@ -220,7 +364,10 @@
               "libs/cov-form/tsconfig.lib.json",
               "libs/cov-form/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/cov-form/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/cov-form/**/*"
+            ]
           }
         },
         "test": {
@@ -258,7 +405,10 @@
               "libs/cov-sched/tsconfig.lib.json",
               "libs/cov-sched/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/cov-sched/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/cov-sched/**/*"
+            ]
           }
         },
         "test": {
@@ -296,7 +446,10 @@
               "libs/cov-table/tsconfig.lib.json",
               "libs/cov-table/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/cov-table/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/cov-table/**/*"
+            ]
           }
         },
         "test": {
@@ -334,7 +487,10 @@
               "libs/cov-fs/tsconfig.lib.json",
               "libs/cov-fs/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/cov-fs/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/cov-fs/**/*"
+            ]
           }
         },
         "test": {
