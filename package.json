@@ -31,6 +31,7 @@
   "dependencies": {
     "@ag-grid-community/all-modules": "^24.0.0",
     "@ag-grid-community/angular": "^24.0.0",
+    "@ag-grid-community/core": "^24.0.0",
     "@akveo/ng2-completer": "^9.0.1",
     "@angular/animations": "^10.0.0",
     "@angular/cdk": "^10.2.1",

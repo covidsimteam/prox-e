@@ -25,7 +25,6 @@ import {
   NbUserModule
 } from '@nebular/theme';
 import { TranslateModule } from '@ngx-translate/core';
-import { CovFormComponent } from '../../../../projects/cov-form/src/lib/cov-form.component';
 import { ThemeModule } from '../../@theme/theme.module';
 import { FormAStepEightTwoComponent } from './form-a/form-a-step-eight-two/form-a-step-eight-two.component';
 import { FormAStepFiveComponent } from './form-a/form-a-step-five/form-a-step-five.component';
@@ -128,8 +127,7 @@ const MaterialModules = [
     FormAStepSixComponent,
     FormAStepSevenComponent,
     FormAStepEightTwoComponent,
-    FormAStepNineComponent,
-    CovFormComponent,
+    FormAStepNineComponent
   ],
 })
 export class HealthFormsModule { }

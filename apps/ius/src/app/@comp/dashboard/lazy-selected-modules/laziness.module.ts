@@ -4,7 +4,6 @@ import { LazinessConfigComponent } from './laziness-config/laziness-config.compo
 import { DatagsComponent } from './datags/datags.component';
 import { FormFilesComponent } from './form-files/form-files.component';
 import { SpecDocComponent } from './form-spec-doc/spec-doc.component';
-import { CovFormComponent } from './forms-cov/form.component';
 import { CovFormFfwdComponent } from './form-ffwd/form-ffwd.component';
 
 @NgModule({
@@ -13,7 +12,6 @@ import { CovFormFfwdComponent } from './form-ffwd/form-ffwd.component';
     DatagsComponent,
     FormFilesComponent,
     SpecDocComponent,
-    CovFormComponent,
     CovFormFfwdComponent
   ],
   imports: [
