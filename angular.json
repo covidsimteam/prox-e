@@ -64,7 +64,8 @@
               "zrender/lib/vml/vml",
               "zrender/lib/svg/svg",
               "angular2-chartjs",
-              "echarts"
+              "echarts",
+              "@codewithdan/observable-store"
             ]
           },
           "configurations": {
