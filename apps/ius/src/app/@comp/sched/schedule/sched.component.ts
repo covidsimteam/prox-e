@@ -11,9 +11,6 @@ import Time from 'moment';
 })
 export class SchedComponent implements OnInit {
 
-
-  form: FormGroup;
-
   inlineRange: any;
 
   @Output()
@@ -22,11 +19,7 @@ export class SchedComponent implements OnInit {
   @ViewChild('calendar')
   calendar: MatCalendar<Time.Moment>;
 
-  constructor(fb: FormBuilder) {
-    this.form = fb.group({
-      date: [{begin: new Date(2018, 7, 5), end: new Date(2018, 7, 25)}]
-    });
-  }
+  constructor(fb: FormBuilder) {}
 
   inlineRangeChange($event: any) {
     this.inlineRange = $event;
