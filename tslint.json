@@ -66,8 +66,8 @@
         ]
       }
     ],
-    "directive-selector": [true, "attribute", "app", "camelCase"],
-    "component-selector": [true, "element", "app", "kebab-case"],
+    "directive-selector": [true, "attribute", ["app", "cov", "lib"], "camelCase"],
+    "component-selector": [true, "element", ["app", "cov", "lib"], "kebab-case"],
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
     "no-input-rename": true,
