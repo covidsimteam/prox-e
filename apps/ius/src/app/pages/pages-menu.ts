@@ -91,19 +91,19 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: `${FORM_X}`,
       },
       {
-        title: 'Point of Entry',
+        title: 'Entry Points',
         link: `${POI}`,
       },
       {
-        title: 'Quarantine Facility',
+        title: 'Quarantines',
         link: `${QUARANTINE}`,
       },
       {
-        title: 'RDT Lab',
+        title: 'RDT Labs',
         link: `${RDT_LAB}`,
       },
       {
-        title: 'PCR Lab',
+        title: 'PCR Labs',
         link: `${PCR_LAB}`,
       },
       {
@@ -125,7 +125,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     group: true,
   },
   {
-    title: 'COVID-19 Maps',
+    title: 'Cov-Maps',
     icon: 'map-outline',
     children: [
       {
@@ -143,11 +143,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'activity-outline',
     children: [
       {
-        title: 'COVID-19 Charts',
+        title: 'Charts',
         link: `${CHARTS_STATS}`,
       },
       {
-        title: 'Preventive Measures',
+        title: 'Interventions',
         link: `${PREVENTIVES}`,
       },
       {
@@ -159,24 +159,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Workflows',
     group: true,
-  },
-  {
-    title: 'Dev Dashboard',
-    icon: 'activity-outline',
-    children: [
-      {
-        title: 'Concepts',
-        link: `${GRAPHS_CONCEPTS}`,
-      },
-      {
-        title: 'Potatoes',
-        link: `${GRAPHS_POTATOES}`,
-      },
-    ],
-  },
-  {
-    title: 'Resources',
-    group: true
   },
   {
     title: 'Team',
@@ -193,7 +175,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ]
   },
   {
-    title: 'System Dashboard',
+    title: 'Resources',
+    group: true
+  },
+
+  {
+    title: 'System',
     icon: 'activity-outline',
     children: [
       {
@@ -206,4 +193,18 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+  {
+    title: 'Devs',
+    icon: 'activity-outline',
+    children: [
+      {
+        title: 'Concepts',
+        link: `${GRAPHS_CONCEPTS}`,
+      },
+      {
+        title: 'Potatoes',
+        link: `${GRAPHS_POTATOES}`,
+      },
+    ],
+  }
 ];
