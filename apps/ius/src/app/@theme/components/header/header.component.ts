@@ -60,7 +60,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   readonly CUTOFF = SMALL_BP;
 
-  innerWidthObs = new BehaviorSubject<number>(SMALL_BP); // considering 442 as minimum full size
+  innerWidthObs = new BehaviorSubject<number>(SMALL_BP + 1); // considering 444 as minimum full size
 
   constructor(
     private sidebarService: NbSidebarService,

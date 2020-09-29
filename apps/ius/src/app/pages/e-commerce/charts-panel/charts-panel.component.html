@@ -2,20 +2,20 @@
   <nb-tabset fullWidth (changeTab)="changeTab($event)">
     <nb-tab tabTitle="Quarantined">
       <div class="chart-container">
-        <ngx-chart-panel-summary [summary]="chartPanelSummary"></ngx-chart-panel-summary>
-        <ngx-chart-panel-header [type]="period"
+        <cov-chart-panel-summary [summary]="chartPanelSummary"></cov-chart-panel-summary>
+        <cov-chart-panel-header [type]="period"
                                 (periodChange)="setPeriodAndGetChartData($event)">
-        </ngx-chart-panel-header>
-        <ngx-orders-chart #ordersChart [ordersChartData]="ordersChartData"></ngx-orders-chart>
+        </cov-chart-panel-header>
+        <cov-orders-chart #ordersChart [ordersChartData]="ordersChartData"></cov-orders-chart>
       </div>
     </nb-tab>
     <nb-tab tabTitle="Isolated" [lazyLoad]="true">
       <div class="chart-container">
-        <ngx-chart-panel-summary [summary]="chartPanelSummary"></ngx-chart-panel-summary>
-        <ngx-chart-panel-header [type]="period"
+        <cov-chart-panel-summary [summary]="chartPanelSummary"></cov-chart-panel-summary>
+        <cov-chart-panel-header [type]="period"
                                 (periodChange)="setPeriodAndGetChartData($event)">
-        </ngx-chart-panel-header>
-        <ngx-profit-chart #profitChart [profitChartData]="profitChartData"></ngx-profit-chart>
+        </cov-chart-panel-header>
+        <cov-profit-chart #profitChart [profitChartData]="profitChartData"></cov-profit-chart>
       </div>
     </nb-tab>
   </nb-tabset>

@@ -12,12 +12,12 @@
 <nb-card *ngIf="readyToRenderChart">
   <nb-card-header>+ve Sero Prevalence Ranking</nb-card-header>
   <nb-card-body>
-    <ngx-district-bar [dataSets]="[districtPcrDataSets[0]]" [labels]="districtNamesSero"></ngx-district-bar>
+    <cov-district-bar [dataSets]="[districtPcrDataSets[0]]" [labels]="districtNamesSero"></cov-district-bar>
   </nb-card-body>
 </nb-card>
 <nb-card *ngIf="readyToRenderChart">
   <nb-card-header>+ve PCR Result Ratio Ranking</nb-card-header>
   <nb-card-body>
-    <ngx-district-bar [dataSets]="[districtPcrDataSets[1]]" [labels]="districtNamesRatio"></ngx-district-bar>
+    <cov-district-bar [dataSets]="[districtPcrDataSets[1]]" [labels]="districtNamesRatio"></cov-district-bar>
   </nb-card-body>
 </nb-card>

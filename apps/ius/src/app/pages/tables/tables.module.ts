@@ -18,7 +18,7 @@ import {
 } from '@nebular/theme';
 import { AgGridModule } from 'ag-grid-angular';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
-import { NgxCsvParserModule } from 'cov-csv-parser';
+import { NgxCsvParserModule } from 'ngx-csv-parser';
 import { MatFormCheckboxComponent } from '../../@comp/cov-form/mat/mat-checkbox/mat-checkbox.component';
 import { MatFormInputComponent } from '../../@comp/cov-form/mat/mat-input/mat-input.component';
 import { MatFormRadioComponent } from '../../@comp/cov-form/mat/mat-radio/mat-radio.component';

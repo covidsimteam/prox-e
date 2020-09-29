@@ -4,13 +4,13 @@
   </div>
 
   <div class="col-xxl-5">
-    <ngx-traffic-reveal-card matRipple (click)="on = !on" [ngClass]="{'off': !on}"></ngx-traffic-reveal-card>
+    <cov-traffic-reveal-card matRipple (click)="on = !on" [ngClass]="{'off': !on}"></cov-traffic-reveal-card>
     <div class="row">
       <div class="col-md-6">
-        <ngx-test-card testName="RDT" matRipple (click)="on = !on" [ngClass]="{'off': !on}"></ngx-test-card>
+        <cov-test-card testName="RDT" matRipple (click)="on = !on" [ngClass]="{'off': !on}"></cov-test-card>
       </div>
       <div class="col-md-6" matRipple (click)="on = !on" [ngClass]="{'off': !on}">
-        <ngx-test-card testName="PCR"></ngx-test-card>
+        <cov-test-card testName="PCR"></cov-test-card>
       </div>
     </div>
   </div>
@@ -25,6 +25,6 @@
   </div>
 
   <div class="col-xxl-3">
-    <ngx-user-activity></ngx-user-activity>
+    <cov-user-activity></cov-user-activity>
   </div>
 </div>
