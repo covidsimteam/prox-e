@@ -29,15 +29,15 @@ import {
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'Core Panels',
-    icon: 'home-outline',
-    link: `${HOME}`,
-    home: true,
-  },
-  {
     title: 'Core Stats',
     icon: 'activity-outline',
     link: `${STATS}`,
+    home: true,
+  },
+  {
+    title: 'Core Maps',
+    icon: 'home-outline',
+    link: `${HOME}`,
   },
   {
     title: 'Tables',
