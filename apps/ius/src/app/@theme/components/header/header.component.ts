@@ -1,18 +1,15 @@
-import { Component, OnDestroy, OnInit, Inject, ViewChild, ContentChild } from '@angular/core';
+import { Component, ContentChild, Inject, OnDestroy, OnInit, ViewChild, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
-import { NbAuthToken } from '@nebular/auth';
 import {
   NbContextMenuDirective,
   NbDialogService,
   NbMediaBreakpointsService,
-  NbMenuService,
-  NbPopoverDirective,
   NbSidebarService,
   NbThemeService,
   NB_WINDOW
 } from '@nebular/theme';
-import { Observable, Subject } from 'rxjs';
-import { filter, map, takeUntil } from 'rxjs/operators';
+import { fromEvent, Observable, Subject, BehaviorSubject } from 'rxjs';
+import { debounceTime, map, takeUntil, tap } from 'rxjs/operators';
 import { AuthService } from '../../../@auth/core/auth.service';
 import { LayoutService } from '../../../@core/utils';
 import { RippleService } from '../../../@core/utils/ripple.service';
@@ -32,7 +29,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private destroy$: Subject<void> = new Subject<void>();
   public readonly materialTheme$: Observable<boolean>;
-  userPictureOnly: boolean = false;
+  userPictureOnly = false;
   user: HeaderBio;
 
   isPrivilegedUser = false;
@@ -54,13 +51,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   userMenu = this.getMenuItems();
 
-
-
   @ViewChild(NbContextMenuDirective) contextMenu: NbContextMenuDirective;
 
   @ContentChild('menu') menu: MenuItemsComponent;
 
   isContextMenuShown = false;
+
+  innerWidthObs = new BehaviorSubject<number>(444); // considering 442 as minimum full size
 
   constructor(
     private sidebarService: NbSidebarService,
@@ -71,7 +68,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private dialogService: NbDialogService,
     private rippleService: RippleService,
     private router: Router,
-    @Inject(NB_WINDOW) private window: any
+    @Inject(NB_WINDOW) private windo: any
   ) {
 
     this.materialTheme$ = this.themeService.onThemeChange()
@@ -103,9 +100,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
     ];
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    console.log('event', event);
+    this.innerWidthObs.next(event?.target?.innerWidth);
+  }
 
   ngOnInit() {
     this.currentTheme = 'material-light';
+
+    this.innerWidthObs.subscribe((ev: any) => console.log('innerWidth', ev));
 
     this.authService.userObs
       .pipe(

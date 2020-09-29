@@ -206,5 +206,25 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: `${GRAPHS_POTATOES}`,
       },
     ],
+  },
+  {
+    title: 'Auth',
+    group: true
+  },
+  {
+    title: 'Session',
+    icon: 'settings-2-outline',
+    children: [
+      {
+        title: 'Profile',
+        link: `/auth/profile`,
+        icon: 'person-outline'
+      },
+      {
+        title: 'Logout',
+        link: `/auth/logout`,
+        icon: 'log-out-outline'
+      }
+    ]
   }
 ];
