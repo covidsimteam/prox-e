@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-research-company',
+  selector: 'cov-research-company',
   templateUrl: './research-company.component.html',
   styleUrls: ['./research-company.component.scss']
 })

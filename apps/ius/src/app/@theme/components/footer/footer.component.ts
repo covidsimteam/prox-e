@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { version } from '../../../../../../../package.json';
 
 @Component({
-  selector: 'ngx-footer',
+  selector: 'cov-footer',
   styleUrls: ['./footer.component.scss'],
   template: `
     <span class="created-by">

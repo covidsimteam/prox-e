@@ -17,7 +17,7 @@ import { ReturneeTableService } from './returnee-table.service';
 // use Tabular service or higher order component or abstract component class
 
 @Component({
-  selector: 'ngx-returnee',
+  selector: 'cov-returnee',
   templateUrl: './returnee.component.html',
   styleUrls: ['./returnee.component.scss'],
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-ido',
+  selector: 'cov-ido',
   templateUrl: './ido.component.html',
   styleUrls: ['./ido.component.scss']
 })

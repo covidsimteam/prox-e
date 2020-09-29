@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-network-viz',
+  selector: 'cov-network-viz',
   templateUrl: './network-viz.component.html',
   styleUrls: ['./network-viz.component.scss']
 })

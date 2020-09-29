@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 
 @Component({
-  selector: 'ngx-sidebar-footer',
+  selector: 'cov-sidebar-footer',
   styleUrls: ['./sidebar-footer.component.scss'],
   template: `
     <span>Not implemented</span>

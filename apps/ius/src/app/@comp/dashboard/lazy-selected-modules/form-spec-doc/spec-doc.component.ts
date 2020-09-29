@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-spec-doc',
+  selector: 'cov-spec-doc',
   templateUrl: './spec-doc.component.html',
   styleUrls: ['./spec-doc.component.scss']
 })

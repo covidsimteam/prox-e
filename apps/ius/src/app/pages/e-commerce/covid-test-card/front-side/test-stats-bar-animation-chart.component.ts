@@ -4,7 +4,7 @@ import { takeWhile } from 'rxjs/operators';
 import { LayoutService } from '../../../../@core/utils/layout.service';
 
 @Component({
-  selector: 'ngx-stats-bar-animation-chart',
+  selector: 'cov-stats-bar-animation-chart',
   template: `
     <div echarts
          [options]="options"

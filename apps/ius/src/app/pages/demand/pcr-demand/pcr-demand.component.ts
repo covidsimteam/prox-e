@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-pcr-demand',
+  selector: 'cov-pcr-demand',
   templateUrl: './pcr-demand.component.html',
   styleUrls: ['./pcr-demand.component.scss']
 })

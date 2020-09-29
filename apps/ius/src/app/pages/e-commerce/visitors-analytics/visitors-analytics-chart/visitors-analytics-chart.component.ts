@@ -5,7 +5,7 @@ import { LayoutService } from '../../../../@core/utils';
 import { OutlineData } from '../../../../@core/data/visitors-analytics';
 
 @Component({
-  selector: 'ngx-visitors-analytics-chart',
+  selector: 'cov-visitors-analytics-chart',
   styleUrls: ['./visitors-analytics-chart.component.scss'],
   template: `
     <div echarts

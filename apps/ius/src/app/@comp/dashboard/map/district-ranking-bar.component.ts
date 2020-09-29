@@ -3,7 +3,7 @@ import { NbThemeService } from '@nebular/theme';
 import { BarChartDataSet } from '../../../@models/domain.model';
 
 @Component({
-  selector: 'ngx-district-bar',
+  selector: 'cov-district-bar',
   template: `
     <chart type="bar" [data]="data" [options]="options"></chart>
   `,

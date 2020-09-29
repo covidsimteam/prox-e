@@ -4,7 +4,7 @@ import { Formeta } from '../../../@comp/cov-form/formeta.class';
 
 
 @Component({
-  selector: 'ngx-scheduler',
+  selector: 'cov-scheduler',
   templateUrl: './scheduler.component.html',
   styleUrls: ['./scheduler.component.scss']
 })

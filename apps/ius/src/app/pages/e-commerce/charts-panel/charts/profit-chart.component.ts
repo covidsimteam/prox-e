@@ -6,7 +6,7 @@ import { ProfitChart } from '../../../../@core/data/profit-chart';
 import { LayoutService } from '../../../../@core/utils/layout.service';
 
 @Component({
-  selector: 'ngx-profit-chart',
+  selector: 'cov-profit-chart',
   styleUrls: ['./charts-common.component.scss'],
   template: `
     <div echarts [options]="options" class="echart" (chartInit)="onChartInit($event)"></div>

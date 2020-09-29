@@ -5,7 +5,7 @@ import { TranslationServiceEn } from '../../../services/i18n/translation-gen.ser
 import { Formeta } from '../../../@comp/cov-form/formeta.class';
 
 @Component({
-  selector: 'ngx-form-pcr',
+  selector: 'cov-form-pcr',
   styleUrls: ['./form-b2.component.scss'],
   templateUrl: './form-b2.component.html',
 })

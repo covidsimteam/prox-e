@@ -9,7 +9,7 @@ import { Formeta } from '../../../@comp/cov-form/formeta.class';
 
 
 @Component({
-  selector: 'ngx-form-a',
+  selector: 'cov-form-a',
   templateUrl: './form-a.component.html',
   styleUrls: ['./form-a.component.scss']
 })

@@ -3,7 +3,7 @@ import { COUNTRIES, NEARBY_COUNTRIES } from '../../../../@core/data/countries.ge
 import { PROVINCES } from '../../../../@core/data/province-districts.geo';
 
 @Component({
-  selector: 'ngx-returnee-location-details',
+  selector: 'cov-returnee-location-details',
   templateUrl: './returnee-location-details.component.html',
   styleUrls: ['./returnee-location-details.component.scss']
 })

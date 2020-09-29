@@ -8,7 +8,7 @@ import { BasicAuth } from '../../@models/auth-response.model';
 import { HOME } from '../../app.conf';
 
 @Component({
-  selector: 'ngx-reset-pass',
+  selector: 'cov-reset-pass',
   templateUrl: './reset-pass.component.html',
   styleUrls: ['./reset-pass.component.scss']
 })

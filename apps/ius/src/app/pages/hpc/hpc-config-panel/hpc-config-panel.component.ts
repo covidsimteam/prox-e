@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-hpc-config-panel',
+  selector: 'cov-hpc-config-panel',
   templateUrl: './hpc-config-panel.component.html',
   styleUrls: ['./hpc-config-panel.component.scss']
 })

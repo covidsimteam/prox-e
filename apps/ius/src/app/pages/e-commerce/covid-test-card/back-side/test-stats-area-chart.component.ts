@@ -4,7 +4,7 @@ import { NbThemeService } from '@nebular/theme';
 import { LayoutService } from '../../../../@core/utils';
 
 @Component({
-  selector: 'ngx-stats-ares-chart',
+  selector: 'cov-stats-ares-chart',
   styleUrls: ['test-stats-card-back.component.scss'],
   template: `
     <div echarts [options]="option"

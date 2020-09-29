@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-role-boards',
+  selector: 'cov-role-boards',
   templateUrl: './role-boards.component.html',
   styleUrls: ['./role-boards.component.scss']
 })

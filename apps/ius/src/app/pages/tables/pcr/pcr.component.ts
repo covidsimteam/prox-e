@@ -12,7 +12,7 @@ import {
 import { PcrTableService } from './pcr-table.service';
 
 @Component({
-  selector: 'ngx-pcr',
+  selector: 'cov-pcr',
   templateUrl: './pcr.component.html',
   styleUrls: ['./pcr.component.scss'],
 })

@@ -26,7 +26,7 @@ interface MapLayer {
 }
 
 @Component({
-  selector: 'ngx-leaflet',
+  selector: 'cov-leaflet',
   styleUrls: ['./nation.component.scss'],
   templateUrl: './nation.component.html',
 })

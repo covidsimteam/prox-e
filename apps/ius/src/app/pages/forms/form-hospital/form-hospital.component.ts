@@ -16,7 +16,7 @@ class SymptomRecord {
 }
 
 @Component({
-  selector: 'ngx-form-hospital',
+  selector: 'cov-form-hospital',
   styleUrls: ['./form-hospital.component.scss'],
   templateUrl: './form-hospital.component.html',
 })

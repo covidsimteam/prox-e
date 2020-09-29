@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService, NbColorHelper } from '@nebular/theme';
 
 @Component({
-  selector: 'ngx-chartjs-radar',
+  selector: 'cov-chartjs-radar',
   template: `
     <chart type="radar" [data]="data" [options]="options"></chart>
   `,

@@ -3,7 +3,7 @@ import { NbThemeService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators';
 
 @Component({
-  selector: 'ngx-traffic-back-card',
+  selector: 'cov-traffic-back-card',
   styleUrls: ['./traffic-back-card.component.scss'],
   templateUrl: './traffic-back-card.component.html',
 })

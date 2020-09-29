@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-facility-assist',
+  selector: 'cov-facility-assist',
   templateUrl: './facility-assist.component.html',
   styleUrls: ['./facility-assist.component.scss']
 })

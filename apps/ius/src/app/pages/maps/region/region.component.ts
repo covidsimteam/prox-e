@@ -13,7 +13,7 @@ import { Area, Feature, FeatureCollection, WardProperties } from '../../../@mode
 const defaultAreaKey = 'kathmandu_valley';
 
 @Component({
-  selector: 'ngx-region',
+  selector: 'cov-region',
   templateUrl: './region.component.html',
   styleUrls: ['./region.component.scss'],
 })

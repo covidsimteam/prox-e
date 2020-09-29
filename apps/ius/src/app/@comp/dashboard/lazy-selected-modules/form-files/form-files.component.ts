@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-form-files',
+  selector: 'cov-form-files',
   templateUrl: './form-files.component.html',
   styleUrls: ['./form-files.component.scss']
 })

@@ -4,7 +4,7 @@ import { NbThemeService } from '@nebular/theme';
 import { LayoutService } from '../../../../@core/utils/layout.service';
 
 @Component({
-  selector: 'ngx-earning-live-update-chart',
+  selector: 'cov-earning-live-update-chart',
   styleUrls: ['earning-card-front.component.scss'],
   template: `
     <div echarts

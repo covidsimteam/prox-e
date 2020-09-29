@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-diabetes-mgmt',
+  selector: 'cov-diabetes-mgmt',
   templateUrl: './diabetes-mgmt.component.html',
   styleUrls: ['./diabetes-mgmt.component.scss']
 })

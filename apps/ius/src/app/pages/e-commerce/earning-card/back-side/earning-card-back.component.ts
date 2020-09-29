@@ -3,7 +3,7 @@ import { PieChart, EarningData } from '../../../../@core/data/earning';
 import { takeWhile } from 'rxjs/operators';
 
 @Component({
-  selector: 'ngx-earning-card-back',
+  selector: 'cov-earning-card-back',
   styleUrls: ['./earning-card-back.component.scss'],
   templateUrl: './earning-card-back.component.html',
 })

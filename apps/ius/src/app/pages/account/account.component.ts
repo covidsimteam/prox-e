@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../@auth/core/auth.service';
 
 @Component({
-  selector: 'ngx-account',
+  selector: 'cov-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.scss']
 })

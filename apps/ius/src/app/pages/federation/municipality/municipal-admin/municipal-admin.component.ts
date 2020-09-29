@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-municipal-admin',
+  selector: 'cov-municipal-admin',
   templateUrl: './municipal-admin.component.html',
   styleUrls: ['./municipal-admin.component.scss']
 })

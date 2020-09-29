@@ -3,7 +3,7 @@ import { LedgerService } from '../../@hgraph/store/ledger/ledger.service';
 import { FilesService } from './files.service';
 
 @Component({
-  selector: 'ngx-files',
+  selector: 'cov-files',
   templateUrl: './files.component.html',
   styleUrls: ['./files.component.scss'],
   providers: [FilesService]

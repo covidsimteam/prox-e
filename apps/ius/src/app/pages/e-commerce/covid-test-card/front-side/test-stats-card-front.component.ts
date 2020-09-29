@@ -3,7 +3,7 @@ import { ProfitBarAnimationChartData } from '../../../../@core/data/profit-bar-a
 import { takeWhile } from 'rxjs/operators';
 
 @Component({
-  selector: 'ngx-stats-card-front',
+  selector: 'cov-stats-card-front',
   styleUrls: ['./test-stats-card-front.component.scss'],
   templateUrl: './test-stats-card-front.component.html',
 })

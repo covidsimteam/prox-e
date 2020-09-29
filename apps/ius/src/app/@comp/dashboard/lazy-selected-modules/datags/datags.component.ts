@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 @Component({
-  selector: 'ngx-datags',
+  selector: 'cov-datags',
   templateUrl: './datags.component.html',
   styleUrls: ['./datags.component.scss']
 })

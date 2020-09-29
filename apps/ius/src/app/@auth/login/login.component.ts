@@ -7,7 +7,7 @@ import { FormGroup } from '@angular/forms';
 import { HOME } from '../../app.conf';
 
 @Component({
-  selector: 'ngx-login',
+  selector: 'cov-login',
   styleUrls: ['./login.component.scss'],
   templateUrl: './login.component.html'
 })

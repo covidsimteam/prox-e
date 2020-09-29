@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'ngx-chart-panel-summary',
+  selector: 'cov-chart-panel-summary',
   styleUrls: ['./chart-panel-summary.component.scss'],
   template: `
     <div class="summary-container">

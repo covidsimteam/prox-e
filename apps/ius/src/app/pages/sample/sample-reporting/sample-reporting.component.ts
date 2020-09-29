@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-sample-reporting',
+  selector: 'cov-sample-reporting',
   templateUrl: './sample-reporting.component.html',
   styleUrls: ['./sample-reporting.component.scss']
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-viz-sched',
+  selector: 'cov-viz-sched',
   templateUrl: './viz-sched.component.html',
   styleUrls: ['./viz-sched.component.scss']
 })

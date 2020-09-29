@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Formeta } from '../../../@comp/cov-form/formeta.class';
 
 @Component({
-  selector: 'ngx-form-pcr',
+  selector: 'cov-form-pcr',
   styleUrls: ['./form-pcr.component.scss'],
   templateUrl: './form-pcr.component.html',
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-home-boards',
+  selector: 'cov-home-boards',
   templateUrl: './home-boards.component.html',
   styleUrls: ['./home-boards.component.scss']
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-id',
+  selector: 'cov-id',
   templateUrl: './id.component.html',
   styleUrls: ['./id.component.scss']
 })

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Formeta } from '../../../@comp/cov-form/formeta.class';
 
 @Component({
-  selector: 'ngx-form-municipality',
+  selector: 'cov-form-municipality',
   styleUrls: ['./form-municipality.component.scss'],
   templateUrl: './form-municipality.component.html',
 })

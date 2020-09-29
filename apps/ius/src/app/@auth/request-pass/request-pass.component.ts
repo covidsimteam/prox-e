@@ -5,7 +5,7 @@ import { AuthService } from '../core/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'ngx-request-pass',
+  selector: 'cov-request-pass',
   templateUrl: './request-pass.component.html',
   styleUrls: ['./request-pass.component.scss']
 })

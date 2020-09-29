@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Formeta } from '../../../@comp/cov-form/formeta.class';
 
 @Component({
-  selector: 'ngx-form-isolation',
+  selector: 'cov-form-isolation',
   styleUrls: ['./form-isolation.component.scss'],
   templateUrl: './form-isolation.component.html',
 })

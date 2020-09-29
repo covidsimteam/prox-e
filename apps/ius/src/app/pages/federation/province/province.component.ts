@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-province',
+  selector: 'cov-province',
   templateUrl: './province.component.html',
   styleUrls: ['./province.component.scss']
 })

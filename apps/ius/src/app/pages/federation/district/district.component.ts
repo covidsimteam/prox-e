@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-district',
+  selector: 'cov-district',
   templateUrl: './district.component.html',
   styleUrls: ['./district.component.scss']
 })

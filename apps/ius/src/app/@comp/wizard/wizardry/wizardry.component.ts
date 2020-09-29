@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-wizardry',
+  selector: 'cov-wizardry',
   templateUrl: './wizardry.component.html',
   styleUrls: ['./wizardry.component.scss']
 })

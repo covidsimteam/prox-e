@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ngx-d3',
+  selector: 'cov-d3',
   styleUrls: ['./d3.component.scss'],
   templateUrl: './d3.component.html',
 })

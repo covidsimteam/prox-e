@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-positives-profiles',
+  selector: 'cov-positives-profiles',
   templateUrl: './positives-profiles.component.html',
   styleUrls: ['./positives-profiles.component.scss']
 })

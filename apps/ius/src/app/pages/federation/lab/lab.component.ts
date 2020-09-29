@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-lab',
+  selector: 'cov-lab',
   templateUrl: './lab.component.html',
   styleUrls: ['./lab.component.scss']
 })

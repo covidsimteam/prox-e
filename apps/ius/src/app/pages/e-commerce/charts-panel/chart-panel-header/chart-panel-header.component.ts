@@ -4,7 +4,7 @@ import { takeWhile } from 'rxjs/operators';
 
 
 @Component({
-  selector: 'ngx-chart-panel-header',
+  selector: 'cov-chart-panel-header',
   styleUrls: ['./chart-panel-header.component.scss'],
   templateUrl: './chart-panel-header.component.html',
 })

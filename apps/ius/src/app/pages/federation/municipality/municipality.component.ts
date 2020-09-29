@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-municipality',
+  selector: 'cov-municipality',
   templateUrl: './municipality.component.html',
   styleUrls: ['./municipality.component.scss']
 })

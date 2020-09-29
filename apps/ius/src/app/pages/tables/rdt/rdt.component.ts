@@ -13,7 +13,7 @@ import {
 import { RdtTableService } from './rdt-table.service';
 
 @Component({
-  selector: 'ngx-rdt',
+  selector: 'cov-rdt',
   templateUrl: './rdt.component.html',
   styleUrls: ['./rdt.component.scss'],
 })

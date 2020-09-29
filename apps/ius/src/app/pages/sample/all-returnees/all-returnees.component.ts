@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-all-returnees',
+  selector: 'cov-all-returnees',
   templateUrl: './all-returnees.component.html',
   styleUrls: ['./all-returnees.component.scss']
 })

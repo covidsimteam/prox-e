@@ -19,7 +19,7 @@ import {
   NbWindowModule
 } from '@nebular/theme';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { NgxEchartsModule } from 'ngx-echarts';
+import { NgxEchartsModule } from 'cov-echarts';
 import { from } from 'rxjs';
 import { AppConf, appConf, environment } from '../environments/environment';
 import { DashboardModule } from './@comp/dashboard/dashboard.module';

@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
 @Component({
-  selector: 'ngx-d3-pie',
+  selector: 'cov-d3-pie',
   template: `
     <ngx-charts-pie-chart
       [scheme]="colorScheme"

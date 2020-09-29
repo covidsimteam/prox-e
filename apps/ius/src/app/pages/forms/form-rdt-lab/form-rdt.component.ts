@@ -3,7 +3,7 @@ import { Formeta } from '../../../@comp/cov-form/formeta.class';
 
 
 @Component({
-  selector: 'ngx-form-rdt',
+  selector: 'cov-form-rdt',
   styleUrls: ['./form-rdt.component.scss'],
   templateUrl: './form-rdt.component.html',
 })

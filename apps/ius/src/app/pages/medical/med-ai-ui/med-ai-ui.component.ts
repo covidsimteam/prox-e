@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-med-ai-ui',
+  selector: 'cov-med-ai-ui',
   templateUrl: './med-ai-ui.component.html',
   styleUrls: ['./med-ai-ui.component.scss']
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-ward',
+  selector: 'cov-ward',
   templateUrl: './ward.component.html',
   styleUrls: ['./ward.component.scss']
 })

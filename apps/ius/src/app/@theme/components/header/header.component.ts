@@ -19,7 +19,7 @@ import { MenuItemsComponent } from './menu-items/menu-items.component';
 
 
 @Component({
-  selector: 'ngx-header',
+  selector: 'cov-header',
   styleUrls: ['./header.component.scss'],
   templateUrl: './header.component.html',
 })

@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
 @Component({
-  selector: 'ngx-echarts-pie',
+  selector: 'cov-echarts-pie',
   template: `
     <div echarts [options]="options" class="echart"></div>
   `,

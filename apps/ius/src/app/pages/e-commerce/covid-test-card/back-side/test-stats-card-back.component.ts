@@ -3,7 +3,7 @@ import { StatsBarData } from '../../../../@core/data/stats-bar';
 import { takeWhile } from 'rxjs/operators';
 
 @Component({
-  selector: 'ngx-stats-card-back',
+  selector: 'cov-stats-card-back',
   styleUrls: ['./test-stats-card-back.component.scss'],
   templateUrl: './test-stats-card-back.component.html',
 })

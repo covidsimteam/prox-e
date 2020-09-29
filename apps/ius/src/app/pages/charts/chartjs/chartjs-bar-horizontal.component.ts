@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
 @Component({
-  selector: 'ngx-chartjs-bar-horizontal',
+  selector: 'cov-chartjs-bar-horizontal',
   template: `
     <chart type="horizontalBar" [data]="data" [options]="options"></chart>
   `,

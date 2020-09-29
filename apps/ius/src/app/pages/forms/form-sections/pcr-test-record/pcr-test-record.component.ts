@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TestRecord } from '../../../../@models/forms.model';
 
 @Component({
-  selector: 'ngx-pcr-test-record',
+  selector: 'cov-pcr-test-record',
   templateUrl: './pcr-test-record.component.html',
   styleUrls: ['./pcr-test-record.component.scss']
 })

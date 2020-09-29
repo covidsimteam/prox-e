@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-exchange-asset',
+  selector: 'cov-exchange-asset',
   templateUrl: './exchange-asset.component.html',
   styleUrls: ['./exchange-asset.component.scss']
 })

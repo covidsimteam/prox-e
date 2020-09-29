@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-laziness-config',
+  selector: 'cov-laziness-config',
   templateUrl: './laziness-config.component.html',
   styleUrls: ['./laziness-config.component.scss']
 })

@@ -6,7 +6,7 @@ import { AlertService } from '../../../services/miscellaneous/alert.service';
 
 
 @Component({
-  selector: 'ngx-alert',
+  selector: 'cov-alert',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.scss']
 })
