@@ -1,12 +1,10 @@
-import 'leaflet.markercluster';
-import 'style-loader!leaflet/dist/leaflet.css';
-
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NbColorHelper, NbThemeService } from '@nebular/theme';
 import * as L from 'leaflet';
+import 'leaflet.markercluster';
 import polylabel from 'polylabel';
 import { BehaviorSubject, from, merge, Subscription } from 'rxjs';
-
+import 'style-loader!leaflet/dist/leaflet.css';
 import { Census2011 } from '../../../@models/db/docs/census.model';
 import { HealthStats } from '../../../@models/db/docs/health-stats.model';
 import { RETTupleRev } from '../../../@models/db/table-headers.model';
@@ -14,13 +12,15 @@ import {
   FeatureCollection,
   GovDistrictProperties,
   GovProvinceProperties,
-  RoadMajorProperties,
+  RoadMajorProperties
 } from '../../../@models/domain.model';
 import { ReturneeService } from '../../../pages/tables/returnee/returnee.service';
 import { MapUtilsService } from '../../services/map-utils.service';
 import { RegionService } from '../../services/region.service';
 import { MapSeroService } from '../map-sero.service';
 import { DISTRICTPCRDATASETS, PcrData } from './district-pcr-data.model';
+
+
 
 interface MapLayer {
   bucket: string;

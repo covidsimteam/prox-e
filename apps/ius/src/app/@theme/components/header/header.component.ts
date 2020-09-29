@@ -14,6 +14,7 @@ import { AuthService } from '../../../@auth/core/auth.service';
 import { LayoutService } from '../../../@core/utils';
 import { RippleService } from '../../../@core/utils/ripple.service';
 import { HeaderBio, HubUser } from '../../../@models/user.model';
+import { SMALL_BP } from '../../../app.conf';
 import { MenuItemsComponent } from './menu-items/menu-items.component';
 
 
@@ -57,7 +58,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   isContextMenuShown = false;
 
-  innerWidthObs = new BehaviorSubject<number>(444); // considering 442 as minimum full size
+  readonly CUTOFF = SMALL_BP;
+
+  innerWidthObs = new BehaviorSubject<number>(SMALL_BP); // considering 442 as minimum full size
 
   constructor(
     private sidebarService: NbSidebarService,
@@ -102,7 +105,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
-    console.log('event', event);
     this.innerWidthObs.next(event?.target?.innerWidth);
   }
 
