@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NbRequestPasswordComponent } from '@nebular/auth';
 import { AuthService } from '../core/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HOME } from '../../app.conf';
 
 @Component({
   selector: 'cov-request-pass',
@@ -35,7 +36,7 @@ export class RequestPassComponent extends NbRequestPasswordComponent implements 
       this.authService.isAdmin() ||
       this.authService.isPrivileged ||
       !this.authService.isInPublicMode) {
-      this.router.navigate(['hub', 'home']);
+      this.router.navigate([HOME]);
     }
     this.forgotPasswordForm = this.formBuilder.group({
       email: ['', Validators.required]

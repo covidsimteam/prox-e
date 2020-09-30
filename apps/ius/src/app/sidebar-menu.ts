@@ -1,8 +1,7 @@
 import { NbMenuItem } from '@nebular/theme';
 import {
-  CASES,
-  CHARTS_STATS,
-  FORM_A,
+  CASES, CHARTS_STATS,
+  DASHBOARD, FORM_A,
   FORM_B1,
   FORM_B2,
   FORM_X,
@@ -10,34 +9,33 @@ import {
   GRAPHS_COUCHES,
   GRAPHS_POTATOES,
   GRAPHS_SYS_CONCEPTS,
-  HOME,
   HOSPITAL,
   ISOLATION,
   KATHMANDU,
-  MUNICIPALITY, NEPAL,
+  MUNICIPALITY,
+  NEPAL,
   PCR_LAB,
   POI,
   PREVENTIVES,
   QUARANTINE,
-  RDT_LAB, REACTIVES,
-  SCHED,
-  STATS,
+  RDT_LAB,
+  REACTIVES, SCHEDULE, STATS,
   TABLE_PCR,
   TABLE_RDT,
   TABLE_RET
-} from './pages.conf';
+} from './app.conf';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Core Stats',
     icon: 'activity-outline',
-    link: `${STATS}`,
+    link: STATS,
     home: true,
   },
   {
     title: 'Core Maps',
-    icon: 'home-outline',
-    link: `${HOME}`,
+    icon: 'map-outline',
+    link: DASHBOARD,
   },
   {
     title: 'Tables',
@@ -46,11 +44,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Schedules',
     icon: 'clock-outline',
-    link: `${SCHED}`,
+    link: SCHEDULE,
   },
   {
     title: 'Files',
-    icon: 'map-outline',
+    icon: 'file-outline',
     children: [
       {
         title: 'PCR Tests',

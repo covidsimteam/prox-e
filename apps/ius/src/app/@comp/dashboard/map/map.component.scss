@@ -6,13 +6,26 @@
     padding: 0;
   }
 
+  .map-core {
+    padding: 0;
+    margin: 0;
+  }
+
+  .content-active {
+    padding: 0;
+    margin: 0;
+    display: none;
+  }
+
   ::ng-deep .leaflet-top, ::ng-deep .leaflet-bottom {
     z-index: 997;
   }
 
   ::ng-deep .leaflet-container {
     width: 100%;
-    height: 60vh;
+    height: 75vh;
+    padding: 0;
+    margin: 0;
   }
 
   ::ng-deep .leaflet-popup-content-wrapper {

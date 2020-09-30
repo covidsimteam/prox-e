@@ -1,30 +1,25 @@
-<div class="col-sm-12">
-  <div class="row">
-    <div>
-        <div>
-          <div class="calendar-wrapper">
-            <button nbButton (click)="prevDay()">Prev</button>
-            <button nbButton (click)="today()">Today</button>
-            <button nbButton (click)="nextDay()">Next</button>
-          </div>
-        </div>
-    </div>
+<nb-card accent="info">
+  <nb-card-header>Calen</nb-card-header>
+  <nb-card-body>
+    <full-calendar [options]="calendarOptions"></full-calendar>
+  </nb-card-body>
+</nb-card>
 
-    <section class="col-sm-5 offset-sm-1">
-      <h2>Inline Usage</h2>
-      <div>
-          The <span class="code">sat-calendar</span> component with its <span class="code">dateRangesChange</span> output binding can be used as an inline range date picker.
-      </div>
-      <span class="code" *ngIf="inlineRange">
-        {{ inlineRange.begin | date }}
-        {{ inlineRange.end | date }}
-      </span>
-      <div class="inlineCalendarContainer">
-        <!-- <sat-calendar [rangeMode]="true"
-                      (dateRangesChange)="inlineRangeChange($event)"
-                      [selected]="selectedDate">
-        </sat-calendar> -->
-      </div>
-    </section>
+<!-- <div class="card-row">
+  <div class="card-col">
+    <nb-card size="tiny">
+      <nb-card-header>Tiny card</nb-card-header>
+    </nb-card>
+    <nb-card size="small">
+      <nb-card-header>Small card</nb-card-header>
+    </nb-card>
   </div>
-</div>
+  <div class="card-col">
+    <nb-card size="large">
+      <nb-card-header>Large card</nb-card-header>
+      <nb-card-body>
+        <full-calendar [options]="calendarOptions"></full-calendar>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div> -->

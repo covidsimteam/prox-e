@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ContentChild, TemplateRef, Input } from '@angular/core';
 
 @Component({
   selector: 'cov-two-columns-layout',
@@ -13,11 +13,12 @@ import { Component } from '@angular/core';
         <ng-content select="nb-menu"></ng-content>
       </nb-sidebar>
 
-      <nb-layout-column class="small">
+      <nb-layout-column>
+        <ng-content select="router-outlet"></ng-content>
       </nb-layout-column>
 
       <nb-layout-column>
-        <ng-content select="router-outlet"></ng-content>
+        <template [ngTemplateOutlet]="templateVariable"></template>
       </nb-layout-column>
 
       <nb-layout-footer fixed>
@@ -27,4 +28,9 @@ import { Component } from '@angular/core';
     </nb-layout>
   `,
 })
-export class TwoColumnsLayoutComponent {}
+export class TwoColumnsLayoutComponent {
+
+  @Input()
+  @ContentChild(TemplateRef) templateVariable: TemplateRef<any>;
+
+}

@@ -7,7 +7,7 @@ import {
   NbMenuModule
 } from '@nebular/theme';
 import { TranslateModule } from '@ngx-translate/core';
-import { DashboardModule } from '../@comp/dashboard/dashboard.module';
+import { CompModule } from '../@comp/comp.module';
 import { ThemeModule } from '../@theme/theme.module';
 import { AccountModule } from './account/account.module';
 import { PcrDemandModule } from './demand/pcr-demand.module';
@@ -54,10 +54,10 @@ import { TablesModule } from './tables/tables.module';
     NbLayoutModule,
     SampleCollectionModule,
     ProfileModule,
-    DashboardModule,
     TranslateModule.forChild({extend: true}),
     NbDatepickerModule,
-    NbInputModule
+    NbInputModule,
+    CompModule
   ],
   declarations: [PagesComponent],
 })

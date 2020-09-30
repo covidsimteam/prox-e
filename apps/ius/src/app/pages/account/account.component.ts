@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../@auth/core/auth.service';
+import { HOME } from '../../app.conf';
 
 @Component({
   selector: 'cov-account',
@@ -14,7 +15,7 @@ export class AccountComponent {
         private authService: AuthService
     ) {
         if (this.authService.isAuthenticated) {
-            this.router.navigate(['hub', 'home']);
+            this.router.navigate([HOME]);
         }
     }
 }

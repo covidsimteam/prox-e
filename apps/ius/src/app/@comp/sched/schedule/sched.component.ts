@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { MatCalendar } from '@angular/material/datepicker';
+import { CalendarOptions } from '@fullcalendar/core';
 import Time from 'moment';
 
 
@@ -12,6 +13,10 @@ import Time from 'moment';
 export class SchedComponent implements OnInit {
 
   inlineRange: any;
+
+  calendarOptions: CalendarOptions = {
+    initialView: 'dayGridMonth'
+  };
 
   @Output()
   selectedDate = Time();
@@ -52,4 +57,5 @@ export class SchedComponent implements OnInit {
     this.selectedDate = nextMoment;
     this.dateChanged();
   }
+
 }

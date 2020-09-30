@@ -22,7 +22,6 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { from } from 'rxjs';
 import { AppConf, appConf, environment } from '../environments/environment';
-import { DashboardModule } from './@comp/dashboard/dashboard.module';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +29,9 @@ import { AppComponent } from './app.component';
 import { authSetup, formSetup } from './app.conf';
 import { CommonModule } from '@angular/common';
 
+import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin
 
 
 export class WebpackTranslateLoader implements TranslateLoader {
@@ -40,6 +42,12 @@ export class WebpackTranslateLoader implements TranslateLoader {
       ));
   }
 }
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin
+]);
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -63,6 +71,7 @@ export class WebpackTranslateLoader implements TranslateLoader {
     MatInputModule,
     MatCheckboxModule,
     NbCardModule,
+    FullCalendarModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -72,7 +81,6 @@ export class WebpackTranslateLoader implements TranslateLoader {
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts'),
     }),
-    DashboardModule,
     NbAuthModule.forRoot({
       strategies: [
         NbPasswordAuthStrategy.setup(authSetup)],

@@ -4,37 +4,25 @@ import {
   Routes
 } from '@angular/router';
 import { AuthGuard } from '../@auth/guards/auth.guard';
-import { DashboardComponent } from '../@comp/dashboard/dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { PagesComponent } from './pages.component';
+import {
+  CaseTracingModule,
+  ChartsModule, HealthFormsModule,
+  MapsModule, ROUTE_CASES,
+  ROUTE_CHARTS, ROUTE_FORMS,
+  ROUTE_MAPS, ROUTE_PROFILE,
+  ROUTE_STATS, ROUTE_TABLES,
+  TablesModule
+} from '../app.conf';
 import { ProfileComponent } from './profile/profile/profile.component';
-import { SchedComponent } from '../@comp/sched/schedule/sched.component';
-import { ROUTE_PROFILE,
-   ROUTE_TABLES,
-   HealthFormsModule,
-   CaseTracingModule,
-   ROUTE_HOME,
-   ROUTE_STATS,
-   ROUTE_CASES,
-   ROUTE_SCHED,
-   ROUTE_FORMS,
-   MapsModule,
-   ROUTE_MAPS,
-   ROUTE_CHARTS,
-   ChartsModule,
-   TablesModule
-  } from './pages.conf';
 
 
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
-    {
-      path: ROUTE_HOME,
-      component: DashboardComponent,
-    },
     {
       path: ROUTE_STATS,
       component: ECommerceComponent,
@@ -43,10 +31,6 @@ const routes: Routes = [{
       path: ROUTE_CASES,
       canActivate: [AuthGuard],
       loadChildren: CaseTracingModule,
-    },
-    {
-      path: ROUTE_SCHED,
-      component: SchedComponent
     },
     {
       path: ROUTE_FORMS,

@@ -1,18 +1,16 @@
 import { Component } from '@angular/core';
-
 import { MENU_ITEMS } from '../sidebar-menu';
 
 @Component({
-  selector: 'cov-pages',
-  styleUrls: ['pages.component.scss'],
+  selector: 'cov-comp-elements',
   template: `
-    <cov-one-column-layout>
+
+  <cov-two-columns-layout>
       <nb-menu [items]="menu"></nb-menu>
       <router-outlet></router-outlet>
-    </cov-one-column-layout>
+  </cov-two-columns-layout>
   `,
 })
-export class PagesComponent {
-
+export class CompComponent {
   menu = MENU_ITEMS;
 }

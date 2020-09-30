@@ -1,14 +1,26 @@
 :host {
   display: block;
+  padding: 0;
+  margin: 0;
 }
+
 
 .card-row {
   display: flex;
   margin: 0 -0.5rem;
 }
 
-.smallscr {
+.overflowx {
   overflow-x: auto;
+}
+
+nb-card-body, nb-tabset {
+  padding: 90 5 0 5;
+}
+
+nb-tab {
+  padding: 0;
+  margin: 0;
 }
 
 .card-col {
