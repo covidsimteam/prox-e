@@ -1,0 +1,133 @@
+<nb-card>
+  <nb-card-header>
+    <button class="close mat-button" mat-dialog-close> X </button>
+    <h2 mat-dialog-title>{{ data.title | async }}</h2>
+  </nb-card-header>
+  <nb-card-body>
+    <mat-dialog-content>
+      <form *ngIf="newCaseFormGroup" [formGroup]="newCaseFormGroup">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="reporDate" class="label">{{ t.fa.reportDate1 | translate }}
+              </label>
+              <input nbInput fullWidth id="reportDate" [nbDatepicker]="reportDatePicker" formControlName="newTask.reportedDate">
+              <nb-datepicker #reportDatePicker></nb-datepicker>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="testAgency" class="label">{{ t.fa.testAgency | translate }}
+              </label>
+              <input nbInput fullWidth type="text" id="testAgency" formControlName="newTask.reportedInstitution">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="caseName" class="label">{{ t.fb.caseName | translate }}
+              </label>
+              <input nbInput id="caseName" fullWidth type="text" formControlName="newTask.caseName">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="phone" class="label">{{ t.fb.phoneNumber | translate }}
+              </label>
+              <input nbInput id="phone" fullWidth type="tel" formControlName="newTask.phoneNum">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="inputDestinationProvince" class="label">
+                {{ t.fb.province | translate }}
+              </label
+              >
+              <nb-select
+                matRipple
+                id="inputDestinationProvince"
+                fullWidth
+                (selectedChange)="changeDestProvince($event)"
+              >
+                <nb-option
+                  matRipple
+                  *ngFor="let province of provinces"
+                  [value]="province"
+                  >{{ province }}</nb-option
+                >
+              </nb-select>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="inputDestinationDistrict" class="label">
+                {{ t.fb.district | translate }}
+              </label>
+              <nb-select
+                matRipple
+                id="inputDestinationDistrict"
+                fullWidth
+                [disabled]="finalDestProvince === null"
+              >
+                <nb-option
+                  matRipple
+                  *ngFor="let district of districts.destinationOpts"
+                  [value]="district"
+                  >{{ district }}</nb-option
+                >
+              </nb-select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="municipal" class="label">{{ t.fb.vdc | translate }} / {{ t.fb.municipality | translate }}
+              </label>
+              <input nbInput id="municipal" fullWidth type="text" formControlName="newTask.municipality">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="ward" class="label">{{ t.fb.wardNum | translate }}
+              </label>
+              <input nbInput id="ward" fullWidth type="number" min="1" formControlName="newTask.wardNumber">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="tole" class="label">{{ t.fb.vdc | translate }} / {{ t.fb.tole | translate }}
+              </label>
+              <input nbInput id="tole" fullWidth type="text" formControlName="newTask.tole">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="ward" class="label">{{ t.fb.caseInvestigator | translate }}
+              </label>
+              <input nbInput id="ward" fullWidth type="number" min="1" formControlName="newTask.caseInvestigator">
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </mat-dialog-content>
+  </nb-card-body>
+
+  <nb-card-footer>
+    <!-- <div mat-dialog-actions> -->
+      <button class="offset-sm-11" nbButton status="primary" mat-dialog-close>Save</button>
+    <!-- </div> -->
+  </nb-card-footer>
+</nb-card>

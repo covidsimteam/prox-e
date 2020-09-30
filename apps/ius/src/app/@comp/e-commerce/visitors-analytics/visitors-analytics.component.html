@@ -1,0 +1,18 @@
+<nb-card size="medium">
+  <nb-card-header>
+    <h3>Returnee Analytics</h3>
+    <div class="subtitle">All Entry Points</div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="chart-container">
+      <div class="chart-header">
+        <cov-legend-chart [legendItems]="chartLegend"></cov-legend-chart>
+      </div>
+      <cov-visitors-analytics-chart [chartData]="visitorsAnalyticsData"></cov-visitors-analytics-chart>
+    </div>
+  </nb-card-body>
+
+  <cov-slide-out [showVisitorsStatistics]="true">
+    <cov-visitors-statistics [value]="pieChartValue"></cov-visitors-statistics>
+  </cov-slide-out>
+</nb-card>

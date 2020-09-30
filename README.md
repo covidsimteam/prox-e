@@ -1,6 +1,6 @@
-# prox-e
+# prox-e Aurelius
 
-Simple REST APIs and dashboard to showcase CST's core functionalities & simple cov-hub dashboard to demonstrate what the system and the APIs above can do.
+First global release monorepo for cosys.work, just like prox-g for nep.work. Contains simple REST APIs and dashboard to showcase CST's core functionalities & simple cov-hub dashboard to demonstrate what the system and the APIs above can do.
 
 ## tp
 
@@ -12,7 +12,7 @@ All pub-sub and stream channels are available under this single API and SDK.
 
 ### nginx
 
-All the nginx conf for all the projects will be made available here. 
+All the nginx conf for all the projects will be made available here.
 
 ### protocols
 
@@ -24,16 +24,15 @@ All sub-projects in the `hi` project group are of high priority. It has three di
 
 ### couch-potato
 
-This is currently just a collection of geojson blobs for CDN and redundant blob storage on edge networks. 
+This is currently just a collection of geojson blobs for CDN and redundant blob storage on edge networks.
 
 ### cov-hub
 
-This is the dashboard and the central activity hub for all things related to covid for everyone as a member of any given organization or as an individual. 
+This is the dashboard and the central activity hub for all things related to covid for everyone as a member of any given organization or as an individual.
 
 ### prox-e
 
 This is the additional Open API server for communicating with our system and acts as a proxy to our single source of truth - core db.
-
 
 ## md
 
@@ -41,16 +40,15 @@ All sub-projects in the `md` project group are of medium priority. It has three 
 
 ### indy
 
-This is currently just a collection of geojson based id blobs for CDN and redundant blob storage on edge networks. 
+This is currently just a collection of geojson based id blobs for CDN and redundant blob storage on edge networks.
 
 ### indy-pay
 
-This is the dashboard and the central activity hub for all things related to payments for everyone as a member of any given organization or as an individual. 
+This is the dashboard and the central activity hub for all things related to payments for everyone as a member of any given organization or as an individual.
 
 ### indy-vot
 
 This is the additional Open API server for communicating with our system and acts as a proxy to our single source of consensus - core kdb.
-
 
 ## lo
 
@@ -58,11 +56,11 @@ All sub-projects in the `lo` project group are underground projects that serve a
 
 ### khetala
 
-This is currently just a collection of geojson based id-metadata blobs for CDN and redundant blob storage on edge networks. 
+This is currently just a collection of geojson based id-metadata blobs for CDN and redundant blob storage on edge networks.
 
 ### medigai
 
-This is the dashboard and the central activity hub for all things related to medical ikigai for everyone as a member of any given organization or as an individual. 
+This is the dashboard and the central activity hub for all things related to medical ikigai for everyone as a member of any given organization or as an individual.
 
 ### indycol
 
@@ -70,7 +68,7 @@ This is the additional Open API server for communicating with our system and act
 
 ## sync.sh
 
-First thing you should do to use this repository is run the `sync.sh` script, if you have not done so recently. The `./sync.sh` script utilizes the shell scripts in `sh` folder to update all the current branches with the latest commits from develop. We run this script before and after creating new commits. 
+First thing you should do to use this repository is run the `sync.sh` script, if you have not done so recently. The `./sync.sh` script utilizes the shell scripts in `sh` folder to update all the current branches with the latest commits from develop. We run this script before and after creating new commits.
 We have the luxury to do this because we have sensisble, segregated branching, including specially segregated branches that show us any possible overlaps between two upcoming branches.
 
 ## build.sh
@@ -81,10 +79,9 @@ To serve this project after running `./build.sh`, run `yarn start-cov-hub`.
 
 ## sync.sh with a graph theoretic context
 
-You can provide your sh folder and metab.sh script in your own folder e.g. `prox-e/sh-feature-x/sh` instead of `prox-e/sh` and run `../sync.sh` from `prox-e/sh-feature/` directory. 
-It will `cd` into your `prox-e/sh-feature/` directory's `sh` folder instead of the the `sh` folder in `prox-e` root folder. This can be useful for having branch specific team-wide sync logic. 
-*Please skip this setup if you have any confusions.*
-
+You can provide your sh folder and metab.sh script in your own folder e.g. `prox-e/sh-feature-x/sh` instead of `prox-e/sh` and run `../sync.sh` from `prox-e/sh-feature/` directory.
+It will `cd` into your `prox-e/sh-feature/` directory's `sh` folder instead of the the `sh` folder in `prox-e` root folder. This can be useful for having branch specific team-wide sync logic.
+_Please skip this setup if you have any confusions._
 
 ## docs
 

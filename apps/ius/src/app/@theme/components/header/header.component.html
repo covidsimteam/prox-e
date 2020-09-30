@@ -1,0 +1,47 @@
+<div class="header-container">
+  <div class="logo-container">
+    <a
+      href="#"
+      class="sidebar-toggle"
+      matRipple
+      [matRippleUnbounded]="true"
+      [matRippleCentered]="true"
+      (click)="toggleSidebar()"
+    >
+    <nb-icon [icon]="(materialTheme$ | async) ? 'menu-outline' : 'menu-2-outline'"></nb-icon>
+    </a>
+    <a
+      class="logo"
+      href="#"
+      (click)="navigateHome()"
+    ><span class="title"><b>nep</b>.work</span></a>
+  </div>
+
+</div>
+
+<div class="header-container" *ngIf="( innerWidthObs | async ) ; $implicit as innerWidth">
+  <nb-actions size="small">
+    <nb-action matRipple class="control-item" [matRippleUnbounded]="true" [matRippleCentered]="true">
+      <nb-search matRipple [matRippleUnbounded]="true" [matRippleCentered]="true" [matRippleRadius]="36"
+        type="rotate-layout" tag="rotate-layout"></nb-search>
+    </nb-action>
+    <nb-action class="control-item show-gt-xs" matRipple [matRippleUnbounded]="true" [matRippleCentered]="true">
+      <button matRipple nbButton outline
+        (click)="changeTheme(currentTheme == 'dark' ? 'default' : 'dark')">
+        <nb-icon [icon]="currentTheme == 'dark' ? 'bulb-outline' : 'moon-outline'"></nb-icon>
+      </button>
+    </nb-action>
+
+      <nb-action *ngIf="innerWidth > CUTOFF">
+        <nb-user
+          name="Zira Dai"
+          title="Lab Sample Collector"
+          [nbContextMenu]="items"
+          nbContextMenuTrigger="noop"
+          (click)="openClose($event)"
+        >
+        </nb-user>
+      </nb-action>
+
+  </nb-actions>
+</div>

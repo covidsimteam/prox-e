@@ -1,0 +1,22 @@
+<nb-card size="large">
+  <nb-tabset fullWidth (changeTab)="changeTab($event)">
+    <nb-tab tabTitle="Quarantined">
+      <div class="chart-container">
+        <cov-chart-panel-summary [summary]="chartPanelSummary"></cov-chart-panel-summary>
+        <cov-chart-panel-header [type]="period"
+                                (periodChange)="setPeriodAndGetChartData($event)">
+        </cov-chart-panel-header>
+        <cov-orders-chart #ordersChart [ordersChartData]="ordersChartData"></cov-orders-chart>
+      </div>
+    </nb-tab>
+    <nb-tab tabTitle="Isolated" [lazyLoad]="true">
+      <div class="chart-container">
+        <cov-chart-panel-summary [summary]="chartPanelSummary"></cov-chart-panel-summary>
+        <cov-chart-panel-header [type]="period"
+                                (periodChange)="setPeriodAndGetChartData($event)">
+        </cov-chart-panel-header>
+        <cov-profit-chart #profitChart [profitChartData]="profitChartData"></cov-profit-chart>
+      </div>
+    </nb-tab>
+  </nb-tabset>
+</nb-card>
