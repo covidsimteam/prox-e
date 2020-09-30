@@ -74,27 +74,12 @@ export const formSetup = {
   },
 };
 
-
-
-
+export const AuthModule = () => import('./@auth/auth.module')
+      .then(m => m.AuthModule)
 
 export const CompModule = () => import('./@comp/comp.module')
   .then(m => m.CompModule);
 
-export const HealthFormsModule = () => import('./pages/forms/forms.module')
-  .then(m => m.HealthFormsModule);
-
-export const MapsModule = () => import('./pages/maps/maps.module')
-  .then(m => m.MapsModule);
-
-export const ChartsModule = () => import('./pages/charts/charts.module')
-  .then(m => m.ChartsModule);
-
-export const TablesModule = () => import('./pages/tables/tables.module')
-  .then(m => m.TablesModule);
-
-export const CaseTracingModule = () => import('./pages/case-tracing/case-tracing.module')
-  .then(m => m.CaseTracingModule);
 
 export const ROUTE_HOME = 'home';
 export const ROUTE_STATS = 'stats';

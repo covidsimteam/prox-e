@@ -1,18 +1,11 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
-import { HOME, PREF_HUB, PREF_AUTH, PREF_CORE } from './app.conf';
-import { CompModule } from './app.conf';
+import { AuthModule, CompModule, HOME, PREF_AUTH, PREF_CORE } from './app.conf';
 
 export const routes: Routes = [
   {
-    path: PREF_HUB,
-    loadChildren: () => import('./pages/pages.module')
-      .then(m => m.PagesModule),
-  },
-  {
     path: PREF_AUTH,
-    loadChildren: () => import('./@auth/auth.module')
-      .then(m => m.AuthModule),
+    loadChildren: AuthModule,
   },
   {
     path: PREF_CORE,
