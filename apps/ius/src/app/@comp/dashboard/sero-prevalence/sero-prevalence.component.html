@@ -1,0 +1,4 @@
+<nb-card-header>+ve {{ seroOrRatio | titlecase }} Prevalence Ranking</nb-card-header>
+<nb-card-body>
+  <cov-district-bar [dataSets]="districtPcrDataSets" [labels]="seroOrRatio"></cov-district-bar>
+</nb-card-body>

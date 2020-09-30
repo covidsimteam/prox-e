@@ -1,0 +1,54 @@
+{
+  "npmScope": "aurel",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "accessToken": "NTdhODAxZGUtMjM3ZS00ODgyLTgyNDMtYTBhNTIwODI0MWVkfHJlYWQtd3JpdGU=",
+        "cacheableOperations": ["build", "test", "lint", "e2e"],
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
+    }
+  },
+  "projects": {
+    "ius": {
+      "tags": []
+    },
+    "ius-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ius"]
+    },
+    "api": {
+      "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    },
+    "cov-form": {
+      "tags": ["form"]
+    },
+    "cov-sched": {
+      "tags": ["form"]
+    },
+    "cov-table": {
+      "tags": ["form"]
+    },
+    "cov-fs": {
+      "tags": ["form"]
+    }
+  }
+}
