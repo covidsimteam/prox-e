@@ -14,7 +14,6 @@ import {
   GovProvinceProperties,
   RoadMajorProperties
 } from '../../../@models/domain.model';
-import { ReturneeService } from '../../../pages/tables/returnee/returnee.service';
 import { MapUtilsService } from '../../services/map-utils.service';
 import { RegionService } from '../../services/region.service';
 import { MapSeroService } from '../map-sero.service';
@@ -108,7 +107,6 @@ export class MapComponent implements OnInit, OnDestroy {
   constructor(
     private mapUtilsService: MapUtilsService,
     private regionService: RegionService,
-    private returneeService: ReturneeService,
     private themeService: NbThemeService,
     private mapSeroService: MapSeroService,
     // private dateService: NbNativeDateService
@@ -175,7 +173,6 @@ export class MapComponent implements OnInit, OnDestroy {
     merge(
       this.regionService.getCacheDistrictHealthStats(),
       this.regionService.getCacheDistrictWiseCensus(),
-      from(this.returneeService.getAllWards())
     ).subscribe((stats) => {
       if (HealthStats.isDistrictHealthStats(stats)) {
         this.districtsHealthStats = stats;
@@ -184,7 +181,7 @@ export class MapComponent implements OnInit, OnDestroy {
         this.districtPopulation = stats;
         this.raiseQuadDataCount();
       } else {
-        this.returneeStats = stats;
+
         this.raiseQuadDataCount();
       }
     });

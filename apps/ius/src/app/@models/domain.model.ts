@@ -1,8 +1,4 @@
 import { EventEmitter } from '@angular/core';
-import { RdtService } from '../pages/tables/rdt/rdt.service';
-
-import { ReturneeService } from '../pages/tables/returnee/returnee.service';
-import { PcrService } from '../pages/tables/pcr/pcr.service';
 
 export interface DBList {
   [dbId: string]: {
@@ -177,13 +173,6 @@ export enum CurrentUser {
   id = 'id',
   token = 'token'
 }
-
-export type DataTableService = RdtService | PcrService | ReturneeService;
-
-export function isReturneeService(service: DataTableService): service is ReturneeService {
-  return 'getAllWards' in service;
-}
-
 
 export interface BarChartDataSet {
   data: number[];

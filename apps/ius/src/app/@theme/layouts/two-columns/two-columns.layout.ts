@@ -30,7 +30,11 @@ import { Component, ContentChild, TemplateRef, Input } from '@angular/core';
 })
 export class TwoColumnsLayoutComponent {
 
-  @Input()
+  @Input() templateVarMeta: TemplateRef<unknown>;
   @ContentChild(TemplateRef) templateVariable: TemplateRef<any>;
+
+  constructor() {
+    this.templateVariable = this.templateVarMeta;
+  }
 
 }
