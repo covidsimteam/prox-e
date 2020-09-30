@@ -1,0 +1,1 @@
+{"views":{"pschema":{"map":"function(doc) {\n  if (doc._id.slice(0, 'pschema'.length) == 'pschema') {\n    emit (doc._id.slice('pschema/'.length, doc._id.length), doc.fields)\n  }\n}"}},"language":"javascript"}
