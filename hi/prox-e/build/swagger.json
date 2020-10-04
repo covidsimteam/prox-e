@@ -1,0 +1,1142 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"AddToDResponse": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"message": {
+						"type": "string"
+					},
+					"stack": {
+						"type": "string"
+					},
+					"id": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"name",
+					"message",
+					"id",
+					"createdAt",
+					"updatedAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"DbResponse": {
+				"$ref": "#/components/schemas/AddToDResponse"
+			},
+			"AddToDFailure": {
+				"properties": {
+					"name": {
+						"anyOf": [
+							{
+								"type": "string",
+								"enum": [
+									"session"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"confict"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"connection"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string"
+							}
+						]
+					},
+					"message": {
+						"type": "string"
+					},
+					"stack": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"name",
+					"message"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"AddToDSuccess": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"createdAt",
+					"updatedAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CreateFResponse": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"message": {
+						"type": "string"
+					},
+					"stack": {
+						"type": "string"
+					},
+					"id": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"name",
+					"message",
+					"id",
+					"createdAt",
+					"updatedAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CreateFFailure": {
+				"properties": {
+					"name": {
+						"anyOf": [
+							{
+								"type": "string",
+								"enum": [
+									"session"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"confict"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"connection"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string"
+							}
+						]
+					},
+					"message": {
+						"type": "string"
+					},
+					"stack": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"name",
+					"message"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CreateFSuccess": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"createdAt",
+					"updatedAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"UploadFResponse": {
+				"properties": {
+					"profile": {
+						"properties": {
+							"fullname": {
+								"type": "string"
+							}
+						},
+						"required": [
+							"fullname"
+						],
+						"type": "object"
+					},
+					"name": {
+						"anyOf": [
+							{
+								"type": "string",
+								"enum": [
+									"session"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"confict"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"connection"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string"
+							}
+						]
+					},
+					"type": {
+						"anyOf": [
+							{
+								"type": "string",
+								"enum": [
+									"unconfirmed"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"unauthorized"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"unknown"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string"
+							}
+						]
+					},
+					"message": {
+						"type": "string"
+					},
+					"stack": {
+						"type": "string"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"UploadFFailure": {
+				"properties": {
+					"name": {
+						"anyOf": [
+							{
+								"type": "string",
+								"enum": [
+									"session"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"confict"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"connection"
+								],
+								"nullable": false
+							}
+						]
+					},
+					"message": {
+						"type": "string"
+					},
+					"stack": {
+						"type": "string"
+					},
+					"type": {
+						"anyOf": [
+							{
+								"type": "string",
+								"enum": [
+									"unconfirmed"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"unauthorized"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"unknown"
+								],
+								"nullable": false
+							}
+						]
+					}
+				},
+				"required": [
+					"name",
+					"message",
+					"type"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"UploadFSuccess": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"profile": {
+						"properties": {
+							"fullname": {
+								"type": "string"
+							}
+						},
+						"required": [
+							"fullname"
+						],
+						"type": "object"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"createdAt",
+					"updatedAt",
+					"profile"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CreateSResponse": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"message": {
+						"type": "string"
+					},
+					"stack": {
+						"type": "string"
+					},
+					"id": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"name",
+					"message",
+					"id",
+					"createdAt",
+					"updatedAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CreateSFailure": {
+				"properties": {
+					"name": {
+						"anyOf": [
+							{
+								"type": "string",
+								"enum": [
+									"session"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"confict"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"connection"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string"
+							}
+						]
+					},
+					"message": {
+						"type": "string"
+					},
+					"stack": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"name",
+					"message"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CreateSSuccess": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"createdAt",
+					"updatedAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SEntity": {
+				"properties": {
+					"_id": {
+						"type": "string"
+					},
+					"_rev": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string"
+					},
+					"content": {
+						"type": "string"
+					},
+					"keys": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"values": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"_id",
+					"_rev",
+					"type",
+					"content",
+					"keys",
+					"values"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"UploadSResponse": {
+				"properties": {
+					"profile": {
+						"properties": {
+							"fullname": {
+								"type": "string"
+							}
+						},
+						"required": [
+							"fullname"
+						],
+						"type": "object"
+					},
+					"name": {
+						"anyOf": [
+							{
+								"type": "string",
+								"enum": [
+									"session"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"confict"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"connection"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string"
+							}
+						]
+					},
+					"type": {
+						"anyOf": [
+							{
+								"type": "string",
+								"enum": [
+									"unconfirmed"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"unauthorized"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"unknown"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string"
+							}
+						]
+					},
+					"message": {
+						"type": "string"
+					},
+					"stack": {
+						"type": "string"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"UploadSFailure": {
+				"properties": {
+					"name": {
+						"anyOf": [
+							{
+								"type": "string",
+								"enum": [
+									"session"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"confict"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"connection"
+								],
+								"nullable": false
+							}
+						]
+					},
+					"message": {
+						"type": "string"
+					},
+					"stack": {
+						"type": "string"
+					},
+					"type": {
+						"anyOf": [
+							{
+								"type": "string",
+								"enum": [
+									"unconfirmed"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"unauthorized"
+								],
+								"nullable": false
+							},
+							{
+								"type": "string",
+								"enum": [
+									"unknown"
+								],
+								"nullable": false
+							}
+						]
+					}
+				},
+				"required": [
+					"name",
+					"message",
+					"type"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"UploadSSuccess": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"profile": {
+						"properties": {
+							"fullname": {
+								"type": "string"
+							}
+						},
+						"required": [
+							"fullname"
+						],
+						"type": "object"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"createdAt",
+					"updatedAt",
+					"profile"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "prox-e",
+		"version": "0.0.2",
+		"description": "Simple REST APIs to extend CST's core functionalities",
+		"license": {
+			"name": "GPL-3.0-or-later"
+		},
+		"contact": {
+			"name": "Risav Karna ",
+			"email": "risavkarna@gmail.com"
+		}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/db/create": {
+			"post": {
+				"operationId": "CreateDoc",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DbResponse"
+								}
+							}
+						}
+					},
+					"201": {
+						"description": "Document add succeeded",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/AddToDSuccess"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Document add failed",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/AddToDFailure"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"db"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {}
+						}
+					}
+				}
+			}
+		},
+		"/db/upload": {
+			"post": {
+				"operationId": "UpdateDoc",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DbResponse"
+								}
+							}
+						}
+					},
+					"201": {
+						"description": "Document update succeeded",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/AddToDSuccess"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Document update failed",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/AddToDFailure"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"db"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {}
+						}
+					}
+				}
+			}
+		},
+		"/fs/create": {
+			"post": {
+				"operationId": "CreateDir",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CreateFResponse"
+								}
+							}
+						}
+					},
+					"201": {
+						"description": "Folder creation succeeded",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CreateFSuccess"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Folder creation failed",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CreateFFailure"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"fs"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {}
+						}
+					}
+				}
+			}
+		},
+		"/fs/upload": {
+			"post": {
+				"operationId": "Upload",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UploadFResponse"
+								}
+							}
+						}
+					},
+					"201": {
+						"description": "Folder creation succeeded",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UploadFSuccess"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "File upload failed",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UploadFFailure"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"fs"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {}
+						}
+					}
+				}
+			}
+		},
+		"/schedule/create": {
+			"post": {
+				"operationId": "CreateDir",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CreateSResponse"
+								}
+							}
+						}
+					},
+					"201": {
+						"description": "Schedule creation succeeded",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CreateSSuccess"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Schedule creation failed",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CreateSFailure"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"schedule"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"table": {
+										"type": "string"
+									},
+									"entity": {
+										"$ref": "#/components/schemas/SEntity"
+									}
+								},
+								"required": [
+									"table",
+									"entity"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/schedule/add": {
+			"post": {
+				"operationId": "Upload",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UploadSResponse"
+								}
+							}
+						}
+					},
+					"201": {
+						"description": "Schedule add succeeded",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UploadSSuccess"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Schedule add failed",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UploadSFailure"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"schedule"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"table": {
+										"type": "string"
+									},
+									"entity": {
+										"$ref": "#/components/schemas/SEntity"
+									}
+								},
+								"required": [
+									"table",
+									"entity"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/schedule/receive": {
+			"post": {
+				"operationId": "Receive",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CreateSResponse"
+								}
+							}
+						}
+					},
+					"201": {
+						"description": "Schedule add succeeded",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CreateSSuccess"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Schedule add failed",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CreateSFailure"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"schedule"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"table": {
+										"type": "string"
+									},
+									"entity": {
+										"$ref": "#/components/schemas/SEntity"
+									}
+								},
+								"required": [
+									"table",
+									"entity"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}
