@@ -74,7 +74,7 @@
     "ag-grid-community": "^24.0.0",
     "amazing-time-picker": "^1.8.0",
     "angular2-chartjs": "0.5.1",
-    "axios": "0.20.0",
+    "axios": "0.21.1",
     "azure-storage": "2.10.3",
     "body-parser": "1.19.0",
     "bootstrap": "4.5.2",
